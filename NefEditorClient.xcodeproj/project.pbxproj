@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,7 @@
 		1163838D24321FD400EB2DEF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1163838C24321FD400EB2DEF /* Preview Assets.xcassets */; };
 		1163839024321FD400EB2DEF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1163838E24321FD400EB2DEF /* LaunchScreen.storyboard */; };
 		1163839B24321FD400EB2DEF /* NefEditorClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1163839A24321FD400EB2DEF /* NefEditorClientTests.swift */; };
+		116383A7243220B400EB2DEF /* BowArch in Frameworks */ = {isa = PBXBuildFile; productRef = 116383A6243220B400EB2DEF /* BowArch */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				116383A7243220B400EB2DEF /* BowArch in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,6 +125,9 @@
 			dependencies = (
 			);
 			name = NefEditorClient;
+			packageProductDependencies = (
+				116383A6243220B400EB2DEF /* BowArch */,
+			);
 			productName = NefEditorClient;
 			productReference = 1163838024321FD100EB2DEF /* NefEditorClient.app */;
 			productType = "com.apple.product-type.application";
@@ -173,6 +178,9 @@
 				Base,
 			);
 			mainGroup = 1163837724321FD100EB2DEF;
+			packageReferences = (
+				116383A5243220B400EB2DEF /* XCRemoteSwiftPackageReference "bow-arch" */,
+			);
 			productRefGroup = 1163838124321FD100EB2DEF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -469,6 +477,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		116383A5243220B400EB2DEF /* XCRemoteSwiftPackageReference "bow-arch" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/bow-swift/bow-arch.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		116383A6243220B400EB2DEF /* BowArch */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 116383A5243220B400EB2DEF /* XCRemoteSwiftPackageReference "bow-arch" */;
+			productName = BowArch;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1163837824321FD100EB2DEF /* Project object */;
 }

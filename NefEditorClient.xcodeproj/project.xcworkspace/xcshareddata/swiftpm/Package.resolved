@@ -1,0 +1,70 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Bow",
+        "repositoryURL": "https://github.com/bow-swift/bow.git",
+        "state": {
+          "branch": "master",
+          "revision": "44e12e57e3efaacfb61d937c791157c5a04d4eae",
+          "version": null
+        }
+      },
+      {
+        "package": "BowArch",
+        "repositoryURL": "https://github.com/bow-swift/bow-arch.git",
+        "state": {
+          "branch": "master",
+          "revision": "fa5312517461724deb219ea54303695008aa4550",
+          "version": null
+        }
+      },
+      {
+        "package": "Chalk",
+        "repositoryURL": "https://github.com/mxcl/Chalk.git",
+        "state": {
+          "branch": null,
+          "revision": "9aa9f348b86db3cf6702a3e43c081ecec80cf3c7",
+          "version": "0.4.0"
+        }
+      },
+      {
+        "package": "FileCheck",
+        "repositoryURL": "https://github.com/llvm-swift/FileCheck.git",
+        "state": {
+          "branch": null,
+          "revision": "9ed91cc30a1a325d989fac117f3f3065a16b9f76",
+          "version": "0.2.3"
+        }
+      },
+      {
+        "package": "RxSwift",
+        "repositoryURL": "https://github.com/ReactiveX/RxSwift.git",
+        "state": {
+          "branch": null,
+          "revision": "002d325b0bdee94e7882e1114af5ff4fe1e96afa",
+          "version": "5.1.1"
+        }
+      },
+      {
+        "package": "swift-tools-support-core",
+        "repositoryURL": "https://github.com/apple/swift-tools-support-core.git",
+        "state": {
+          "branch": null,
+          "revision": "693aba4c4c9dcc4767cc853a0dd38bf90ad8c258",
+          "version": "0.0.1"
+        }
+      },
+      {
+        "package": "SwiftCheck",
+        "repositoryURL": "https://github.com/typelift/SwiftCheck.git",
+        "state": {
+          "branch": null,
+          "revision": "077c096c3ddfc38db223ac8e525ad16ffb987138",
+          "version": "0.12.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
