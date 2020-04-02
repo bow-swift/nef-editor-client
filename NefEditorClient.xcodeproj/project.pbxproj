@@ -15,6 +15,7 @@
 		1163839024321FD400EB2DEF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1163838E24321FD400EB2DEF /* LaunchScreen.storyboard */; };
 		1163839B24321FD400EB2DEF /* NefEditorClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1163839A24321FD400EB2DEF /* NefEditorClientTests.swift */; };
 		116383A7243220B400EB2DEF /* BowArch in Frameworks */ = {isa = PBXBuildFile; productRef = 116383A6243220B400EB2DEF /* BowArch */; };
+		11EDF4492435F4B70092E959 /* RecipeCatalogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EDF4482435F4B70092E959 /* RecipeCatalogView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +40,7 @@
 		1163839624321FD400EB2DEF /* NefEditorClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NefEditorClientTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1163839A24321FD400EB2DEF /* NefEditorClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NefEditorClientTests.swift; sourceTree = "<group>"; };
 		1163839C24321FD400EB2DEF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		11EDF4482435F4B70092E959 /* RecipeCatalogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCatalogView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,12 +83,13 @@
 		1163838224321FD100EB2DEF /* NefEditorClient */ = {
 			isa = PBXGroup;
 			children = (
+				1163839124321FD400EB2DEF /* Info.plist */,
 				1163838324321FD100EB2DEF /* AppDelegate.swift */,
-				1163838524321FD100EB2DEF /* SceneDelegate.swift */,
 				1163838724321FD100EB2DEF /* ContentView.swift */,
+				11EDF4482435F4B70092E959 /* RecipeCatalogView.swift */,
+				1163838524321FD100EB2DEF /* SceneDelegate.swift */,
 				1163838924321FD400EB2DEF /* Assets.xcassets */,
 				1163838E24321FD400EB2DEF /* LaunchScreen.storyboard */,
-				1163839124321FD400EB2DEF /* Info.plist */,
 				1163838B24321FD400EB2DEF /* Preview Content */,
 			);
 			path = NefEditorClient;
@@ -216,6 +219,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11EDF4492435F4B70092E959 /* RecipeCatalogView.swift in Sources */,
 				1163838424321FD100EB2DEF /* AppDelegate.swift in Sources */,
 				1163838624321FD100EB2DEF /* SceneDelegate.swift in Sources */,
 				1163838824321FD100EB2DEF /* ContentView.swift in Sources */,
