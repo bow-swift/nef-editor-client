@@ -2,6 +2,9 @@ import SwiftUI
 
 struct RecipeCatalogView: View {
     var body: some View {
-        Text("Catalog")
+        ZStack {
+            Color.gray
+            Text("Catalog")
+        }
     }
 }
