@@ -13,7 +13,7 @@ struct AppView: View {
                 if showSearch {
                     self.search
                 }
-            }.navigationBarTitle("nef editor")
+            }.navigationBarTitle("nef editor", displayMode: .inline)
         }.navigationViewStyle(StackNavigationViewStyle())
     }
     
