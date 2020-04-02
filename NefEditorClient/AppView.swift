@@ -29,7 +29,7 @@ struct AppView: View {
     }
     
     var detail: some View {
-        RecipeDetailView()
+        RecipeDetailView(switchViews: $showSearch)
             .frame(maxWidth: maxDetailWidth)
             .animation(.easeInOut)
             .transition(.slide)

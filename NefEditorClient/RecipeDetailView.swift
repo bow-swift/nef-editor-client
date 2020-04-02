@@ -1,7 +1,11 @@
 import SwiftUI
 
 struct RecipeDetailView: View {
+    @Binding var switchViews: Bool
+    
     var body: some View {
-        Text("Detail")
+        Button("Toggle mode") {
+            self.switchViews.toggle()
+        }
     }
 }
