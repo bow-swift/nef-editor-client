@@ -18,6 +18,7 @@
 		11EDF4492435F4B70092E959 /* RecipeCatalogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EDF4482435F4B70092E959 /* RecipeCatalogView.swift */; };
 		11EDF44B2435F4FE0092E959 /* RecipeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EDF44A2435F4FE0092E959 /* RecipeDetailView.swift */; };
 		11EDF44D2435F5410092E959 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EDF44C2435F5410092E959 /* SearchView.swift */; };
+		11EDF44F2435F5AA0092E959 /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EDF44E2435F5AA0092E959 /* AppView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		11EDF4482435F4B70092E959 /* RecipeCatalogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCatalogView.swift; sourceTree = "<group>"; };
 		11EDF44A2435F4FE0092E959 /* RecipeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailView.swift; sourceTree = "<group>"; };
 		11EDF44C2435F5410092E959 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		11EDF44E2435F5AA0092E959 /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 			children = (
 				1163839124321FD400EB2DEF /* Info.plist */,
 				1163838324321FD100EB2DEF /* AppDelegate.swift */,
+				11EDF44E2435F5AA0092E959 /* AppView.swift */,
 				1163838724321FD100EB2DEF /* ContentView.swift */,
 				11EDF4482435F4B70092E959 /* RecipeCatalogView.swift */,
 				11EDF44A2435F4FE0092E959 /* RecipeDetailView.swift */,
@@ -228,6 +231,7 @@
 				11EDF4492435F4B70092E959 /* RecipeCatalogView.swift in Sources */,
 				11EDF44B2435F4FE0092E959 /* RecipeDetailView.swift in Sources */,
 				1163838424321FD100EB2DEF /* AppDelegate.swift in Sources */,
+				11EDF44F2435F5AA0092E959 /* AppView.swift in Sources */,
 				1163838624321FD100EB2DEF /* SceneDelegate.swift in Sources */,
 				11EDF44D2435F5410092E959 /* SearchView.swift in Sources */,
 				1163838824321FD100EB2DEF /* ContentView.swift in Sources */,
@@ -393,7 +397,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.bow-swift.NefEditorClient";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -412,7 +416,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.bow-swift.NefEditorClient";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};
