@@ -7,17 +7,17 @@ struct AppView: View {
         NavigationView {
             HStack {
                 if !showSearch {
-                    self.catalog
+                   catalogView
                 }
-                self.detail
+               detailView
                 if showSearch {
-                    self.search
+                   searchView
                 }
             }.navigationBarTitle("nef editor", displayMode: .inline)
         }.navigationViewStyle(StackNavigationViewStyle())
     }
     
-    var catalog: some View {
+    var catalogView: some View {
         RecipeCatalogView()
             .animation(.easeInOut)
             .transition(.move(edge: .leading))
@@ -28,14 +28,14 @@ struct AppView: View {
             UIScreen.main.bounds.height) / 3
     }
     
-    var detail: some View {
+    var detailView: some View {
         RecipeDetailView(switchViews: $showSearch)
             .frame(maxWidth: maxDetailWidth)
             .animation(.easeInOut)
             .transition(.slide)
     }
     
-    var search: some View {
+    var searchView: some View {
         SearchView()
             .animation(.easeInOut)
             .transition(.move(edge: .trailing))
