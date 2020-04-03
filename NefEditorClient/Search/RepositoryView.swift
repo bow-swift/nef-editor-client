@@ -8,8 +8,7 @@ struct RepositoryView: View {
         CardView {
             VStack(alignment: .leading, spacing: 8) {
                 Text(self.repository.name)
-                    .font(.largeTitle)
-                    .bold()
+                    .titleStyle()
                     .padding(.bottom, 4)
                 
                 Text(self.repository._description ?? "No description")
