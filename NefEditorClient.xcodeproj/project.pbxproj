@@ -6,6 +6,20 @@
 	objectVersion = 52;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		11EDF469243714580092E959 /* GenerateGitHubAPI */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 11EDF46A243714580092E959 /* Build configuration list for PBXAggregateTarget "GenerateGitHubAPI" */;
+			buildPhases = (
+				11EDF46D243714600092E959 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = GenerateGitHubAPI;
+			productName = GenerateGitHubAPI;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		1163838424321FD100EB2DEF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1163838324321FD100EB2DEF /* AppDelegate.swift */; };
 		1163838624321FD100EB2DEF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1163838524321FD100EB2DEF /* SceneDelegate.swift */; };
@@ -179,6 +193,9 @@
 						CreatedOnToolsVersion = 11.3.1;
 						TestTargetID = 1163837F24321FD100EB2DEF;
 					};
+					11EDF469243714580092E959 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
 				};
 			};
 			buildConfigurationList = 1163837B24321FD100EB2DEF /* Build configuration list for PBXProject "NefEditorClient" */;
@@ -199,6 +216,7 @@
 			targets = (
 				1163837F24321FD100EB2DEF /* NefEditorClient */,
 				1163839524321FD400EB2DEF /* NefEditorClientTests */,
+				11EDF469243714580092E959 /* GenerateGitHubAPI */,
 			);
 		};
 /* End PBXProject section */
@@ -223,6 +241,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		11EDF46D243714600092E959 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "bow-openapi --name GitHub --schema github.yaml --output ./GitHub\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1163837C24321FD100EB2DEF /* Sources */ = {
@@ -462,6 +500,22 @@
 			};
 			name = Release;
 		};
+		11EDF46B243714580092E959 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		11EDF46C243714580092E959 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -488,6 +542,15 @@
 			buildConfigurations = (
 				116383A324321FD400EB2DEF /* Debug */,
 				116383A424321FD400EB2DEF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		11EDF46A243714580092E959 /* Build configuration list for PBXAggregateTarget "GenerateGitHubAPI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				11EDF46B243714580092E959 /* Debug */,
+				11EDF46C243714580092E959 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
