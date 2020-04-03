@@ -116,12 +116,12 @@
 				11EDF44E2435F5AA0092E959 /* AppView.swift */,
 				11EDF4482435F4B70092E959 /* RecipeCatalogView.swift */,
 				11EDF44A2435F4FE0092E959 /* RecipeDetailView.swift */,
-				11EF0A7E24373DCE009E894D /* RepositoryView.swift */,
 				1163838524321FD100EB2DEF /* SceneDelegate.swift */,
-				11EDF44C2435F5410092E959 /* SearchView.swift */,
 				1163838924321FD400EB2DEF /* Assets.xcassets */,
 				1163838E24321FD400EB2DEF /* LaunchScreen.storyboard */,
 				1163838B24321FD400EB2DEF /* Preview Content */,
+				11CB85912437821800CE4592 /* Search */,
+				11CB85902437820400CE4592 /* Theme */,
 			);
 			path = NefEditorClient;
 			sourceTree = "<group>";
@@ -141,6 +141,22 @@
 				1163839C24321FD400EB2DEF /* Info.plist */,
 			);
 			path = NefEditorClientTests;
+			sourceTree = "<group>";
+		};
+		11CB85902437820400CE4592 /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Theme;
+			sourceTree = "<group>";
+		};
+		11CB85912437821800CE4592 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				11EDF44C2435F5410092E959 /* SearchView.swift */,
+				11EF0A7E24373DCE009E894D /* RepositoryView.swift */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 		11EF0A8024373E46009E894D /* Frameworks */ = {
