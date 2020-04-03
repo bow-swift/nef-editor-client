@@ -1,0 +1,212 @@
+openapi: 3.0.0
+info:
+  version: '0.1.0'
+  title: GitHub API
+paths:
+  '/repos/daveverwer/SwiftPMLibrary/contents/packages.json':
+    get:
+      operationId: getSwiftPackages
+      description:
+        Obtain content of SwiftPMLibrary's packages.json
+        https://developer.github.com/v3/repos/contents/#get-contents
+      parameters: []
+      responses:
+        '200':
+          description: Returns a list of repository urls indexed in SwiftPMLibrary encoded in base64
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PackagesJsonFile'
+  '/repos/{owner}/{repo}':
+    get:
+      operationId: getRepositoryInformation
+      description: Obtain the information of a repository.
+      parameters:
+        - in: path
+          name: owner
+          description: Owner of the repository identifier.
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: repo
+          description: Repository identifier.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Returns the information of the requested repository.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RepositorySummary'
+  '/search/repositories':
+    get:
+      operationId: searchRepositories
+      tags: 
+        - Search
+      description: Searches for repositories matching the provided query.
+      parameters:
+        - in: query
+          name: q
+          description: Query for the repository search.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Returns a list of repositories matching the provided query.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchRepositoriesResult'
+  '/repos/{full_name}/branches':
+    get:
+      operationId: getBranches
+      tags:
+        - Repository
+      description: Obtains all branches of a repository.
+      parameters:
+        - in: path
+          name: full_name
+          description: Full name (owner + repository) of a repository.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Returns a list of branches for a given repository.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Branches'
+  '/repos/{full_name}/tags':
+    get:
+      operationId: getVersions
+      tags:
+        - Repository
+      description: Obtains all tags of a repository.
+      parameters:
+        - in: path
+          name: full_name
+          description: Full name (owner + repository) of a repository.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Returns a list of tags for a given repository.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Tags'
+components:
+  schemas:
+    Branches:
+      description: An array of branches.
+      type: array
+      items:
+        $ref: '#/components/schemas/Branch'
+    Branch:
+      description: A representation of the metadata of a branch in a GitHub repository.
+      type: object
+      properties:
+        name:
+          type: string
+      required:
+        - name
+    Owner:
+      description: A representation of the metadata of the owner of a GitHub repository.
+      type: object
+      properties:
+        login:
+          type: string
+        avatar_url:
+          type: string
+      required:
+        - login
+        - avatar_url
+    PackagesJsonFile:
+      description:
+        This is a reduced response of the full content object to fit our needs. 
+        https://developer.github.com/v3/repos/contents/#response-if-content-is-a-file
+      type: object
+      properties:
+        content:
+          type: string
+        encoding:
+          type: string
+      required:
+        - content
+        - encoding
+    RepositorySummary:
+      description:
+        This is a reduced response of the full repository object to fit our needs. 
+         https://developer.github.com/v3/repos/#response-4
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        stargazers_count:
+          type: integer
+      required:
+        - name
+        - description
+        - stargazers_count
+    Repositories:
+      description: An array of repositories.
+      type: array
+      items:
+        $ref: '#/components/schemas/Repository'
+    Repository:
+      description: A representation of the metadata of a GitHub repository.
+      type: object
+      properties:
+        name:
+          type: string
+        full_name:
+          type: string
+        description:
+          type: string
+        private:
+          type: boolean
+        html_url:
+          type: string
+        stargazers_count:
+          type: integer
+        owner:
+          $ref: '#/components/schemas/Owner'
+      required:
+        - name
+        - full_name
+        - private
+        - html_url
+        - stargazers_count
+        - owner
+    SearchRepositoriesResult:
+      description: Describes the results of a repository search.
+      type: object
+      properties:
+        total_count:
+          type: integer
+        items:
+          $ref: '#/components/schemas/Repositories'
+      required:
+        - total_count
+        - items
+    Tags:
+      description: An array of tags.
+      type: array
+      items:
+        $ref: '#/components/schemas/Tag'
+    Tag:
+      description: A representation of the metadata of a tag in a GitHub repository.
+      type: object
+      properties:
+        name:
+          type: string
+      required:
+        - name
