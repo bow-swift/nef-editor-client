@@ -5,31 +5,28 @@ struct RepositoryView: View {
     let repository: Repository
     
     var body: some View {
-        ZStack {
-            RoundedRectangle(cornerRadius: 8)
-                .fill(Color.white)
-                .shadow(color: Color.black.opacity(0.1), radius: 2, x: 1, y: 1)
+        CardView {
             VStack(alignment: .leading, spacing: 8) {
-                Text(repository.name)
+                Text(self.repository.name)
                     .font(.largeTitle)
                     .bold()
                     .padding(.bottom, 4)
                 
-                Text(repository._description ?? "No description")
+                Text(self.repository._description ?? "No description")
                 
                 Spacer()
                 
                 HStack(alignment: .lastTextBaseline) {
-                    labeledImage(
+                    self.labeledImage(
                         "person.crop.circle",
-                        text: repository.owner.login)
+                        text: self.repository.owner.login)
                     
                     Spacer()
                     
-                    labeledImage(
+                    self.labeledImage(
                         "star.fill",
                         tint: .yellow,
-                        text: "\(repository.stargazersCount)")
+                        text: "\(self.repository.stargazersCount)")
                 }
             }.padding()
         }
