@@ -9,6 +9,7 @@ struct LoadingSearchView: View {
             
             Text("Searching Swift repositories with query '\(query)'...")
                 .activityStyle()
+                .multilineTextAlignment(.center)
         }
     }
 }

@@ -6,6 +6,7 @@ struct EmptySearchView: View {
     var body: some View {
         Text("Your query '\(query)' did not produce any results.")
             .activityStyle()
+            .multilineTextAlignment(.center)
     }
 }
 

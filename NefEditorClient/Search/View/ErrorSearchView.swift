@@ -4,7 +4,9 @@ struct ErrorSearchView: View {
     let message: String
     
     var body: some View {
-        Text(message).activityStyle()
+        Text(message)
+            .activityStyle()
+            .multilineTextAlignment(.center)
     }
 }
 
