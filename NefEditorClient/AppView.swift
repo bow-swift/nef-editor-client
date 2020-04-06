@@ -36,7 +36,7 @@ struct AppView: View {
     }
     
     var searchView: some View {
-        SearchView(repositories: [])
+        SearchView(state: .initial)
             .animation(.easeInOut)
             .transition(.move(edge: .trailing))
     }
