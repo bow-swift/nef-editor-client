@@ -9,7 +9,14 @@ final class OrientationInfo: ObservableObject {
     @Published var orientation: Orientation
       
     private var observer: NSObjectProtocol?
-      
+    
+    #if DEBUG
+    convenience init(orientation: Orientation) {
+        self.init()
+        self.orientation = orientation
+    }
+    #endif
+    
     init() {
         if UIDevice.current.orientation.isLandscape {
             self.orientation = .landscape

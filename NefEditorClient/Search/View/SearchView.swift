@@ -48,7 +48,20 @@ struct SearchView: View {
 
 struct SearchView_Previews: PreviewProvider {
     static var previews: some View {
-        SearchView(state: .initial)
-        .environmentObject(OrientationInfo())
+        Group {
+            SearchView(state: .initial)
+            
+            SearchView(state: .empty(query: "Bow"))
+            
+            SearchView(state: .loading(query: "Bow"))
+            
+            SearchView(state: .loaded(sampleSearchResults))
+            
+            SearchView(state: .loaded(sampleRepos))
+            
+            SearchView(state: .error(message: "Unexpected error happened."))
+        }
+        .previewLayout(.fixed(width: 910, height: 1024))
+        .environmentObject(OrientationInfo(orientation: .landscape))
     }
 }
