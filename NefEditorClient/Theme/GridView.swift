@@ -23,3 +23,14 @@ struct GridView<Cell: View>: View {
         }
     }
 }
+
+struct GridView_Previews: PreviewProvider {
+    static var previews: some View {
+        GridView(rows: 4, columns: 3) { row, column in
+            ZStack {
+                Circle().fill(Color.gray)
+                Text("\(row), \(column)")
+            }
+        }
+    }
+}
