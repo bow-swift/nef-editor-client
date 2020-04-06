@@ -7,7 +7,7 @@ struct LoadingSearchView: View {
         VStack {
             ActivityIndicator(isAnimating: .constant(true), style: .large)
             
-            Text("Searching Swift repositories with query: \(query)...")
+            Text("Searching Swift repositories with query '\(query)'...")
                 .activityStyle()
         }
     }
