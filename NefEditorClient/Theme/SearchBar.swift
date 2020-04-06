@@ -39,3 +39,18 @@ struct SearchBar: UIViewRepresentable {
         SearchCoordinator(query: $query)
     }
 }
+
+struct SearchBar_Previews: PreviewProvider {
+    static var previews: some View {
+        Group {
+            SearchBar(placeholder: "Search repository...",
+                      query: .constant(""))
+                .previewLayout(.sizeThatFits)
+            
+            SearchBar(placeholder: "Search repository...",
+                      query: .constant("Bow"),
+                      barStyle: .black)
+            .previewLayout(.sizeThatFits)
+        }
+    }
+}
