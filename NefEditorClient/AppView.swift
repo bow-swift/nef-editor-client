@@ -9,7 +9,7 @@ struct AppView: View {
                 if !showSearch {
                    catalogView
                 }
-               detailView
+                detailView
                 if showSearch {
                    searchView
                 }
@@ -36,7 +36,7 @@ struct AppView: View {
     }
     
     var searchView: some View {
-        SearchView()
+        SearchView(repositories: [])
             .animation(.easeInOut)
             .transition(.move(edge: .trailing))
     }
@@ -47,6 +47,6 @@ struct AppView_Previews: PreviewProvider {
         Group {
             AppView(showSearch: false)
             AppView(showSearch: true)
-        }
+        }.environmentObject(OrientationInfo())
     }
 }
