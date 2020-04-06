@@ -28,9 +28,9 @@ struct GridView<Cell: View>: View {
     
     var body: some View {
         VStack(alignment: self.horizontalAlignment, spacing: self.horizontalSpacing) {
-            ForEach(0 ..< self.rows) { row in
+            ForEach(0 ..< self.rows, id: \.self) { row in
                 HStack(alignment: self.verticalAlignment, spacing: self.verticalSpacing) {
-                    ForEach(0 ..< self.columns) { column in
+                    ForEach(0 ..< self.columns, id: \.self) { column in
                         self.cellAt(row, column)
                     }
                 }
