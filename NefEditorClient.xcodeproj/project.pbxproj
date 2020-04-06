@@ -172,6 +172,16 @@
 			path = Environment;
 			sourceTree = "<group>";
 		};
+		11BFEA04243B516200D4F891 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				11E07F12243B20E000A0A027 /* RepositoryGridView.swift */,
+				11EF0A7E24373DCE009E894D /* RepositoryView.swift */,
+				11EDF44C2435F5410092E959 /* SearchView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		11CB85902437820400CE4592 /* Theme */ = {
 			isa = PBXGroup;
 			children = (
@@ -187,9 +197,7 @@
 		11CB85912437821800CE4592 /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				11E07F12243B20E000A0A027 /* RepositoryGridView.swift */,
-				11EF0A7E24373DCE009E894D /* RepositoryView.swift */,
-				11EDF44C2435F5410092E959 /* SearchView.swift */,
+				11BFEA04243B516200D4F891 /* View */,
 			);
 			path = Search;
 			sourceTree = "<group>";
