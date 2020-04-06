@@ -8,7 +8,8 @@ struct RepositoryGridView: View {
     var body: some View {
         GridView(rows: self.rows, columns: self.columns) { row, column in
             self.viewForItem(atIndex: self.indexAt(row, column))
-                .aspectRatio(4/3, contentMode: .fit)
+                .aspectRatio(16/9, contentMode: .fit)
+                .animation(nil)
         }
     }
     
