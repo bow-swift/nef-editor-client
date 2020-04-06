@@ -167,9 +167,9 @@
 		11CB85912437821800CE4592 /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				11EDF44C2435F5410092E959 /* SearchView.swift */,
-				11EF0A7E24373DCE009E894D /* RepositoryView.swift */,
 				11E07F12243B20E000A0A027 /* RepositoryGridView.swift */,
+				11EF0A7E24373DCE009E894D /* RepositoryView.swift */,
+				11EDF44C2435F5410092E959 /* SearchView.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
