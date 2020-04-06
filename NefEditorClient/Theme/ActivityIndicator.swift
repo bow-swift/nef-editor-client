@@ -17,3 +17,18 @@ struct ActivityIndicator: UIViewRepresentable {
         isAnimating ? uiView.startAnimating() : uiView.stopAnimating()
     }
 }
+
+struct ActivityIndicator_Previews: PreviewProvider {
+    static var previews: some View {
+        Group {
+            ActivityIndicator(isAnimating: .constant(true))
+                .previewLayout(.sizeThatFits)
+            
+            ActivityIndicator(isAnimating: .constant(true), style: .large)
+                .previewLayout(.sizeThatFits)
+            
+            ActivityIndicator(isAnimating: .constant(false), style: .large)
+            .previewLayout(.sizeThatFits)
+        }
+    }
+}
