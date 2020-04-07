@@ -20,6 +20,9 @@ let nef = Repository(
     stargazersCount: 134,
     owner: Owner(login: "bow-swift", avatarUrl: "https://avatars2.githubusercontent.com/u/44965417?s=200&v=4"))
 
+let version = Requirement.version(Tag(name: "0.7.5"))
+let branch = Requirement.branch(Branch(name: "master"))
+
 let sampleRepo = bow
 let sampleRepos = Array(repeating: bow, count: 17)
 let sampleSearchResults = [bow, nef]
