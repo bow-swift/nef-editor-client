@@ -19,13 +19,6 @@ private extension Requirement {
         case .branch: return "arrow.branch"
         }
     }
-    
-    var title: String {
-        switch self {
-        case .version(let tag): return tag.name
-        case .branch(let branch): return branch.name
-        }
-    }
 }
 
 struct RequirementView_Previews: PreviewProvider {
