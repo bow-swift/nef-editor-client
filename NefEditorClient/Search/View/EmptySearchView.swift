@@ -4,9 +4,7 @@ struct EmptySearchView: View {
     let query: String
     
     var body: some View {
-        Text("Your query '\(query)' did not produce any results.")
-            .activityStyle()
-            .multilineTextAlignment(.center)
+        ActivityTextView(message: "Your query '\(query)' did not produce any results.")
     }
 }
 
