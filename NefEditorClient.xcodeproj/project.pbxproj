@@ -22,6 +22,8 @@
 
 /* Begin PBXBuildFile section */
 		11070286243C8178008583EB /* Requirement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11070285243C8178008583EB /* Requirement.swift */; };
+		11070289243C81DC008583EB /* RequirementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11070288243C81DC008583EB /* RequirementView.swift */; };
+		1107028B243C9987008583EB /* RepositoryDetailState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1107028A243C9987008583EB /* RepositoryDetailState.swift */; };
 		1163838424321FD100EB2DEF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1163838324321FD100EB2DEF /* AppDelegate.swift */; };
 		1163838624321FD100EB2DEF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1163838524321FD100EB2DEF /* SceneDelegate.swift */; };
 		1163838A24321FD400EB2DEF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1163838924321FD400EB2DEF /* Assets.xcassets */; };
@@ -64,6 +66,8 @@
 
 /* Begin PBXFileReference section */
 		11070285243C8178008583EB /* Requirement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requirement.swift; sourceTree = "<group>"; };
+		11070288243C81DC008583EB /* RequirementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequirementView.swift; sourceTree = "<group>"; };
+		1107028A243C9987008583EB /* RepositoryDetailState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailState.swift; sourceTree = "<group>"; };
 		1163838024321FD100EB2DEF /* NefEditorClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NefEditorClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1163838324321FD100EB2DEF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1163838524321FD100EB2DEF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -121,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				11070284243C8168008583EB /* State */,
+				11070287243C81CC008583EB /* View */,
 			);
 			path = Version;
 			sourceTree = "<group>";
@@ -128,9 +133,18 @@
 		11070284243C8168008583EB /* State */ = {
 			isa = PBXGroup;
 			children = (
+				1107028A243C9987008583EB /* RepositoryDetailState.swift */,
 				11070285243C8178008583EB /* Requirement.swift */,
 			);
 			path = State;
+			sourceTree = "<group>";
+		};
+		11070287243C81CC008583EB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				11070288243C81DC008583EB /* RequirementView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		1163837724321FD100EB2DEF = {
@@ -394,6 +408,7 @@
 				11EDF44B2435F4FE0092E959 /* RecipeDetailView.swift in Sources */,
 				1163838424321FD100EB2DEF /* AppDelegate.swift in Sources */,
 				11BFEA0F243B560500D4F891 /* EmptySearchView.swift in Sources */,
+				1107028B243C9987008583EB /* RepositoryDetailState.swift in Sources */,
 				11BFEA09243B525100D4F891 /* LoadingSearchView.swift in Sources */,
 				11BFEA07243B519A00D4F891 /* SearchState.swift in Sources */,
 				11EDF44F2435F5AA0092E959 /* AppView.swift in Sources */,
@@ -401,6 +416,7 @@
 				11BFEA11243B571B00D4F891 /* ErrorSearchView.swift in Sources */,
 				11070286243C8178008583EB /* Requirement.swift in Sources */,
 				11E07F16243B21A200A0A027 /* Array+Extensions.swift in Sources */,
+				11070289243C81DC008583EB /* RequirementView.swift in Sources */,
 				11E07F13243B20E000A0A027 /* RepositoryGridView.swift in Sources */,
 				11CB85932437825100CE4592 /* CardView.swift in Sources */,
 				11BFEA0D243B553000D4F891 /* InitialSearchView.swift in Sources */,
