@@ -5,18 +5,27 @@
         "package": "Bow",
         "repositoryURL": "https://github.com/bow-swift/bow.git",
         "state": {
-          "branch": "master",
-          "revision": "77a2c668ef902f0925b5ee28403f8e233d23a9d4",
-          "version": null
+          "branch": null,
+          "revision": "7961dee245bb28bd22b94cb3158ec09e66fbd582",
+          "version": "0.7.0"
         }
       },
       {
-        "package": "BowArch",
-        "repositoryURL": "https://github.com/bow-swift/bow-arch.git",
+        "package": "Chalk",
+        "repositoryURL": "https://github.com/mxcl/Chalk.git",
         "state": {
-          "branch": "master",
-          "revision": "fa5312517461724deb219ea54303695008aa4550",
-          "version": null
+          "branch": null,
+          "revision": "9aa9f348b86db3cf6702a3e43c081ecec80cf3c7",
+          "version": "0.4.0"
+        }
+      },
+      {
+        "package": "FileCheck",
+        "repositoryURL": "https://github.com/llvm-swift/FileCheck.git",
+        "state": {
+          "branch": null,
+          "revision": "9ed91cc30a1a325d989fac117f3f3065a16b9f76",
+          "version": "0.2.3"
         }
       },
       {
@@ -29,12 +38,21 @@
         }
       },
       {
-        "package": "SwiftCheck",
-        "repositoryURL": "https://github.com/bow-swift/SwiftCheck.git",
+        "package": "swift-tools-support-core",
+        "repositoryURL": "https://github.com/apple/swift-tools-support-core.git",
         "state": {
           "branch": null,
-          "revision": "748359f9a95edf94d0c4664102f104f56b1ff1fb",
-          "version": "0.12.1"
+          "revision": "693aba4c4c9dcc4767cc853a0dd38bf90ad8c258",
+          "version": "0.0.1"
+        }
+      },
+      {
+        "package": "SwiftCheck",
+        "repositoryURL": "https://github.com/typelift/SwiftCheck.git",
+        "state": {
+          "branch": null,
+          "revision": "077c096c3ddfc38db223ac8e525ad16ffb987138",
+          "version": "0.12.0"
         }
       }
     ]

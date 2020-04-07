@@ -129,13 +129,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		11070283243C7FB4008583EB /* Version */ = {
+		11070283243C7FB4008583EB /* Requirements */ = {
 			isa = PBXGroup;
 			children = (
 				11070284243C8168008583EB /* State */,
 				11070287243C81CC008583EB /* View */,
 			);
-			path = Version;
+			path = Requirements;
 			sourceTree = "<group>";
 		};
 		11070284243C8168008583EB /* State */ = {
@@ -191,9 +191,9 @@
 				11E07F14243B218E00A0A027 /* Extensions */,
 				1163838E24321FD400EB2DEF /* LaunchScreen.storyboard */,
 				1163838B24321FD400EB2DEF /* Preview Content */,
+				11070283243C7FB4008583EB /* Requirements */,
 				11CB85912437821800CE4592 /* Search */,
 				11CB85902437820400CE4592 /* Theme */,
-				11070283243C7FB4008583EB /* Version */,
 			);
 			path = NefEditorClient;
 			sourceTree = "<group>";
