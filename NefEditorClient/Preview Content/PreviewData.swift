@@ -26,4 +26,6 @@ let branch = Requirement.branch(Branch(name: "master"))
 let sampleRepo = bow
 let sampleRepos = Array(repeating: bow, count: 17)
 let sampleSearchResults = [bow, nef]
+
+let sampleRequirements = Array(repeating: version, count: 5) + Array(repeating: branch, count: 3)
 #endif
