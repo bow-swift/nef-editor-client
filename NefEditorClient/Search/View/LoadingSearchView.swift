@@ -4,13 +4,7 @@ struct LoadingSearchView: View {
     let query: String
     
     var body: some View {
-        VStack {
-            ActivityIndicator(isAnimating: .constant(true), style: .large)
-            
-            Text("Searching Swift repositories with query '\(query)'...")
-                .activityStyle()
-                .multilineTextAlignment(.center)
-        }
+        LoadingView(message: "Searching Swift repositories with query '\(query)'...")
     }
 }
 
