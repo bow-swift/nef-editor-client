@@ -9,7 +9,7 @@ struct AppView: View {
                 if !showSearch {
                    catalogView
                 }
-               detailView
+                detailView
                 if showSearch {
                    searchView
                 }
@@ -36,7 +36,7 @@ struct AppView: View {
     }
     
     var searchView: some View {
-        SearchView()
+        SearchView(state: .initial)
             .animation(.easeInOut)
             .transition(.move(edge: .trailing))
     }

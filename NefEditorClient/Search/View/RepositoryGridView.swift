@@ -8,7 +8,8 @@ struct RepositoryGridView: View {
     var body: some View {
         GridView(rows: self.rows, columns: self.columns) { row, column in
             self.viewForItem(atIndex: self.indexAt(row, column))
-                .aspectRatio(4/3, contentMode: .fit)
+                .aspectRatio(16/9, contentMode: .fit)
+                .animation(nil)
         }
     }
     
@@ -30,15 +31,6 @@ struct RepositoryGridView: View {
 }
 
 struct RepositoryGridView_Previews: PreviewProvider {
-    static let sampleRepo = Repository(
-        name: "bow",
-        fullName: "bow-swift/bow",
-        _description: "🏹 Bow is a library for Typed Functional Programming in Swift",
-        _private: false,
-        htmlUrl: "https://github.com/bow-swift/bow",
-        stargazersCount: 407,
-        owner: Owner(login: "bow-swift", avatarUrl: "https://avatars2.githubusercontent.com/u/44965417?s=200&v=4"))
-    static let sampleRepos = Array(repeating: sampleRepo, count: 17)
     
     static var previews: some View {
         Group {
