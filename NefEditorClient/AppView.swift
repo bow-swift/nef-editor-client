@@ -47,6 +47,6 @@ struct AppView_Previews: PreviewProvider {
         Group {
             AppView(showSearch: false)
             AppView(showSearch: true)
-        }.environmentObject(OrientationInfo())
+        }
     }
 }

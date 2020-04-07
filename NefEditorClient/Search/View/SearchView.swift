@@ -2,7 +2,6 @@ import SwiftUI
 import GitHub
 
 struct SearchView: View {
-    @EnvironmentObject var orientationInfo: OrientationInfo
     let state: SearchState
     @State var query: String = ""
     
@@ -30,19 +29,20 @@ struct SearchView: View {
     }
     
     private func loadedView(repositories: Repositories) -> some View {
-        ScrollView {
-            RepositoryGridView(
-                repositories: repositories,
-                columns: self.columns)
-            .padding()
+        GeometryReader { geometry in
+            ScrollView {
+                RepositoryGridView(
+                    repositories: repositories,
+                    columns: self.columns(for: geometry.size.width))
+                .padding()
+                .fill
+            }
         }
     }
     
-    private var columns: Int {
-        switch orientationInfo.orientation {
-        case .landscape: return 2
-        case .portrait: return 1
-        }
+    private func columns(for width: CGFloat) -> Int {
+        let minimumCardWidth: CGFloat = 360
+        return Int(floor(width / minimumCardWidth))
     }
 }
 
@@ -62,6 +62,5 @@ struct SearchView_Previews: PreviewProvider {
             SearchView(state: .error(message: "Unexpected error happened."))
         }
         .previewLayout(.fixed(width: 910, height: 1024))
-        .environmentObject(OrientationInfo(orientation: .landscape))
     }
 }
