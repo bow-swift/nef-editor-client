@@ -193,10 +193,10 @@
 				1163839124321FD400EB2DEF /* Info.plist */,
 				1163838324321FD100EB2DEF /* AppDelegate.swift */,
 				11EDF44E2435F5AA0092E959 /* AppView.swift */,
-				11EDF4482435F4B70092E959 /* RecipeCatalogView.swift */,
 				11EDF44A2435F4FE0092E959 /* RecipeDetailView.swift */,
 				1163838524321FD100EB2DEF /* SceneDelegate.swift */,
 				1163838924321FD400EB2DEF /* Assets.xcassets */,
+				11AD8DCA243DC42E0005E450 /* Catalog */,
 				11E07F14243B218E00A0A027 /* Extensions */,
 				1163838E24321FD400EB2DEF /* LaunchScreen.storyboard */,
 				1163838B24321FD400EB2DEF /* Preview Content */,
@@ -223,6 +223,22 @@
 				1163839C24321FD400EB2DEF /* Info.plist */,
 			);
 			path = NefEditorClientTests;
+			sourceTree = "<group>";
+		};
+		11AD8DCA243DC42E0005E450 /* Catalog */ = {
+			isa = PBXGroup;
+			children = (
+				11AD8DCB243DC46C0005E450 /* View */,
+			);
+			path = Catalog;
+			sourceTree = "<group>";
+		};
+		11AD8DCB243DC46C0005E450 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				11EDF4482435F4B70092E959 /* RecipeCatalogView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		11BFEA04243B516200D4F891 /* View */ = {
