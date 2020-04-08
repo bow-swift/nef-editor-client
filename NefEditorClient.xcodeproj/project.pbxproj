@@ -21,13 +21,24 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		11070286243C8178008583EB /* Requirement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11070285243C8178008583EB /* Requirement.swift */; };
+		11070289243C81DC008583EB /* RequirementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11070288243C81DC008583EB /* RequirementView.swift */; };
+		1107028B243C9987008583EB /* RepositoryDetailState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1107028A243C9987008583EB /* RepositoryDetailState.swift */; };
+		1107028D243C9A25008583EB /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1107028C243C9A25008583EB /* LoadingView.swift */; };
+		1107028F243C9D0A008583EB /* LoadingRequirementsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1107028E243C9D0A008583EB /* LoadingRequirementsView.swift */; };
+		11070291243C9DF9008583EB /* ActivityTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11070290243C9DF9008583EB /* ActivityTextView.swift */; };
+		11070293243C9F27008583EB /* EmptyRequirementsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11070292243C9F27008583EB /* EmptyRequirementsView.swift */; };
+		11070298243CA10E008583EB /* ErrorRequirementsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11070297243CA10E008583EB /* ErrorRequirementsView.swift */; };
+		1107029A243CA160008583EB /* RequirementListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11070299243CA160008583EB /* RequirementListView.swift */; };
 		1163838424321FD100EB2DEF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1163838324321FD100EB2DEF /* AppDelegate.swift */; };
 		1163838624321FD100EB2DEF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1163838524321FD100EB2DEF /* SceneDelegate.swift */; };
 		1163838A24321FD400EB2DEF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1163838924321FD400EB2DEF /* Assets.xcassets */; };
 		1163838D24321FD400EB2DEF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1163838C24321FD400EB2DEF /* Preview Assets.xcassets */; };
 		1163839024321FD400EB2DEF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1163838E24321FD400EB2DEF /* LaunchScreen.storyboard */; };
 		1163839B24321FD400EB2DEF /* NefEditorClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1163839A24321FD400EB2DEF /* NefEditorClientTests.swift */; };
-		11BFE9FC243B379300D4F891 /* GitHub in Frameworks */ = {isa = PBXBuildFile; productRef = 11BFE9FB243B379300D4F891 /* GitHub */; };
+		11AD8DC5243CA8E90005E450 /* BowArch in Frameworks */ = {isa = PBXBuildFile; productRef = 11AD8DC4243CA8E90005E450 /* BowArch */; };
+		11AD8DC7243CA8EF0005E450 /* GitHub in Frameworks */ = {isa = PBXBuildFile; productRef = 11AD8DC6243CA8EF0005E450 /* GitHub */; };
+		11AD8DC9243CAAE20005E450 /* RepositoryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AD8DC8243CAAE20005E450 /* RepositoryDetailView.swift */; };
 		11BFE9FE243B3C2200D4F891 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BFE9FD243B3C2200D4F891 /* ActivityIndicator.swift */; };
 		11BFEA00243B410D00D4F891 /* PreviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BFE9FF243B410D00D4F891 /* PreviewData.swift */; };
 		11BFEA07243B519A00D4F891 /* SearchState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BFEA06243B519A00D4F891 /* SearchState.swift */; };
@@ -36,7 +47,6 @@
 		11BFEA0D243B553000D4F891 /* InitialSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BFEA0C243B553000D4F891 /* InitialSearchView.swift */; };
 		11BFEA0F243B560500D4F891 /* EmptySearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BFEA0E243B560500D4F891 /* EmptySearchView.swift */; };
 		11BFEA11243B571B00D4F891 /* ErrorSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BFEA10243B571B00D4F891 /* ErrorSearchView.swift */; };
-		11CB858F2437766F00CE4592 /* BowArch in Frameworks */ = {isa = PBXBuildFile; productRef = 11CB858E2437766F00CE4592 /* BowArch */; };
 		11CB85932437825100CE4592 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CB85922437825100CE4592 /* CardView.swift */; };
 		11CB85952437848A00CE4592 /* TextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CB85942437848A00CE4592 /* TextStyle.swift */; };
 		11E07F11243B118F00A0A027 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E07F10243B118F00A0A027 /* GridView.swift */; };
@@ -62,6 +72,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		11070285243C8178008583EB /* Requirement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requirement.swift; sourceTree = "<group>"; };
+		11070288243C81DC008583EB /* RequirementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequirementView.swift; sourceTree = "<group>"; };
+		1107028A243C9987008583EB /* RepositoryDetailState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailState.swift; sourceTree = "<group>"; };
+		1107028C243C9A25008583EB /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		1107028E243C9D0A008583EB /* LoadingRequirementsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingRequirementsView.swift; sourceTree = "<group>"; };
+		11070290243C9DF9008583EB /* ActivityTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTextView.swift; sourceTree = "<group>"; };
+		11070292243C9F27008583EB /* EmptyRequirementsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyRequirementsView.swift; sourceTree = "<group>"; };
+		11070297243CA10E008583EB /* ErrorRequirementsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorRequirementsView.swift; sourceTree = "<group>"; };
+		11070299243CA160008583EB /* RequirementListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequirementListView.swift; sourceTree = "<group>"; };
 		1163838024321FD100EB2DEF /* NefEditorClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NefEditorClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1163838324321FD100EB2DEF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1163838524321FD100EB2DEF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +91,8 @@
 		1163839624321FD400EB2DEF /* NefEditorClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NefEditorClientTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1163839A24321FD400EB2DEF /* NefEditorClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NefEditorClientTests.swift; sourceTree = "<group>"; };
 		1163839C24321FD400EB2DEF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		11AD8DC2243CA4880005E450 /* GitHub */ = {isa = PBXFileReference; lastKnownFileType = folder; path = GitHub; sourceTree = "<group>"; };
+		11AD8DC8243CAAE20005E450 /* RepositoryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailView.swift; sourceTree = "<group>"; };
 		11BFE9FD243B3C2200D4F891 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		11BFE9FF243B410D00D4F891 /* PreviewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewData.swift; sourceTree = "<group>"; };
 		11BFEA06243B519A00D4F891 /* SearchState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchState.swift; sourceTree = "<group>"; };
@@ -91,7 +112,6 @@
 		11EDF44C2435F5410092E959 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		11EDF44E2435F5AA0092E959 /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
 		11EDF467243714210092E959 /* github.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = github.yaml; sourceTree = "<group>"; };
-		11EF0A7D243734CD009E894D /* GitHub */ = {isa = PBXFileReference; lastKnownFileType = folder; path = GitHub; sourceTree = "<group>"; };
 		11EF0A7E24373DCE009E894D /* RepositoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -100,8 +120,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				11CB858F2437766F00CE4592 /* BowArch in Frameworks */,
-				11BFE9FC243B379300D4F891 /* GitHub in Frameworks */,
+				11AD8DC5243CA8E90005E450 /* BowArch in Frameworks */,
+				11AD8DC7243CA8EF0005E450 /* GitHub in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,11 +135,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		11070283243C7FB4008583EB /* Requirements */ = {
+			isa = PBXGroup;
+			children = (
+				11070284243C8168008583EB /* State */,
+				11070287243C81CC008583EB /* View */,
+			);
+			path = Requirements;
+			sourceTree = "<group>";
+		};
+		11070284243C8168008583EB /* State */ = {
+			isa = PBXGroup;
+			children = (
+				1107028A243C9987008583EB /* RepositoryDetailState.swift */,
+				11070285243C8178008583EB /* Requirement.swift */,
+			);
+			path = State;
+			sourceTree = "<group>";
+		};
+		11070287243C81CC008583EB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				11070292243C9F27008583EB /* EmptyRequirementsView.swift */,
+				11070297243CA10E008583EB /* ErrorRequirementsView.swift */,
+				1107028E243C9D0A008583EB /* LoadingRequirementsView.swift */,
+				11070299243CA160008583EB /* RequirementListView.swift */,
+				11070288243C81DC008583EB /* RequirementView.swift */,
+				11AD8DC8243CAAE20005E450 /* RepositoryDetailView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		1163837724321FD100EB2DEF = {
 			isa = PBXGroup;
 			children = (
 				11EDF467243714210092E959 /* github.yaml */,
-				11EF0A7D243734CD009E894D /* GitHub */,
+				11AD8DC2243CA4880005E450 /* GitHub */,
 				1163838224321FD100EB2DEF /* NefEditorClient */,
 				1163839924321FD400EB2DEF /* NefEditorClientTests */,
 				1163838124321FD100EB2DEF /* Products */,
@@ -149,6 +200,7 @@
 				11E07F14243B218E00A0A027 /* Extensions */,
 				1163838E24321FD400EB2DEF /* LaunchScreen.storyboard */,
 				1163838B24321FD400EB2DEF /* Preview Content */,
+				11070283243C7FB4008583EB /* Requirements */,
 				11CB85912437821800CE4592 /* Search */,
 				11CB85902437820400CE4592 /* Theme */,
 			);
@@ -199,8 +251,10 @@
 			isa = PBXGroup;
 			children = (
 				11BFE9FD243B3C2200D4F891 /* ActivityIndicator.swift */,
+				11070290243C9DF9008583EB /* ActivityTextView.swift */,
 				11CB85922437825100CE4592 /* CardView.swift */,
 				11E07F10243B118F00A0A027 /* GridView.swift */,
+				1107028C243C9A25008583EB /* LoadingView.swift */,
 				11E07F17243B353500A0A027 /* SearchBar.swift */,
 				11CB85942437848A00CE4592 /* TextStyle.swift */,
 				11BFEA0A243B538300D4F891 /* ViewStyle.swift */,
@@ -249,8 +303,8 @@
 			);
 			name = NefEditorClient;
 			packageProductDependencies = (
-				11CB858E2437766F00CE4592 /* BowArch */,
-				11BFE9FB243B379300D4F891 /* GitHub */,
+				11AD8DC4243CA8E90005E450 /* BowArch */,
+				11AD8DC6243CA8EF0005E450 /* GitHub */,
 			);
 			productName = NefEditorClient;
 			productReference = 1163838024321FD100EB2DEF /* NefEditorClient.app */;
@@ -306,7 +360,7 @@
 			);
 			mainGroup = 1163837724321FD100EB2DEF;
 			packageReferences = (
-				11CB858D2437766F00CE4592 /* XCRemoteSwiftPackageReference "bow-arch" */,
+				11AD8DC3243CA8E80005E450 /* XCRemoteSwiftPackageReference "bow-arch" */,
 			);
 			productRefGroup = 1163838124321FD100EB2DEF /* Products */;
 			projectDirPath = "";
@@ -366,22 +420,32 @@
 			buildActionMask = 2147483647;
 			files = (
 				11E07F18243B353500A0A027 /* SearchBar.swift in Sources */,
+				11070291243C9DF9008583EB /* ActivityTextView.swift in Sources */,
+				1107028F243C9D0A008583EB /* LoadingRequirementsView.swift in Sources */,
 				11CB85952437848A00CE4592 /* TextStyle.swift in Sources */,
 				11EDF4492435F4B70092E959 /* RecipeCatalogView.swift in Sources */,
+				11070298243CA10E008583EB /* ErrorRequirementsView.swift in Sources */,
 				11EF0A7F24373DCE009E894D /* RepositoryView.swift in Sources */,
 				11BFE9FE243B3C2200D4F891 /* ActivityIndicator.swift in Sources */,
 				11BFEA00243B410D00D4F891 /* PreviewData.swift in Sources */,
+				11070293243C9F27008583EB /* EmptyRequirementsView.swift in Sources */,
 				11BFEA0B243B538300D4F891 /* ViewStyle.swift in Sources */,
 				11EDF44B2435F4FE0092E959 /* RecipeDetailView.swift in Sources */,
 				1163838424321FD100EB2DEF /* AppDelegate.swift in Sources */,
 				11BFEA0F243B560500D4F891 /* EmptySearchView.swift in Sources */,
+				1107028B243C9987008583EB /* RepositoryDetailState.swift in Sources */,
 				11BFEA09243B525100D4F891 /* LoadingSearchView.swift in Sources */,
 				11BFEA07243B519A00D4F891 /* SearchState.swift in Sources */,
 				11EDF44F2435F5AA0092E959 /* AppView.swift in Sources */,
 				1163838624321FD100EB2DEF /* SceneDelegate.swift in Sources */,
 				11BFEA11243B571B00D4F891 /* ErrorSearchView.swift in Sources */,
+				1107029A243CA160008583EB /* RequirementListView.swift in Sources */,
+				11070286243C8178008583EB /* Requirement.swift in Sources */,
 				11E07F16243B21A200A0A027 /* Array+Extensions.swift in Sources */,
+				1107028D243C9A25008583EB /* LoadingView.swift in Sources */,
+				11070289243C81DC008583EB /* RequirementView.swift in Sources */,
 				11E07F13243B20E000A0A027 /* RepositoryGridView.swift in Sources */,
+				11AD8DC9243CAAE20005E450 /* RepositoryDetailView.swift in Sources */,
 				11CB85932437825100CE4592 /* CardView.swift in Sources */,
 				11BFEA0D243B553000D4F891 /* InitialSearchView.swift in Sources */,
 				11E07F11243B118F00A0A027 /* GridView.swift in Sources */,
@@ -671,7 +735,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		11CB858D2437766F00CE4592 /* XCRemoteSwiftPackageReference "bow-arch" */ = {
+		11AD8DC3243CA8E80005E450 /* XCRemoteSwiftPackageReference "bow-arch" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/bow-swift/bow-arch.git";
 			requirement = {
@@ -682,14 +746,14 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		11BFE9FB243B379300D4F891 /* GitHub */ = {
+		11AD8DC4243CA8E90005E450 /* BowArch */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 11AD8DC3243CA8E80005E450 /* XCRemoteSwiftPackageReference "bow-arch" */;
+			productName = BowArch;
+		};
+		11AD8DC6243CA8EF0005E450 /* GitHub */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = GitHub;
-		};
-		11CB858E2437766F00CE4592 /* BowArch */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 11CB858D2437766F00CE4592 /* XCRemoteSwiftPackageReference "bow-arch" */;
-			productName = BowArch;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
