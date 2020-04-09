@@ -43,4 +43,6 @@ let sampleRecipe = Recipe(
             url: "https://github.com/bow-swift/bow-arch",
             requirement: .branch(Branch(name: "master")))
     ])
+
+let sampleRecipes = Array(repeating: sampleRecipe, count: 13)
 #endif
