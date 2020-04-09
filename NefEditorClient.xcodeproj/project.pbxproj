@@ -43,6 +43,7 @@
 		11AD8DD2243E17B30005E450 /* GitHub in Frameworks */ = {isa = PBXBuildFile; productRef = 11AD8DD1243E17B30005E450 /* GitHub */; };
 		11AD8DD5243E19200005E450 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AD8DD4243E19200005E450 /* Recipe.swift */; };
 		11AD8DD7243E19440005E450 /* Dependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AD8DD6243E19440005E450 /* Dependency.swift */; };
+		11AD8DD9243E20BB0005E450 /* TagCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AD8DD8243E20BB0005E450 /* TagCloud.swift */; };
 		11BFE9FE243B3C2200D4F891 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BFE9FD243B3C2200D4F891 /* ActivityIndicator.swift */; };
 		11BFEA00243B410D00D4F891 /* PreviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BFE9FF243B410D00D4F891 /* PreviewData.swift */; };
 		11BFEA07243B519A00D4F891 /* SearchState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BFEA06243B519A00D4F891 /* SearchState.swift */; };
@@ -101,6 +102,7 @@
 		11AD8DD0243E17A70005E450 /* GitHub */ = {isa = PBXFileReference; lastKnownFileType = folder; path = GitHub; sourceTree = "<group>"; };
 		11AD8DD4243E19200005E450 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		11AD8DD6243E19440005E450 /* Dependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dependency.swift; sourceTree = "<group>"; };
+		11AD8DD8243E20BB0005E450 /* TagCloud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCloud.swift; sourceTree = "<group>"; };
 		11BFE9FD243B3C2200D4F891 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		11BFE9FF243B410D00D4F891 /* PreviewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewData.swift; sourceTree = "<group>"; };
 		11BFEA06243B519A00D4F891 /* SearchState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchState.swift; sourceTree = "<group>"; };
@@ -247,6 +249,7 @@
 			children = (
 				11EDF4482435F4B70092E959 /* RecipeCatalogView.swift */,
 				11AD8DCE243E16480005E450 /* RegularRecipeView.swift */,
+				11AD8DD8243E20BB0005E450 /* TagCloud.swift */,
 				11AD8DCC243DC4870005E450 /* TagView.swift */,
 			);
 			path = View;
@@ -483,6 +486,7 @@
 				1107028D243C9A25008583EB /* LoadingView.swift in Sources */,
 				11AD8DD7243E19440005E450 /* Dependency.swift in Sources */,
 				11070289243C81DC008583EB /* RequirementView.swift in Sources */,
+				11AD8DD9243E20BB0005E450 /* TagCloud.swift in Sources */,
 				11E07F13243B20E000A0A027 /* RepositoryGridView.swift in Sources */,
 				11AD8DC9243CAAE20005E450 /* RepositoryDetailView.swift in Sources */,
 				11CB85932437825100CE4592 /* CardView.swift in Sources */,
