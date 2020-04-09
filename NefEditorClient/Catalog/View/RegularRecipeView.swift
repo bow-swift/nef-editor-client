@@ -1,31 +1,39 @@
 import SwiftUI
 
 struct RegularRecipeView: View {
+    let recipe: Recipe
+    
     var body: some View {
         CardView {
             VStack(alignment: .leading, spacing: 8) {
-                Text("Recipe title")
+                Text(self.recipe.title)
                     .titleStyle()
-                Text("No description provided")
+                Text(self.recipe.description)
                     .activityStyle()
                 
                 Spacer()
-                HStack(spacing: 4) {
-                    TagView(text: "bow")
-                    TagView(text: "bow-arch")
-                    TagView(text: "+3")
-                    Spacer()
-                }
+                
+                TagCloud(
+                    tags: self.recipe.tags,
+                    layout: TagCloud.Layouts.multiline(spacing: 4, lines: 2))
             }.padding()
+        }
+    }
+}
+
+private extension Recipe {
+    var tags: [String] {
+        self.dependencies.map { dependency in
+            dependency.repository
         }
     }
 }
 
 struct RegularRecipeView_Previews: PreviewProvider {
     static var previews: some View {
-        RegularRecipeView()
+        RegularRecipeView(recipe: sampleRecipe)
             .aspectRatio(16/9, contentMode: .fit)
-            .frame(maxWidth: 300, maxHeight: 300)
+            .frame(maxWidth: 350, maxHeight: 300)
             .previewLayout(.sizeThatFits)
             .padding()
     }
