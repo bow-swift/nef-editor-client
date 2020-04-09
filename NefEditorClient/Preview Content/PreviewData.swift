@@ -45,4 +45,9 @@ let sampleRecipe = Recipe(
     ])
 
 let sampleRecipes = Array(repeating: sampleRecipe, count: 13)
+
+let sampleFeaturedRecipe = FeaturedRecipe(
+    recipe: sampleRecipe,
+    backgroundImage: "bow-background",
+    textColor: .white)
 #endif
