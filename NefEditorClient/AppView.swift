@@ -18,7 +18,7 @@ struct AppView: View {
     }
     
     var catalogView: some View {
-        RecipeCatalogView()
+        RecipeCatalogView(recipes: sampleRecipes)
             .animation(.easeInOut)
             .transition(.move(edge: .leading))
     }
