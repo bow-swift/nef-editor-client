@@ -102,19 +102,23 @@ private struct MultilineLayout: TagCloudLayout {
         }
         
         return elementSize.reduce(OngoingLayout.empty) { ongoing, element in
+            // Maximum number of lines reached
             if ongoing.line > lines {
                 
                 return ongoing.appending(offset: .hidden, nextCursor: ongoing.cursor)
                 
+            // Element does not fit in the available height
             } else if ongoing.cursor.height + element.height > containerSize.height {
                 
                 return ongoing.appending(offset: .hidden, nextCursor: ongoing.cursor)
-                
+            
+            // Element fits in the available width
             } else if ongoing.cursor.width + element.width < containerSize.width {
                 
                 let nextCursor = CGSize(width: ongoing.cursor.width + element.width + spacing, height: ongoing.cursor.height)
                 return ongoing.appending(offset: .visible(ongoing.cursor), nextCursor: nextCursor)
-                
+            
+            // Element needs to go to the next line
             } else {
                 let offset = CGSize(width: 0, height: ongoing.cursor.height + spacing + element.height)
                 
