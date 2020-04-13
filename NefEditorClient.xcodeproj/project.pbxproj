@@ -37,6 +37,7 @@
 		1163839024321FD400EB2DEF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1163838E24321FD400EB2DEF /* LaunchScreen.storyboard */; };
 		1163839B24321FD400EB2DEF /* NefEditorClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1163839A24321FD400EB2DEF /* NefEditorClientTests.swift */; };
 		1187BD65243FABED00FF668F /* FeaturedRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1187BD64243FABED00FF668F /* FeaturedRecipe.swift */; };
+		1187BD67243FAD6300FF668F /* FeaturedRecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1187BD66243FAD6300FF668F /* FeaturedRecipeView.swift */; };
 		11AD8DC5243CA8E90005E450 /* BowArch in Frameworks */ = {isa = PBXBuildFile; productRef = 11AD8DC4243CA8E90005E450 /* BowArch */; };
 		11AD8DC9243CAAE20005E450 /* RepositoryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AD8DC8243CAAE20005E450 /* RepositoryDetailView.swift */; };
 		11AD8DCD243DC4870005E450 /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AD8DCC243DC4870005E450 /* TagView.swift */; };
@@ -99,6 +100,7 @@
 		1163839A24321FD400EB2DEF /* NefEditorClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NefEditorClientTests.swift; sourceTree = "<group>"; };
 		1163839C24321FD400EB2DEF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1187BD64243FABED00FF668F /* FeaturedRecipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedRecipe.swift; sourceTree = "<group>"; };
+		1187BD66243FAD6300FF668F /* FeaturedRecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedRecipeView.swift; sourceTree = "<group>"; };
 		11AD8DC8243CAAE20005E450 /* RepositoryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailView.swift; sourceTree = "<group>"; };
 		11AD8DCC243DC4870005E450 /* TagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
 		11AD8DCE243E16480005E450 /* RegularRecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularRecipeView.swift; sourceTree = "<group>"; };
@@ -251,6 +253,7 @@
 		11AD8DCB243DC46C0005E450 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1187BD66243FAD6300FF668F /* FeaturedRecipeView.swift */,
 				11EDF4482435F4B70092E959 /* RecipeCatalogView.swift */,
 				11AD8DDA243F1B550005E450 /* RecipeGridView.swift */,
 				11AD8DCE243E16480005E450 /* RegularRecipeView.swift */,
@@ -495,6 +498,7 @@
 				11AD8DD7243E19440005E450 /* Dependency.swift in Sources */,
 				11070289243C81DC008583EB /* RequirementView.swift in Sources */,
 				11AD8DD9243E20BB0005E450 /* TagCloud.swift in Sources */,
+				1187BD67243FAD6300FF668F /* FeaturedRecipeView.swift in Sources */,
 				11E07F13243B20E000A0A027 /* RepositoryGridView.swift in Sources */,
 				11AD8DC9243CAAE20005E450 /* RepositoryDetailView.swift in Sources */,
 				11CB85932437825100CE4592 /* CardView.swift in Sources */,
