@@ -40,11 +40,11 @@
 		11AD8DC9243CAAE20005E450 /* RepositoryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AD8DC8243CAAE20005E450 /* RepositoryDetailView.swift */; };
 		11AD8DCD243DC4870005E450 /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AD8DCC243DC4870005E450 /* TagView.swift */; };
 		11AD8DCF243E16480005E450 /* RegularRecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AD8DCE243E16480005E450 /* RegularRecipeView.swift */; };
-		11AD8DD2243E17B30005E450 /* GitHub in Frameworks */ = {isa = PBXBuildFile; productRef = 11AD8DD1243E17B30005E450 /* GitHub */; };
 		11AD8DD5243E19200005E450 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AD8DD4243E19200005E450 /* Recipe.swift */; };
 		11AD8DD7243E19440005E450 /* Dependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AD8DD6243E19440005E450 /* Dependency.swift */; };
 		11AD8DD9243E20BB0005E450 /* TagCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AD8DD8243E20BB0005E450 /* TagCloud.swift */; };
 		11AD8DDB243F1B550005E450 /* RecipeGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AD8DDA243F1B550005E450 /* RecipeGridView.swift */; };
+		11B125AF2444B82D00E2D1C3 /* GitHub in Frameworks */ = {isa = PBXBuildFile; productRef = 11B125AE2444B82D00E2D1C3 /* GitHub */; };
 		11BFE9FE243B3C2200D4F891 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BFE9FD243B3C2200D4F891 /* ActivityIndicator.swift */; };
 		11BFEA00243B410D00D4F891 /* PreviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BFE9FF243B410D00D4F891 /* PreviewData.swift */; };
 		11BFEA07243B519A00D4F891 /* SearchState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BFEA06243B519A00D4F891 /* SearchState.swift */; };
@@ -100,11 +100,11 @@
 		11AD8DC8243CAAE20005E450 /* RepositoryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailView.swift; sourceTree = "<group>"; };
 		11AD8DCC243DC4870005E450 /* TagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
 		11AD8DCE243E16480005E450 /* RegularRecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularRecipeView.swift; sourceTree = "<group>"; };
-		11AD8DD0243E17A70005E450 /* GitHub */ = {isa = PBXFileReference; lastKnownFileType = folder; path = GitHub; sourceTree = "<group>"; };
 		11AD8DD4243E19200005E450 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		11AD8DD6243E19440005E450 /* Dependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dependency.swift; sourceTree = "<group>"; };
 		11AD8DD8243E20BB0005E450 /* TagCloud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCloud.swift; sourceTree = "<group>"; };
 		11AD8DDA243F1B550005E450 /* RecipeGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeGridView.swift; sourceTree = "<group>"; };
+		11B125AD2444B82300E2D1C3 /* GitHub */ = {isa = PBXFileReference; lastKnownFileType = folder; path = GitHub; sourceTree = "<group>"; };
 		11BFE9FD243B3C2200D4F891 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		11BFE9FF243B410D00D4F891 /* PreviewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewData.swift; sourceTree = "<group>"; };
 		11BFEA06243B519A00D4F891 /* SearchState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchState.swift; sourceTree = "<group>"; };
@@ -133,7 +133,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				11AD8DC5243CA8E90005E450 /* BowArch in Frameworks */,
-				11AD8DD2243E17B30005E450 /* GitHub in Frameworks */,
+				11B125AF2444B82D00E2D1C3 /* GitHub in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -182,7 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				11EDF467243714210092E959 /* github.yaml */,
-				11AD8DD0243E17A70005E450 /* GitHub */,
+				11B125AD2444B82300E2D1C3 /* GitHub */,
 				1163838224321FD100EB2DEF /* NefEditorClient */,
 				1163839924321FD400EB2DEF /* NefEditorClientTests */,
 				1163838124321FD100EB2DEF /* Products */,
@@ -346,7 +346,7 @@
 			name = NefEditorClient;
 			packageProductDependencies = (
 				11AD8DC4243CA8E90005E450 /* BowArch */,
-				11AD8DD1243E17B30005E450 /* GitHub */,
+				11B125AE2444B82D00E2D1C3 /* GitHub */,
 			);
 			productName = NefEditorClient;
 			productReference = 1163838024321FD100EB2DEF /* NefEditorClient.app */;
@@ -799,7 +799,7 @@
 			package = 11AD8DC3243CA8E80005E450 /* XCRemoteSwiftPackageReference "bow-arch" */;
 			productName = BowArch;
 		};
-		11AD8DD1243E17B30005E450 /* GitHub */ = {
+		11B125AE2444B82D00E2D1C3 /* GitHub */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = GitHub;
 		};

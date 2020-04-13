@@ -11,6 +11,10 @@ struct TagCloud: View {
     let layout: TagCloudLayout
     @State var sizes: [CGSize] = []
     
+    init(tags: [String], spacing: CGFloat = 4, lines: UInt = .max) {
+        self.init(tags: tags, layout: Layouts.multiline(spacing: spacing, lines: lines))
+    }
+    
     init(tags: [String], layout: TagCloudLayout = Layouts.multiline()) {
         self.tags = tags
         self.layout = layout
