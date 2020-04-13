@@ -1,18 +1,17 @@
 import SwiftUI
 
 struct RecipeCatalogView: View {
-    let recipes: [Recipe]
+    let catalog: Catalog
     
     var body: some View {
         GeometryReader { geometry in
             ScrollView {
-                VStack(alignment: .leading, spacing: 16) {
-                    Text("Featured recipes")
-                        .largeTitleStyle()
-                    
-                    RecipeGridView(
-                        recipes: self.recipes,
-                        columns: self.columns(for: geometry.size))
+                VStack {
+                    ForEach(self.catalog.sections, id: \.title) { section in
+                        CatalogSectionView(
+                            section: section,
+                            columns: self.columns(for: geometry.size))
+                    }
                 }.padding()
             }
         }
@@ -26,7 +25,7 @@ struct RecipeCatalogView: View {
 
 struct RecipeCatalogView_Previews: PreviewProvider {
     static var previews: some View {
-        RecipeCatalogView(recipes: sampleRecipes)
+        RecipeCatalogView(catalog: sampleCatalog)
             .previewLayout(.fixed(width: 910, height: 1024))
     }
 }
