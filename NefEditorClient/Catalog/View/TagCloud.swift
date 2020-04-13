@@ -42,7 +42,7 @@ struct TagCloud: View {
             Color.clear
                 .frame(width: size.width, height: size.height)
                 .fixedSize()
-        }.onPreferenceChange(CloudSizePreferenceKey.self) { sizes in
+        }.onPreferenceChange(TagCloudItemsSizePreferenceKey.self) { sizes in
             self.sizes = sizes
         }
         .frame(width: size.width, height: size.height)
@@ -137,7 +137,7 @@ private struct MultilineLayout: TagCloudLayout {
     }
 }
 
-private struct CloudSizePreferenceKey: PreferenceKey {
+private struct TagCloudItemsSizePreferenceKey: PreferenceKey {
     typealias Value = [CGSize]
     
     static var defaultValue: [CGSize] { [] }
@@ -153,7 +153,7 @@ private struct SizedView<Content: View>: View {
     var body: some View {
         content.background(
             GeometryReader { geometry in
-                Color.clear.preference(key: CloudSizePreferenceKey.self, value: [geometry.size])
+                Color.clear.preference(key: TagCloudItemsSizePreferenceKey.self, value: [geometry.size])
             }
         )
     }
