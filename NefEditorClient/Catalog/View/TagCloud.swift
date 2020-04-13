@@ -175,11 +175,9 @@ struct TagCloud_Previews: PreviewProvider {
         Group {
             TagCloud(tags: tags)
             
-            TagCloud(tags: tags,
-                     layout: TagCloud.Layouts.multiline(spacing: 16))
+            TagCloud(tags: tags, spacing: 16)
             
-            TagCloud(tags: tags,
-                     layout: TagCloud.Layouts.multiline(lines: 2))
+            TagCloud(tags: tags, lines: 2)
         }.previewLayout(.fixed(width: 200, height: 250))
         .padding()
     }
