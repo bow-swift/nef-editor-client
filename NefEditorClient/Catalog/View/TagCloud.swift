@@ -55,8 +55,8 @@ struct TagCloud: View {
             guard case let .visible(translation) = offset else {
                 return wrappingSize
             }
-            let width = max(wrappingSize.width, translation.width + size.width)
-            let height = max(wrappingSize.height, translation.height + size.height)
+            let width = max(wrappingSize.width, translation.x + size.width)
+            let height = max(wrappingSize.height, translation.x + size.height)
             return CGSize(width: width, height: height)
         }
     }
@@ -71,7 +71,7 @@ protocol TagCloudLayout {
 }
 
 enum Offset {
-    case visible(CGSize)
+    case visible(CGPoint)
     case hidden
 }
 
@@ -81,14 +81,14 @@ private struct MultilineLayout: TagCloudLayout {
     
     private struct OngoingLayout {
         let offsets: [Offset]
-        let cursor: CGSize
+        let cursor: CGPoint
         let line: UInt
         
         static var empty: OngoingLayout {
             OngoingLayout(offsets: [], cursor: .zero, line: 0)
         }
         
-        func appending(offset: Offset, nextCursor: CGSize, line: UInt? = nil) -> OngoingLayout {
+        func appending(offset: Offset, nextCursor: CGPoint, line: UInt? = nil) -> OngoingLayout {
             OngoingLayout(
                 offsets: self.offsets + [offset],
                 cursor: nextCursor,
@@ -112,22 +112,23 @@ private struct MultilineLayout: TagCloudLayout {
                 return ongoing.appending(offset: .hidden, nextCursor: ongoing.cursor)
                 
             // Element does not fit in the available height
-            } else if ongoing.cursor.height + element.height > containerSize.height {
+            } else if ongoing.cursor.y + element.height > containerSize.height {
                 
                 return ongoing.appending(offset: .hidden, nextCursor: ongoing.cursor)
             
             // Element fits in the available width
-            } else if ongoing.cursor.width + element.width < containerSize.width {
+            } else if ongoing.cursor.x + element.width < containerSize.width {
                 
-                let nextCursor = CGSize(width: ongoing.cursor.width + element.width + spacing, height: ongoing.cursor.height)
+                let nextCursor = CGPoint(x: ongoing.cursor.x + element.width + spacing,
+                                         y: ongoing.cursor.y)
                 return ongoing.appending(offset: .visible(ongoing.cursor), nextCursor: nextCursor)
             
             // Element needs to go to the next line
             } else {
-                let offset = CGSize(width: 0, height: ongoing.cursor.height + spacing + element.height)
+                let offset = CGPoint(x: 0, y: ongoing.cursor.y + spacing + element.height)
                 
-                if ongoing.line + 1 < lines && offset.height + element.height < containerSize.height {
-                    let nextCursor = CGSize(width: element.width + spacing, height: offset.height)
+                if ongoing.line + 1 < lines && offset.y + element.height < containerSize.height {
+                    let nextCursor = CGPoint(x: element.width + spacing, y: offset.y)
                     return ongoing.appending(offset: .visible(offset), nextCursor: nextCursor, line: ongoing.line + 1)
                 } else {
                     return ongoing.appending(offset: .hidden, nextCursor: ongoing.cursor, line: ongoing.line + 1)
@@ -160,8 +161,8 @@ private struct SizedView<Content: View>: View {
     
     func offset(_ offset: Offset) -> some View {
         switch offset {
-        case .visible(let size):
-            return AnyView(self.offset(x: size.width, y: size.height))
+        case .visible(let point):
+            return AnyView(self.offset(x: point.x, y: point.y))
         default:
             return AnyView(self.hidden())
         }
