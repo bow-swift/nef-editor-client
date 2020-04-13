@@ -44,10 +44,17 @@ let sampleRecipe = Recipe(
             requirement: .branch(Branch(name: "master")))
     ])
 
-let sampleRecipes = Array(repeating: sampleRecipe, count: 13)
+let sampleRecipes = Array(repeating: sampleRecipe, count: 13).map(CatalogItem.regular)
 
 let sampleFeaturedRecipe = FeaturedRecipe(
     recipe: sampleRecipe,
     backgroundImage: "bow-background",
     textColor: .white)
+
+let sampleFeaturedRecipes = Array(repeating: sampleFeaturedRecipe, count: 2).map(CatalogItem.featured)
+
+let sampleRecipesSection = CatalogSection(title: "My recipes", items: sampleRecipes)
+let sampleFeaturedSection = CatalogSection(title: "Featured", items: sampleFeaturedRecipes)
+
+let sampleCatalog = Catalog(sections: [sampleFeaturedSection, sampleRecipesSection])
 #endif
