@@ -11,7 +11,6 @@ struct FeaturedRecipeView: View {
                 .shadow(color: Color.black.opacity(0.2), radius: 2, x: 1, y: 1)
             
             VStack(alignment: .leading, spacing: 4) {
-                Spacer()
                 
                 Text(featured.recipe.title)
                     .titleStyle()
@@ -21,8 +20,23 @@ struct FeaturedRecipeView: View {
                     .font(.callout)
                     .lineLimit(2)
                     .foregroundColor(featured.textColor)
+                
+                Spacer()
+                
+                TagCloud(tags: featured.tags)
             }
             .padding()
+        }
+    }
+}
+
+private extension FeaturedRecipe {
+    var tags: [TagViewModel] {
+        self.recipe.dependencies.map { dependency in
+            TagViewModel(
+                text: dependency.repository,
+                foregroundColor: .white,
+                backgroundColor: Color.white.opacity(0.2))
         }
     }
 }
