@@ -6,7 +6,7 @@ struct TagView: View {
     var body: some View {
         Text(tag.text)
             .lineLimit(1)
-            .font(.callout)
+            .font(.system(.callout, design: .monospaced))
             .foregroundColor(tag.foregroundColor)
             .padding(4)
             .background(
