@@ -1,8 +1,12 @@
 import SwiftUI
 
 extension Text {
-    func titleStyle() -> Text {
+    func largeTitleStyle() -> Text {
         self.bold().font(.largeTitle)
+    }
+    
+    func titleStyle() -> Text {
+        self.bold().font(.title)
     }
     
     func activityStyle() -> Text {
