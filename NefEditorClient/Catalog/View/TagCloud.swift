@@ -10,6 +10,7 @@ struct TagCloud: View {
     let tags: [TagViewModel]
     let layout: TagCloudLayout
     @State var sizes: [CGSize] = []
+    @State var maxHeight: CGFloat = .infinity
     
     init(tags: [TagViewModel], spacing: CGFloat = 4, lines: UInt = .max) {
         self.init(tags: tags, layout: Layouts.multiline(spacing: spacing, lines: lines))
@@ -22,16 +23,17 @@ struct TagCloud: View {
     
     var body: some View {
         GeometryReader { geometry in
-            VStack {
-                self.sizeView(containerSize: geometry.size)
-            }
-        }
+            self.sizeView(containerSize: geometry.size)
+        }.onPreferenceChange(TagCloudHeightPreferenceKey.self) { newHeight in
+            self.maxHeight = newHeight
+        }.frame(maxHeight: self.maxHeight)
     }
     
     private func sizeView(containerSize: CGSize) -> some View {
         let offsets = self.layout.offsets(elements: self.tags, containerSize: containerSize, elementSize: self.sizes)
         let size = wrappingSize(sizes: self.sizes, offsets: offsets)
-        return self.contentView(size: CGSize(width: containerSize.width, height: min(size.height, containerSize.height)), offsets: offsets)
+        let height = min(size.height, containerSize.height)
+        return self.contentView(size: CGSize(width: containerSize.width, height: height), offsets: offsets).preference(key: TagCloudHeightPreferenceKey.self, value: height)
     }
     
     private func contentView(size: CGSize, offsets: [Offset]) -> some View {
@@ -47,8 +49,6 @@ struct TagCloud: View {
         }.onPreferenceChange(TagCloudItemsSizePreferenceKey.self) { sizes in
             self.sizes = sizes
         }
-        .frame(width: size.width, height: size.height)
-        .fixedSize()
     }
     
     private func wrappingSize(sizes: [CGSize], offsets: [Offset]) -> CGSize {
@@ -58,7 +58,7 @@ struct TagCloud: View {
                 return wrappingSize
             }
             let width = max(wrappingSize.width, translation.x + size.width)
-            let height = max(wrappingSize.height, translation.x + size.height)
+            let height = max(wrappingSize.height, translation.y + size.height)
             return CGSize(width: width, height: height)
         }
     }
@@ -147,6 +147,14 @@ private struct TagCloudItemsSizePreferenceKey: PreferenceKey {
     
     static func reduce(value: inout [CGSize], nextValue: () -> [CGSize]) {
         value.append(contentsOf: nextValue())
+    }
+}
+
+private struct TagCloudHeightPreferenceKey: PreferenceKey {
+    static var defaultValue: CGFloat { 0 }
+    
+    static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
+        value = nextValue()
     }
 }
 
