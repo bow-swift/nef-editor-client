@@ -7,15 +7,15 @@ struct TagCloud: View {
         }
     }
     
-    let tags: [String]
+    let tags: [TagViewModel]
     let layout: TagCloudLayout
     @State var sizes: [CGSize] = []
     
-    init(tags: [String], spacing: CGFloat = 4, lines: UInt = .max) {
+    init(tags: [TagViewModel], spacing: CGFloat = 4, lines: UInt = .max) {
         self.init(tags: tags, layout: Layouts.multiline(spacing: spacing, lines: lines))
     }
     
-    init(tags: [String], layout: TagCloudLayout = Layouts.multiline()) {
+    init(tags: [TagViewModel], layout: TagCloudLayout = Layouts.multiline()) {
         self.tags = tags
         self.layout = layout
     }
@@ -34,8 +34,8 @@ struct TagCloud: View {
     
     private func contentView(size: CGSize, offsets: [Offset]) -> some View {
         ZStack(alignment: .topLeading) {
-            ForEach(Array(tags.enumerated()), id: \.element) { tag in
-                SizedView(content: TagView(text: tag.element))
+            ForEach(Array(tags.enumerated()), id: \.element.text) { tag in
+                SizedView(content: TagView(tag: tag.element))
                     .offset(offsets[tag.offset])
             }
 
@@ -170,7 +170,9 @@ private struct SizedView<Content: View>: View {
 }
 
 struct TagCloud_Previews: PreviewProvider {
-    static var tags = ["bow", "bow-openapi", "nef", "bow-arch", "nef-plugin"]
+    static var tags = ["bow", "bow-openapi", "nef", "bow-arch", "nef-plugin"].map { tag in
+        TagViewModel(text: tag, foregroundColor: .gray, backgroundColor: Color.gray.opacity(0.2))
+    }
     
     static var previews: some View {
         Group {

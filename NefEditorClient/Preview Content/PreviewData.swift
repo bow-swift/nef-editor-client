@@ -1,4 +1,5 @@
 import GitHub
+import SwiftUI
 
 #if DEBUG
 
@@ -26,6 +27,9 @@ let branch = Requirement.branch(Branch(name: "master"))
 let sampleRepo = bow
 let sampleRepos = Array(repeating: bow, count: 17)
 let sampleSearchResults = [bow, nef]
+
+let sampleBowTag = TagViewModel(text: "bow")
+let sampleNefTag = TagViewModel(text: "nef", foregroundColor: .yellow, backgroundColor: .purple)
 
 let sampleRequirements = Array(repeating: version, count: 5) + Array(repeating: branch, count: 3)
 
