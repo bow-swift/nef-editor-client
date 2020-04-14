@@ -22,14 +22,16 @@ struct TagCloud: View {
     
     var body: some View {
         GeometryReader { geometry in
-            self.sizeView(containerSize: geometry.size)
+            VStack {
+                self.sizeView(containerSize: geometry.size)
+            }
         }
     }
     
     private func sizeView(containerSize: CGSize) -> some View {
         let offsets = self.layout.offsets(elements: self.tags, containerSize: containerSize, elementSize: self.sizes)
         let size = wrappingSize(sizes: self.sizes, offsets: offsets)
-        return self.contentView(size: CGSize(width: containerSize.width, height: size.height), offsets: offsets)
+        return self.contentView(size: CGSize(width: containerSize.width, height: min(size.height, containerSize.height)), offsets: offsets)
     }
     
     private func contentView(size: CGSize, offsets: [Offset]) -> some View {
