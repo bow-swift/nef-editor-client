@@ -52,6 +52,7 @@
 		11B125B72444BCAC00E2D1C3 /* CatalogSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B125B52444BCAC00E2D1C3 /* CatalogSection.swift */; };
 		11B125B924459B4800E2D1C3 /* TagViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B125B824459B4800E2D1C3 /* TagViewModel.swift */; };
 		11B125BC24459CB700E2D1C3 /* GitHub in Frameworks */ = {isa = PBXBuildFile; productRef = 11B125BB24459CB700E2D1C3 /* GitHub */; };
+		11B125C02447077000E2D1C3 /* DependencyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B125BF2447077000E2D1C3 /* DependencyView.swift */; };
 		11BFE9FE243B3C2200D4F891 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BFE9FD243B3C2200D4F891 /* ActivityIndicator.swift */; };
 		11BFEA00243B410D00D4F891 /* PreviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BFE9FF243B410D00D4F891 /* PreviewData.swift */; };
 		11BFEA07243B519A00D4F891 /* SearchState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BFEA06243B519A00D4F891 /* SearchState.swift */; };
@@ -119,6 +120,7 @@
 		11B125B52444BCAC00E2D1C3 /* CatalogSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CatalogSection.swift; sourceTree = "<group>"; };
 		11B125B824459B4800E2D1C3 /* TagViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagViewModel.swift; sourceTree = "<group>"; };
 		11B125BA24459CA900E2D1C3 /* GitHub */ = {isa = PBXFileReference; lastKnownFileType = folder; path = GitHub; sourceTree = "<group>"; };
+		11B125BF2447077000E2D1C3 /* DependencyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyView.swift; sourceTree = "<group>"; };
 		11BFE9FD243B3C2200D4F891 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		11BFE9FF243B410D00D4F891 /* PreviewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewData.swift; sourceTree = "<group>"; };
 		11BFEA06243B519A00D4F891 /* SearchState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchState.swift; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 				1163838524321FD100EB2DEF /* SceneDelegate.swift */,
 				1163838924321FD400EB2DEF /* Assets.xcassets */,
 				11AD8DCA243DC42E0005E450 /* Catalog */,
+				11B125BD2447074500E2D1C3 /* Detail */,
 				11E07F14243B218E00A0A027 /* Extensions */,
 				1163838E24321FD400EB2DEF /* LaunchScreen.storyboard */,
 				1163838B24321FD400EB2DEF /* Preview Content */,
@@ -286,6 +289,22 @@
 				11B125B824459B4800E2D1C3 /* TagViewModel.swift */,
 			);
 			path = State;
+			sourceTree = "<group>";
+		};
+		11B125BD2447074500E2D1C3 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				11B125BE2447075C00E2D1C3 /* View */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		11B125BE2447075C00E2D1C3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				11B125BF2447077000E2D1C3 /* DependencyView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		11BFEA04243B516200D4F891 /* View */ = {
@@ -484,6 +503,7 @@
 			files = (
 				11AD8DCD243DC4870005E450 /* TagView.swift in Sources */,
 				11E07F18243B353500A0A027 /* SearchBar.swift in Sources */,
+				11B125C02447077000E2D1C3 /* DependencyView.swift in Sources */,
 				11070291243C9DF9008583EB /* ActivityTextView.swift in Sources */,
 				1107028F243C9D0A008583EB /* LoadingRequirementsView.swift in Sources */,
 				11CB85952437848A00CE4592 /* TextStyle.swift in Sources */,
