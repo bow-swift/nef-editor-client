@@ -1,7 +1,7 @@
 import SwiftUI
 
-struct RecipeGridView: View {
-    let recipes: [Recipe]
+struct CatalogItemGridView: View {
+    let items: [CatalogItem]
     let columns: Int
     
     var body: some View {
@@ -15,7 +15,7 @@ struct RecipeGridView: View {
     }
     
     private var rows: Int {
-        Int(ceil(Double(recipes.count) / Double(columns)))
+        Int(ceil(Double(items.count) / Double(columns)))
     }
     
     private func indexFor(row: Int, column: Int) -> Int {
@@ -23,8 +23,13 @@ struct RecipeGridView: View {
     }
     
     private func viewForItem(row: Int, column: Int) -> some View {
-        if let recipe = recipes[safe: indexFor(row: row, column: column)] {
-            return AnyView(RegularRecipeView(recipe: recipe))
+        if let item = items[safe: indexFor(row: row, column: column)] {
+            switch item {
+            case .regular(let recipe):
+                return AnyView(RegularRecipeView(recipe: recipe))
+            case .featured(let featured):
+                return AnyView(FeaturedRecipeView(featured: featured))
+            }
         } else {
             return AnyView(Color.clear)
         }
@@ -35,11 +40,11 @@ struct RecipeGridView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             ScrollView {
-                RecipeGridView(recipes: sampleRecipes, columns: 2)
+                CatalogItemGridView(items: sampleFeaturedRecipes, columns: 2)
             }
             
             ScrollView {
-                RecipeGridView(recipes: sampleRecipes, columns: 3)
+                CatalogItemGridView(items: sampleRecipes, columns: 3)
             }
         }
     }

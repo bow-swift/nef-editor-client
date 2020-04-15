@@ -36,6 +36,9 @@
 		1163838D24321FD400EB2DEF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1163838C24321FD400EB2DEF /* Preview Assets.xcassets */; };
 		1163839024321FD400EB2DEF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1163838E24321FD400EB2DEF /* LaunchScreen.storyboard */; };
 		1163839B24321FD400EB2DEF /* NefEditorClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1163839A24321FD400EB2DEF /* NefEditorClientTests.swift */; };
+		1187BD65243FABED00FF668F /* FeaturedRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1187BD64243FABED00FF668F /* FeaturedRecipe.swift */; };
+		1187BD67243FAD6300FF668F /* FeaturedRecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1187BD66243FAD6300FF668F /* FeaturedRecipeView.swift */; };
+		1187BD692444525800FF668F /* CatalogItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1187BD682444525800FF668F /* CatalogItem.swift */; };
 		11AD8DC5243CA8E90005E450 /* BowArch in Frameworks */ = {isa = PBXBuildFile; productRef = 11AD8DC4243CA8E90005E450 /* BowArch */; };
 		11AD8DC9243CAAE20005E450 /* RepositoryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AD8DC8243CAAE20005E450 /* RepositoryDetailView.swift */; };
 		11AD8DCD243DC4870005E450 /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AD8DCC243DC4870005E450 /* TagView.swift */; };
@@ -43,8 +46,12 @@
 		11AD8DD5243E19200005E450 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AD8DD4243E19200005E450 /* Recipe.swift */; };
 		11AD8DD7243E19440005E450 /* Dependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AD8DD6243E19440005E450 /* Dependency.swift */; };
 		11AD8DD9243E20BB0005E450 /* TagCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AD8DD8243E20BB0005E450 /* TagCloud.swift */; };
-		11AD8DDB243F1B550005E450 /* RecipeGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AD8DDA243F1B550005E450 /* RecipeGridView.swift */; };
-		11B125AF2444B82D00E2D1C3 /* GitHub in Frameworks */ = {isa = PBXBuildFile; productRef = 11B125AE2444B82D00E2D1C3 /* GitHub */; };
+		11B125B22444BC9000E2D1C3 /* CatalogSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B125B02444BC9000E2D1C3 /* CatalogSectionView.swift */; };
+		11B125B32444BC9000E2D1C3 /* CatalogItemGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B125B12444BC9000E2D1C3 /* CatalogItemGridView.swift */; };
+		11B125B62444BCAC00E2D1C3 /* Catalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B125B42444BCAC00E2D1C3 /* Catalog.swift */; };
+		11B125B72444BCAC00E2D1C3 /* CatalogSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B125B52444BCAC00E2D1C3 /* CatalogSection.swift */; };
+		11B125B924459B4800E2D1C3 /* TagViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B125B824459B4800E2D1C3 /* TagViewModel.swift */; };
+		11B125BC24459CB700E2D1C3 /* GitHub in Frameworks */ = {isa = PBXBuildFile; productRef = 11B125BB24459CB700E2D1C3 /* GitHub */; };
 		11BFE9FE243B3C2200D4F891 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BFE9FD243B3C2200D4F891 /* ActivityIndicator.swift */; };
 		11BFEA00243B410D00D4F891 /* PreviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BFE9FF243B410D00D4F891 /* PreviewData.swift */; };
 		11BFEA07243B519A00D4F891 /* SearchState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BFEA06243B519A00D4F891 /* SearchState.swift */; };
@@ -97,14 +104,21 @@
 		1163839624321FD400EB2DEF /* NefEditorClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NefEditorClientTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1163839A24321FD400EB2DEF /* NefEditorClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NefEditorClientTests.swift; sourceTree = "<group>"; };
 		1163839C24321FD400EB2DEF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1187BD64243FABED00FF668F /* FeaturedRecipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedRecipe.swift; sourceTree = "<group>"; };
+		1187BD66243FAD6300FF668F /* FeaturedRecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedRecipeView.swift; sourceTree = "<group>"; };
+		1187BD682444525800FF668F /* CatalogItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogItem.swift; sourceTree = "<group>"; };
 		11AD8DC8243CAAE20005E450 /* RepositoryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailView.swift; sourceTree = "<group>"; };
 		11AD8DCC243DC4870005E450 /* TagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
 		11AD8DCE243E16480005E450 /* RegularRecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularRecipeView.swift; sourceTree = "<group>"; };
 		11AD8DD4243E19200005E450 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		11AD8DD6243E19440005E450 /* Dependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dependency.swift; sourceTree = "<group>"; };
 		11AD8DD8243E20BB0005E450 /* TagCloud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCloud.swift; sourceTree = "<group>"; };
-		11AD8DDA243F1B550005E450 /* RecipeGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeGridView.swift; sourceTree = "<group>"; };
-		11B125AD2444B82300E2D1C3 /* GitHub */ = {isa = PBXFileReference; lastKnownFileType = folder; path = GitHub; sourceTree = "<group>"; };
+		11B125B02444BC9000E2D1C3 /* CatalogSectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CatalogSectionView.swift; sourceTree = "<group>"; };
+		11B125B12444BC9000E2D1C3 /* CatalogItemGridView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CatalogItemGridView.swift; sourceTree = "<group>"; };
+		11B125B42444BCAC00E2D1C3 /* Catalog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Catalog.swift; sourceTree = "<group>"; };
+		11B125B52444BCAC00E2D1C3 /* CatalogSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CatalogSection.swift; sourceTree = "<group>"; };
+		11B125B824459B4800E2D1C3 /* TagViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagViewModel.swift; sourceTree = "<group>"; };
+		11B125BA24459CA900E2D1C3 /* GitHub */ = {isa = PBXFileReference; lastKnownFileType = folder; path = GitHub; sourceTree = "<group>"; };
 		11BFE9FD243B3C2200D4F891 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		11BFE9FF243B410D00D4F891 /* PreviewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewData.swift; sourceTree = "<group>"; };
 		11BFEA06243B519A00D4F891 /* SearchState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchState.swift; sourceTree = "<group>"; };
@@ -133,7 +147,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				11AD8DC5243CA8E90005E450 /* BowArch in Frameworks */,
-				11B125AF2444B82D00E2D1C3 /* GitHub in Frameworks */,
+				11B125BC24459CB700E2D1C3 /* GitHub in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -182,7 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				11EDF467243714210092E959 /* github.yaml */,
-				11B125AD2444B82300E2D1C3 /* GitHub */,
+				11B125BA24459CA900E2D1C3 /* GitHub */,
 				1163838224321FD100EB2DEF /* NefEditorClient */,
 				1163839924321FD400EB2DEF /* NefEditorClientTests */,
 				1163838124321FD100EB2DEF /* Products */,
@@ -249,8 +263,10 @@
 		11AD8DCB243DC46C0005E450 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				11B125B12444BC9000E2D1C3 /* CatalogItemGridView.swift */,
+				11B125B02444BC9000E2D1C3 /* CatalogSectionView.swift */,
+				1187BD66243FAD6300FF668F /* FeaturedRecipeView.swift */,
 				11EDF4482435F4B70092E959 /* RecipeCatalogView.swift */,
-				11AD8DDA243F1B550005E450 /* RecipeGridView.swift */,
 				11AD8DCE243E16480005E450 /* RegularRecipeView.swift */,
 				11AD8DD8243E20BB0005E450 /* TagCloud.swift */,
 				11AD8DCC243DC4870005E450 /* TagView.swift */,
@@ -261,8 +277,13 @@
 		11AD8DD3243E19130005E450 /* State */ = {
 			isa = PBXGroup;
 			children = (
+				11B125B42444BCAC00E2D1C3 /* Catalog.swift */,
+				1187BD682444525800FF668F /* CatalogItem.swift */,
+				11B125B52444BCAC00E2D1C3 /* CatalogSection.swift */,
 				11AD8DD6243E19440005E450 /* Dependency.swift */,
+				1187BD64243FABED00FF668F /* FeaturedRecipe.swift */,
 				11AD8DD4243E19200005E450 /* Recipe.swift */,
+				11B125B824459B4800E2D1C3 /* TagViewModel.swift */,
 			);
 			path = State;
 			sourceTree = "<group>";
@@ -346,7 +367,7 @@
 			name = NefEditorClient;
 			packageProductDependencies = (
 				11AD8DC4243CA8E90005E450 /* BowArch */,
-				11B125AE2444B82D00E2D1C3 /* GitHub */,
+				11B125BB24459CB700E2D1C3 /* GitHub */,
 			);
 			productName = NefEditorClient;
 			productReference = 1163838024321FD100EB2DEF /* NefEditorClient.app */;
@@ -467,35 +488,42 @@
 				1107028F243C9D0A008583EB /* LoadingRequirementsView.swift in Sources */,
 				11CB85952437848A00CE4592 /* TextStyle.swift in Sources */,
 				11AD8DD5243E19200005E450 /* Recipe.swift in Sources */,
+				1187BD692444525800FF668F /* CatalogItem.swift in Sources */,
 				11EDF4492435F4B70092E959 /* RecipeCatalogView.swift in Sources */,
+				11B125B72444BCAC00E2D1C3 /* CatalogSection.swift in Sources */,
 				11070298243CA10E008583EB /* ErrorRequirementsView.swift in Sources */,
 				11EF0A7F24373DCE009E894D /* RepositoryView.swift in Sources */,
 				11BFE9FE243B3C2200D4F891 /* ActivityIndicator.swift in Sources */,
 				11BFEA00243B410D00D4F891 /* PreviewData.swift in Sources */,
 				11070293243C9F27008583EB /* EmptyRequirementsView.swift in Sources */,
 				11BFEA0B243B538300D4F891 /* ViewStyle.swift in Sources */,
+				11B125B22444BC9000E2D1C3 /* CatalogSectionView.swift in Sources */,
 				11EDF44B2435F4FE0092E959 /* RecipeDetailView.swift in Sources */,
 				1163838424321FD100EB2DEF /* AppDelegate.swift in Sources */,
 				11BFEA0F243B560500D4F891 /* EmptySearchView.swift in Sources */,
 				1107028B243C9987008583EB /* RepositoryDetailState.swift in Sources */,
+				1187BD65243FABED00FF668F /* FeaturedRecipe.swift in Sources */,
 				11BFEA09243B525100D4F891 /* LoadingSearchView.swift in Sources */,
 				11BFEA07243B519A00D4F891 /* SearchState.swift in Sources */,
 				11EDF44F2435F5AA0092E959 /* AppView.swift in Sources */,
 				1163838624321FD100EB2DEF /* SceneDelegate.swift in Sources */,
-				11AD8DDB243F1B550005E450 /* RecipeGridView.swift in Sources */,
 				11BFEA11243B571B00D4F891 /* ErrorSearchView.swift in Sources */,
 				1107029A243CA160008583EB /* RequirementListView.swift in Sources */,
 				11070286243C8178008583EB /* Requirement.swift in Sources */,
+				11B125B924459B4800E2D1C3 /* TagViewModel.swift in Sources */,
 				11E07F16243B21A200A0A027 /* Array+Extensions.swift in Sources */,
+				11B125B32444BC9000E2D1C3 /* CatalogItemGridView.swift in Sources */,
 				1107028D243C9A25008583EB /* LoadingView.swift in Sources */,
 				11AD8DD7243E19440005E450 /* Dependency.swift in Sources */,
 				11070289243C81DC008583EB /* RequirementView.swift in Sources */,
 				11AD8DD9243E20BB0005E450 /* TagCloud.swift in Sources */,
+				1187BD67243FAD6300FF668F /* FeaturedRecipeView.swift in Sources */,
 				11E07F13243B20E000A0A027 /* RepositoryGridView.swift in Sources */,
 				11AD8DC9243CAAE20005E450 /* RepositoryDetailView.swift in Sources */,
 				11CB85932437825100CE4592 /* CardView.swift in Sources */,
 				11AD8DCF243E16480005E450 /* RegularRecipeView.swift in Sources */,
 				11BFEA0D243B553000D4F891 /* InitialSearchView.swift in Sources */,
+				11B125B62444BCAC00E2D1C3 /* Catalog.swift in Sources */,
 				11E07F11243B118F00A0A027 /* GridView.swift in Sources */,
 				11EDF44D2435F5410092E959 /* SearchView.swift in Sources */,
 			);
@@ -799,7 +827,7 @@
 			package = 11AD8DC3243CA8E80005E450 /* XCRemoteSwiftPackageReference "bow-arch" */;
 			productName = BowArch;
 		};
-		11B125AE2444B82D00E2D1C3 /* GitHub */ = {
+		11B125BB24459CB700E2D1C3 /* GitHub */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = GitHub;
 		};

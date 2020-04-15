@@ -22,9 +22,9 @@ struct RegularRecipeView: View {
 }
 
 private extension Recipe {
-    var tags: [String] {
+    var tags: [TagViewModel] {
         self.dependencies.map { dependency in
-            dependency.repository
+            TagViewModel(text: dependency.repository)
         }
     }
 }

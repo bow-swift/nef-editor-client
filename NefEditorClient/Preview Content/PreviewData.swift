@@ -1,4 +1,5 @@
 import GitHub
+import SwiftUI
 
 #if DEBUG
 
@@ -27,6 +28,9 @@ let sampleRepo = bow
 let sampleRepos = Array(repeating: bow, count: 17)
 let sampleSearchResults = [bow, nef]
 
+let sampleBowTag = TagViewModel(text: "bow")
+let sampleNefTag = TagViewModel(text: "nef", foregroundColor: .yellow, backgroundColor: .purple)
+
 let sampleRequirements = Array(repeating: version, count: 5) + Array(repeating: branch, count: 3)
 
 let sampleRecipe = Recipe(
@@ -44,5 +48,17 @@ let sampleRecipe = Recipe(
             requirement: .branch(Branch(name: "master")))
     ])
 
-let sampleRecipes = Array(repeating: sampleRecipe, count: 13)
+let sampleRecipes = Array(repeating: sampleRecipe, count: 13).map(CatalogItem.regular)
+
+let sampleFeaturedRecipe = FeaturedRecipe(
+    recipe: sampleRecipe,
+    backgroundImage: "bow-background",
+    textColor: .white)
+
+let sampleFeaturedRecipes = Array(repeating: sampleFeaturedRecipe, count: 2).map(CatalogItem.featured)
+
+let sampleRecipesSection = CatalogSection(title: "My recipes", items: sampleRecipes)
+let sampleFeaturedSection = CatalogSection(title: "Featured", items: sampleFeaturedRecipes)
+
+let sampleCatalog = Catalog(sections: [sampleFeaturedSection, sampleRecipesSection])
 #endif
