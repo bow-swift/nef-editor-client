@@ -56,6 +56,7 @@
 		11B125C2244709EA00E2D1C3 /* DependencyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B125C1244709EA00E2D1C3 /* DependencyListView.swift */; };
 		11B125C424471E1C00E2D1C3 /* ActionButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B125C324471E1C00E2D1C3 /* ActionButtonStyle.swift */; };
 		11B125C6244721BF00E2D1C3 /* ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B125C5244721BF00E2D1C3 /* ColorPalette.swift */; };
+		11B125C82447242C00E2D1C3 /* TextButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B125C72447242C00E2D1C3 /* TextButtonStyle.swift */; };
 		11BFE9FE243B3C2200D4F891 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BFE9FD243B3C2200D4F891 /* ActivityIndicator.swift */; };
 		11BFEA00243B410D00D4F891 /* PreviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BFE9FF243B410D00D4F891 /* PreviewData.swift */; };
 		11BFEA07243B519A00D4F891 /* SearchState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BFEA06243B519A00D4F891 /* SearchState.swift */; };
@@ -127,6 +128,7 @@
 		11B125C1244709EA00E2D1C3 /* DependencyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyListView.swift; sourceTree = "<group>"; };
 		11B125C324471E1C00E2D1C3 /* ActionButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButtonStyle.swift; sourceTree = "<group>"; };
 		11B125C5244721BF00E2D1C3 /* ColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPalette.swift; sourceTree = "<group>"; };
+		11B125C72447242C00E2D1C3 /* TextButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextButtonStyle.swift; sourceTree = "<group>"; };
 		11BFE9FD243B3C2200D4F891 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		11BFE9FF243B410D00D4F891 /* PreviewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewData.swift; sourceTree = "<group>"; };
 		11BFEA06243B519A00D4F891 /* SearchState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchState.swift; sourceTree = "<group>"; };
@@ -349,6 +351,7 @@
 				11E07F17243B353500A0A027 /* SearchBar.swift */,
 				11CB85942437848A00CE4592 /* TextStyle.swift */,
 				11BFEA0A243B538300D4F891 /* ViewStyle.swift */,
+				11B125C72447242C00E2D1C3 /* TextButtonStyle.swift */,
 			);
 			path = Theme;
 			sourceTree = "<group>";
@@ -535,6 +538,7 @@
 				1107028B243C9987008583EB /* RepositoryDetailState.swift in Sources */,
 				1187BD65243FABED00FF668F /* FeaturedRecipe.swift in Sources */,
 				11BFEA09243B525100D4F891 /* LoadingSearchView.swift in Sources */,
+				11B125C82447242C00E2D1C3 /* TextButtonStyle.swift in Sources */,
 				11BFEA07243B519A00D4F891 /* SearchState.swift in Sources */,
 				11EDF44F2435F5AA0092E959 /* AppView.swift in Sources */,
 				11B125C424471E1C00E2D1C3 /* ActionButtonStyle.swift in Sources */,
