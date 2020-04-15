@@ -22,11 +22,17 @@ struct CatalogItemDetailView: View {
                         Image(systemName: "plus")
                     }
                     .buttonStyle(ActionButtonStyle())
-                    
-                    .frame(width: 44, height: 44)
                 }.padding(.top, 24)
                 
                 DependencyListView(dependencies: self.item.dependencies)
+                
+                Button(action: {}) {
+                    HStack(spacing: 16) {
+                        Image(systemName: "paperplane.fill")
+                        Text("Create Swift Playground")
+                    }
+                }.frame(maxWidth: .infinity)
+                    .buttonStyle(TextButtonStyle())
             }.padding()
         }
     }
