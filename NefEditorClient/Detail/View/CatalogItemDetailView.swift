@@ -20,6 +20,12 @@ struct CatalogItemDetailView: View {
                 }
                 
                 Text(self.item.description)
+                    .foregroundColor(.gray)
+                
+                Rectangle()
+                    .fill(Color.gray.opacity(0.2))
+                    .frame(maxHeight: 2)
+                    .padding(.top, 8)
                 
                 HStack(alignment: .center) {
                     Text("Dependencies")
