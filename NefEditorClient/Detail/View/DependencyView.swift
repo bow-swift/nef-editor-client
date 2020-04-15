@@ -7,7 +7,7 @@ struct DependencyView: View {
         HStack(alignment: .center) {
             VStack(alignment: .leading, spacing: 8) {
                 Text(dependency.repository)
-                    .font(.title)
+                    .font(.body)
                 
                 Text(dependency.url)
                     .font(.caption)
@@ -15,7 +15,7 @@ struct DependencyView: View {
             }
             Spacer()
             TagView(tag: TagViewModel(text: dependency.requirement.title))
-        }.padding()
+        }.padding(4)
     }
 }
 
