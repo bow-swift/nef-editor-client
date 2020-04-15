@@ -15,7 +15,7 @@ struct DependencyView: View {
             }
             Spacer()
             TagView(tag: TagViewModel(text: dependency.requirement.title))
-        }.padding(4)
+        }.padding(.vertical, 4)
     }
 }
 

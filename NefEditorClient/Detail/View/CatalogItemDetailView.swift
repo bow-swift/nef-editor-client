@@ -7,8 +7,17 @@ struct CatalogItemDetailView: View {
     var body: some View {
         CardView {
             VStack(alignment: .leading, spacing: 8) {
-                Text(self.item.title)
-                    .largeTitleStyle()
+                HStack {
+                    Text(self.item.title)
+                        .largeTitleStyle()
+                    
+                    Spacer()
+                    
+                    Button(action: {}) {
+                        Image(systemName: "pencil")
+                    }
+                    .buttonStyle(ActionButtonStyle())
+                }
                 
                 Text(self.item.description)
                 
@@ -27,8 +36,10 @@ struct CatalogItemDetailView: View {
                 DependencyListView(dependencies: self.item.dependencies)
                 
                 Button(action: {}) {
-                    HStack(spacing: 16) {
-                        Image(systemName: "paperplane.fill")
+                    HStack(spacing: 12) {
+                        Image("nef")
+                            .resizable()
+                            .frame(width: 32, height: 32)
                         Text("Create Swift Playground")
                     }
                 }.frame(maxWidth: .infinity)
