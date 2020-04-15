@@ -33,19 +33,23 @@ let sampleNefTag = TagViewModel(text: "nef", foregroundColor: .yellow, backgroun
 
 let sampleRequirements = Array(repeating: version, count: 5) + Array(repeating: branch, count: 3)
 
+let bowDependency = Dependency(
+    repository: "bow",
+    url: "https://github.com/bow-swift/bow",
+    requirement: .version(Tag(name: "0.7.0")))
+
+let bowArchDependency = Dependency(
+    repository: "bow-arch",
+    url: "https://github.com/bow-swift/bow-arch",
+    requirement: .branch(Branch(name: "master")))
+
 let sampleRecipe = Recipe(
     title: "FP Basics",
     description: "Learn Functional Programming",
     lastModified: .init(),
     dependencies: [
-        Dependency(
-            repository: "bow",
-            url: "https://github.com/bow-swift/bow",
-            requirement: .version(Tag(name: "0.7.0"))),
-        Dependency(
-            repository: "bow-arch",
-            url: "https://github.com/bow-swift/bow-arch",
-            requirement: .branch(Branch(name: "master")))
+        bowDependency,
+        bowArchDependency
     ])
 
 let sampleRecipes = Array(repeating: sampleRecipe, count: 13).map(CatalogItem.regular)
