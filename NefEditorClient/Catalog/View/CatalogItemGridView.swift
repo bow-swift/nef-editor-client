@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct CatalogItemGridView: View {
-    let recipes: [CatalogItem]
+    let items: [CatalogItem]
     let columns: Int
     
     var body: some View {
@@ -15,7 +15,7 @@ struct CatalogItemGridView: View {
     }
     
     private var rows: Int {
-        Int(ceil(Double(recipes.count) / Double(columns)))
+        Int(ceil(Double(items.count) / Double(columns)))
     }
     
     private func indexFor(row: Int, column: Int) -> Int {
@@ -23,7 +23,7 @@ struct CatalogItemGridView: View {
     }
     
     private func viewForItem(row: Int, column: Int) -> some View {
-        if let item = recipes[safe: indexFor(row: row, column: column)] {
+        if let item = items[safe: indexFor(row: row, column: column)] {
             switch item {
             case .regular(let recipe):
                 return AnyView(RegularRecipeView(recipe: recipe))
@@ -40,11 +40,11 @@ struct RecipeGridView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             ScrollView {
-                CatalogItemGridView(recipes: sampleFeaturedRecipes, columns: 2)
+                CatalogItemGridView(items: sampleFeaturedRecipes, columns: 2)
             }
             
             ScrollView {
-                CatalogItemGridView(recipes: sampleRecipes, columns: 3)
+                CatalogItemGridView(items: sampleRecipes, columns: 3)
             }
         }
     }

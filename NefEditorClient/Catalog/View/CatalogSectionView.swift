@@ -10,7 +10,7 @@ struct CatalogSectionView: View {
                 .largeTitleStyle()
                 .padding(.top, 16)
             
-            CatalogItemGridView(recipes: section.items, columns: self.columns)
+            CatalogItemGridView(items: section.items, columns: self.columns)
         }
     }
 }
