@@ -12,15 +12,18 @@ struct CatalogItemDetailView: View {
                 
                 Text(self.item.description)
                 
-                HStack(alignment: .lastTextBaseline) {
+                HStack(alignment: .center) {
                     Text("Dependencies")
                         .titleStyle()
                     
                     Spacer()
                     
-                    Button("Add") {
-                        self.switchViews.toggle()
+                    Button(action: { self.switchViews.toggle() }) {
+                        Image(systemName: "plus")
                     }
+                    .buttonStyle(ActionButtonStyle())
+                    
+                    .frame(width: 44, height: 44)
                 }.padding(.top, 24)
                 
                 DependencyListView(dependencies: self.item.dependencies)
