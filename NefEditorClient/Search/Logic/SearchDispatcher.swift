@@ -36,7 +36,7 @@ func gitHubSearch(
     query: String
 ) -> EnvIO<API.Config, Error, Repositories> {
     
-    API.search.searchRepositories(q: query)
+    API.search.searchRepositories(q: "\(query)+language:Swift" )
         .bimap(id, { result in result.items })
 }
 
