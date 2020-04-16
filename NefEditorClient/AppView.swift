@@ -1,6 +1,8 @@
 import SwiftUI
 
 struct AppView: View {
+    let search: SearchComponent
+    
     @State var showSearch: Bool
     
     var body: some View {
@@ -40,17 +42,8 @@ struct AppView: View {
     }
     
     var searchView: some View {
-        SearchView(state: .initial) { _ in }
+        search
             .animation(.easeInOut)
             .transition(.move(edge: .trailing))
-    }
-}
-
-struct AppView_Previews: PreviewProvider {
-    static var previews: some View {
-        Group {
-            AppView(showSearch: false)
-            AppView(showSearch: true)
-        }
     }
 }
