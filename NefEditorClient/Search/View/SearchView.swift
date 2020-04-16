@@ -8,11 +8,13 @@ struct SearchView: View {
     
     var body: some View {
         VStack {
-            SearchBar(placeholder: "Search repositories...", query: $query) { query in
-                self.handle(.search(query: query))
-            }
+            CardView {
+                SearchBar(placeholder: "Search repositories...", query: self.$query) { query in
+                    self.handle(.search(query: query))
+                }.padding(4)
+            }.padding(.top).padding(.horizontal)
             
-            self.contentView.fill
+            self.contentView.fill.layoutPriority(1)
         }
     }
     

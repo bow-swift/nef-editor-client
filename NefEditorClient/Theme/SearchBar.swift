@@ -39,6 +39,7 @@ struct SearchBar: UIViewRepresentable {
         searchBar.delegate = context.coordinator
         searchBar.placeholder = self.placeholder
         searchBar.barStyle = self.barStyle
+        searchBar.searchBarStyle = .minimal
         return searchBar
     }
 
