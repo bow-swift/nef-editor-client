@@ -52,6 +52,11 @@
 		11B125B72444BCAC00E2D1C3 /* CatalogSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B125B52444BCAC00E2D1C3 /* CatalogSection.swift */; };
 		11B125B924459B4800E2D1C3 /* TagViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B125B824459B4800E2D1C3 /* TagViewModel.swift */; };
 		11B125BC24459CB700E2D1C3 /* GitHub in Frameworks */ = {isa = PBXBuildFile; productRef = 11B125BB24459CB700E2D1C3 /* GitHub */; };
+		11B125C02447077000E2D1C3 /* DependencyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B125BF2447077000E2D1C3 /* DependencyView.swift */; };
+		11B125C2244709EA00E2D1C3 /* DependencyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B125C1244709EA00E2D1C3 /* DependencyListView.swift */; };
+		11B125C424471E1C00E2D1C3 /* ActionButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B125C324471E1C00E2D1C3 /* ActionButtonStyle.swift */; };
+		11B125C6244721BF00E2D1C3 /* ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B125C5244721BF00E2D1C3 /* ColorPalette.swift */; };
+		11B125C82447242C00E2D1C3 /* TextButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B125C72447242C00E2D1C3 /* TextButtonStyle.swift */; };
 		11BFE9FE243B3C2200D4F891 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BFE9FD243B3C2200D4F891 /* ActivityIndicator.swift */; };
 		11BFEA00243B410D00D4F891 /* PreviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BFE9FF243B410D00D4F891 /* PreviewData.swift */; };
 		11BFEA07243B519A00D4F891 /* SearchState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BFEA06243B519A00D4F891 /* SearchState.swift */; };
@@ -67,7 +72,7 @@
 		11E07F16243B21A200A0A027 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E07F15243B21A200A0A027 /* Array+Extensions.swift */; };
 		11E07F18243B353500A0A027 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E07F17243B353500A0A027 /* SearchBar.swift */; };
 		11EDF4492435F4B70092E959 /* RecipeCatalogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EDF4482435F4B70092E959 /* RecipeCatalogView.swift */; };
-		11EDF44B2435F4FE0092E959 /* RecipeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EDF44A2435F4FE0092E959 /* RecipeDetailView.swift */; };
+		11EDF44B2435F4FE0092E959 /* CatalogItemDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EDF44A2435F4FE0092E959 /* CatalogItemDetailView.swift */; };
 		11EDF44D2435F5410092E959 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EDF44C2435F5410092E959 /* SearchView.swift */; };
 		11EDF44F2435F5AA0092E959 /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EDF44E2435F5AA0092E959 /* AppView.swift */; };
 		11EDF468243714210092E959 /* github.yaml in Resources */ = {isa = PBXBuildFile; fileRef = 11EDF467243714210092E959 /* github.yaml */; };
@@ -119,6 +124,11 @@
 		11B125B52444BCAC00E2D1C3 /* CatalogSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CatalogSection.swift; sourceTree = "<group>"; };
 		11B125B824459B4800E2D1C3 /* TagViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagViewModel.swift; sourceTree = "<group>"; };
 		11B125BA24459CA900E2D1C3 /* GitHub */ = {isa = PBXFileReference; lastKnownFileType = folder; path = GitHub; sourceTree = "<group>"; };
+		11B125BF2447077000E2D1C3 /* DependencyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyView.swift; sourceTree = "<group>"; };
+		11B125C1244709EA00E2D1C3 /* DependencyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyListView.swift; sourceTree = "<group>"; };
+		11B125C324471E1C00E2D1C3 /* ActionButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButtonStyle.swift; sourceTree = "<group>"; };
+		11B125C5244721BF00E2D1C3 /* ColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPalette.swift; sourceTree = "<group>"; };
+		11B125C72447242C00E2D1C3 /* TextButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextButtonStyle.swift; sourceTree = "<group>"; };
 		11BFE9FD243B3C2200D4F891 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		11BFE9FF243B410D00D4F891 /* PreviewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewData.swift; sourceTree = "<group>"; };
 		11BFEA06243B519A00D4F891 /* SearchState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchState.swift; sourceTree = "<group>"; };
@@ -134,7 +144,7 @@
 		11E07F15243B21A200A0A027 /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
 		11E07F17243B353500A0A027 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		11EDF4482435F4B70092E959 /* RecipeCatalogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCatalogView.swift; sourceTree = "<group>"; };
-		11EDF44A2435F4FE0092E959 /* RecipeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailView.swift; sourceTree = "<group>"; };
+		11EDF44A2435F4FE0092E959 /* CatalogItemDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogItemDetailView.swift; sourceTree = "<group>"; };
 		11EDF44C2435F5410092E959 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		11EDF44E2435F5AA0092E959 /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
 		11EDF467243714210092E959 /* github.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = github.yaml; sourceTree = "<group>"; };
@@ -219,10 +229,10 @@
 				1163839124321FD400EB2DEF /* Info.plist */,
 				1163838324321FD100EB2DEF /* AppDelegate.swift */,
 				11EDF44E2435F5AA0092E959 /* AppView.swift */,
-				11EDF44A2435F4FE0092E959 /* RecipeDetailView.swift */,
 				1163838524321FD100EB2DEF /* SceneDelegate.swift */,
 				1163838924321FD400EB2DEF /* Assets.xcassets */,
 				11AD8DCA243DC42E0005E450 /* Catalog */,
+				11B125BD2447074500E2D1C3 /* Detail */,
 				11E07F14243B218E00A0A027 /* Extensions */,
 				1163838E24321FD400EB2DEF /* LaunchScreen.storyboard */,
 				1163838B24321FD400EB2DEF /* Preview Content */,
@@ -288,6 +298,24 @@
 			path = State;
 			sourceTree = "<group>";
 		};
+		11B125BD2447074500E2D1C3 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				11B125BE2447075C00E2D1C3 /* View */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		11B125BE2447075C00E2D1C3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				11EDF44A2435F4FE0092E959 /* CatalogItemDetailView.swift */,
+				11B125C1244709EA00E2D1C3 /* DependencyListView.swift */,
+				11B125BF2447077000E2D1C3 /* DependencyView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		11BFEA04243B516200D4F891 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -313,14 +341,17 @@
 		11CB85902437820400CE4592 /* Theme */ = {
 			isa = PBXGroup;
 			children = (
+				11B125C324471E1C00E2D1C3 /* ActionButtonStyle.swift */,
 				11BFE9FD243B3C2200D4F891 /* ActivityIndicator.swift */,
 				11070290243C9DF9008583EB /* ActivityTextView.swift */,
 				11CB85922437825100CE4592 /* CardView.swift */,
+				11B125C5244721BF00E2D1C3 /* ColorPalette.swift */,
 				11E07F10243B118F00A0A027 /* GridView.swift */,
 				1107028C243C9A25008583EB /* LoadingView.swift */,
 				11E07F17243B353500A0A027 /* SearchBar.swift */,
 				11CB85942437848A00CE4592 /* TextStyle.swift */,
 				11BFEA0A243B538300D4F891 /* ViewStyle.swift */,
+				11B125C72447242C00E2D1C3 /* TextButtonStyle.swift */,
 			);
 			path = Theme;
 			sourceTree = "<group>";
@@ -484,6 +515,7 @@
 			files = (
 				11AD8DCD243DC4870005E450 /* TagView.swift in Sources */,
 				11E07F18243B353500A0A027 /* SearchBar.swift in Sources */,
+				11B125C02447077000E2D1C3 /* DependencyView.swift in Sources */,
 				11070291243C9DF9008583EB /* ActivityTextView.swift in Sources */,
 				1107028F243C9D0A008583EB /* LoadingRequirementsView.swift in Sources */,
 				11CB85952437848A00CE4592 /* TextStyle.swift in Sources */,
@@ -492,20 +524,24 @@
 				11EDF4492435F4B70092E959 /* RecipeCatalogView.swift in Sources */,
 				11B125B72444BCAC00E2D1C3 /* CatalogSection.swift in Sources */,
 				11070298243CA10E008583EB /* ErrorRequirementsView.swift in Sources */,
+				11B125C6244721BF00E2D1C3 /* ColorPalette.swift in Sources */,
 				11EF0A7F24373DCE009E894D /* RepositoryView.swift in Sources */,
 				11BFE9FE243B3C2200D4F891 /* ActivityIndicator.swift in Sources */,
+				11B125C2244709EA00E2D1C3 /* DependencyListView.swift in Sources */,
 				11BFEA00243B410D00D4F891 /* PreviewData.swift in Sources */,
 				11070293243C9F27008583EB /* EmptyRequirementsView.swift in Sources */,
 				11BFEA0B243B538300D4F891 /* ViewStyle.swift in Sources */,
 				11B125B22444BC9000E2D1C3 /* CatalogSectionView.swift in Sources */,
-				11EDF44B2435F4FE0092E959 /* RecipeDetailView.swift in Sources */,
+				11EDF44B2435F4FE0092E959 /* CatalogItemDetailView.swift in Sources */,
 				1163838424321FD100EB2DEF /* AppDelegate.swift in Sources */,
 				11BFEA0F243B560500D4F891 /* EmptySearchView.swift in Sources */,
 				1107028B243C9987008583EB /* RepositoryDetailState.swift in Sources */,
 				1187BD65243FABED00FF668F /* FeaturedRecipe.swift in Sources */,
 				11BFEA09243B525100D4F891 /* LoadingSearchView.swift in Sources */,
+				11B125C82447242C00E2D1C3 /* TextButtonStyle.swift in Sources */,
 				11BFEA07243B519A00D4F891 /* SearchState.swift in Sources */,
 				11EDF44F2435F5AA0092E959 /* AppView.swift in Sources */,
+				11B125C424471E1C00E2D1C3 /* ActionButtonStyle.swift in Sources */,
 				1163838624321FD100EB2DEF /* SceneDelegate.swift in Sources */,
 				11BFEA11243B571B00D4F891 /* ErrorSearchView.swift in Sources */,
 				1107029A243CA160008583EB /* RequirementListView.swift in Sources */,

@@ -5,15 +5,18 @@ struct AppView: View {
     
     var body: some View {
         NavigationView {
-            HStack {
+            HStack(spacing: 0) {
                 if !showSearch {
-                   catalogView
+                    catalogView
                 }
                 detailView
                 if showSearch {
-                   searchView
+                    searchView
                 }
-            }.navigationBarTitle("nef editor", displayMode: .inline)
+            }.background(
+                Color.gray.opacity(0.1)
+                    .edgesIgnoringSafeArea(.all)
+            ).navigationBarTitle("nef editor", displayMode: .inline)
         }.navigationViewStyle(StackNavigationViewStyle())
     }
     
@@ -29,8 +32,9 @@ struct AppView: View {
     }
     
     var detailView: some View {
-        RecipeDetailView(switchViews: $showSearch)
+        CatalogItemDetailView(item: .regular(sampleRecipe),switchViews: $showSearch)
             .frame(maxWidth: maxDetailWidth)
+            .padding()
             .animation(.easeInOut)
             .transition(.slide)
     }

@@ -5,7 +5,7 @@ struct RecipeCatalogView: View {
     
     var body: some View {
         GeometryReader { geometry in
-            ScrollView {
+            ScrollView(showsIndicators: false) {
                 VStack {
                     ForEach(self.catalog.sections, id: \.title) { section in
                         CatalogSectionView(
