@@ -33,6 +33,8 @@
 		11425434244870FB00B2EA0C /* SearchAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11425433244870FB00B2EA0C /* SearchAction.swift */; };
 		114254362448732E00B2EA0C /* SearchDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114254352448732E00B2EA0C /* SearchDispatcher.swift */; };
 		1142543A244879DE00B2EA0C /* SearchComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11425439244879DE00B2EA0C /* SearchComponent.swift */; };
+		1142543D2448A80900B2EA0C /* RepositoryDetailAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1142543C2448A80900B2EA0C /* RepositoryDetailAction.swift */; };
+		1142543F2448A87000B2EA0C /* RepositoryDetailDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1142543E2448A87000B2EA0C /* RepositoryDetailDispatcher.swift */; };
 		1163838424321FD100EB2DEF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1163838324321FD100EB2DEF /* AppDelegate.swift */; };
 		1163838624321FD100EB2DEF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1163838524321FD100EB2DEF /* SceneDelegate.swift */; };
 		1163838A24321FD400EB2DEF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1163838924321FD400EB2DEF /* Assets.xcassets */; };
@@ -105,6 +107,8 @@
 		11425433244870FB00B2EA0C /* SearchAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAction.swift; sourceTree = "<group>"; };
 		114254352448732E00B2EA0C /* SearchDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDispatcher.swift; sourceTree = "<group>"; };
 		11425439244879DE00B2EA0C /* SearchComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchComponent.swift; sourceTree = "<group>"; };
+		1142543C2448A80900B2EA0C /* RepositoryDetailAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailAction.swift; sourceTree = "<group>"; };
+		1142543E2448A87000B2EA0C /* RepositoryDetailDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailDispatcher.swift; sourceTree = "<group>"; };
 		1163838024321FD100EB2DEF /* NefEditorClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NefEditorClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1163838324321FD100EB2DEF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1163838524321FD100EB2DEF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -180,6 +184,7 @@
 		11070283243C7FB4008583EB /* Requirements */ = {
 			isa = PBXGroup;
 			children = (
+				1142543B2448A7EF00B2EA0C /* Logic */,
 				11070284243C8168008583EB /* State */,
 				11070287243C81CC008583EB /* View */,
 			);
@@ -223,6 +228,15 @@
 				11425439244879DE00B2EA0C /* SearchComponent.swift */,
 			);
 			path = Component;
+			sourceTree = "<group>";
+		};
+		1142543B2448A7EF00B2EA0C /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				1142543C2448A80900B2EA0C /* RepositoryDetailAction.swift */,
+				1142543E2448A87000B2EA0C /* RepositoryDetailDispatcher.swift */,
+			);
+			path = Logic;
 			sourceTree = "<group>";
 		};
 		1163837724321FD100EB2DEF = {
@@ -539,6 +553,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				11AD8DCD243DC4870005E450 /* TagView.swift in Sources */,
+				1142543D2448A80900B2EA0C /* RepositoryDetailAction.swift in Sources */,
 				11E07F18243B353500A0A027 /* SearchBar.swift in Sources */,
 				11B125C02447077000E2D1C3 /* DependencyView.swift in Sources */,
 				11070291243C9DF9008583EB /* ActivityTextView.swift in Sources */,
@@ -549,6 +564,7 @@
 				11EDF4492435F4B70092E959 /* RecipeCatalogView.swift in Sources */,
 				11B125B72444BCAC00E2D1C3 /* CatalogSection.swift in Sources */,
 				11070298243CA10E008583EB /* ErrorRequirementsView.swift in Sources */,
+				1142543F2448A87000B2EA0C /* RepositoryDetailDispatcher.swift in Sources */,
 				11B125C6244721BF00E2D1C3 /* ColorPalette.swift in Sources */,
 				11EF0A7F24373DCE009E894D /* RepositoryView.swift in Sources */,
 				11BFE9FE243B3C2200D4F891 /* ActivityIndicator.swift in Sources */,
