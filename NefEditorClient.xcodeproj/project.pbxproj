@@ -32,6 +32,7 @@
 		1107029A243CA160008583EB /* RequirementListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11070299243CA160008583EB /* RequirementListView.swift */; };
 		11425434244870FB00B2EA0C /* SearchAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11425433244870FB00B2EA0C /* SearchAction.swift */; };
 		114254362448732E00B2EA0C /* SearchDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114254352448732E00B2EA0C /* SearchDispatcher.swift */; };
+		1142543A244879DE00B2EA0C /* SearchComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11425439244879DE00B2EA0C /* SearchComponent.swift */; };
 		1163838424321FD100EB2DEF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1163838324321FD100EB2DEF /* AppDelegate.swift */; };
 		1163838624321FD100EB2DEF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1163838524321FD100EB2DEF /* SceneDelegate.swift */; };
 		1163838A24321FD400EB2DEF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1163838924321FD400EB2DEF /* Assets.xcassets */; };
@@ -103,6 +104,7 @@
 		11070299243CA160008583EB /* RequirementListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequirementListView.swift; sourceTree = "<group>"; };
 		11425433244870FB00B2EA0C /* SearchAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAction.swift; sourceTree = "<group>"; };
 		114254352448732E00B2EA0C /* SearchDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDispatcher.swift; sourceTree = "<group>"; };
+		11425439244879DE00B2EA0C /* SearchComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchComponent.swift; sourceTree = "<group>"; };
 		1163838024321FD100EB2DEF /* NefEditorClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NefEditorClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1163838324321FD100EB2DEF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1163838524321FD100EB2DEF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -213,6 +215,14 @@
 				114254352448732E00B2EA0C /* SearchDispatcher.swift */,
 			);
 			path = Logic;
+			sourceTree = "<group>";
+		};
+		11425438244879C300B2EA0C /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				11425439244879DE00B2EA0C /* SearchComponent.swift */,
+			);
+			path = Component;
 			sourceTree = "<group>";
 		};
 		1163837724321FD100EB2DEF = {
@@ -372,6 +382,7 @@
 		11CB85912437821800CE4592 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				11425438244879C300B2EA0C /* Component */,
 				11425432244870ED00B2EA0C /* Logic */,
 				11BFEA05243B518B00D4F891 /* State */,
 				11BFEA04243B516200D4F891 /* View */,
@@ -552,6 +563,7 @@
 				11BFEA0F243B560500D4F891 /* EmptySearchView.swift in Sources */,
 				1107028B243C9987008583EB /* RepositoryDetailState.swift in Sources */,
 				1187BD65243FABED00FF668F /* FeaturedRecipe.swift in Sources */,
+				1142543A244879DE00B2EA0C /* SearchComponent.swift in Sources */,
 				11BFEA09243B525100D4F891 /* LoadingSearchView.swift in Sources */,
 				11B125C82447242C00E2D1C3 /* TextButtonStyle.swift in Sources */,
 				11BFEA07243B519A00D4F891 /* SearchState.swift in Sources */,
