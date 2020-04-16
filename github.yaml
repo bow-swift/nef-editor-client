@@ -3,44 +3,6 @@ info:
   version: '0.1.0'
   title: GitHub API
 paths:
-  '/repos/daveverwer/SwiftPMLibrary/contents/packages.json':
-    get:
-      operationId: getSwiftPackages
-      description:
-        Obtain content of SwiftPMLibrary's packages.json
-        https://developer.github.com/v3/repos/contents/#get-contents
-      parameters: []
-      responses:
-        '200':
-          description: Returns a list of repository urls indexed in SwiftPMLibrary encoded in base64
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/PackagesJsonFile'
-  '/repos/{owner}/{repo}':
-    get:
-      operationId: getRepositoryInformation
-      description: Obtain the information of a repository.
-      parameters:
-        - in: path
-          name: owner
-          description: Owner of the repository identifier.
-          required: true
-          schema:
-            type: string
-        - in: path
-          name: repo
-          description: Repository identifier.
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: Returns the information of the requested repository.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RepositorySummary'
   '/search/repositories':
     get:
       operationId: searchRepositories
@@ -127,35 +89,6 @@ components:
       required:
         - login
         - avatar_url
-    PackagesJsonFile:
-      description:
-        This is a reduced response of the full content object to fit our needs. 
-        https://developer.github.com/v3/repos/contents/#response-if-content-is-a-file
-      type: object
-      properties:
-        content:
-          type: string
-        encoding:
-          type: string
-      required:
-        - content
-        - encoding
-    RepositorySummary:
-      description:
-        This is a reduced response of the full repository object to fit our needs. 
-         https://developer.github.com/v3/repos/#response-4
-      type: object
-      properties:
-        name:
-          type: string
-        description:
-          type: string
-        stargazers_count:
-          type: integer
-      required:
-        - name
-        - description
-        - stargazers_count
     Repositories:
       description: An array of repositories.
       type: array
