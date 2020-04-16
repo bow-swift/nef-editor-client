@@ -30,6 +30,7 @@
 		11070293243C9F27008583EB /* EmptyRequirementsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11070292243C9F27008583EB /* EmptyRequirementsView.swift */; };
 		11070298243CA10E008583EB /* ErrorRequirementsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11070297243CA10E008583EB /* ErrorRequirementsView.swift */; };
 		1107029A243CA160008583EB /* RequirementListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11070299243CA160008583EB /* RequirementListView.swift */; };
+		11425434244870FB00B2EA0C /* SearchAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11425433244870FB00B2EA0C /* SearchAction.swift */; };
 		1163838424321FD100EB2DEF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1163838324321FD100EB2DEF /* AppDelegate.swift */; };
 		1163838624321FD100EB2DEF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1163838524321FD100EB2DEF /* SceneDelegate.swift */; };
 		1163838A24321FD400EB2DEF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1163838924321FD400EB2DEF /* Assets.xcassets */; };
@@ -99,6 +100,7 @@
 		11070292243C9F27008583EB /* EmptyRequirementsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyRequirementsView.swift; sourceTree = "<group>"; };
 		11070297243CA10E008583EB /* ErrorRequirementsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorRequirementsView.swift; sourceTree = "<group>"; };
 		11070299243CA160008583EB /* RequirementListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequirementListView.swift; sourceTree = "<group>"; };
+		11425433244870FB00B2EA0C /* SearchAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAction.swift; sourceTree = "<group>"; };
 		1163838024321FD100EB2DEF /* NefEditorClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NefEditorClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1163838324321FD100EB2DEF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1163838524321FD100EB2DEF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -200,6 +202,14 @@
 				11AD8DC8243CAAE20005E450 /* RepositoryDetailView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		11425432244870ED00B2EA0C /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				11425433244870FB00B2EA0C /* SearchAction.swift */,
+			);
+			path = Logic;
 			sourceTree = "<group>";
 		};
 		1163837724321FD100EB2DEF = {
@@ -359,6 +369,7 @@
 		11CB85912437821800CE4592 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				11425432244870ED00B2EA0C /* Logic */,
 				11BFEA05243B518B00D4F891 /* State */,
 				11BFEA04243B516200D4F891 /* View */,
 			);
@@ -548,6 +559,7 @@
 				11070286243C8178008583EB /* Requirement.swift in Sources */,
 				11B125B924459B4800E2D1C3 /* TagViewModel.swift in Sources */,
 				11E07F16243B21A200A0A027 /* Array+Extensions.swift in Sources */,
+				11425434244870FB00B2EA0C /* SearchAction.swift in Sources */,
 				11B125B32444BC9000E2D1C3 /* CatalogItemGridView.swift in Sources */,
 				1107028D243C9A25008583EB /* LoadingView.swift in Sources */,
 				11AD8DD7243E19440005E450 /* Dependency.swift in Sources */,
