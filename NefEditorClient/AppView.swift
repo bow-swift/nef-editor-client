@@ -40,7 +40,7 @@ struct AppView: View {
     }
     
     var searchView: some View {
-        SearchView(state: .initial)
+        SearchView(state: .initial) { _ in }
             .animation(.easeInOut)
             .transition(.move(edge: .trailing))
     }

@@ -2,5 +2,5 @@ import GitHub
 
 enum SearchAction {
     case search(query: String)
-    case loadResults(Repositories)
+    case loadResults(Repositories, query: String)
 }

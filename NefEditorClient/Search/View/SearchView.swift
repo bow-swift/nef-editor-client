@@ -4,10 +4,13 @@ import GitHub
 struct SearchView: View {
     let state: SearchState
     @State var query: String = ""
+    let handle: (SearchAction) -> Void
     
     var body: some View {
         VStack {
-            SearchBar(placeholder: "Search repositories...", query: $query)
+            SearchBar(placeholder: "Search repositories...", query: $query) { query in
+                self.handle(.search(query: query))
+            }
             
             self.contentView.fill
         }
@@ -49,17 +52,17 @@ struct SearchView: View {
 struct SearchView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            SearchView(state: .initial)
+            SearchView(state: .initial) { _ in }
             
-            SearchView(state: .empty(query: "Bow"))
+            SearchView(state: .empty(query: "Bow")) { _ in }
             
-            SearchView(state: .loading(query: "Bow"))
+            SearchView(state: .loading(query: "Bow")) { _ in }
             
-            SearchView(state: .loaded(sampleSearchResults))
+            SearchView(state: .loaded(sampleSearchResults)) { _ in }
             
-            SearchView(state: .loaded(sampleRepos))
+            SearchView(state: .loaded(sampleRepos)) { _ in }
             
-            SearchView(state: .error(message: "Unexpected error happened."))
+            SearchView(state: .error(message: "Unexpected error happened.")) { _ in }
         }
         .previewLayout(.fixed(width: 910, height: 1024))
     }
