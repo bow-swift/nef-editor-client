@@ -19,6 +19,20 @@ let searchDispatcher = SearchDispatcher { action, handler in
             .modify { state in
                 state.copy(loadingState: newLoadingState)
             })
+        
+    case .showDetails(let repository):
+        return handler.send(action:
+            .modify { state in
+                state.copy(modalState: .repositoryDetail(repository))
+            }
+        )
+        
+    case .dismissDetails:
+        return handler.send(action:
+            .modify { state in
+                state.copy(modalState: .noModal)
+            }
+        )
     }
 }
 
