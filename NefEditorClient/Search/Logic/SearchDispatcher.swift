@@ -14,25 +14,13 @@ let searchDispatcher = SearchDispatcher { action, handler in
             .handleErrorWith { _ in onError(query: query, handler: handler) }^
         
     case .loadResults(let repositories, query: let query):
-        let newLoadingState = loadResults(repositories, for: query)
-        return handler.send(action:
-            .modify { state in
-                state.copy(loadingState: newLoadingState)
-            })
+        return handler.send(action: loadResults(repositories, for: query))
         
     case .showDetails(let repository):
-        return handler.send(action:
-            .modify { state in
-                state.copy(modalState: .repositoryDetail(repository))
-            }
-        )
+        return handler.send(action: showDetails(repository))
         
     case .dismissDetails:
-        return handler.send(action:
-            .modify { state in
-                state.copy(modalState: .noModal)
-            }
-        )
+        return handler.send(action: dismissDetails())
     }
 }
 
@@ -72,11 +60,25 @@ func onError(
 func loadResults(
     _ repositories: Repositories,
     for query: String
-) -> SearchLoadingState {
-    
-    if repositories.isEmpty {
-        return .empty(query: query)
-    } else {
-        return .loaded(repositories)
-    }
+) -> State<SearchState, Void> {
+    .modify { state in
+        let newState: SearchLoadingState = (repositories.isEmpty)
+            ? .empty(query: query)
+            : .loaded(repositories)
+        return state.copy(loadingState: newState)
+    }^
+}
+
+func showDetails(
+    _ repository: Repository
+) -> State<SearchState, Void> {
+    .modify { state in
+        state.copy(modalState: .repositoryDetail(repository))
+    }^
+}
+
+func dismissDetails() -> State<SearchState, Void> {
+    .modify { state in
+        state.copy(modalState: .noModal)
+    }^
 }
