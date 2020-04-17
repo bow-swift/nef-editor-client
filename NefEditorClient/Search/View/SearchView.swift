@@ -4,6 +4,7 @@ import GitHub
 struct SearchView: View {
     let state: SearchState
     @State var query: String = ""
+    
     let handle: (SearchAction) -> Void
     
     var body: some View {
@@ -19,7 +20,7 @@ struct SearchView: View {
     }
     
     private var contentView: some View {
-        switch state {
+        switch state.loadingState {
         case .initial:
             return AnyView(InitialSearchView())
         case .loading(let query):
@@ -52,19 +53,23 @@ struct SearchView: View {
 }
 
 struct SearchView_Previews: PreviewProvider {
+    static func state(_ loadingState: SearchLoadingState) -> SearchState {
+        SearchState(loadingState: loadingState, modalState: .noModal)
+    }
+    
     static var previews: some View {
         Group {
-            SearchView(state: .initial) { _ in }
+            SearchView(state: state(.initial)) { _ in }
             
-            SearchView(state: .empty(query: "Bow")) { _ in }
+            SearchView(state: state(.empty(query: "Bow"))) { _ in }
             
-            SearchView(state: .loading(query: "Bow")) { _ in }
+            SearchView(state: state(.loading(query: "Bow"))) { _ in }
             
-            SearchView(state: .loaded(sampleSearchResults)) { _ in }
+            SearchView(state: state(.loaded(sampleSearchResults))) { _ in }
             
-            SearchView(state: .loaded(sampleRepos)) { _ in }
+            SearchView(state: state(.loaded(sampleRepos))) { _ in }
             
-            SearchView(state: .error(message: "Unexpected error happened.")) { _ in }
+            SearchView(state: state(.error(message: "Unexpected error happened."))) { _ in }
         }
         .previewLayout(.fixed(width: 910, height: 1024))
     }

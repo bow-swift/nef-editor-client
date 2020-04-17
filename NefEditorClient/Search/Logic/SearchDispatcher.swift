@@ -14,8 +14,11 @@ let searchDispatcher = SearchDispatcher { action, handler in
             .handleErrorWith { _ in onError(query: query, handler: handler) }^
         
     case .loadResults(let repositories, query: let query):
-        let newState = loadResults(repositories, for: query)
-        return handler.send(action: .set(newState))
+        let newLoadingState = loadResults(repositories, for: query)
+        return handler.send(action:
+            .modify { state in
+                state.copy(loadingState: newLoadingState)
+            })
     }
 }
 
@@ -26,7 +29,9 @@ func search(
     let repositories = EnvIO<API.Config, Error, Repositories>.var()
     
     return binding(
-        |<-handler.send(action: .set(.loading(query: query))),
+        |<-handler.send(action: .modify { state in
+            state.copy(loadingState: .loading(query: query))
+        }),
         continueOn(.global(qos: .background)),
         repositories <- gitHubSearch(query: query),
         yield: [.loadResults(repositories.get, query: query)])^
@@ -45,14 +50,15 @@ func onError(
     handler: SearchHandler
 ) -> EnvIO<API.Config, Error, [SearchAction]> {
     handler.send(action:
-        .set(.error(message: "An error happened while performing your query '\(query)'"))
-    )
+        .modify { state in
+            state.copy(loadingState: .error(message: "An error happened while performing your query '\(query)'"))
+        })
 }
 
 func loadResults(
     _ repositories: Repositories,
     for query: String
-) -> SearchState {
+) -> SearchLoadingState {
     
     if repositories.isEmpty {
         return .empty(query: query)
