@@ -1,4 +1,5 @@
 import GitHub
+import Bow
 import BowArch
 
 typealias SearchComponent = StoreComponent<SearchState, SearchView>
@@ -10,6 +11,7 @@ func searchComponent(config: API.Config) -> SearchComponent {
             
         SearchView(
             state: state,
+            detail: config |> repositoryDetail,
             handle: searchDispatcher.sendingTo(handler, environment: config))
     }
 }
