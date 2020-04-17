@@ -36,6 +36,7 @@
 		1142543D2448A80900B2EA0C /* RepositoryDetailAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1142543C2448A80900B2EA0C /* RepositoryDetailAction.swift */; };
 		1142543F2448A87000B2EA0C /* RepositoryDetailDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1142543E2448A87000B2EA0C /* RepositoryDetailDispatcher.swift */; };
 		114254422448AEFF00B2EA0C /* RepositoryDetailComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114254412448AEFF00B2EA0C /* RepositoryDetailComponent.swift */; };
+		11425445244990AB00B2EA0C /* Data+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11425444244990AB00B2EA0C /* Data+Equatable.swift */; };
 		1163838424321FD100EB2DEF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1163838324321FD100EB2DEF /* AppDelegate.swift */; };
 		1163838624321FD100EB2DEF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1163838524321FD100EB2DEF /* SceneDelegate.swift */; };
 		1163838A24321FD400EB2DEF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1163838924321FD400EB2DEF /* Assets.xcassets */; };
@@ -111,6 +112,7 @@
 		1142543C2448A80900B2EA0C /* RepositoryDetailAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailAction.swift; sourceTree = "<group>"; };
 		1142543E2448A87000B2EA0C /* RepositoryDetailDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailDispatcher.swift; sourceTree = "<group>"; };
 		114254412448AEFF00B2EA0C /* RepositoryDetailComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailComponent.swift; sourceTree = "<group>"; };
+		11425444244990AB00B2EA0C /* Data+Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Equatable.swift"; sourceTree = "<group>"; };
 		1163838024321FD100EB2DEF /* NefEditorClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NefEditorClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1163838324321FD100EB2DEF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1163838524321FD100EB2DEF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -250,6 +252,14 @@
 			path = Component;
 			sourceTree = "<group>";
 		};
+		114254432449909600B2EA0C /* GitHubExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				11425444244990AB00B2EA0C /* Data+Equatable.swift */,
+			);
+			path = GitHubExtensions;
+			sourceTree = "<group>";
+		};
 		1163837724321FD100EB2DEF = {
 			isa = PBXGroup;
 			children = (
@@ -282,6 +292,7 @@
 				11AD8DCA243DC42E0005E450 /* Catalog */,
 				11B125BD2447074500E2D1C3 /* Detail */,
 				11E07F14243B218E00A0A027 /* Extensions */,
+				114254432449909600B2EA0C /* GitHubExtensions */,
 				1163838E24321FD400EB2DEF /* LaunchScreen.storyboard */,
 				1163838B24321FD400EB2DEF /* Preview Content */,
 				11070283243C7FB4008583EB /* Requirements */,
@@ -595,6 +606,7 @@
 				11B125C82447242C00E2D1C3 /* TextButtonStyle.swift in Sources */,
 				11BFEA07243B519A00D4F891 /* SearchLoadingState.swift in Sources */,
 				11EDF44F2435F5AA0092E959 /* AppView.swift in Sources */,
+				11425445244990AB00B2EA0C /* Data+Equatable.swift in Sources */,
 				11B125C424471E1C00E2D1C3 /* ActionButtonStyle.swift in Sources */,
 				1163838624321FD100EB2DEF /* SceneDelegate.swift in Sources */,
 				11BFEA11243B571B00D4F891 /* ErrorSearchView.swift in Sources */,

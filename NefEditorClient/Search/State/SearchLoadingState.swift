@@ -22,7 +22,7 @@ enum SearchLoadingState {
     case error(message: String)
 }
 
-enum SearchModalState {
+enum SearchModalState: Equatable {
     case noModal
-    case repositoryDetails(Repository)
+    case repositoryDetail(Repository)
 }
