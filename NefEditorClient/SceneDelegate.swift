@@ -21,9 +21,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
 
         // Create the SwiftUI view that provides the window contents.
+        let initialState = AppState(
+            panelState: .catalog,
+            editState: .notEditing,
+            catalog: sampleCatalog,
+            selectedItem: .regular(sampleRecipe))
         let config = API.Config(basePath: "https://api.github.com")
         let search = searchComponent(config: config)
-        let contentView = AppView(search: search, showSearch: false)
+        let contentView = AppView(state: initialState, search: search)
 
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {

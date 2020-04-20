@@ -1,9 +1,23 @@
 import SwiftUI
 
 struct AppView: View {
+    let state: AppState
     let search: SearchComponent
     
-    @State var showSearch: Bool
+    let isEditPresented: Binding<Bool>
+    
+    init(state: AppState,
+         search: SearchComponent) {
+        self.state = state
+        self.search = search
+        self.isEditPresented = Binding(
+            get: { state.editState != .notEditing },
+            set: { newValue in print("Edition dismissed!") })
+    }
+    
+    var showSearch: Bool {
+        state.panelState == .search
+    }
     
     var body: some View {
         NavigationView {
@@ -16,14 +30,21 @@ struct AppView: View {
                     searchView
                 }
             }.background(
-                Color.gray.opacity(0.1)
-                    .edgesIgnoringSafeArea(.all)
+                self.backgroundView
             ).navigationBarTitle("nef editor", displayMode: .inline)
+            .sheet(isPresented: isEditPresented) {
+                self.sheetView
+            }
         }.navigationViewStyle(StackNavigationViewStyle())
     }
     
+    var backgroundView: some View {
+        Color.gray.opacity(0.1)
+            .edgesIgnoringSafeArea(.all)
+    }
+    
     var catalogView: some View {
-        RecipeCatalogView(catalog: sampleCatalog)
+        RecipeCatalogView(catalog: state.catalog)
             .animation(.easeInOut)
             .transition(.move(edge: .leading))
     }
@@ -34,7 +55,7 @@ struct AppView: View {
     }
     
     var detailView: some View {
-        CatalogItemDetailView(item: .regular(sampleRecipe),switchViews: $showSearch)
+        CatalogItemDetailView(item: state.selectedItem, switchViews: .constant(false))
             .frame(maxWidth: maxDetailWidth)
             .padding()
             .animation(.easeInOut)
@@ -45,5 +66,27 @@ struct AppView: View {
         search
             .animation(.easeInOut)
             .transition(.move(edge: .trailing))
+    }
+    
+    var sheetView: some View {
+        NavigationView {
+            self.editView
+        }.navigationViewStyle(StackNavigationViewStyle())
+    }
+    
+    var editView: some View {
+        switch state.editState {
+        case .notEditing:
+            return AnyView(EmptyView())
+        case .newRecipe:
+            return AnyView(
+                EditRecipeMetadataView(title: "", description: "")
+                    .navigationBarTitle("New recipe")
+            )
+        case .editRecipe(let recipe):
+            return AnyView(
+                EditRecipeMetadataView(title: recipe.title, description: recipe.description)
+            )
+        }
     }
 }
