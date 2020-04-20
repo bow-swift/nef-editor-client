@@ -6,11 +6,26 @@ struct CatalogSectionView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text(section.title)
-                .largeTitleStyle()
-                .padding(.top, 16)
+            HStack(alignment: .firstTextBaseline) {
+                Text(section.title)
+                    .largeTitleStyle()
+                
+                Spacer()
+                
+                self.actionView(for: self.section)
+            }.padding(.top, 16)
             
             CatalogItemGridView(items: section.items, columns: self.columns)
+        }
+    }
+    
+    func actionView(for section: CatalogSection) -> some View {
+        if let action = section.action {
+            return AnyView(Button(action: {}) {
+                Image(systemName: action.icon)
+            }.buttonStyle(ActionButtonStyle()))
+        } else {
+            return AnyView(EmptyView())
         }
     }
 }

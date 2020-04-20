@@ -61,8 +61,13 @@ let sampleFeaturedRecipe = FeaturedRecipe(
 
 let sampleFeaturedRecipes = Array(repeating: sampleFeaturedRecipe, count: 2).map(CatalogItem.featured)
 
-let sampleRecipesSection = CatalogSection(title: "My recipes", items: sampleRecipes)
-let sampleFeaturedSection = CatalogSection(title: "Featured", items: sampleFeaturedRecipes)
+let sampleRecipesSection = CatalogSection(
+    title: "My recipes",
+    action: CatalogSectionAction(icon: "plus"),
+    items: sampleRecipes)
+let sampleFeaturedSection = CatalogSection(
+    title: "Featured",
+    items: sampleFeaturedRecipes)
 
 let sampleCatalog = Catalog(sections: [sampleFeaturedSection, sampleRecipesSection])
 #endif
