@@ -288,7 +288,6 @@
 			children = (
 				1163839124321FD400EB2DEF /* Info.plist */,
 				1163838324321FD100EB2DEF /* AppDelegate.swift */,
-				11EDF44E2435F5AA0092E959 /* AppView.swift */,
 				1163838524321FD100EB2DEF /* SceneDelegate.swift */,
 				1163838924321FD400EB2DEF /* Assets.xcassets */,
 				11AD8DCA243DC42E0005E450 /* Catalog */,
@@ -297,6 +296,7 @@
 				11E07F14243B218E00A0A027 /* Extensions */,
 				114254432449909600B2EA0C /* GitHubExtensions */,
 				1163838E24321FD400EB2DEF /* LaunchScreen.storyboard */,
+				1163BA88244DF81A005B0785 /* Main */,
 				1163838B24321FD400EB2DEF /* Preview Content */,
 				11070283243C7FB4008583EB /* Requirements */,
 				11CB85912437821800CE4592 /* Search */,
@@ -335,6 +335,22 @@
 			isa = PBXGroup;
 			children = (
 				1163BA86244DF22E005B0785 /* EditRecipeMetadataView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1163BA88244DF81A005B0785 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				1163BA89244DF825005B0785 /* View */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		1163BA89244DF825005B0785 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				11EDF44E2435F5AA0092E959 /* AppView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
