@@ -14,8 +14,13 @@ let searchDispatcher = SearchDispatcher { action, handler in
             .handleErrorWith { _ in onError(query: query, handler: handler) }^
         
     case .loadResults(let repositories, query: let query):
-        let newState = loadResults(repositories, for: query)
-        return handler.send(action: .set(newState))
+        return handler.send(action: loadResults(repositories, for: query))
+        
+    case .showDetails(let repository):
+        return handler.send(action: showDetails(repository))
+        
+    case .dismissDetails:
+        return handler.send(action: dismissDetails())
     }
 }
 
@@ -26,7 +31,9 @@ func search(
     let repositories = EnvIO<API.Config, Error, Repositories>.var()
     
     return binding(
-        |<-handler.send(action: .set(.loading(query: query))),
+        |<-handler.send(action: .modify { state in
+            state.copy(loadingState: .loading(query: query))
+        }),
         continueOn(.global(qos: .background)),
         repositories <- gitHubSearch(query: query),
         yield: [.loadResults(repositories.get, query: query)])^
@@ -45,18 +52,33 @@ func onError(
     handler: SearchHandler
 ) -> EnvIO<API.Config, Error, [SearchAction]> {
     handler.send(action:
-        .set(.error(message: "An error happened while performing your query '\(query)'"))
-    )
+        .modify { state in
+            state.copy(loadingState: .error(message: "An error happened while performing your query '\(query)'"))
+        })
 }
 
 func loadResults(
     _ repositories: Repositories,
     for query: String
-) -> SearchState {
-    
-    if repositories.isEmpty {
-        return .empty(query: query)
-    } else {
-        return .loaded(repositories)
-    }
+) -> State<SearchState, Void> {
+    .modify { state in
+        let newState: SearchLoadingState = (repositories.isEmpty)
+            ? .empty(query: query)
+            : .loaded(repositories)
+        return state.copy(loadingState: newState)
+    }^
+}
+
+func showDetails(
+    _ repository: Repository
+) -> State<SearchState, Void> {
+    .modify { state in
+        state.copy(modalState: .repositoryDetail(repository))
+    }^
+}
+
+func dismissDetails() -> State<SearchState, Void> {
+    .modify { state in
+        state.copy(modalState: .noModal)
+    }^
 }
