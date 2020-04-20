@@ -44,6 +44,9 @@
 		1163839024321FD400EB2DEF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1163838E24321FD400EB2DEF /* LaunchScreen.storyboard */; };
 		1163839B24321FD400EB2DEF /* NefEditorClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1163839A24321FD400EB2DEF /* NefEditorClientTests.swift */; };
 		1163BA87244DF22E005B0785 /* EditRecipeMetadataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1163BA86244DF22E005B0785 /* EditRecipeMetadataView.swift */; };
+		1163BA8E244DF8B3005B0785 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1163BA8D244DF8B3005B0785 /* AppState.swift */; };
+		1163BA90244DF8E4005B0785 /* PanelState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1163BA8F244DF8E4005B0785 /* PanelState.swift */; };
+		1163BA92244DF933005B0785 /* EditState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1163BA91244DF933005B0785 /* EditState.swift */; };
 		1187BD65243FABED00FF668F /* FeaturedRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1187BD64243FABED00FF668F /* FeaturedRecipe.swift */; };
 		1187BD67243FAD6300FF668F /* FeaturedRecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1187BD66243FAD6300FF668F /* FeaturedRecipeView.swift */; };
 		1187BD692444525800FF668F /* CatalogItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1187BD682444525800FF668F /* CatalogItem.swift */; };
@@ -125,6 +128,9 @@
 		1163839A24321FD400EB2DEF /* NefEditorClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NefEditorClientTests.swift; sourceTree = "<group>"; };
 		1163839C24321FD400EB2DEF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1163BA86244DF22E005B0785 /* EditRecipeMetadataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditRecipeMetadataView.swift; sourceTree = "<group>"; };
+		1163BA8D244DF8B3005B0785 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		1163BA8F244DF8E4005B0785 /* PanelState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanelState.swift; sourceTree = "<group>"; };
+		1163BA91244DF933005B0785 /* EditState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditState.swift; sourceTree = "<group>"; };
 		1187BD64243FABED00FF668F /* FeaturedRecipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedRecipe.swift; sourceTree = "<group>"; };
 		1187BD66243FAD6300FF668F /* FeaturedRecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedRecipeView.swift; sourceTree = "<group>"; };
 		1187BD682444525800FF668F /* CatalogItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogItem.swift; sourceTree = "<group>"; };
@@ -342,6 +348,7 @@
 		1163BA88244DF81A005B0785 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				1163BA8A244DF844005B0785 /* State */,
 				1163BA89244DF825005B0785 /* View */,
 			);
 			path = Main;
@@ -353,6 +360,16 @@
 				11EDF44E2435F5AA0092E959 /* AppView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		1163BA8A244DF844005B0785 /* State */ = {
+			isa = PBXGroup;
+			children = (
+				1163BA8D244DF8B3005B0785 /* AppState.swift */,
+				1163BA91244DF933005B0785 /* EditState.swift */,
+				1163BA8F244DF8E4005B0785 /* PanelState.swift */,
+			);
+			path = State;
 			sourceTree = "<group>";
 		};
 		11AD8DCA243DC42E0005E450 /* Catalog */ = {
@@ -610,6 +627,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				11AD8DCD243DC4870005E450 /* TagView.swift in Sources */,
+				1163BA92244DF933005B0785 /* EditState.swift in Sources */,
 				1142543D2448A80900B2EA0C /* RepositoryDetailAction.swift in Sources */,
 				11E07F18243B353500A0A027 /* SearchBar.swift in Sources */,
 				11B125C02447077000E2D1C3 /* DependencyView.swift in Sources */,
@@ -623,6 +641,7 @@
 				11070298243CA10E008583EB /* ErrorRequirementsView.swift in Sources */,
 				1142543F2448A87000B2EA0C /* RepositoryDetailDispatcher.swift in Sources */,
 				11B125C6244721BF00E2D1C3 /* ColorPalette.swift in Sources */,
+				1163BA8E244DF8B3005B0785 /* AppState.swift in Sources */,
 				11EF0A7F24373DCE009E894D /* RepositoryView.swift in Sources */,
 				11BFE9FE243B3C2200D4F891 /* ActivityIndicator.swift in Sources */,
 				11B125C2244709EA00E2D1C3 /* DependencyListView.swift in Sources */,
@@ -655,6 +674,7 @@
 				1107028D243C9A25008583EB /* LoadingView.swift in Sources */,
 				11AD8DD7243E19440005E450 /* Dependency.swift in Sources */,
 				11070289243C81DC008583EB /* RequirementView.swift in Sources */,
+				1163BA90244DF8E4005B0785 /* PanelState.swift in Sources */,
 				11AD8DD9243E20BB0005E450 /* TagCloud.swift in Sources */,
 				1187BD67243FAD6300FF668F /* FeaturedRecipeView.swift in Sources */,
 				11E07F13243B20E000A0A027 /* RepositoryGridView.swift in Sources */,
