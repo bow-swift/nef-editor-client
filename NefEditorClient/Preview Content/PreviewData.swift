@@ -46,7 +46,6 @@ let bowArchDependency = Dependency(
 let sampleRecipe = Recipe(
     title: "FP Basics",
     description: "Learn Functional Programming",
-    lastModified: .init(),
     dependencies: [
         bowDependency,
         bowArchDependency

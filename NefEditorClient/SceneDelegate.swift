@@ -24,7 +24,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let initialState = AppState(
             panelState: .catalog,
             editState: .notEditing,
-            catalog: sampleCatalog,
+            catalog: Catalog.initial,
             selectedItem: .regular(sampleRecipe))
         let config = API.Config(basePath: "https://api.github.com")
         let search = searchComponent(config: config)
