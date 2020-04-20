@@ -5,3 +5,15 @@ extension Repository: Equatable {
         lhs.fullName == rhs.fullName
     }
 }
+
+extension Tag: Equatable {
+    public static func ==(lhs: Tag, rhs: Tag) -> Bool {
+        lhs.name == rhs.name
+    }
+}
+
+extension Branch: Equatable {
+    public static func ==(lhs: Branch, rhs: Branch) -> Bool {
+        lhs.name == rhs.name
+    }
+}

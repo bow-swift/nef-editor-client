@@ -1,6 +1,6 @@
 import Foundation
 
-struct Recipe {
+struct Recipe: Equatable {
     let title: String
     let description: String
     let lastModified: Date
