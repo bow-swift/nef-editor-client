@@ -8,6 +8,13 @@ struct CatalogSection {
         self.action = action
         self.items = items
     }
+    
+    func appending(_ item: CatalogItem) -> CatalogSection {
+        CatalogSection(
+            title: self.title,
+            action: self.action,
+            items: self.items + [item])
+    }
 }
 
 struct CatalogSectionAction {

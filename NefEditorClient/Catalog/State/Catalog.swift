@@ -1,7 +1,12 @@
 import GitHub
 
 struct Catalog {
-    let sections: [CatalogSection]
+    let featured: CatalogSection
+    let userCreated: CatalogSection
+    
+    var sections: [CatalogSection] {
+        [featured, userCreated]
+    }
     
     static var initial: Catalog {
         let bow = CatalogItem.featured(
@@ -42,6 +47,10 @@ struct Catalog {
             action: CatalogSectionAction(icon: "plus", action: .addRecipe),
             items: [])
         
-        return Catalog(sections: [featured, myRecipes])
+        return Catalog(featured: featured, userCreated: myRecipes)
+    }
+    
+    func appending(_ item: CatalogItem) -> Catalog {
+        Catalog(featured: featured, userCreated: userCreated.appending(item))
     }
 }

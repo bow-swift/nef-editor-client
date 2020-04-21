@@ -16,6 +16,9 @@ let appDispatcher = AppDispatcher { action, handler in
     case .dismissEdition:
         return handler.send(action: dismissEdition())
         
+    case .saveRecipe(title: let title, description: let description):
+        return handler.send(action: saveRecipe(title: title, description: description))
+        
     case .searchDependency:
         return handler.send(action: searchDependency())
     
@@ -44,6 +47,27 @@ func dismissEdition() -> State<AppState, Void> {
     .modify { state in
         state.copy(editState: .notEditing)
     }^
+}
+
+func saveRecipe(title: String, description: String) -> State<AppState, Void> {
+    .modify { state in
+        switch state.editState {
+        case .notEditing: return state
+        case .newRecipe:
+            let recipe = createRecipe(title: title, description: description)
+            let newCatalog = state.catalog.appending(recipe)
+            return state.copy(editState: .notEditing, catalog: newCatalog, selectedItem: recipe)
+        case .editRecipe(_):
+            return state
+        }
+    }^
+}
+
+func createRecipe(title: String, description: String) -> CatalogItem {
+    .regular(Recipe(
+        title: title.isEmpty ? "Empty title" : title,
+        description: description,
+        dependencies: []))
 }
 
 func searchDependency() -> State<AppState, Void> {

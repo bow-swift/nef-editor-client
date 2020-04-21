@@ -3,10 +3,12 @@ import SwiftUI
 struct EditRecipeMetadataView: View {
     @State var title: String
     @State var description: String
+    let handle: (AppAction) -> Void
     
-    init(title: String, description: String) {
+    init(title: String, description: String, handle: @escaping (AppAction) -> Void) {
         self._title = State(initialValue: title)
         self._description = State(initialValue: description)
+        self.handle = handle
     }
     
     var body: some View {
@@ -18,7 +20,11 @@ struct EditRecipeMetadataView: View {
             Section(header: Text("Description")) {
                 TextField("Enter a description for your nef recipe", text: $description)
             }
-        }.navigationBarItems(trailing: Button("Save") {}.foregroundColor(.nef))
+        }.navigationBarItems(trailing:
+            Button("Save") {
+                self.handle(.saveRecipe(title: self.title, description: self.description))
+            }.foregroundColor(.nef)
+        )
     }
 }
 
@@ -27,7 +33,7 @@ struct EditRecipeMetadataView_Preview: PreviewProvider {
         NavigationView {
             EditRecipeMetadataView(
                 title: "New recipe",
-                description: "No description provided")
+                description: "No description provided") { _ in }
                 .navigationBarTitle("Edit recipe")
         }
         .navigationViewStyle(StackNavigationViewStyle())

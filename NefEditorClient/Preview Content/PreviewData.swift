@@ -68,5 +68,5 @@ let sampleFeaturedSection = CatalogSection(
     title: "Featured",
     items: sampleFeaturedRecipes)
 
-let sampleCatalog = Catalog(sections: [sampleFeaturedSection, sampleRecipesSection])
+let sampleCatalog = Catalog(featured: sampleFeaturedSection, userCreated: sampleRecipesSection)
 #endif
