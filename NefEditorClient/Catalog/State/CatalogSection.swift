@@ -12,4 +12,5 @@ struct CatalogSection {
 
 struct CatalogSectionAction {
     let icon: String
+    let action: AppAction
 }

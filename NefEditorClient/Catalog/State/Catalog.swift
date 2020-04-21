@@ -39,7 +39,7 @@ struct Catalog {
             items: [bow, bowMaster])
         let myRecipes = CatalogSection(
             title: "My recipes",
-            action: CatalogSectionAction(icon: "plus"),
+            action: CatalogSectionAction(icon: "plus", action: .addRecipe),
             items: [])
         
         return Catalog(sections: [featured, myRecipes])

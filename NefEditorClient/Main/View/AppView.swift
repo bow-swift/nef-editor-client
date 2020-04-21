@@ -3,13 +3,16 @@ import SwiftUI
 struct AppView: View {
     let state: AppState
     let search: SearchComponent
+    let handle: (AppAction) -> Void
     
     let isEditPresented: Binding<Bool>
     
     init(state: AppState,
-         search: SearchComponent) {
+         search: SearchComponent,
+         handle: @escaping (AppAction) -> Void) {
         self.state = state
         self.search = search
+        self.handle = handle
         self.isEditPresented = Binding(
             get: { state.editState != .notEditing },
             set: { newValue in print("Edition dismissed!") })
@@ -44,7 +47,7 @@ struct AppView: View {
     }
     
     var catalogView: some View {
-        RecipeCatalogView(catalog: state.catalog)
+        RecipeCatalogView(catalog: state.catalog, handle: self.handle)
             .animation(.easeInOut)
             .transition(.move(edge: .leading))
     }

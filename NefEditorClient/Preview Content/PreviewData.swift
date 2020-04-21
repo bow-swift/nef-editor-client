@@ -62,7 +62,7 @@ let sampleFeaturedRecipes = Array(repeating: sampleFeaturedRecipe, count: 2).map
 
 let sampleRecipesSection = CatalogSection(
     title: "My recipes",
-    action: CatalogSectionAction(icon: "plus"),
+    action: CatalogSectionAction(icon: "plus", action: .addRecipe),
     items: sampleRecipes)
 let sampleFeaturedSection = CatalogSection(
     title: "Featured",

@@ -28,7 +28,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             selectedItem: .regular(sampleRecipe))
         let config = API.Config(basePath: "https://api.github.com")
         let search = searchComponent(config: config)
-        let contentView = AppView(state: initialState, search: search)
+        let contentView = AppView(state: initialState, search: search) { _ in }
 
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
