@@ -57,4 +57,8 @@ struct Catalog {
     func appending(_ item: CatalogItem) -> Catalog {
         Catalog(featured: featured, userCreated: userCreated.appending(item))
     }
+    
+    func replacing(_ item: CatalogItem, by newItem: CatalogItem) -> Catalog {
+        Catalog(featured: featured, userCreated: userCreated.replacing(item, by: newItem))
+    }
 }

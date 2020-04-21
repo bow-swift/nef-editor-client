@@ -9,11 +9,21 @@ struct CatalogSection {
         self.items = items
     }
     
-    func appending(_ item: CatalogItem) -> CatalogSection {
+    func copy(items: [CatalogItem]) -> CatalogSection {
         CatalogSection(
             title: self.title,
             action: self.action,
-            items: self.items + [item])
+            items: items)
+    }
+    
+    func appending(_ item: CatalogItem) -> CatalogSection {
+        copy(items: self.items + [item])
+    }
+    
+    func replacing(_ item: CatalogItem, by newItem: CatalogItem) -> CatalogSection {
+        copy(items: self.items.map { current in
+            (current == item) ? newItem : current
+        })
     }
 }
 
