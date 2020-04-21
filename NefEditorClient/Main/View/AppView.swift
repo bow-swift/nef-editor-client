@@ -93,6 +93,7 @@ struct AppView: View {
         case .editRecipe(let recipe):
             return AnyView(
                 EditRecipeMetadataView(title: recipe.title, description: recipe.description, handle: self.handle)
+                .navigationBarTitle("Edit recipe")
             )
         }
     }
