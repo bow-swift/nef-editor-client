@@ -47,6 +47,7 @@
 		1163BA8E244DF8B3005B0785 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1163BA8D244DF8B3005B0785 /* AppState.swift */; };
 		1163BA90244DF8E4005B0785 /* PanelState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1163BA8F244DF8E4005B0785 /* PanelState.swift */; };
 		1163BA92244DF933005B0785 /* EditState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1163BA91244DF933005B0785 /* EditState.swift */; };
+		1163BA95244ED043005B0785 /* AppAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1163BA94244ED043005B0785 /* AppAction.swift */; };
 		1187BD65243FABED00FF668F /* FeaturedRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1187BD64243FABED00FF668F /* FeaturedRecipe.swift */; };
 		1187BD67243FAD6300FF668F /* FeaturedRecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1187BD66243FAD6300FF668F /* FeaturedRecipeView.swift */; };
 		1187BD692444525800FF668F /* CatalogItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1187BD682444525800FF668F /* CatalogItem.swift */; };
@@ -131,6 +132,7 @@
 		1163BA8D244DF8B3005B0785 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		1163BA8F244DF8E4005B0785 /* PanelState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanelState.swift; sourceTree = "<group>"; };
 		1163BA91244DF933005B0785 /* EditState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditState.swift; sourceTree = "<group>"; };
+		1163BA94244ED043005B0785 /* AppAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAction.swift; sourceTree = "<group>"; };
 		1187BD64243FABED00FF668F /* FeaturedRecipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedRecipe.swift; sourceTree = "<group>"; };
 		1187BD66243FAD6300FF668F /* FeaturedRecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedRecipeView.swift; sourceTree = "<group>"; };
 		1187BD682444525800FF668F /* CatalogItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogItem.swift; sourceTree = "<group>"; };
@@ -348,6 +350,7 @@
 		1163BA88244DF81A005B0785 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				1163BA93244ED024005B0785 /* Logic */,
 				1163BA8A244DF844005B0785 /* State */,
 				1163BA89244DF825005B0785 /* View */,
 			);
@@ -370,6 +373,14 @@
 				1163BA8F244DF8E4005B0785 /* PanelState.swift */,
 			);
 			path = State;
+			sourceTree = "<group>";
+		};
+		1163BA93244ED024005B0785 /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				1163BA94244ED043005B0785 /* AppAction.swift */,
+			);
+			path = Logic;
 			sourceTree = "<group>";
 		};
 		11AD8DCA243DC42E0005E450 /* Catalog */ = {
@@ -685,6 +696,7 @@
 				11BFEA0D243B553000D4F891 /* InitialSearchView.swift in Sources */,
 				11B125B62444BCAC00E2D1C3 /* Catalog.swift in Sources */,
 				11E07F11243B118F00A0A027 /* GridView.swift in Sources */,
+				1163BA95244ED043005B0785 /* AppAction.swift in Sources */,
 				11EDF44D2435F5410092E959 /* SearchView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
