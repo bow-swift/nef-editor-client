@@ -6,7 +6,7 @@
         "repositoryURL": "https://github.com/bow-swift/bow.git",
         "state": {
           "branch": "master",
-          "revision": "7abd8d952fb7912259ccc216c73264d8a8739541",
+          "revision": "131a9263a404773b1464fae6cb03c75582ad9814",
           "version": null
         }
       },
@@ -15,7 +15,7 @@
         "repositoryURL": "https://github.com/bow-swift/bow-arch.git",
         "state": {
           "branch": "master",
-          "revision": "fa5312517461724deb219ea54303695008aa4550",
+          "revision": "e6c1fad64ffaf21ad8625124d83aa4df58d6d873",
           "version": null
         }
       },
