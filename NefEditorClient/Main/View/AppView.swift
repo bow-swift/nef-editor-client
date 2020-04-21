@@ -62,7 +62,7 @@ struct AppView: View {
     }
     
     var detailView: some View {
-        CatalogItemDetailView(item: state.selectedItem, switchViews: .constant(false))
+        CatalogItemDetailView(item: state.selectedItem, handle: self.handle)
             .frame(maxWidth: maxDetailWidth)
             .padding()
             .animation(.easeInOut)

@@ -2,7 +2,7 @@ import SwiftUI
 
 struct CatalogItemDetailView: View {
     let item: CatalogItem
-    @Binding var switchViews: Bool
+    let handle: (AppAction) -> Void
     
     var body: some View {
         CardView {
@@ -13,10 +13,12 @@ struct CatalogItemDetailView: View {
                     
                     Spacer()
                     
-                    Button(action: {}) {
-                        Image(systemName: "pencil")
+                    if self.item.isEditable {
+                        Button(action: { self.handle(.edit(item: self.item)) }) {
+                            Image(systemName: "pencil")
+                        }
+                        .buttonStyle(ActionButtonStyle())
                     }
-                    .buttonStyle(ActionButtonStyle())
                 }
                 
                 Text(self.item.description)
@@ -33,10 +35,12 @@ struct CatalogItemDetailView: View {
                     
                     Spacer()
                     
-                    Button(action: { self.switchViews.toggle() }) {
-                        Image(systemName: "plus")
+                    if self.item.isEditable {
+                        Button(action: { self.handle(.searchDependency) }) {
+                            Image(systemName: "plus")
+                        }
+                        .buttonStyle(ActionButtonStyle())
                     }
-                    .buttonStyle(ActionButtonStyle())
                 }.padding(.top, 24)
                 
                 DependencyListView(dependencies: self.item.dependencies)
@@ -57,9 +61,7 @@ struct CatalogItemDetailView: View {
 
 struct CatalogItemDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        CatalogItemDetailView(
-            item: .regular(sampleRecipe),
-            switchViews: .constant(true))
+        CatalogItemDetailView(item: .regular(sampleRecipe)) { _ in }
         .padding()
     }
 }
