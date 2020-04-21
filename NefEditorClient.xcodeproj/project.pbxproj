@@ -49,6 +49,7 @@
 		1163BA92244DF933005B0785 /* EditState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1163BA91244DF933005B0785 /* EditState.swift */; };
 		1163BA95244ED043005B0785 /* AppAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1163BA94244ED043005B0785 /* AppAction.swift */; };
 		1163BA97244ED0C5005B0785 /* AppDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1163BA96244ED0C5005B0785 /* AppDispatcher.swift */; };
+		1163BA9A244ED9A3005B0785 /* AppComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1163BA99244ED9A3005B0785 /* AppComponent.swift */; };
 		1187BD65243FABED00FF668F /* FeaturedRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1187BD64243FABED00FF668F /* FeaturedRecipe.swift */; };
 		1187BD67243FAD6300FF668F /* FeaturedRecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1187BD66243FAD6300FF668F /* FeaturedRecipeView.swift */; };
 		1187BD692444525800FF668F /* CatalogItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1187BD682444525800FF668F /* CatalogItem.swift */; };
@@ -135,6 +136,7 @@
 		1163BA91244DF933005B0785 /* EditState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditState.swift; sourceTree = "<group>"; };
 		1163BA94244ED043005B0785 /* AppAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAction.swift; sourceTree = "<group>"; };
 		1163BA96244ED0C5005B0785 /* AppDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDispatcher.swift; sourceTree = "<group>"; };
+		1163BA99244ED9A3005B0785 /* AppComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppComponent.swift; sourceTree = "<group>"; };
 		1187BD64243FABED00FF668F /* FeaturedRecipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedRecipe.swift; sourceTree = "<group>"; };
 		1187BD66243FAD6300FF668F /* FeaturedRecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedRecipeView.swift; sourceTree = "<group>"; };
 		1187BD682444525800FF668F /* CatalogItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogItem.swift; sourceTree = "<group>"; };
@@ -352,6 +354,7 @@
 		1163BA88244DF81A005B0785 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				1163BA98244ED992005B0785 /* Component */,
 				1163BA93244ED024005B0785 /* Logic */,
 				1163BA8A244DF844005B0785 /* State */,
 				1163BA89244DF825005B0785 /* View */,
@@ -384,6 +387,14 @@
 				1163BA96244ED0C5005B0785 /* AppDispatcher.swift */,
 			);
 			path = Logic;
+			sourceTree = "<group>";
+		};
+		1163BA98244ED992005B0785 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				1163BA99244ED9A3005B0785 /* AppComponent.swift */,
+			);
+			path = Component;
 			sourceTree = "<group>";
 		};
 		11AD8DCA243DC42E0005E450 /* Catalog */ = {
@@ -663,6 +674,7 @@
 				114254362448732E00B2EA0C /* SearchDispatcher.swift in Sources */,
 				11BFEA00243B410D00D4F891 /* PreviewData.swift in Sources */,
 				11070293243C9F27008583EB /* EmptyRequirementsView.swift in Sources */,
+				1163BA9A244ED9A3005B0785 /* AppComponent.swift in Sources */,
 				1163BA87244DF22E005B0785 /* EditRecipeMetadataView.swift in Sources */,
 				11BFEA0B243B538300D4F891 /* ViewStyle.swift in Sources */,
 				11B125B22444BC9000E2D1C3 /* CatalogSectionView.swift in Sources */,
