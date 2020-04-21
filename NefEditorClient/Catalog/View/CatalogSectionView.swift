@@ -16,11 +16,19 @@ struct CatalogSectionView: View {
                 self.actionView(for: self.section)
             }.padding(.top, 16)
             
-            CatalogItemGridView(
-                items: section.items,
-                columns: self.columns) { item in
-                    self.handle(.select(item: item))
-                }
+            if section.items.isEmpty {
+                Text("There are no recipes yet.")
+                    .activityStyle()
+                    .multilineTextAlignment(.center)
+                    .frame(maxWidth: .infinity)
+                    .padding(24)
+            } else {
+                CatalogItemGridView(
+                    items: section.items,
+                    columns: self.columns) { item in
+                        self.handle(.select(item: item))
+                    }
+            }
         }
     }
     
