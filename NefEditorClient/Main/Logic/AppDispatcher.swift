@@ -11,8 +11,11 @@ let appDispatcher = AppDispatcher { action, handler in
         return handler.send(action: addRecipe())
     
     case .edit(item: let item):
-        return handler.noOp()
+        return handler.send(action: edit(item: item))
     
+    case .dismissEdition:
+        return handler.send(action: dismissEdition())
+        
     case .searchDependency:
         return handler.send(action: searchDependency())
     
@@ -35,6 +38,12 @@ func edit(item: CatalogItem) -> State<AppState, Void> {
     } else {
         return .modify(id)^
     }
+}
+
+func dismissEdition() -> State<AppState, Void> {
+    .modify { state in
+        state.copy(editState: .notEditing)
+    }^
 }
 
 func searchDependency() -> State<AppState, Void> {

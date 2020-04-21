@@ -15,7 +15,11 @@ struct AppView: View {
         self.handle = handle
         self.isEditPresented = Binding(
             get: { state.editState != .notEditing },
-            set: { newValue in print("Edition dismissed!") })
+            set: { newValue in
+                if !newValue {
+                    handle(.dismissEdition)
+                }
+            })
     }
     
     var showSearch: Bool {
