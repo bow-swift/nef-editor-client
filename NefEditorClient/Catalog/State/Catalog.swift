@@ -8,8 +8,8 @@ struct Catalog {
         [featured, userCreated]
     }
     
-    static var initial: Catalog {
-        let bow = CatalogItem.featured(
+    static var initialSelection: CatalogItem {
+        CatalogItem.featured(
             FeaturedRecipe(
                 recipe: Recipe(
                     title: "FP with Bow",
@@ -23,6 +23,10 @@ struct Catalog {
                 backgroundImage: "bow-background",
                 textColor: .white)
         )
+    }
+    
+    static var initial: Catalog {
+        let bow = initialSelection
         
         let bowMaster = CatalogItem.featured(
             FeaturedRecipe(

@@ -8,7 +8,7 @@ func appComponent() -> AppComponent {
         panelState: .catalog,
         editState: .notEditing,
         catalog: Catalog.initial,
-        selectedItem: .regular(sampleRecipe))
+        selectedItem: Catalog.initialSelection)
     let config = API.Config(basePath: "https://api.github.com")
     let search = searchComponent(config: config)
     
