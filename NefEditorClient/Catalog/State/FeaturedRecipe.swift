@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct FeaturedRecipe {
+struct FeaturedRecipe: Equatable {
     let recipe: Recipe
     let backgroundImage: String
     let textColor: Color

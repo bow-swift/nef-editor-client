@@ -1,4 +1,6 @@
-enum CatalogItem {
+import Bow
+
+enum CatalogItem: Equatable {
     case featured(FeaturedRecipe)
     case regular(Recipe)
     
@@ -33,5 +35,9 @@ enum CatalogItem {
     var dependencies: [Dependency] {
         self.fold(\.recipe.dependencies,
                   \.dependencies)
+    }
+    
+    var isEditable: Bool {
+        self.fold(constant(false), constant(true))
     }
 }
