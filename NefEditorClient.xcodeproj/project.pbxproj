@@ -303,7 +303,6 @@
 				1163838524321FD100EB2DEF /* SceneDelegate.swift */,
 				1163838924321FD400EB2DEF /* Assets.xcassets */,
 				11AD8DCA243DC42E0005E450 /* Catalog */,
-				1163BA84244DF203005B0785 /* Creation */,
 				11B125BD2447074500E2D1C3 /* Detail */,
 				11E07F14243B218E00A0A027 /* Extensions */,
 				114254432449909600B2EA0C /* GitHubExtensions */,
@@ -335,22 +334,6 @@
 			path = NefEditorClientTests;
 			sourceTree = "<group>";
 		};
-		1163BA84244DF203005B0785 /* Creation */ = {
-			isa = PBXGroup;
-			children = (
-				1163BA85244DF214005B0785 /* View */,
-			);
-			path = Creation;
-			sourceTree = "<group>";
-		};
-		1163BA85244DF214005B0785 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				1163BA86244DF22E005B0785 /* EditRecipeMetadataView.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		1163BA88244DF81A005B0785 /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -366,6 +349,7 @@
 			isa = PBXGroup;
 			children = (
 				11EDF44E2435F5AA0092E959 /* AppView.swift */,
+				1163BA86244DF22E005B0785 /* EditRecipeMetadataView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
