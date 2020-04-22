@@ -15,7 +15,7 @@ struct CatalogItemDetailView: View {
                     
                     if self.item.isEditable {
                         Button(action: { self.handle(.edit(item: self.item)) }) {
-                            Image(systemName: "pencil")
+                            Image.pencil
                         }
                         .buttonStyle(ActionButtonStyle())
                     }
@@ -37,7 +37,7 @@ struct CatalogItemDetailView: View {
                     
                     if self.item.isEditable {
                         Button(action: { self.handle(.searchDependency) }) {
-                            Image(systemName: "plus")
+                            Image.plus
                         }
                         .buttonStyle(ActionButtonStyle())
                     }
