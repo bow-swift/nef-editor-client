@@ -3,7 +3,7 @@ import SwiftUI
 struct CatalogItemGridView: View {
     let items: [CatalogItem]
     let columns: Int
-    let onItemSelected: (CatalogItem) -> Void
+    let handle: (AppAction) -> Void
     
     var body: some View {
         GridView(
@@ -14,7 +14,7 @@ struct CatalogItemGridView: View {
                     .animation(nil)
                     .onTapGesture {
                         if let item = self.item(row: row, column: column) {
-                            self.onItemSelected(item)
+                            self.handle(.select(item: item))
                         }
                     }
         }
