@@ -40,4 +40,8 @@ enum CatalogItem: Equatable {
     var isEditable: Bool {
         self.fold(constant(false), constant(true))
     }
+    
+    var recipe: Recipe {
+        self.fold(\.recipe, \.self)
+    }
 }
