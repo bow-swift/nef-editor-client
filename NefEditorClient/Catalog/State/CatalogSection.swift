@@ -25,6 +25,12 @@ struct CatalogSection {
             (current == item) ? newItem : current
         })
     }
+    
+    func removing(_ item: CatalogItem) -> CatalogSection {
+        copy(items: self.items.filter { current in
+            current != item
+        })
+    }
 }
 
 struct CatalogSectionAction {

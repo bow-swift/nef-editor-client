@@ -61,4 +61,8 @@ struct Catalog {
     func replacing(_ item: CatalogItem, by newItem: CatalogItem) -> Catalog {
         Catalog(featured: featured, userCreated: userCreated.replacing(item, by: newItem))
     }
+    
+    func removing(_ item: CatalogItem) -> Catalog {
+        Catalog(featured: featured, userCreated: userCreated.removing(item))
+    }
 }
