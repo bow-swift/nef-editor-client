@@ -46,7 +46,6 @@ let bowArchDependency = Dependency(
 let sampleRecipe = Recipe(
     title: "FP Basics",
     description: "Learn Functional Programming",
-    lastModified: .init(),
     dependencies: [
         bowDependency,
         bowArchDependency
@@ -61,8 +60,13 @@ let sampleFeaturedRecipe = FeaturedRecipe(
 
 let sampleFeaturedRecipes = Array(repeating: sampleFeaturedRecipe, count: 2).map(CatalogItem.featured)
 
-let sampleRecipesSection = CatalogSection(title: "My recipes", items: sampleRecipes)
-let sampleFeaturedSection = CatalogSection(title: "Featured", items: sampleFeaturedRecipes)
+let sampleRecipesSection = CatalogSection(
+    title: "My recipes",
+    action: CatalogSectionAction(icon: "plus", action: .addRecipe),
+    items: sampleRecipes)
+let sampleFeaturedSection = CatalogSection(
+    title: "Featured",
+    items: sampleFeaturedRecipes)
 
-let sampleCatalog = Catalog(sections: [sampleFeaturedSection, sampleRecipesSection])
+let sampleCatalog = Catalog(featured: sampleFeaturedSection, userCreated: sampleRecipesSection)
 #endif

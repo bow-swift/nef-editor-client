@@ -1,6 +1,6 @@
 import GitHub
 
-enum Requirement {
+enum Requirement: Equatable {
     case version(Tag)
     case branch(Branch)
     
