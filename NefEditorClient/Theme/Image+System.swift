@@ -8,4 +8,12 @@ extension Image {
     static var plus: Image {
         Image(systemName: "plus")
     }
+    
+    static var duplicate: Image {
+        Image(systemName: "plus.square.on.square")
+    }
+    
+    static var trash: Image {
+        Image(systemName: "trash")
+    }
 }

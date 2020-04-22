@@ -25,9 +25,7 @@ struct CatalogSectionView: View {
             } else {
                 CatalogItemGridView(
                     items: section.items,
-                    columns: self.columns) { item in
-                        self.handle(.select(item: item))
-                    }
+                    columns: self.columns, handle: self.handle)
             }
         }
     }
