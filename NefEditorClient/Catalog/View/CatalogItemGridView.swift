@@ -36,12 +36,35 @@ struct CatalogItemGridView: View {
         if let item = item(row: row, column: column) {
             switch item {
             case .regular(let recipe):
-                return AnyView(RegularRecipeView(recipe: recipe))
+                return AnyView(
+                    RegularRecipeView(recipe: recipe)
+                        .contextMenu {
+                            self.duplicateButton(for: item)
+                            self.removeButton(for: item)
+                        })
             case .featured(let featured):
-                return AnyView(FeaturedRecipeView(featured: featured))
+                return AnyView(
+                    FeaturedRecipeView(featured: featured)
+                        .contextMenu {
+                            self.duplicateButton(for: item)
+                        })
             }
         } else {
             return AnyView(Color.clear)
+        }
+    }
+    
+    private func duplicateButton(for item: CatalogItem) -> some View {
+        Button(action: {}) {
+            Text("Duplicate recipe")
+            Image.duplicate
+        }
+    }
+    
+    private func removeButton(for item: CatalogItem) -> some View {
+        Button(action: {}) {
+            Text("Remove recipe")
+            Image.trash
         }
     }
 }
