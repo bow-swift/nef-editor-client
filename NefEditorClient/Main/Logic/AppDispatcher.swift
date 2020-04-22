@@ -19,6 +19,12 @@ let appDispatcher = AppDispatcher { action, handler in
     case .saveRecipe(title: let title, description: let description):
         return handler.send(action: saveRecipe(title: title, description: description))
         
+    case .duplicate(item: let item):
+        return handler.send(action: duplicate(item: item))
+        
+    case .remove(item: let item):
+        return handler.noOp()
+        
     case .searchDependency:
         return handler.send(action: searchDependency())
     
@@ -62,6 +68,15 @@ func saveRecipe(title: String, description: String) -> State<AppState, Void> {
             let newCatalog = state.catalog.replacing(.regular(recipe), by: .regular(editedRecipe))
             return state.copy(editState: .notEditing, catalog: newCatalog, selectedItem: .regular(editedRecipe))
         }
+    }^
+}
+
+func duplicate(item: CatalogItem) -> State<AppState, Void> {
+    .modify { state in
+        let recipe = item.recipe.copy(title: item.recipe.title + " copy")
+        let newItem = CatalogItem.regular(recipe)
+        let newCatalog = state.catalog.appending(newItem)
+        return state.copy(catalog: newCatalog, selectedItem: newItem)
     }^
 }
 
