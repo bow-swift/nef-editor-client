@@ -55,14 +55,14 @@ struct CatalogItemGridView: View {
     }
     
     private func duplicateButton(for item: CatalogItem) -> some View {
-        Button(action: {}) {
+        Button(action: { self.handle(.duplicate(item: item)) }) {
             Text("Duplicate recipe")
             Image.duplicate
         }
     }
     
     private func removeButton(for item: CatalogItem) -> some View {
-        Button(action: {}) {
+        Button(action: { self.handle(.remove(item: item)) }) {
             Text("Remove recipe")
             Image.trash
         }
