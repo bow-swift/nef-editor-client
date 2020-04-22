@@ -23,7 +23,7 @@ let appDispatcher = AppDispatcher { action, handler in
         return handler.send(action: duplicate(item: item))
         
     case .remove(item: let item):
-        return handler.noOp()
+        return handler.send(action: remove(item: item))
         
     case .searchDependency:
         return handler.send(action: searchDependency())
@@ -77,6 +77,18 @@ func duplicate(item: CatalogItem) -> State<AppState, Void> {
         let newItem = CatalogItem.regular(recipe)
         let newCatalog = state.catalog.appending(newItem)
         return state.copy(catalog: newCatalog, selectedItem: newItem)
+    }^
+}
+
+func remove(item: CatalogItem) -> State<AppState, Void> {
+    .modify { state in
+        if item.isEditable {
+            let newCatalog = state.catalog.removing(item)
+            let selectedItem = state.selectedItem == item ? Catalog.initialSelection : state.selectedItem
+            return state.copy(catalog: newCatalog, selectedItem: selectedItem)
+        } else {
+            return state
+        }
     }^
 }
 
