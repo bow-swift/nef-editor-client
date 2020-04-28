@@ -3,7 +3,7 @@ import BowOptics
 enum AppAction: AutoPrism {
     case addRecipe
     case edit(item: CatalogItem)
-    case dismissEdition
+    case dismissModal
     case saveRecipe(title: String, description: String)
     case duplicate(item: CatalogItem)
     case remove(item: CatalogItem)

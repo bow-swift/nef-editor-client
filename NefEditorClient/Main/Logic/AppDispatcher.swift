@@ -13,8 +13,8 @@ let appDispatcher = AppDispatcher.pure { action in
     case .edit(item: let item):
         return edit(item: item)
     
-    case .dismissEdition:
-        return dismissEdition()
+    case .dismissModal:
+        return dismissModal()
         
     case .saveRecipe(title: let title, description: let description):
         return saveRecipe(title: title, description: description)
@@ -57,9 +57,10 @@ func edit(item: CatalogItem) -> State<AppState, Void> {
     }
 }
 
-func dismissEdition() -> State<AppState, Void> {
+func dismissModal() -> State<AppState, Void> {
     .modify { state in
-        state.copy(editState: .notEditing)
+        state.copy(editState: .notEditing,
+                   searchState: state.searchState.copy(modalState: .noModal))
     }^
 }
 

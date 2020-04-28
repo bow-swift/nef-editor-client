@@ -4,10 +4,11 @@ import BowArch
 import BowOptics
 import SwiftUI
 
-typealias AppComponent<V: View> = StoreComponent<API.Config, AppState, AppAction, AppView<V>>
+typealias AppComponent<Search: View, Detail: View> = StoreComponent<API.Config, AppState, AppAction, AppView<Search, Detail>>
 typealias SearchChild = StoreComponent<API.Config, AppState, AppAction, SearchView>
+typealias DetailChild = StoreComponent<API.Config, AppState, RepositoryDetailAction, RepositoryDetailView>
 
-func appComponent() -> AppComponent<SearchChild> {
+func appComponent() -> AppComponent<SearchChild, DetailChild> {
     let initialState = AppState(
         panelState: .catalog,
         editState: .notEditing,
@@ -27,17 +28,22 @@ func appComponent() -> AppComponent<SearchChild> {
                 .lift(
                     initialState: state,
                     environment: config,
-                    id, lens, prism)
+                    id, AppState.searchStateLens, prism)
                 .using(dispatcher: appDispatcher.lift(id),
                        handler: handler),
+            detail: { repository in
+                repositoryDetail(config: config, state: repository)
+                .lift(
+                    initialState: state,
+                    environment: config,
+                    id,
+                    AppState.modalStateLens,
+                    Prism.identity)
+                .using(dispatcher: StateDispatcher.empty(), handler: handler)
+            },
             handle: handle)
     }
 }
-
-let lens: Lens<AppState, SearchState> = Lens(
-    get: { app in app.searchState },
-    set: { app, search in app.copy(searchState: search) }
-)
 
 let prism: Prism<AppAction, SearchAction> = Prism(
     extract: { app in

@@ -1,15 +1,15 @@
 import GitHub
 import BowArch
 
-typealias RepositoryDetailComponent = StoreComponent<API.Config, RepositoryDetailState, RepositoryDetailAction, RepositoryDetailView>
+typealias RepositoryDetailComponent = StoreComponent<API.Config, SearchModalState, RepositoryDetailAction, RepositoryDetailView>
 
 func repositoryDetail(
     config: API.Config,
-    repository: Repository
+    state: SearchModalState
 ) -> RepositoryDetailComponent {
     
     RepositoryDetailComponent(
-        initialState: RepositoryDetailState.loading(repository),
+        initialState: state,
         environment: config,
         dispatcher: repositoryDetailDispatcher,
         render: RepositoryDetailView.init)

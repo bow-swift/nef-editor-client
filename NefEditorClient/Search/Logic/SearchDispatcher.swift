@@ -77,7 +77,7 @@ func showDetails(
     _ repository: Repository
 ) -> State<SearchState, Void> {
     .modify { state in
-        state.copy(modalState: .repositoryDetail(repository))
+        state.copy(modalState: .repositoryDetail(.loading(repository)))
     }^
 }
 

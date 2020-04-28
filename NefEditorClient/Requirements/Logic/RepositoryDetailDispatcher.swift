@@ -3,7 +3,7 @@ import Bow
 import BowEffects
 import BowArch
 
-typealias RepositoryDetailDispatcher = StateDispatcher<API.Config, RepositoryDetailState, RepositoryDetailAction>
+typealias RepositoryDetailDispatcher = StateDispatcher<API.Config, SearchModalState, RepositoryDetailAction>
 
 let repositoryDetailDispatcher = RepositoryDetailDispatcher.effectful { action in
     switch action {
@@ -16,7 +16,7 @@ let repositoryDetailDispatcher = RepositoryDetailDispatcher.effectful { action i
 
 func loadRequirements(
     repository: Repository
-) -> EnvIO<API.Config, Error, StateOf<RepositoryDetailState, Void>> {
+) -> EnvIO<API.Config, Error, StateOf<SearchModalState, Void>> {
     
     let tags = EnvIO<API.Config, Error, Tags>.var()
     let branches = EnvIO<API.Config, Error, Branches>.var()
@@ -31,9 +31,11 @@ func loadRequirements(
 
 func onError(
     repository: Repository
-) -> StateOf<RepositoryDetailState, Void> {
-    .set(.error(repository,
-                message: "An error ocurred trying to fetch tags and branches for the repository '\(repository.fullName)'"))
+) -> StateOf<SearchModalState, Void> {
+    .set(.repositoryDetail(
+        .error(repository,
+               message: "An error ocurred trying to fetch tags and branches for the repository '\(repository.fullName)'"))
+    )
 }
 
 func loadTags(
@@ -58,10 +60,10 @@ func merge(tags: Tags, branches: Branches) -> [Requirement] {
 func requirementsLoaded(
     _ requirements: [Requirement],
     for repository: Repository
-) -> StateOf<RepositoryDetailState, Void> {
+) -> StateOf<SearchModalState, Void> {
     if requirements.isEmpty {
-        return .set(.empty(repository))
+        return .set(.repositoryDetail(.empty(repository)))
     } else {
-        return .set(.loaded(repository, requirements: requirements))
+        return .set(.repositoryDetail(.loaded(repository, requirements: requirements)))
     }
 }

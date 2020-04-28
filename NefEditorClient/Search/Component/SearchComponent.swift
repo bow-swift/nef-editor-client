@@ -11,10 +11,6 @@ func searchComponent(
     SearchComponent(
         initialState: state,
         environment: config,
-        dispatcher: searchDispatcher) { state, handle in
-        SearchView(
-            state: state,
-            detail: config |> repositoryDetail,
-            handle: handle)
-    }
+        dispatcher: searchDispatcher,
+        render: SearchView.init)
 }
