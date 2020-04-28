@@ -14,8 +14,8 @@
         "package": "BowArch",
         "repositoryURL": "https://github.com/bow-swift/bow-arch.git",
         "state": {
-          "branch": "tomas/new-dispatcher",
-          "revision": "47fcf76d450fb7de10138737c8c1546fd12dfe53",
+          "branch": "master",
+          "revision": "f07d360b38efd64bfa57279ac37d149418d16157",
           "version": null
         }
       },

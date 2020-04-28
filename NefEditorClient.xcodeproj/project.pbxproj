@@ -1019,7 +1019,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/bow-swift/bow-arch.git";
 			requirement = {
-				branch = "tomas/new-dispatcher";
+				branch = master;
 				kind = branch;
 			};
 		};
