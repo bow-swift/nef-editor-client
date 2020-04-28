@@ -1,15 +1,15 @@
 import Bow
 import BowEffects
+import BowOptics
 import BowArch
 
 typealias AppDispatcher = StateDispatcher<Any, AppState, AppAction>
 
 let appDispatcher = AppDispatcher.pure { action in
     switch action {
+    case .catalogAction(_):
+        return .modify(id)
         
-    case .addRecipe:
-        return addRecipe()
-    
     case .edit(item: let item):
         return edit(item: item)
     
@@ -18,12 +18,6 @@ let appDispatcher = AppDispatcher.pure { action in
         
     case .saveRecipe(title: let title, description: let description):
         return saveRecipe(title: title, description: description)
-        
-    case .duplicate(item: let item):
-        return duplicate(item: item)
-        
-    case .remove(item: let item):
-        return remove(item: item)
         
     case .searchDependency:
         return searchDependency()
@@ -35,17 +29,8 @@ let appDispatcher = AppDispatcher.pure { action in
         default:
             return .modify(id)
         }
-        
-    case .select(item: let item):
-        return select(item: item)
     }
-}
-
-func addRecipe() -> State<AppState, Void> {
-    .modify { state in
-        state.copy(editState: .newRecipe)
-    }^
-}
+}.combine(catalogDispatcher.widen(id, Lens.identity, AppAction.catalogPrism))
 
 func edit(item: CatalogItem) -> State<AppState, Void> {
     if case let .regular(recipe) = item {
@@ -80,26 +65,6 @@ func saveRecipe(title: String, description: String) -> State<AppState, Void> {
     }^
 }
 
-func duplicate(item: CatalogItem) -> State<AppState, Void> {
-    .modify { state in
-        let recipe = item.recipe.copy(title: item.recipe.title + " copy")
-        let newItem = CatalogItem.regular(recipe)
-        let newCatalog = state.catalog.appending(newItem)
-        return state.copy(catalog: newCatalog, selectedItem: newItem)
-    }^
-}
-
-func remove(item: CatalogItem) -> State<AppState, Void> {
-    .modify { state in
-        if item.isEditable {
-            let newCatalog = state.catalog.removing(item)
-            let selectedItem = state.selectedItem == item ? Catalog.initialSelection : state.selectedItem
-            return state.copy(catalog: newCatalog, selectedItem: selectedItem)
-        } else {
-            return state
-        }
-    }^
-}
 
 func createRecipe(title: String, description: String) -> CatalogItem {
     .regular(Recipe(
@@ -123,11 +88,5 @@ func searchDependency() -> State<AppState, Void> {
 func cancelSearch() -> State<AppState, Void> {
     .modify { state in
         state.copy(panelState: .catalog)
-    }^
-}
-
-func select(item: CatalogItem) -> State<AppState, Void> {
-    .modify { state in
-        state.copy(selectedItem: item)
     }^
 }

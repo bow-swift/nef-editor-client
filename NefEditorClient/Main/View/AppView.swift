@@ -1,8 +1,9 @@
 import SwiftUI
 import GitHub
 
-struct AppView<SearchView: View, RepoDetails: View>: View {
+struct AppView<CatalogView: View, SearchView: View, RepoDetails: View>: View {
     let state: AppState
+    let catalog: CatalogView
     let search: SearchView
     let detail: (SearchModalState) -> RepoDetails
     let handle: (AppAction) -> Void
@@ -10,10 +11,12 @@ struct AppView<SearchView: View, RepoDetails: View>: View {
     let isModalPresented: Binding<Bool>
     
     init(state: AppState,
+         catalog: CatalogView,
          search: SearchView,
          detail: @escaping (SearchModalState) -> RepoDetails,
          handle: @escaping (AppAction) -> Void) {
         self.state = state
+        self.catalog = catalog
         self.search = search
         self.detail = detail
         self.handle = handle
@@ -55,7 +58,7 @@ struct AppView<SearchView: View, RepoDetails: View>: View {
     }
     
     var catalogView: some View {
-        RecipeCatalogView(catalog: state.catalog, handle: self.handle)
+        catalog
             .animation(.easeInOut)
             .transition(.move(edge: .leading))
     }

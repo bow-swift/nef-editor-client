@@ -3,7 +3,7 @@ import SwiftUI
 struct CatalogItemGridView: View {
     let items: [CatalogItem]
     let columns: Int
-    let handle: (AppAction) -> Void
+    let handle: (CatalogAction) -> Void
     
     var body: some View {
         GridView(

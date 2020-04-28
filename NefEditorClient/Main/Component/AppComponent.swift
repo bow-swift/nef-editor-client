@@ -4,11 +4,12 @@ import BowArch
 import BowOptics
 import SwiftUI
 
-typealias AppComponent<Search: View, Detail: View> = StoreComponent<API.Config, AppState, AppAction, AppView<Search, Detail>>
+typealias AppComponent<Catalog: View, Search: View, Detail: View> = StoreComponent<API.Config, AppState, AppAction, AppView<Catalog, Search, Detail>>
+typealias CatalogChild = StoreComponent<API.Config, AppState, AppAction, RecipeCatalogView>
 typealias SearchChild = StoreComponent<API.Config, AppState, AppAction, SearchView>
 typealias DetailChild = StoreComponent<API.Config, AppState, RepositoryDetailAction, RepositoryDetailView>
 
-func appComponent() -> AppComponent<SearchChild, DetailChild> {
+func appComponent() -> AppComponent<CatalogChild, SearchChild, DetailChild> {
     let initialState = AppState(
         panelState: .catalog,
         editState: .notEditing,
@@ -24,13 +25,24 @@ func appComponent() -> AppComponent<SearchChild, DetailChild> {
     ) { state, handle, handler in
         AppView(
             state: state,
+            catalog: catalogComponent(state: state.catalog)
+                .lift(initialState: state,
+                      environment: config,
+                      id,
+                      AppState.catalogLens,
+                      AppAction.catalogPrism)
+                .using(dispatcher: appDispatcher.lift(id), handler: handler),
+            
             search: searchComponent(config: config, state: state.searchState)
                 .lift(
                     initialState: state,
                     environment: config,
-                    id, AppState.searchStateLens, prism)
+                    id,
+                    AppState.searchStateLens,
+                    AppAction.searchPrism)
                 .using(dispatcher: appDispatcher.lift(id),
                        handler: handler),
+            
             detail: { repository in
                 repositoryDetail(config: config, state: repository)
                 .lift(
@@ -44,13 +56,3 @@ func appComponent() -> AppComponent<SearchChild, DetailChild> {
             handle: handle)
     }
 }
-
-let prism: Prism<AppAction, SearchAction> = Prism(
-    extract: { app in
-        guard case let .searchAction(action) = app else {
-            return nil
-        }
-        return action
-    },
-    embed: AppAction.searchAction
-)

@@ -37,4 +37,11 @@ struct AppState {
     static var modalStateLens: Lens<AppState, SearchModalState> {
         searchStateLens + SearchState.modalStateLens
     }
+    
+    static var catalogLens: Lens<AppState, Catalog> {
+        Lens(
+            get: { app in app.catalog },
+            set: { app, catalog in app.copy(catalog: catalog) }
+        )
+    }
 }

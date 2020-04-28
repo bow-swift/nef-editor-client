@@ -3,7 +3,7 @@ import SwiftUI
 struct CatalogSectionView: View {
     let section: CatalogSection
     let columns: Int
-    let handle: (AppAction) -> Void
+    let handle: (CatalogAction) -> Void
     
     var body: some View {
         VStack(alignment: .leading) {

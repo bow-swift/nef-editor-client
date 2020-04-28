@@ -2,7 +2,7 @@ import SwiftUI
 
 struct RecipeCatalogView: View {
     let catalog: Catalog
-    let handle: (AppAction) -> Void
+    let handle: (CatalogAction) -> Void
     
     var body: some View {
         GeometryReader { geometry in
