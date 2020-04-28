@@ -4,68 +4,72 @@ import BowArch
 import BowEffects
 
 typealias SearchDispatcher = StateDispatcher<API.Config, SearchState, SearchAction>
-typealias SearchHandler = StateHandler<API.Config, SearchState, SearchAction>
 
-let searchDispatcher = SearchDispatcher { action, handler in
+let searchDispatcher = SearchDispatcher.workflow { action in
     switch action {
         
     case .search(query: let query):
-        return search(query: query, handler: handler)
-            .handleErrorWith { _ in onError(query: query, handler: handler) }^
-        
-    case .loadResults(let repositories, query: let query):
-        return handler.send(action: loadResults(repositories, for: query))
-        
+        return search(query: query)
+            
     case .showDetails(let repository):
-        return handler.send(action: showDetails(repository))
+        return [EnvIO.pure(showDetails(repository))^]
         
     case .dismissDetails:
-        return handler.send(action: dismissDetails())
+        return [EnvIO.pure(dismissDetails())^]
+        
+    case .cancelSearch:
+        return [EnvIO.pure(.modify(id))^]
     }
 }
 
 func search(
-    query: String,
-    handler: SearchHandler
-) -> EnvIO<API.Config, Error, [SearchAction]> {
+    query: String
+) -> [EnvIO<API.Config, Error, StateOf<SearchState, Void>>] {
+    [
+        EnvIO.pure(setLoading(query: query))^,
+        backgroundSearch(query: query).handleError { _ in
+            onError(query: query)
+        }^
+    ]
+}
+
+func setLoading(query: String) -> StateOf<SearchState, Void> {
+    .modify { state in
+        state.copy(loadingState: .loading(query: query))
+    }^
+}
+
+func backgroundSearch(query: String) -> EnvIO<API.Config, Error, StateOf<SearchState, Void>> {
     let repositories = EnvIO<API.Config, Error, Repositories>.var()
     
     return binding(
-        |<-handler.send(action: .modify { state in
-            state.copy(loadingState: .loading(query: query))
-        }),
         continueOn(.global(qos: .background)),
         repositories <- gitHubSearch(query: query),
-        yield: [.loadResults(repositories.get, query: query)])^
+        yield: showResults(repositories: repositories.get, for: query)
+    )^
 }
 
 func gitHubSearch(
     query: String
 ) -> EnvIO<API.Config, Error, Repositories> {
-    
     API.search.searchRepositories(q: "\(query)+language:Swift" )
         .bimap(id, { result in result.items })
 }
 
-func onError(
-    query: String,
-    handler: SearchHandler
-) -> EnvIO<API.Config, Error, [SearchAction]> {
-    handler.send(action:
-        .modify { state in
-            state.copy(loadingState: .error(message: "An error happened while performing your query '\(query)'"))
-        })
-}
-
-func loadResults(
-    _ repositories: Repositories,
-    for query: String
-) -> State<SearchState, Void> {
+func showResults(repositories: Repositories, for query: String) -> State<SearchState, Void> {
     .modify { state in
         let newState: SearchLoadingState = (repositories.isEmpty)
             ? .empty(query: query)
             : .loaded(repositories)
         return state.copy(loadingState: newState)
+    }^
+}
+
+func onError(
+    query: String
+) -> State<SearchState, Void> {
+    .modify { state in
+        state.copy(loadingState: .error(message: "An error happened while performing your query '\(query)'"))
     }^
 }
 

@@ -6,7 +6,7 @@
         "repositoryURL": "https://github.com/bow-swift/bow.git",
         "state": {
           "branch": "master",
-          "revision": "131a9263a404773b1464fae6cb03c75582ad9814",
+          "revision": "b223218532c949238c53d138b919a120ac96d54d",
           "version": null
         }
       },
@@ -14,8 +14,8 @@
         "package": "BowArch",
         "repositoryURL": "https://github.com/bow-swift/bow-arch.git",
         "state": {
-          "branch": "master",
-          "revision": "e6c1fad64ffaf21ad8625124d83aa4df58d6d873",
+          "branch": "tomas/new-dispatcher",
+          "revision": "47fcf76d450fb7de10138737c8c1546fd12dfe53",
           "version": null
         }
       },

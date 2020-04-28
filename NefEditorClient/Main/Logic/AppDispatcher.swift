@@ -4,32 +4,40 @@ import BowArch
 
 typealias AppDispatcher = StateDispatcher<Any, AppState, AppAction>
 
-let appDispatcher = AppDispatcher { action, handler in
+let appDispatcher = AppDispatcher.pure { action in
     switch action {
         
     case .addRecipe:
-        return handler.send(action: addRecipe())
+        return addRecipe()
     
     case .edit(item: let item):
-        return handler.send(action: edit(item: item))
+        return edit(item: item)
     
     case .dismissEdition:
-        return handler.send(action: dismissEdition())
+        return dismissEdition()
         
     case .saveRecipe(title: let title, description: let description):
-        return handler.send(action: saveRecipe(title: title, description: description))
+        return saveRecipe(title: title, description: description)
         
     case .duplicate(item: let item):
-        return handler.send(action: duplicate(item: item))
+        return duplicate(item: item)
         
     case .remove(item: let item):
-        return handler.send(action: remove(item: item))
+        return remove(item: item)
         
     case .searchDependency:
-        return handler.send(action: searchDependency())
+        return searchDependency()
     
+    case .searchAction(let action):
+        switch action {
+        case .cancelSearch:
+            return cancelSearch()
+        default:
+            return .modify(id)
+        }
+        
     case .select(item: let item):
-        return handler.send(action: select(item: item))
+        return select(item: item)
     }
 }
 
@@ -108,6 +116,12 @@ func edit(recipe: Recipe, title: String, description: String) -> Recipe {
 func searchDependency() -> State<AppState, Void> {
     .modify { state in
         state.copy(panelState: .search)
+    }^
+}
+
+func cancelSearch() -> State<AppState, Void> {
+    .modify { state in
+        state.copy(panelState: .catalog)
     }^
 }
 

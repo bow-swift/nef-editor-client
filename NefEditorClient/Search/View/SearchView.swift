@@ -22,18 +22,27 @@ struct SearchView: View {
     
     var body: some View {
         VStack {
-            CardView {
-                SearchBar(placeholder: "Search repositories...", query: self.$query) { query in
-                    self.handle(.search(query: query))
-                }.padding(4)
-            }.padding(.top).padding(.horizontal)
-            
+            self.searchView
             self.contentView.fill.layoutPriority(1)
         }.sheet(isPresented: isModalPresented) {
             NavigationView {
                 self.modalView(self.state.modalState)
             }.navigationViewStyle(StackNavigationViewStyle())
         }
+    }
+    
+    private var searchView: some View {
+        CardView {
+            HStack {
+                SearchBar(placeholder: "Search repositories...", query: self.$query) { query in
+                    self.handle(.search(query: query))
+                }
+                
+                Button(action: { self.handle(.cancelSearch) }) {
+                    Text("Cancel").foregroundColor(.nef)
+                }.padding(.trailing)
+            }
+        }.padding(.top).padding(.horizontal)
     }
     
     private var contentView: some View {

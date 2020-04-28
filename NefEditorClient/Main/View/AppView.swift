@@ -1,14 +1,14 @@
 import SwiftUI
 
-struct AppView: View {
+struct AppView<SearchView: View>: View {
     let state: AppState
-    let search: SearchComponent
+    let search: SearchView
     let handle: (AppAction) -> Void
     
     let isEditPresented: Binding<Bool>
     
     init(state: AppState,
-         search: SearchComponent,
+         search: SearchView,
          handle: @escaping (AppAction) -> Void) {
         self.state = state
         self.search = search
