@@ -6,9 +6,11 @@ extension View {
         @ViewBuilder content: @escaping () -> V
     ) -> some View {
         background(
-            EmptyView().sheet(
-                isPresented: isPresented,
-                content: content)
+            EmptyView().sheet(isPresented: isPresented) {
+                NavigationView {
+                    content()
+                }.navigationViewStyle(StackNavigationViewStyle())
+            }
         )
     }
 }

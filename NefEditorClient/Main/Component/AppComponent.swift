@@ -4,12 +4,11 @@ import BowArch
 import BowOptics
 import SwiftUI
 
-typealias AppComponent<Catalog: View, Search: View, Detail: View> = StoreComponent<API.Config, AppState, AppAction, AppView<Catalog, Search, Detail>>
+typealias AppComponent<Catalog: View, Search: View> = StoreComponent<API.Config, AppState, AppAction, AppView<Catalog, Search>>
 typealias CatalogChild = StoreComponent<API.Config, AppState, AppAction, RecipeCatalogView>
-typealias SearchChild = StoreComponent<API.Config, AppState, AppAction, SearchView>
-typealias DetailChild = StoreComponent<API.Config, AppState, RepositoryDetailAction, RepositoryDetailView>
+typealias SearchChild = StoreComponent<API.Config, AppState, AppAction, SearchView<SearchDetailChild>>
 
-func appComponent() -> AppComponent<CatalogChild, SearchChild, DetailChild> {
+func appComponent() -> AppComponent<CatalogChild, SearchChild> {
     let initialState = AppState(
         panelState: .catalog,
         editState: .notEditing,
@@ -25,6 +24,7 @@ func appComponent() -> AppComponent<CatalogChild, SearchChild, DetailChild> {
     ) { state, handle, handler in
         AppView(
             state: state,
+            
             catalog: catalogComponent(state: state.catalog)
                 .lift(initialState: state,
                       environment: config,
@@ -43,14 +43,6 @@ func appComponent() -> AppComponent<CatalogChild, SearchChild, DetailChild> {
                 .using(dispatcher: appDispatcher.lift(id),
                        handler: handler),
             
-            detail: repositoryDetail(config: config, state: state.searchState.modalState)
-                .lift(
-                    initialState: state,
-                    environment: config,
-                    transformEnvironment: id,
-                    transformState: AppState.modalStateLens,
-                    transformInput: Prism.identity)
-                .using(dispatcher: StateDispatcher.empty(), handler: handler),
             handle: handle)
     }
 }

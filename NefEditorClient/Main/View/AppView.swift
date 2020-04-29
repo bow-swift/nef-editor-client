@@ -1,37 +1,25 @@
 import SwiftUI
 import GitHub
 
-struct AppView<CatalogView: View, SearchView: View, RepoDetails: View>: View {
+struct AppView<CatalogView: View, SearchView: View>: View {
     let state: AppState
     let catalog: CatalogView
     let search: SearchView
-    let detail: RepoDetails
     let handle: (AppAction) -> Void
     
     let isEditPresented: Binding<Bool>
-    let isDetailPresented: Binding<Bool>
     
     init(state: AppState,
          catalog: CatalogView,
          search: SearchView,
-         detail: RepoDetails,
          handle: @escaping (AppAction) -> Void) {
         self.state = state
         self.catalog = catalog
         self.search = search
-        self.detail = detail
         self.handle = handle
         
         self.isEditPresented = Binding(
             get: { state.editState != .notEditing },
-            set: { newState in
-                if !newState {
-                    handle(.dismissModal)
-                }
-            })
-        
-        self.isDetailPresented = Binding(
-            get: { state.searchState.modalState != .noModal },
             set: { newState in
                 if !newState {
                     handle(.dismissModal)
@@ -57,10 +45,7 @@ struct AppView<CatalogView: View, SearchView: View, RepoDetails: View>: View {
                 self.backgroundView
             ).navigationBarTitle("nef editor", displayMode: .inline)
             .modal(isPresented: isEditPresented) {
-                self.sheetView(self.editView)
-            }
-            .modal(isPresented: isDetailPresented) {
-                self.sheetView(self.detail)
+                self.editView
             }
         }.navigationViewStyle(StackNavigationViewStyle())
     }
@@ -93,12 +78,6 @@ struct AppView<CatalogView: View, SearchView: View, RepoDetails: View>: View {
         search
             .animation(.easeInOut)
             .transition(.move(edge: .trailing))
-    }
-    
-    func sheetView<V: View>(_ content: V) -> some View {
-        NavigationView {
-            content
-        }.navigationViewStyle(StackNavigationViewStyle())
     }
     
     var editView: some View {

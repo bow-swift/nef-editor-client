@@ -1,22 +1,36 @@
 import SwiftUI
 import GitHub
 
-struct SearchView: View {
+struct SearchView<Detail: View>: View {
     let state: SearchState
+    let detail: Detail
     @State var query: String = ""
     let handle: (SearchAction) -> Void
     
+    let isDetailPresented: Binding<Bool>
+    
     init(
         state: SearchState,
+        detail: Detail,
         handle: @escaping (SearchAction) -> Void) {
         self.state = state
+        self.detail = detail
         self.handle = handle
+        self.isDetailPresented = Binding(
+            get: { state.modalState != .noModal },
+            set: { newState in
+                if !newState {
+                    handle(.dismissDetails)
+                }
+            })
     }
     
     var body: some View {
         VStack {
             self.searchView
             self.contentView.fill.layoutPriority(1)
+        }.modal(isPresented: isDetailPresented) {
+            self.detail
         }
     }
     
@@ -76,17 +90,17 @@ struct SearchView_Previews: PreviewProvider {
     
     static var previews: some View {
         Group {
-            SearchView(state: state(.initial)) { _ in }
+            SearchView(state: state(.initial), detail: EmptyView()) { _ in }
             
-            SearchView(state: state(.empty(query: "Bow"))) { _ in }
+            SearchView(state: state(.empty(query: "Bow")), detail: EmptyView()) { _ in }
             
-            SearchView(state: state(.loading(query: "Bow"))) { _ in }
+            SearchView(state: state(.loading(query: "Bow")), detail: EmptyView()) { _ in }
             
-            SearchView(state: state(.loaded(sampleSearchResults))) { _ in }
+            SearchView(state: state(.loaded(sampleSearchResults)), detail: EmptyView()) { _ in }
             
-            SearchView(state: state(.loaded(sampleRepos))) { _ in }
+            SearchView(state: state(.loaded(sampleRepos)), detail: EmptyView()) { _ in }
             
-            SearchView(state: state(.error(message: "Unexpected error happened."))) { _ in }
+            SearchView(state: state(.error(message: "Unexpected error happened.")), detail: EmptyView()) { _ in }
         }
         .previewLayout(.fixed(width: 910, height: 1024))
     }

@@ -17,7 +17,7 @@ let searchDispatcher = SearchDispatcher.workflow { action in
     case .dismissDetails:
         return [EnvIO.pure(dismissDetails())^]
         
-    case .cancelSearch:
+    case .cancelSearch, .repositoryDetailAction(_):
         return [EnvIO.pure(.modify(id)^)^]
     }
 }

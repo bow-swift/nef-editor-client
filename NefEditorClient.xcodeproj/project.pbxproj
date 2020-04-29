@@ -501,8 +501,8 @@
 				11E07F17243B353500A0A027 /* SearchBar.swift */,
 				11B125C72447242C00E2D1C3 /* TextButtonStyle.swift */,
 				11CB85942437848A00CE4592 /* TextStyle.swift */,
-				11BFEA0A243B538300D4F891 /* ViewStyle.swift */,
 				114AF44B24597675000116B7 /* View+Modal.swift */,
+				11BFEA0A243B538300D4F891 /* ViewStyle.swift */,
 			);
 			path = Theme;
 			sourceTree = "<group>";
