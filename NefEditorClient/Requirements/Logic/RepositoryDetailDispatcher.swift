@@ -11,6 +11,8 @@ let repositoryDetailDispatcher = RepositoryDetailDispatcher.effectful { action i
         return loadRequirements(repository: repository).handleError { _ in
             onError(repository: repository)
         }^
+    case .dependencySelected(_, from: _):
+        return EnvIO.pure(.modify(id)^)^
     }
 }
 
