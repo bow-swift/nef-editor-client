@@ -30,7 +30,7 @@ func appComponent() -> AppComponent<CatalogChild, SearchChild> {
                       environment: config,
                       transformEnvironment: id,
                       transformState: AppState.catalogLens,
-                      transformInput: AppAction.catalogPrism)
+                      transformInput: AppAction.prism(for: AppAction.catalogAction))
                 .using(dispatcher: appDispatcher.lift(id), handler: handler),
             
             search: searchComponent(config: config, state: state.searchState)
@@ -39,7 +39,7 @@ func appComponent() -> AppComponent<CatalogChild, SearchChild> {
                     environment: config,
                     transformEnvironment: id,
                     transformState: AppState.searchStateLens,
-                    transformInput: AppAction.searchPrism)
+                    transformInput: AppAction.prism(for: AppAction.searchAction))
                 .using(dispatcher: appDispatcher.lift(id),
                        handler: handler),
             

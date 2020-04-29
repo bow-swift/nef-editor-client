@@ -7,11 +7,6 @@ struct AppState {
     let catalog: Catalog
     let selectedItem: CatalogItem
     
-    var shouldShowModal: Bool {
-        editState != .notEditing ||
-        searchState.modalState != .noModal
-    }
-    
     func copy(
         panelState: PanelState? = nil,
         editState: EditState? = nil,
@@ -32,10 +27,6 @@ struct AppState {
             get: { app in app.searchState },
             set: { app, search in app.copy(searchState: search) }
         )
-    }
-    
-    static var modalStateLens: Lens<AppState, SearchModalState> {
-        searchStateLens + SearchState.modalStateLens
     }
     
     static var catalogLens: Lens<AppState, Catalog> {

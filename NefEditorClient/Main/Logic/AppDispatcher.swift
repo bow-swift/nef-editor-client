@@ -33,7 +33,7 @@ let appDispatcher = AppDispatcher.pure { action in
 }.combine(catalogDispatcher.widen(
     transformEnvironment: id,
     transformState: Lens.identity,
-    transformInput: AppAction.catalogPrism))
+    transformInput: AppAction.prism(for: AppAction.catalogAction)))
 
 func edit(item: CatalogItem) -> State<AppState, Void> {
     if case let .regular(recipe) = item {
