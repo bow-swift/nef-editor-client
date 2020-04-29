@@ -18,13 +18,13 @@ let searchDispatcher = SearchDispatcher.workflow { action in
         return [EnvIO.pure(dismissDetails())^]
         
     case .cancelSearch:
-        return [EnvIO.pure(.modify(id))^]
+        return [EnvIO.pure(.modify(id)^)^]
     }
 }
 
 func search(
     query: String
-) -> [EnvIO<API.Config, Error, StateOf<SearchState, Void>>] {
+) -> [EnvIO<API.Config, Error, State<SearchState, Void>>] {
     [
         EnvIO.pure(setLoading(query: query))^,
         backgroundSearch(query: query).handleError { _ in
@@ -33,13 +33,13 @@ func search(
     ]
 }
 
-func setLoading(query: String) -> StateOf<SearchState, Void> {
+func setLoading(query: String) -> State<SearchState, Void> {
     .modify { state in
         state.copy(loadingState: .loading(query: query))
     }^
 }
 
-func backgroundSearch(query: String) -> EnvIO<API.Config, Error, StateOf<SearchState, Void>> {
+func backgroundSearch(query: String) -> EnvIO<API.Config, Error, State<SearchState, Void>> {
     let repositories = EnvIO<API.Config, Error, Repositories>.var()
     
     return binding(

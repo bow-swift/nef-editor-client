@@ -28,18 +28,18 @@ func appComponent() -> AppComponent<CatalogChild, SearchChild, DetailChild> {
             catalog: catalogComponent(state: state.catalog)
                 .lift(initialState: state,
                       environment: config,
-                      id,
-                      AppState.catalogLens,
-                      AppAction.catalogPrism)
+                      transformEnvironment: id,
+                      transformState: AppState.catalogLens,
+                      transformInput: AppAction.catalogPrism)
                 .using(dispatcher: appDispatcher.lift(id), handler: handler),
             
             search: searchComponent(config: config, state: state.searchState)
                 .lift(
                     initialState: state,
                     environment: config,
-                    id,
-                    AppState.searchStateLens,
-                    AppAction.searchPrism)
+                    transformEnvironment: id,
+                    transformState: AppState.searchStateLens,
+                    transformInput: AppAction.searchPrism)
                 .using(dispatcher: appDispatcher.lift(id),
                        handler: handler),
             
@@ -48,9 +48,9 @@ func appComponent() -> AppComponent<CatalogChild, SearchChild, DetailChild> {
                 .lift(
                     initialState: state,
                     environment: config,
-                    id,
-                    AppState.modalStateLens,
-                    Prism.identity)
+                    transformEnvironment: id,
+                    transformState: AppState.modalStateLens,
+                    transformInput: Prism.identity)
                 .using(dispatcher: StateDispatcher.empty(), handler: handler)
             },
             handle: handle)

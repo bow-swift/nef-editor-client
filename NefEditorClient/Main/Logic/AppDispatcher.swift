@@ -8,7 +8,7 @@ typealias AppDispatcher = StateDispatcher<Any, AppState, AppAction>
 let appDispatcher = AppDispatcher.pure { action in
     switch action {
     case .catalogAction(_):
-        return .modify(id)
+        return .modify(id)^
         
     case .edit(item: let item):
         return edit(item: item)
@@ -27,10 +27,13 @@ let appDispatcher = AppDispatcher.pure { action in
         case .cancelSearch:
             return cancelSearch()
         default:
-            return .modify(id)
+            return .modify(id)^
         }
     }
-}.combine(catalogDispatcher.widen(id, Lens.identity, AppAction.catalogPrism))
+}.combine(catalogDispatcher.widen(
+    transformEnvironment: id,
+    transformState: Lens.identity,
+    transformInput: AppAction.catalogPrism))
 
 func edit(item: CatalogItem) -> State<AppState, Void> {
     if case let .regular(recipe) = item {
@@ -53,10 +56,12 @@ func saveRecipe(title: String, description: String) -> State<AppState, Void> {
     .modify { state in
         switch state.editState {
         case .notEditing: return state
+            
         case .newRecipe:
             let recipe = createRecipe(title: title, description: description)
             let newCatalog = state.catalog.appending(recipe)
             return state.copy(editState: .notEditing, catalog: newCatalog, selectedItem: recipe)
+        
         case .editRecipe(let recipe):
             let editedRecipe = edit(recipe: recipe, title: title, description: description)
             let newCatalog = state.catalog.replacing(.regular(recipe), by: .regular(editedRecipe))
