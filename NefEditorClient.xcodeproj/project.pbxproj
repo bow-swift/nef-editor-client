@@ -38,6 +38,9 @@
 		114254422448AEFF00B2EA0C /* RepositoryDetailComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114254412448AEFF00B2EA0C /* RepositoryDetailComponent.swift */; };
 		11425445244990AB00B2EA0C /* Data+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11425444244990AB00B2EA0C /* Data+Equatable.swift */; };
 		114AF44C24597675000116B7 /* View+Modal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114AF44B24597675000116B7 /* View+Modal.swift */; };
+		114AF45224598700000116B7 /* EditAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114AF45124598700000116B7 /* EditAction.swift */; };
+		114AF45424598736000116B7 /* EditDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114AF45324598736000116B7 /* EditDispatcher.swift */; };
+		114AF45724598960000116B7 /* EditComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114AF45624598960000116B7 /* EditComponent.swift */; };
 		1163838424321FD100EB2DEF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1163838324321FD100EB2DEF /* AppDelegate.swift */; };
 		1163838624321FD100EB2DEF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1163838524321FD100EB2DEF /* SceneDelegate.swift */; };
 		1163838A24321FD400EB2DEF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1163838924321FD400EB2DEF /* Assets.xcassets */; };
@@ -126,6 +129,9 @@
 		114254412448AEFF00B2EA0C /* RepositoryDetailComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailComponent.swift; sourceTree = "<group>"; };
 		11425444244990AB00B2EA0C /* Data+Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Equatable.swift"; sourceTree = "<group>"; };
 		114AF44B24597675000116B7 /* View+Modal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Modal.swift"; sourceTree = "<group>"; };
+		114AF45124598700000116B7 /* EditAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAction.swift; sourceTree = "<group>"; };
+		114AF45324598736000116B7 /* EditDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDispatcher.swift; sourceTree = "<group>"; };
+		114AF45624598960000116B7 /* EditComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditComponent.swift; sourceTree = "<group>"; };
 		1163838024321FD100EB2DEF /* NefEditorClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NefEditorClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1163838324321FD100EB2DEF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1163838524321FD100EB2DEF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -284,6 +290,50 @@
 			path = GitHubExtensions;
 			sourceTree = "<group>";
 		};
+		114AF44D2459863B000116B7 /* Edit */ = {
+			isa = PBXGroup;
+			children = (
+				114AF45524598954000116B7 /* Component */,
+				114AF44F24598655000116B7 /* Logic */,
+				114AF45024598671000116B7 /* State */,
+				114AF44E2459864A000116B7 /* View */,
+			);
+			path = Edit;
+			sourceTree = "<group>";
+		};
+		114AF44E2459864A000116B7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1163BA86244DF22E005B0785 /* EditRecipeMetadataView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		114AF44F24598655000116B7 /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				114AF45124598700000116B7 /* EditAction.swift */,
+				114AF45324598736000116B7 /* EditDispatcher.swift */,
+			);
+			path = Logic;
+			sourceTree = "<group>";
+		};
+		114AF45024598671000116B7 /* State */ = {
+			isa = PBXGroup;
+			children = (
+				1163BA91244DF933005B0785 /* EditState.swift */,
+			);
+			path = State;
+			sourceTree = "<group>";
+		};
+		114AF45524598954000116B7 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				114AF45624598960000116B7 /* EditComponent.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
 		1163837724321FD100EB2DEF = {
 			isa = PBXGroup;
 			children = (
@@ -314,6 +364,7 @@
 				1163838924321FD400EB2DEF /* Assets.xcassets */,
 				11AD8DCA243DC42E0005E450 /* Catalog */,
 				11B125BD2447074500E2D1C3 /* Detail */,
+				114AF44D2459863B000116B7 /* Edit */,
 				11E07F14243B218E00A0A027 /* Extensions */,
 				114254432449909600B2EA0C /* GitHubExtensions */,
 				1163838E24321FD400EB2DEF /* LaunchScreen.storyboard */,
@@ -359,7 +410,6 @@
 			isa = PBXGroup;
 			children = (
 				11EDF44E2435F5AA0092E959 /* AppView.swift */,
-				1163BA86244DF22E005B0785 /* EditRecipeMetadataView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -368,7 +418,6 @@
 			isa = PBXGroup;
 			children = (
 				1163BA8D244DF8B3005B0785 /* AppState.swift */,
-				1163BA91244DF933005B0785 /* EditState.swift */,
 				1163BA8F244DF8E4005B0785 /* PanelState.swift */,
 			);
 			path = State;
@@ -697,6 +746,8 @@
 				11B125B22444BC9000E2D1C3 /* CatalogSectionView.swift in Sources */,
 				11EDF44B2435F4FE0092E959 /* CatalogItemDetailView.swift in Sources */,
 				1163838424321FD100EB2DEF /* AppDelegate.swift in Sources */,
+				114AF45224598700000116B7 /* EditAction.swift in Sources */,
+				114AF45724598960000116B7 /* EditComponent.swift in Sources */,
 				11BFEA0F243B560500D4F891 /* EmptySearchView.swift in Sources */,
 				1107028B243C9987008583EB /* RepositoryDetailState.swift in Sources */,
 				1187BD65243FABED00FF668F /* FeaturedRecipe.swift in Sources */,
@@ -719,6 +770,7 @@
 				11425434244870FB00B2EA0C /* SearchAction.swift in Sources */,
 				11B125B32444BC9000E2D1C3 /* CatalogItemGridView.swift in Sources */,
 				1107028D243C9A25008583EB /* LoadingView.swift in Sources */,
+				114AF45424598736000116B7 /* EditDispatcher.swift in Sources */,
 				11AD8DD7243E19440005E450 /* Dependency.swift in Sources */,
 				11070289243C81DC008583EB /* RequirementView.swift in Sources */,
 				1163BA90244DF8E4005B0785 /* PanelState.swift in Sources */,

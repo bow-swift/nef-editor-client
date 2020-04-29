@@ -35,4 +35,11 @@ struct AppState {
             set: { app, catalog in app.copy(catalog: catalog) }
         )
     }
+    
+    static var editStateLens: Lens<AppState, EditState> {
+        Lens(
+            get: { app in app.editState },
+            set: { app, edit in app.copy(editState: edit) }
+        )
+    }
 }

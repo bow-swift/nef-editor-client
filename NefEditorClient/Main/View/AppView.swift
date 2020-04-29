@@ -1,10 +1,11 @@
 import SwiftUI
 import GitHub
 
-struct AppView<CatalogView: View, SearchView: View>: View {
+struct AppView<CatalogView: View, SearchView: View, EditView: View>: View {
     let state: AppState
     let catalog: CatalogView
     let search: SearchView
+    let edit: EditView
     let handle: (AppAction) -> Void
     
     let isEditPresented: Binding<Bool>
@@ -12,10 +13,12 @@ struct AppView<CatalogView: View, SearchView: View>: View {
     init(state: AppState,
          catalog: CatalogView,
          search: SearchView,
+         edit: EditView,
          handle: @escaping (AppAction) -> Void) {
         self.state = state
         self.catalog = catalog
         self.search = search
+        self.edit = edit
         self.handle = handle
         
         self.isEditPresented = Binding(
@@ -45,7 +48,7 @@ struct AppView<CatalogView: View, SearchView: View>: View {
                 self.backgroundView
             ).navigationBarTitle("nef editor", displayMode: .inline)
             .modal(isPresented: isEditPresented) {
-                self.editView
+                self.edit
             }
         }.navigationViewStyle(StackNavigationViewStyle())
     }
@@ -78,22 +81,5 @@ struct AppView<CatalogView: View, SearchView: View>: View {
         search
             .animation(.easeInOut)
             .transition(.move(edge: .trailing))
-    }
-    
-    var editView: some View {
-        switch (state.editState) {
-        case .notEditing:
-            return AnyView(EmptyView())
-        case .newRecipe:
-            return AnyView(
-                EditRecipeMetadataView(title: "", description: "", handle: self.handle)
-                    .navigationBarTitle("New recipe")
-            )
-        case .editRecipe(let recipe):
-            return AnyView(
-                EditRecipeMetadataView(title: recipe.title, description: recipe.description, handle: self.handle)
-                .navigationBarTitle("Edit recipe")
-            )
-        }
     }
 }

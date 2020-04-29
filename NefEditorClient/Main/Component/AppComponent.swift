@@ -4,11 +4,12 @@ import BowArch
 import BowOptics
 import SwiftUI
 
-typealias AppComponent<Catalog: View, Search: View> = StoreComponent<API.Config, AppState, AppAction, AppView<Catalog, Search>>
+typealias AppComponent<Catalog: View, Search: View, Edit: View> = StoreComponent<API.Config, AppState, AppAction, AppView<Catalog, Search, Edit>>
 typealias CatalogChild = StoreComponent<API.Config, AppState, AppAction, RecipeCatalogView>
 typealias SearchChild = StoreComponent<API.Config, AppState, AppAction, SearchView<SearchDetailChild>>
+typealias EditChild = StoreComponent<API.Config, AppState, AppAction, EditRecipeMetadataView>
 
-func appComponent() -> AppComponent<CatalogChild, SearchChild> {
+func appComponent() -> AppComponent<CatalogChild, SearchChild, EditChild> {
     let initialState = AppState(
         panelState: .catalog,
         editState: .notEditing,
@@ -40,6 +41,15 @@ func appComponent() -> AppComponent<CatalogChild, SearchChild> {
                     transformEnvironment: id,
                     transformState: AppState.searchStateLens,
                     transformInput: AppAction.prism(for: AppAction.searchAction))
+                .using(dispatcher: appDispatcher.lift(id),
+                       handler: handler),
+            
+            edit: editComponent(state: state.editState)
+                .lift(initialState: state,
+                      environment: config,
+                      transformEnvironment: id,
+                      transformState: AppState.editStateLens,
+                      transformInput: AppAction.prism(for: AppAction.editAction))
                 .using(dispatcher: appDispatcher.lift(id),
                        handler: handler),
             
