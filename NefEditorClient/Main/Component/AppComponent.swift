@@ -43,16 +43,14 @@ func appComponent() -> AppComponent<CatalogChild, SearchChild, DetailChild> {
                 .using(dispatcher: appDispatcher.lift(id),
                        handler: handler),
             
-            detail: { repository in
-                repositoryDetail(config: config, state: repository)
+            detail: repositoryDetail(config: config, state: state.searchState.modalState)
                 .lift(
                     initialState: state,
                     environment: config,
                     transformEnvironment: id,
                     transformState: AppState.modalStateLens,
                     transformInput: Prism.identity)
-                .using(dispatcher: StateDispatcher.empty(), handler: handler)
-            },
+                .using(dispatcher: StateDispatcher.empty(), handler: handler),
             handle: handle)
     }
 }

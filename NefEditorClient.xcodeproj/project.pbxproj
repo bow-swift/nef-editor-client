@@ -37,6 +37,7 @@
 		1142543F2448A87000B2EA0C /* RepositoryDetailDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1142543E2448A87000B2EA0C /* RepositoryDetailDispatcher.swift */; };
 		114254422448AEFF00B2EA0C /* RepositoryDetailComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114254412448AEFF00B2EA0C /* RepositoryDetailComponent.swift */; };
 		11425445244990AB00B2EA0C /* Data+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11425444244990AB00B2EA0C /* Data+Equatable.swift */; };
+		114AF44C24597675000116B7 /* View+Modal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114AF44B24597675000116B7 /* View+Modal.swift */; };
 		1163838424321FD100EB2DEF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1163838324321FD100EB2DEF /* AppDelegate.swift */; };
 		1163838624321FD100EB2DEF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1163838524321FD100EB2DEF /* SceneDelegate.swift */; };
 		1163838A24321FD400EB2DEF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1163838924321FD400EB2DEF /* Assets.xcassets */; };
@@ -124,6 +125,7 @@
 		1142543E2448A87000B2EA0C /* RepositoryDetailDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailDispatcher.swift; sourceTree = "<group>"; };
 		114254412448AEFF00B2EA0C /* RepositoryDetailComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailComponent.swift; sourceTree = "<group>"; };
 		11425444244990AB00B2EA0C /* Data+Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Equatable.swift"; sourceTree = "<group>"; };
+		114AF44B24597675000116B7 /* View+Modal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Modal.swift"; sourceTree = "<group>"; };
 		1163838024321FD100EB2DEF /* NefEditorClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NefEditorClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1163838324321FD100EB2DEF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1163838524321FD100EB2DEF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -500,6 +502,7 @@
 				11B125C72447242C00E2D1C3 /* TextButtonStyle.swift */,
 				11CB85942437848A00CE4592 /* TextStyle.swift */,
 				11BFEA0A243B538300D4F891 /* ViewStyle.swift */,
+				114AF44B24597675000116B7 /* View+Modal.swift */,
 			);
 			path = Theme;
 			sourceTree = "<group>";
@@ -669,6 +672,7 @@
 				1142543D2448A80900B2EA0C /* RepositoryDetailAction.swift in Sources */,
 				11E07F18243B353500A0A027 /* SearchBar.swift in Sources */,
 				11B125C02447077000E2D1C3 /* DependencyView.swift in Sources */,
+				114AF44C24597675000116B7 /* View+Modal.swift in Sources */,
 				11070291243C9DF9008583EB /* ActivityTextView.swift in Sources */,
 				1163BA97244ED0C5005B0785 /* AppDispatcher.swift in Sources */,
 				1107028F243C9D0A008583EB /* LoadingRequirementsView.swift in Sources */,

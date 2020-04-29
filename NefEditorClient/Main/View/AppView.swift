@@ -5,25 +5,35 @@ struct AppView<CatalogView: View, SearchView: View, RepoDetails: View>: View {
     let state: AppState
     let catalog: CatalogView
     let search: SearchView
-    let detail: (SearchModalState) -> RepoDetails
+    let detail: RepoDetails
     let handle: (AppAction) -> Void
     
-    let isModalPresented: Binding<Bool>
+    let isEditPresented: Binding<Bool>
+    let isDetailPresented: Binding<Bool>
     
     init(state: AppState,
          catalog: CatalogView,
          search: SearchView,
-         detail: @escaping (SearchModalState) -> RepoDetails,
+         detail: RepoDetails,
          handle: @escaping (AppAction) -> Void) {
         self.state = state
         self.catalog = catalog
         self.search = search
         self.detail = detail
         self.handle = handle
-        self.isModalPresented = Binding(
-            get: { state.shouldShowModal },
-            set: { newValue in
-                if !newValue {
+        
+        self.isEditPresented = Binding(
+            get: { state.editState != .notEditing },
+            set: { newState in
+                if !newState {
+                    handle(.dismissModal)
+                }
+            })
+        
+        self.isDetailPresented = Binding(
+            get: { state.searchState.modalState != .noModal },
+            set: { newState in
+                if !newState {
                     handle(.dismissModal)
                 }
             })
@@ -46,8 +56,11 @@ struct AppView<CatalogView: View, SearchView: View, RepoDetails: View>: View {
             }.background(
                 self.backgroundView
             ).navigationBarTitle("nef editor", displayMode: .inline)
-            .sheet(isPresented: isModalPresented) {
-                self.sheetView
+            .modal(isPresented: isEditPresented) {
+                self.sheetView(self.editView)
+            }
+            .modal(isPresented: isDetailPresented) {
+                self.sheetView(self.detail)
             }
         }.navigationViewStyle(StackNavigationViewStyle())
     }
@@ -82,29 +95,25 @@ struct AppView<CatalogView: View, SearchView: View, RepoDetails: View>: View {
             .transition(.move(edge: .trailing))
     }
     
-    var sheetView: some View {
+    func sheetView<V: View>(_ content: V) -> some View {
         NavigationView {
-            self.editView
+            content
         }.navigationViewStyle(StackNavigationViewStyle())
     }
     
     var editView: some View {
-        switch (state.editState, state.searchState.modalState) {
-        case (.notEditing, .noModal):
+        switch (state.editState) {
+        case .notEditing:
             return AnyView(EmptyView())
-        case (.newRecipe, _):
+        case .newRecipe:
             return AnyView(
                 EditRecipeMetadataView(title: "", description: "", handle: self.handle)
                     .navigationBarTitle("New recipe")
             )
-        case (.editRecipe(let recipe), _):
+        case .editRecipe(let recipe):
             return AnyView(
                 EditRecipeMetadataView(title: recipe.title, description: recipe.description, handle: self.handle)
                 .navigationBarTitle("Edit recipe")
-            )
-        case (_, _):
-            return AnyView(
-                self.detail(state.searchState.modalState)
             )
         }
     }
