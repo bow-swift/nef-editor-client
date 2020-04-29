@@ -1,43 +1,36 @@
 import Bow
 import BowEffects
+import BowOptics
 import BowArch
 
 typealias AppDispatcher = StateDispatcher<Any, AppState, AppAction>
 
-let appDispatcher = AppDispatcher { action, handler in
+let appDispatcher = AppDispatcher.pure { action in
     switch action {
+    case .catalogAction(_):
+        return .modify(id)
         
-    case .addRecipe:
-        return handler.send(action: addRecipe())
-    
     case .edit(item: let item):
-        return handler.send(action: edit(item: item))
+        return edit(item: item)
     
-    case .dismissEdition:
-        return handler.send(action: dismissEdition())
+    case .dismissModal:
+        return dismissModal()
         
     case .saveRecipe(title: let title, description: let description):
-        return handler.send(action: saveRecipe(title: title, description: description))
-        
-    case .duplicate(item: let item):
-        return handler.send(action: duplicate(item: item))
-        
-    case .remove(item: let item):
-        return handler.send(action: remove(item: item))
+        return saveRecipe(title: title, description: description)
         
     case .searchDependency:
-        return handler.send(action: searchDependency())
+        return searchDependency()
     
-    case .select(item: let item):
-        return handler.send(action: select(item: item))
+    case .searchAction(let action):
+        switch action {
+        case .cancelSearch:
+            return cancelSearch()
+        default:
+            return .modify(id)
+        }
     }
-}
-
-func addRecipe() -> State<AppState, Void> {
-    .modify { state in
-        state.copy(editState: .newRecipe)
-    }^
-}
+}.combine(catalogDispatcher.widen(id, Lens.identity, AppAction.catalogPrism))
 
 func edit(item: CatalogItem) -> State<AppState, Void> {
     if case let .regular(recipe) = item {
@@ -49,9 +42,10 @@ func edit(item: CatalogItem) -> State<AppState, Void> {
     }
 }
 
-func dismissEdition() -> State<AppState, Void> {
+func dismissModal() -> State<AppState, Void> {
     .modify { state in
-        state.copy(editState: .notEditing)
+        state.copy(editState: .notEditing,
+                   searchState: state.searchState.copy(modalState: .noModal))
     }^
 }
 
@@ -71,26 +65,6 @@ func saveRecipe(title: String, description: String) -> State<AppState, Void> {
     }^
 }
 
-func duplicate(item: CatalogItem) -> State<AppState, Void> {
-    .modify { state in
-        let recipe = item.recipe.copy(title: item.recipe.title + " copy")
-        let newItem = CatalogItem.regular(recipe)
-        let newCatalog = state.catalog.appending(newItem)
-        return state.copy(catalog: newCatalog, selectedItem: newItem)
-    }^
-}
-
-func remove(item: CatalogItem) -> State<AppState, Void> {
-    .modify { state in
-        if item.isEditable {
-            let newCatalog = state.catalog.removing(item)
-            let selectedItem = state.selectedItem == item ? Catalog.initialSelection : state.selectedItem
-            return state.copy(catalog: newCatalog, selectedItem: selectedItem)
-        } else {
-            return state
-        }
-    }^
-}
 
 func createRecipe(title: String, description: String) -> CatalogItem {
     .regular(Recipe(
@@ -111,8 +85,8 @@ func searchDependency() -> State<AppState, Void> {
     }^
 }
 
-func select(item: CatalogItem) -> State<AppState, Void> {
+func cancelSearch() -> State<AppState, Void> {
     .modify { state in
-        state.copy(selectedItem: item)
+        state.copy(panelState: .catalog)
     }^
 }

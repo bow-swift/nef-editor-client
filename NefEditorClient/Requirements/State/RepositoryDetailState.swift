@@ -1,6 +1,6 @@
 import GitHub
 
-enum RepositoryDetailState {
+enum RepositoryDetailState: Equatable {
     case loading(Repository)
     case empty(Repository)
     case loaded(Repository, requirements: [Requirement])

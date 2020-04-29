@@ -2,16 +2,15 @@ import GitHub
 import Bow
 import BowArch
 
-typealias SearchComponent = StoreComponent<SearchState, SearchView>
+typealias SearchComponent = StoreComponent<API.Config, SearchState, SearchAction, SearchView>
 
-func searchComponent(config: API.Config) -> SearchComponent {
+func searchComponent(
+    config: API.Config,
+    state: SearchState
+) -> SearchComponent {
     SearchComponent(
-        initialState: SearchState(loadingState: .initial, modalState: .noModal),
-        environment: config) { state, handler in
-            
-        SearchView(
-            state: state,
-            detail: config |> repositoryDetail,
-            handle: searchDispatcher.sendingTo(handler, environment: config))
-    }
+        initialState: state,
+        environment: config,
+        dispatcher: searchDispatcher,
+        render: SearchView.init)
 }

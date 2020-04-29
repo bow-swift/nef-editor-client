@@ -1,23 +1,30 @@
 import SwiftUI
+import GitHub
 
-struct AppView: View {
+struct AppView<CatalogView: View, SearchView: View, RepoDetails: View>: View {
     let state: AppState
-    let search: SearchComponent
+    let catalog: CatalogView
+    let search: SearchView
+    let detail: (SearchModalState) -> RepoDetails
     let handle: (AppAction) -> Void
     
-    let isEditPresented: Binding<Bool>
+    let isModalPresented: Binding<Bool>
     
     init(state: AppState,
-         search: SearchComponent,
+         catalog: CatalogView,
+         search: SearchView,
+         detail: @escaping (SearchModalState) -> RepoDetails,
          handle: @escaping (AppAction) -> Void) {
         self.state = state
+        self.catalog = catalog
         self.search = search
+        self.detail = detail
         self.handle = handle
-        self.isEditPresented = Binding(
-            get: { state.editState != .notEditing },
+        self.isModalPresented = Binding(
+            get: { state.shouldShowModal },
             set: { newValue in
                 if !newValue {
-                    handle(.dismissEdition)
+                    handle(.dismissModal)
                 }
             })
     }
@@ -39,7 +46,7 @@ struct AppView: View {
             }.background(
                 self.backgroundView
             ).navigationBarTitle("nef editor", displayMode: .inline)
-            .sheet(isPresented: isEditPresented) {
+            .sheet(isPresented: isModalPresented) {
                 self.sheetView
             }
         }.navigationViewStyle(StackNavigationViewStyle())
@@ -51,7 +58,7 @@ struct AppView: View {
     }
     
     var catalogView: some View {
-        RecipeCatalogView(catalog: state.catalog, handle: self.handle)
+        catalog
             .animation(.easeInOut)
             .transition(.move(edge: .leading))
     }
@@ -82,18 +89,22 @@ struct AppView: View {
     }
     
     var editView: some View {
-        switch state.editState {
-        case .notEditing:
+        switch (state.editState, state.searchState.modalState) {
+        case (.notEditing, .noModal):
             return AnyView(EmptyView())
-        case .newRecipe:
+        case (.newRecipe, _):
             return AnyView(
                 EditRecipeMetadataView(title: "", description: "", handle: self.handle)
                     .navigationBarTitle("New recipe")
             )
-        case .editRecipe(let recipe):
+        case (.editRecipe(let recipe), _):
             return AnyView(
                 EditRecipeMetadataView(title: recipe.title, description: recipe.description, handle: self.handle)
                 .navigationBarTitle("Edit recipe")
+            )
+        case (_, _):
+            return AnyView(
+                self.detail(state.searchState.modalState)
             )
         }
     }

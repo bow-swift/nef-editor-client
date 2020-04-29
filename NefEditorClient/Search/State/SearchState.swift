@@ -1,4 +1,5 @@
 import GitHub
+import BowOptics
 
 struct SearchState {
     let loadingState: SearchLoadingState
@@ -12,6 +13,12 @@ struct SearchState {
             loadingState: loadingState ?? self.loadingState,
             modalState: modalState ?? self.modalState)
     }
+    
+    static var modalStateLens: Lens<SearchState, SearchModalState> {
+        Lens(
+            get: { search in search.modalState },
+            set: { search, modal in search.copy(modalState: modal) })
+    }
 }
 
 enum SearchLoadingState {
@@ -24,5 +31,5 @@ enum SearchLoadingState {
 
 enum SearchModalState: Equatable {
     case noModal
-    case repositoryDetail(Repository)
+    case repositoryDetail(RepositoryDetailState)
 }
