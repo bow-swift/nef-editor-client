@@ -1,29 +1,33 @@
 import SwiftUI
 import GitHub
 
-struct AppView<CatalogView: View, SearchView: View, RepoDetails: View>: View {
+struct AppView<CatalogView: View, SearchView: View, DetailView: View, EditView: View>: View {
     let state: AppState
     let catalog: CatalogView
     let search: SearchView
-    let detail: (SearchModalState) -> RepoDetails
+    let detail: DetailView
+    let edit: EditView
     let handle: (AppAction) -> Void
     
-    let isModalPresented: Binding<Bool>
+    let isEditPresented: Binding<Bool>
     
     init(state: AppState,
          catalog: CatalogView,
          search: SearchView,
-         detail: @escaping (SearchModalState) -> RepoDetails,
+         detail: DetailView,
+         edit: EditView,
          handle: @escaping (AppAction) -> Void) {
         self.state = state
         self.catalog = catalog
         self.search = search
         self.detail = detail
+        self.edit = edit
         self.handle = handle
-        self.isModalPresented = Binding(
-            get: { state.shouldShowModal },
-            set: { newValue in
-                if !newValue {
+        
+        self.isEditPresented = Binding(
+            get: { state.editState != .notEditing },
+            set: { newState in
+                if !newState {
                     handle(.dismissModal)
                 }
             })
@@ -46,8 +50,8 @@ struct AppView<CatalogView: View, SearchView: View, RepoDetails: View>: View {
             }.background(
                 self.backgroundView
             ).navigationBarTitle("nef editor", displayMode: .inline)
-            .sheet(isPresented: isModalPresented) {
-                self.sheetView
+            .modal(isPresented: isEditPresented) {
+                self.edit
             }
         }.navigationViewStyle(StackNavigationViewStyle())
     }
@@ -69,7 +73,7 @@ struct AppView<CatalogView: View, SearchView: View, RepoDetails: View>: View {
     }
     
     var detailView: some View {
-        CatalogItemDetailView(item: state.selectedItem, handle: self.handle)
+        detail
             .frame(maxWidth: maxDetailWidth)
             .padding()
             .animation(.easeInOut)
@@ -80,32 +84,5 @@ struct AppView<CatalogView: View, SearchView: View, RepoDetails: View>: View {
         search
             .animation(.easeInOut)
             .transition(.move(edge: .trailing))
-    }
-    
-    var sheetView: some View {
-        NavigationView {
-            self.editView
-        }.navigationViewStyle(StackNavigationViewStyle())
-    }
-    
-    var editView: some View {
-        switch (state.editState, state.searchState.modalState) {
-        case (.notEditing, .noModal):
-            return AnyView(EmptyView())
-        case (.newRecipe, _):
-            return AnyView(
-                EditRecipeMetadataView(title: "", description: "", handle: self.handle)
-                    .navigationBarTitle("New recipe")
-            )
-        case (.editRecipe(let recipe), _):
-            return AnyView(
-                EditRecipeMetadataView(title: recipe.title, description: recipe.description, handle: self.handle)
-                .navigationBarTitle("Edit recipe")
-            )
-        case (_, _):
-            return AnyView(
-                self.detail(state.searchState.modalState)
-            )
-        }
     }
 }
