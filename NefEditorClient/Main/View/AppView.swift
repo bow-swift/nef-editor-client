@@ -1,10 +1,11 @@
 import SwiftUI
 import GitHub
 
-struct AppView<CatalogView: View, SearchView: View, EditView: View>: View {
+struct AppView<CatalogView: View, SearchView: View, DetailView: View, EditView: View>: View {
     let state: AppState
     let catalog: CatalogView
     let search: SearchView
+    let detail: DetailView
     let edit: EditView
     let handle: (AppAction) -> Void
     
@@ -13,11 +14,13 @@ struct AppView<CatalogView: View, SearchView: View, EditView: View>: View {
     init(state: AppState,
          catalog: CatalogView,
          search: SearchView,
+         detail: DetailView,
          edit: EditView,
          handle: @escaping (AppAction) -> Void) {
         self.state = state
         self.catalog = catalog
         self.search = search
+        self.detail = detail
         self.edit = edit
         self.handle = handle
         
@@ -70,7 +73,7 @@ struct AppView<CatalogView: View, SearchView: View, EditView: View>: View {
     }
     
     var detailView: some View {
-        CatalogItemDetailView(item: state.selectedItem, handle: self.handle)
+        detail
             .frame(maxWidth: maxDetailWidth)
             .padding()
             .animation(.easeInOut)

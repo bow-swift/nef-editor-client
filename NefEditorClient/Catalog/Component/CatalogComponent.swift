@@ -5,7 +5,5 @@ typealias CatalogComponent = StoreComponent<Any, Catalog, CatalogAction, RecipeC
 func catalogComponent(state: Catalog) -> CatalogComponent {
     CatalogComponent(
         initialState: state,
-        environment: (),
-        dispatcher: .empty(),
         render: RecipeCatalogView.init)
 }

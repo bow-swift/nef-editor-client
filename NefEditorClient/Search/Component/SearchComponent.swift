@@ -22,7 +22,7 @@ func searchComponent(
                         transformEnvironment: id,
                         transformState: SearchState.modalStateLens,
                         transformInput: SearchAction.prism(for: SearchAction.repositoryDetailAction))
-                    .using(dispatcher: .empty(), handler: handler),
+                    .using(handler: handler),
                 handle: handle
             )
     }

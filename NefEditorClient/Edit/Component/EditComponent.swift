@@ -5,7 +5,5 @@ typealias EditComponent = StoreComponent<Any, EditState, EditAction, EditRecipeM
 func editComponent(state: EditState) -> EditComponent {
     EditComponent(
         initialState: state,
-        environment: (),
-        dispatcher: .empty(),
         render: EditRecipeMetadataView.init)
 }

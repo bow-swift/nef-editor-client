@@ -2,7 +2,7 @@ import SwiftUI
 
 struct CatalogItemDetailView: View {
     let item: CatalogItem
-    let handle: (AppAction) -> Void
+    let handle: (CatalogDetailAction) -> Void
     
     var body: some View {
         CardView {
