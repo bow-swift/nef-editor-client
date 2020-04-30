@@ -9,6 +9,8 @@ let catalogDetailDispatcher = CatalogDetailDispatcher.pure { action in
         return edit(item: item)
     case .searchDependency:
         return searchDependency()
+    case .remove(let dependency):
+        return remove(dependency: dependency)
     }
 }
 
@@ -25,5 +27,14 @@ func edit(item: CatalogItem) -> State<AppState, Void> {
 func searchDependency() -> State<AppState, Void> {
     .modify { state in
         state.copy(panelState: .search)
+    }^
+}
+
+func remove(dependency: Dependency) -> State<AppState, Void> {
+    .modify { state in
+        let selected = state.selectedItem
+        let newSelected = selected.removing(dependency: dependency)
+        let newCatalog = state.catalog.replacing(selected, by: newSelected)
+        return state.copy(catalog: newCatalog, selectedItem: newSelected)
     }^
 }

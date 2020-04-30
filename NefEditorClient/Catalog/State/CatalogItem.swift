@@ -58,4 +58,13 @@ enum CatalogItem: Equatable, Identifiable {
             }
         )
     }
+    
+    func removing(dependency: Dependency) -> CatalogItem {
+        self.fold(
+            CatalogItem.featured,
+            { recipe in
+                CatalogItem.regular(recipe.removing(dependency: dependency))
+            }
+        )
+    }
 }

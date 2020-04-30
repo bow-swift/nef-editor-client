@@ -37,6 +37,12 @@ struct Recipe: Equatable, Identifiable {
         }
     }
     
+    func removing(dependency: Dependency) -> Recipe {
+        copy(dependencies: self.dependencies.filter { dep in
+            dep != dependency
+        })
+    }
+    
     private func contains(dependency: Dependency) -> Bool {
         self.dependencies.first { dep in
             dep.url == dependency.url
