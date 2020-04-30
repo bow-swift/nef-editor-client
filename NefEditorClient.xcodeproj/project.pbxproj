@@ -21,6 +21,8 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		1101A3AC245AB5F6002A848B /* URLImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1101A3AB245AB5F6002A848B /* URLImage.swift */; };
+		1101A3B0245AB994002A848B /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1101A3AF245AB994002A848B /* AvatarView.swift */; };
 		11070286243C8178008583EB /* Requirement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11070285243C8178008583EB /* Requirement.swift */; };
 		11070289243C81DC008583EB /* RequirementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11070288243C81DC008583EB /* RequirementView.swift */; };
 		1107028B243C9987008583EB /* RepositoryDetailState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1107028A243C9987008583EB /* RepositoryDetailState.swift */; };
@@ -116,6 +118,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1101A3AB245AB5F6002A848B /* URLImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLImage.swift; sourceTree = "<group>"; };
+		1101A3AF245AB994002A848B /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
 		11070285243C8178008583EB /* Requirement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requirement.swift; sourceTree = "<group>"; };
 		11070288243C81DC008583EB /* RequirementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequirementView.swift; sourceTree = "<group>"; };
 		1107028A243C9987008583EB /* RepositoryDetailState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailState.swift; sourceTree = "<group>"; };
@@ -570,6 +574,7 @@
 				11B125C324471E1C00E2D1C3 /* ActionButtonStyle.swift */,
 				11BFE9FD243B3C2200D4F891 /* ActivityIndicator.swift */,
 				11070290243C9DF9008583EB /* ActivityTextView.swift */,
+				1101A3AF245AB994002A848B /* AvatarView.swift */,
 				11CB85922437825100CE4592 /* CardView.swift */,
 				11B125C5244721BF00E2D1C3 /* ColorPalette.swift */,
 				11E07F10243B118F00A0A027 /* GridView.swift */,
@@ -578,6 +583,7 @@
 				11E07F17243B353500A0A027 /* SearchBar.swift */,
 				11B125C72447242C00E2D1C3 /* TextButtonStyle.swift */,
 				11CB85942437848A00CE4592 /* TextStyle.swift */,
+				1101A3AB245AB5F6002A848B /* URLImage.swift */,
 				114AF44B24597675000116B7 /* View+Modal.swift */,
 				11BFEA0A243B538300D4F891 /* ViewStyle.swift */,
 			);
@@ -779,6 +785,7 @@
 				114AF45724598960000116B7 /* EditComponent.swift in Sources */,
 				11BFEA0F243B560500D4F891 /* EmptySearchView.swift in Sources */,
 				1107028B243C9987008583EB /* RepositoryDetailState.swift in Sources */,
+				1101A3B0245AB994002A848B /* AvatarView.swift in Sources */,
 				1187BD65243FABED00FF668F /* FeaturedRecipe.swift in Sources */,
 				1142543A244879DE00B2EA0C /* SearchComponent.swift in Sources */,
 				11BFEA09243B525100D4F891 /* LoadingSearchView.swift in Sources */,
@@ -816,6 +823,7 @@
 				11E07F11243B118F00A0A027 /* GridView.swift in Sources */,
 				1163BA95244ED043005B0785 /* AppAction.swift in Sources */,
 				11EDF44D2435F5410092E959 /* SearchView.swift in Sources */,
+				1101A3AC245AB5F6002A848B /* URLImage.swift in Sources */,
 				114AF45C24598E15000116B7 /* CatalogDetailDispatcher.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
