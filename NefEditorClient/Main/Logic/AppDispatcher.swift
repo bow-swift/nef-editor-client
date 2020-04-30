@@ -6,21 +6,21 @@ import GitHub
 
 typealias AppDispatcher = StateDispatcher<Any, AppState, AppAction>
 
-let appDispatcher: StateDispatcher<API.Config, AppState, AppAction> = AppDispatcher.pure { action in
+let appDispatcher: StateDispatcher<API.Config, AppState, AppAction> = AppDispatcher.workflow { action in
     switch action {
     case .dismissModal:
-        return dismissModal()
+        return [EnvIO.pure(dismissModal())^]
     
     case .searchAction(let action):
         switch action {
         case .cancelSearch:
-            return cancelSearch()
+            return [EnvIO.pure(cancelSearch())^]
         default:
-            return .modify(id)^
+            return []
         }
         
     case .catalogAction(_), .editAction(_), .catalogDetailAction(_):
-        return .modify(id)^
+        return []
     }
 }.combine(catalogDispatcher.widen(
     transformInput: AppAction.prism(for: AppAction.catalogAction)))
