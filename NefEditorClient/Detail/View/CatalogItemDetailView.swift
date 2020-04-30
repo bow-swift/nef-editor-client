@@ -43,7 +43,12 @@ struct CatalogItemDetailView: View {
                     }
                 }.padding(.top, 24)
                 
-                DependencyListView(dependencies: self.item.dependencies)
+                DependencyListView(
+                    dependencies: self.item.dependencies,
+                    isEditable: self.item.isEditable
+                ) { dependency in
+                    self.handle(.remove(dependency))
+                }
                 
                 Button(action: {}) {
                     HStack(spacing: 12) {
