@@ -1,6 +1,6 @@
 import GitHub
 
-struct Catalog {
+struct Catalog: Equatable {
     let featured: CatalogSection
     let userCreated: CatalogSection
     

@@ -1,6 +1,6 @@
 import BowOptics
 
-struct AppState {
+struct AppState: Equatable {
     let panelState: PanelState
     let editState: EditState
     let searchState: SearchState
