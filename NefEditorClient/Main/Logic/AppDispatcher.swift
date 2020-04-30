@@ -69,7 +69,9 @@ func addDependency(
     .modify { state in
         let selected = state.selectedItem
         let dependency = Dependency(repository: repository.name,
+                                    owner: repository.owner.login,
                                     url: repository.htmlUrl,
+                                    avatar: repository.owner.avatarUrl,
                                     requirement: requirement)
         let newRecipe = selected.appending(dependency: dependency)
         

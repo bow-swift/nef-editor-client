@@ -35,12 +35,16 @@ let sampleRequirements = Array(repeating: version, count: 5) + Array(repeating: 
 
 let bowDependency = Dependency(
     repository: "bow",
+    owner: "bow-swift",
     url: "https://github.com/bow-swift/bow",
+    avatar: "https://avatars3.githubusercontent.com/u/44965417?v=4",
     requirement: .version(Tag(name: "0.7.0")))
 
 let bowArchDependency = Dependency(
     repository: "bow-arch",
+    owner: "bow-swift",
     url: "https://github.com/bow-swift/bow-arch",
+    avatar: "https://avatars3.githubusercontent.com/u/44965417?v=4",
     requirement: .branch(Branch(name: "master")))
 
 let sampleRecipe = Recipe(
