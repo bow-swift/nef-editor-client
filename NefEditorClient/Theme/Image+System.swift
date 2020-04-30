@@ -16,4 +16,8 @@ extension Image {
     static var trash: Image {
         Image(systemName: "trash")
     }
+    
+    static var person: Image {
+        Image(systemName: "person.crop.circle")
+    }
 }
