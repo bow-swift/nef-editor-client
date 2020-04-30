@@ -1,4 +1,4 @@
-struct CatalogSection {
+struct CatalogSection: Equatable {
     let title: String
     let action: CatalogSectionAction?
     let items: [CatalogItem]
@@ -33,7 +33,7 @@ struct CatalogSection {
     }
 }
 
-struct CatalogSectionAction {
+struct CatalogSectionAction: Equatable {
     let icon: String
     let action: CatalogAction
 }

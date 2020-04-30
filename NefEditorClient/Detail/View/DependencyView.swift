@@ -9,9 +9,15 @@ struct DependencyView: View {
                 Text(dependency.repository)
                     .font(.body)
                 
-                Text(dependency.url)
-                    .font(.caption)
-                    .foregroundColor(.gray)
+                HStack {
+                    AvatarView(avatar: dependency.avatar)
+                        .frame(width: 24, height: 24)
+                        .mask(Circle())
+                    
+                    Text(dependency.owner)
+                        .font(.caption)
+                        .foregroundColor(.gray)
+                }
             }
             Spacer()
             TagView(tag: TagViewModel(text: dependency.requirement.title))

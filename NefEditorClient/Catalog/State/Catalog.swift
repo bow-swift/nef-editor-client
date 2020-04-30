@@ -1,6 +1,6 @@
 import GitHub
 
-struct Catalog {
+struct Catalog: Equatable {
     let featured: CatalogSection
     let userCreated: CatalogSection
     
@@ -17,7 +17,9 @@ struct Catalog {
                     dependencies: [
                         Dependency(
                             repository: "bow",
+                            owner: "bow-swift",
                             url: "https://github.com/bow-swift/bow",
+                            avatar: "https://avatars3.githubusercontent.com/u/44965417?v=4",
                             requirement: .version(Tag(name: "0.7.0")))
                 ]),
                 backgroundImage: "bow-background",
@@ -36,7 +38,9 @@ struct Catalog {
                     dependencies: [
                         Dependency(
                             repository: "bow",
+                            owner: "bow-swift",
                             url: "https://github.com/bow-swift/bow",
+                            avatar: "https://avatars3.githubusercontent.com/u/44965417?v=4",
                             requirement: .branch(Branch(name: "master")))
                 ]),
                 backgroundImage: "bow-background",

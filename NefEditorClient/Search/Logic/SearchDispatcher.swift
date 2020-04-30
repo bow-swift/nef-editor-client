@@ -17,10 +17,21 @@ let searchDispatcher = SearchDispatcher.workflow { action in
     case .dismissDetails:
         return [EnvIO.pure(dismissDetails())^]
         
-    case .cancelSearch, .repositoryDetailAction(_):
-        return [EnvIO.pure(.modify(id)^)^]
+    case .repositoryDetailAction(let detailAction):
+        switch detailAction {
+        case .dependencySelected(_, from: _):
+            return [EnvIO.pure(dismissDetails())^]
+        default:
+            return []
+        }
+        
+    case .cancelSearch:
+        return []
     }
-}
+}.combine(repositoryDetailDispatcher.widen(
+    transformState: SearchState.modalStateLens,
+    transformInput: SearchAction.prism(for: SearchAction.repositoryDetailAction)
+))
 
 func search(
     query: String

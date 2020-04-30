@@ -1,7 +1,7 @@
 import GitHub
 import BowOptics
 
-struct SearchState {
+struct SearchState: Equatable {
     let loadingState: SearchLoadingState
     let modalState: SearchModalState
     
@@ -21,7 +21,7 @@ struct SearchState {
     }
 }
 
-enum SearchLoadingState {
+enum SearchLoadingState: Equatable {
     case initial
     case loading(query: String)
     case empty(query: String)

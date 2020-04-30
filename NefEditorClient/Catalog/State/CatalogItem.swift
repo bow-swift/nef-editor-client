@@ -1,6 +1,7 @@
 import Bow
+import Foundation
 
-enum CatalogItem: Equatable {
+enum CatalogItem: Equatable, Identifiable {
     case featured(FeaturedRecipe)
     case regular(Recipe)
     
@@ -43,5 +44,27 @@ enum CatalogItem: Equatable {
     
     var recipe: Recipe {
         self.fold(\.recipe, \.self)
+    }
+    
+    var id: UUID {
+        self.fold(\.id, \.id)
+    }
+    
+    func appending(dependency: Dependency) -> CatalogItem {
+        self.fold(
+            CatalogItem.featured,
+            { recipe in
+                CatalogItem.regular(recipe.appending(dependency: dependency))
+            }
+        )
+    }
+    
+    func removing(dependency: Dependency) -> CatalogItem {
+        self.fold(
+            CatalogItem.featured,
+            { recipe in
+                CatalogItem.regular(recipe.removing(dependency: dependency))
+            }
+        )
     }
 }

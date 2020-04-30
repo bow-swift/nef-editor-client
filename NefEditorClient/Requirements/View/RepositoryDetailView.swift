@@ -29,8 +29,10 @@ struct RepositoryDetailView: View {
                 return AnyView(EmptyRequirementsView(repository: repo))
             case .loading(let repo):
                 return AnyView(LoadingRequirementsView(repository: repo))
-            case .loaded(_, requirements: let requirements):
-                return AnyView(RequirementListView(requirements: requirements))
+            case .loaded(let repository, requirements: let requirements):
+                return AnyView(RequirementListView(requirements: requirements) { selected in
+                    self.handle(.dependencySelected(selected, from: repository))
+                })
             case .error(_, message: let message):
                 return AnyView(ErrorRequirementsView(message: message))
             }

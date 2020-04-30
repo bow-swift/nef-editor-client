@@ -16,9 +16,12 @@ struct RepositoryView: View {
                 Spacer()
                 
                 HStack(alignment: .lastTextBaseline) {
-                    self.labeledImage(
-                        "person.crop.circle",
-                        text: self.repository.owner.login)
+                    HStack {
+                        AvatarView(avatar: self.repository.owner.avatarUrl)
+                            .frame(width: 24, height: 24)
+                            .mask(Circle())
+                        Text(self.repository.owner.login)
+                    }
                     
                     Spacer()
                     

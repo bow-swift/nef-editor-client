@@ -1,5 +1,6 @@
 import Bow
 import BowArch
+import Foundation
 
 typealias CatalogDispatcher = StateDispatcher<Any, AppState, CatalogAction>
 
@@ -28,7 +29,7 @@ func addRecipe() -> State<AppState, Void> {
 
 func duplicate(item: CatalogItem) -> State<AppState, Void> {
     .modify { state in
-        let recipe = item.recipe.copy(title: item.recipe.title + " copy")
+        let recipe = item.recipe.copy(id: UUID(), title: item.recipe.title + " copy")
         let newItem = CatalogItem.regular(recipe)
         let newCatalog = state.catalog.appending(newItem)
         return state.copy(catalog: newCatalog, selectedItem: newItem)
