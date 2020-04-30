@@ -12,7 +12,7 @@ func searchComponent(
     SearchComponent(
         initialState: state,
         environment: config,
-        dispatcher: searchDispatcher) { state, handle, handler in
+        dispatcher: searchDispatcher) { state, handle in
             SearchView(
                 state: state,
                 detail: repositoryDetail(config: config, state: state.modalState)
@@ -22,7 +22,7 @@ func searchComponent(
                         transformEnvironment: id,
                         transformState: SearchState.modalStateLens,
                         transformInput: SearchAction.prism(for: SearchAction.repositoryDetailAction))
-                    .using(handler: handler),
+                    .using(handle),
                 handle: handle
             )
     }

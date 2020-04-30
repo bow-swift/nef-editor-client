@@ -49,4 +49,13 @@ enum CatalogItem: Equatable, Identifiable {
     var id: UUID {
         self.fold(\.id, \.id)
     }
+    
+    func appending(dependency: Dependency) -> CatalogItem {
+        self.fold(
+            CatalogItem.featured,
+            { recipe in
+                CatalogItem.regular(recipe.appending(dependency: dependency))
+            }
+        )
+    }
 }

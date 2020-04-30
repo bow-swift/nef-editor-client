@@ -28,4 +28,28 @@ struct Recipe: Equatable, Identifiable {
             description: description ?? self.description,
             dependencies: dependencies ?? self.dependencies)
     }
+    
+    func appending(dependency: Dependency) -> Recipe {
+        if !contains(dependency: dependency) {
+            return copy(dependencies: self.dependencies + [dependency])
+        } else {
+            return replacing(dependency: dependency)
+        }
+    }
+    
+    private func contains(dependency: Dependency) -> Bool {
+        self.dependencies.first { dep in
+            dep.url == dependency.url
+        } != nil
+    }
+    
+    private func replacing(dependency: Dependency) -> Recipe {
+        copy(
+            dependencies: self.dependencies.map { dep in
+                (dep.url == dependency.url)
+                    ? dependency
+                    : dep
+            }
+        )
+    }
 }

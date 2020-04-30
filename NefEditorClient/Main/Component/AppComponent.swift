@@ -19,13 +19,12 @@ func appComponent() -> AppComponent<CatalogChild, SearchChild, DetailChild, Edit
         catalog: Catalog.initial,
         selectedItem: Catalog.initialSelection)
     let config = API.Config(basePath: "https://api.github.com")
-    let mainDispatcher: StateDispatcher<API.Config, AppState, AppAction> = appDispatcher.lift(id)
     
     return AppComponent(
         initialState: initialState,
         environment: config,
-        dispatcher: mainDispatcher
-    ) { state, handle, handler in
+        dispatcher: appDispatcher
+    ) { state, handle in
         AppView(
             state: state,
             
@@ -35,18 +34,14 @@ func appComponent() -> AppComponent<CatalogChild, SearchChild, DetailChild, Edit
                       transformEnvironment: id,
                       transformState: AppState.catalogLens,
                       transformInput: AppAction.prism(for: AppAction.catalogAction))
-                .using(dispatcher: mainDispatcher,
-                       handler: handler),
+                .using(handle),
             
             search: searchComponent(config: config, state: state.searchState)
                 .lift(
                     initialState: state,
-                    environment: config,
-                    transformEnvironment: id,
                     transformState: AppState.searchStateLens,
                     transformInput: AppAction.prism(for: AppAction.searchAction))
-                .using(dispatcher: mainDispatcher,
-                       handler: handler),
+                .using(handle),
             
             detail: catalogDetailComponent(state: state.selectedItem)
                 .lift(initialState: state,
@@ -54,8 +49,7 @@ func appComponent() -> AppComponent<CatalogChild, SearchChild, DetailChild, Edit
                       transformEnvironment: id,
                       transformState: AppState.selectedItemLens,
                       transformInput: AppAction.prism(for: AppAction.catalogDetailAction))
-                .using(dispatcher: mainDispatcher,
-                       handler: handler),
+                .using(handle),
             
             edit: editComponent(state: state.editState)
                 .lift(initialState: state,
@@ -63,8 +57,7 @@ func appComponent() -> AppComponent<CatalogChild, SearchChild, DetailChild, Edit
                       transformEnvironment: id,
                       transformState: AppState.editStateLens,
                       transformInput: AppAction.prism(for: AppAction.editAction))
-                .using(dispatcher: mainDispatcher,
-                       handler: handler),
+                .using(handle),
             
             handle: handle)
     }
