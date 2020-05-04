@@ -16,8 +16,8 @@ struct RecipeCatalogView: View {
                             handle: self.handle)
                     }
                 }.padding()
-                .animation(nil)
-            }
+            }.transition(.identity)
+            .animation(nil)
         }
     }
     
