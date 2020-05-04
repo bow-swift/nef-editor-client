@@ -73,4 +73,5 @@ let sampleFeaturedSection = CatalogSection(
     items: sampleFeaturedRecipes)
 
 let sampleCatalog = Catalog(featured: sampleFeaturedSection, userCreated: sampleRecipesSection)
+
 #endif

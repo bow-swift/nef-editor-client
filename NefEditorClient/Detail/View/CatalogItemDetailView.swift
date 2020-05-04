@@ -64,9 +64,11 @@ struct CatalogItemDetailView: View {
     }
 }
 
+#if DEBUG
 struct CatalogItemDetailView_Previews: PreviewProvider {
     static var previews: some View {
         CatalogItemDetailView(item: .regular(sampleRecipe)) { _ in }
         .padding()
     }
 }
+#endif

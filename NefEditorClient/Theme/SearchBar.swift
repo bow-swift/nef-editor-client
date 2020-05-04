@@ -52,6 +52,7 @@ struct SearchBar: UIViewRepresentable {
     }
 }
 
+#if DEBUG
 struct SearchBar_Previews: PreviewProvider {
     static var previews: some View {
         Group {
@@ -68,3 +69,4 @@ struct SearchBar_Previews: PreviewProvider {
         }
     }
 }
+#endif

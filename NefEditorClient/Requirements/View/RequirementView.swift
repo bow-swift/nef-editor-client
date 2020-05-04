@@ -21,6 +21,7 @@ private extension Requirement {
     }
 }
 
+#if DEBUG
 struct RequirementView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
@@ -31,3 +32,4 @@ struct RequirementView_Previews: PreviewProvider {
         .previewLayout(.sizeThatFits)
     }
 }
+#endif

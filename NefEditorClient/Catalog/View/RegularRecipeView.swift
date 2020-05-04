@@ -29,6 +29,7 @@ private extension Recipe {
     }
 }
 
+#if DEBUG
 struct RegularRecipeView_Previews: PreviewProvider {
     static var previews: some View {
         RegularRecipeView(recipe: sampleRecipe)
@@ -38,3 +39,4 @@ struct RegularRecipeView_Previews: PreviewProvider {
             .padding()
     }
 }
+#endif

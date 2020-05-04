@@ -69,6 +69,7 @@ struct CatalogItemGridView: View {
     }
 }
 
+#if DEBUG
 struct RecipeGridView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
@@ -82,3 +83,4 @@ struct RecipeGridView_Previews: PreviewProvider {
         }
     }
 }
+#endif

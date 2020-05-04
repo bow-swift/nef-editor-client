@@ -25,9 +25,11 @@ struct RecipeCatalogView: View {
     }
 }
 
+#if DEBUG
 struct RecipeCatalogView_Previews: PreviewProvider {
     static var previews: some View {
         RecipeCatalogView(catalog: sampleCatalog) { _ in }
             .previewLayout(.fixed(width: 910, height: 1024))
     }
 }
+#endif

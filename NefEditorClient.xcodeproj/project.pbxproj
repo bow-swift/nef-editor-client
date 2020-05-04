@@ -132,6 +132,7 @@
 		11070292243C9F27008583EB /* EmptyRequirementsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyRequirementsView.swift; sourceTree = "<group>"; };
 		11070297243CA10E008583EB /* ErrorRequirementsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorRequirementsView.swift; sourceTree = "<group>"; };
 		11070299243CA160008583EB /* RequirementListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequirementListView.swift; sourceTree = "<group>"; };
+		1113BD90245B344D009B4EF2 /* GitHub */ = {isa = PBXFileReference; lastKnownFileType = folder; path = GitHub; sourceTree = "<group>"; };
 		11425433244870FB00B2EA0C /* SearchAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAction.swift; sourceTree = "<group>"; };
 		114254352448732E00B2EA0C /* SearchDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDispatcher.swift; sourceTree = "<group>"; };
 		11425439244879DE00B2EA0C /* SearchComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchComponent.swift; sourceTree = "<group>"; };
@@ -146,7 +147,6 @@
 		114AF45924598D78000116B7 /* CatalogDetailAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogDetailAction.swift; sourceTree = "<group>"; };
 		114AF45B24598E15000116B7 /* CatalogDetailDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogDetailDispatcher.swift; sourceTree = "<group>"; };
 		114AF45E24598FC0000116B7 /* CatalogDetailComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogDetailComponent.swift; sourceTree = "<group>"; };
-		114AF4602459A870000116B7 /* GitHub */ = {isa = PBXFileReference; lastKnownFileType = folder; path = GitHub; sourceTree = "<group>"; };
 		114AF4642459CA18000116B7 /* AppDispatcherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDispatcherTests.swift; sourceTree = "<group>"; };
 		1163838024321FD100EB2DEF /* NefEditorClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NefEditorClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1163838324321FD100EB2DEF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -370,7 +370,7 @@
 			isa = PBXGroup;
 			children = (
 				11EDF467243714210092E959 /* github.yaml */,
-				114AF4602459A870000116B7 /* GitHub */,
+				1113BD90245B344D009B4EF2 /* GitHub */,
 				1163838224321FD100EB2DEF /* NefEditorClient */,
 				1163839924321FD400EB2DEF /* NefEditorClientTests */,
 				1163838124321FD100EB2DEF /* Products */,
@@ -984,9 +984,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = NefEditorClient/NefEditorClient.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_ASSET_PATHS = "\"NefEditorClient/Preview Content\"";
-				DEVELOPMENT_TEAM = 248ENVAN9C;
+				DEVELOPMENT_TEAM = P548S5LU96;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = NefEditorClient/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -994,8 +996,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.bow-swift.NefEditorClient";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.47deg.nef-editor-client";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "nef editor client Dev";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 2;
@@ -1007,9 +1011,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = NefEditorClient/NefEditorClient.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_ASSET_PATHS = "\"NefEditorClient/Preview Content\"";
-				DEVELOPMENT_TEAM = 248ENVAN9C;
+				DEVELOPMENT_TEAM = P548S5LU96;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = NefEditorClient/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1017,8 +1023,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.bow-swift.NefEditorClient";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.47deg.nef-editor-client";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "nef editor client Dist";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 2;

@@ -8,9 +8,11 @@ struct LoadingSearchView: View {
     }
 }
 
+#if DEBUG
 struct LoadingSearchView_Previews: PreviewProvider {
     static var previews: some View {
         LoadingSearchView(query: "Bow")
             .previewLayout(.sizeThatFits)
     }
 }
+#endif

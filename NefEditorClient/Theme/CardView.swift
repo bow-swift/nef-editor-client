@@ -17,6 +17,7 @@ struct CardView<Content: View>: View {
     }
 }
 
+#if DEBUG
 struct CardView_Preview: PreviewProvider {
     static var previews: some View {
         Group {
@@ -34,3 +35,4 @@ struct CardView_Preview: PreviewProvider {
             .padding()
     }
 }
+#endif

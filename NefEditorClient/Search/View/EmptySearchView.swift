@@ -8,9 +8,11 @@ struct EmptySearchView: View {
     }
 }
 
+#if DEBUG
 struct EmptySearchView_Previews: PreviewProvider {
     static var previews: some View {
         EmptySearchView(query: "Bow")
             .previewLayout(.sizeThatFits)
     }
 }
+#endif
