@@ -20,4 +20,8 @@ extension Image {
     static var person: Image {
         Image(systemName: "person.crop.circle")
     }
+    
+    static var close: Image {
+        Image(systemName: "xmark")
+    }
 }

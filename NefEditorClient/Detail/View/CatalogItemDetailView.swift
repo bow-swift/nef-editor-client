@@ -23,6 +23,12 @@ struct CatalogItemDetailView: View {
                         }
                         .buttonStyle(ActionButtonStyle())
                     }
+                    
+                    Button(action: {
+                        self.handle(.dismissDetail)
+                    }) {
+                        Image.close
+                    }.buttonStyle(ActionButtonStyle())
                 }
                 
                 Text(self.item?.description ?? "")

@@ -11,6 +11,8 @@ let catalogDetailDispatcher = CatalogDetailDispatcher.pure { action in
         return searchDependency()
     case .remove(let dependency):
         return remove(dependency: dependency)
+    case .dismissDetail:
+        return clearSelection()
     }
 }
 
@@ -39,5 +41,16 @@ func remove(dependency: Dependency) -> State<AppState, Void> {
         } else {
             return state
         }
+    }^
+}
+
+func clearSelection() -> State<AppState, Void> {
+    .modify { state in
+        if state.panelState == .search {
+            return state.copy(panelState: .catalog)
+        } else {
+            return state.copy(selectedItem: .some(nil))
+        }
+        
     }^
 }
