@@ -1,9 +1,12 @@
 import SwiftUI
 
 struct CardView<Content: View>: View {
+    let isSelected: Bool
     let content: () -> Content
     
-    init(@ViewBuilder content: @escaping () -> Content) {
+    init(isSelected: Bool = false,
+         @ViewBuilder content: @escaping () -> Content) {
+        self.isSelected = isSelected
         self.content = content
     }
     
@@ -11,7 +14,11 @@ struct CardView<Content: View>: View {
         ZStack {
             RoundedRectangle(cornerRadius: 8)
                 .fill(Color.white)
-                .shadow(color: Color.black.opacity(0.1), radius: 2, x: 1, y: 1)
+                .shadow(
+                    color: isSelected ? Color.black.opacity(0.3) : Color.black.opacity(0.1),
+                    radius: isSelected ? 6 : 2,
+                    x: 1,
+                    y: 1)
             self.content()
         }
     }

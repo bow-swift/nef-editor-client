@@ -2,13 +2,18 @@ import SwiftUI
 
 struct FeaturedRecipeView: View {
     let featured: FeaturedRecipe
+    let isSelected: Bool
     
     var body: some View {
         ZStack(alignment: .topLeading) {
             Image(featured.backgroundImage)
                 .resizable()
                 .mask(RoundedRectangle(cornerRadius: 8))
-                .shadow(color: Color.black.opacity(0.2), radius: 2, x: 1, y: 1)
+                .shadow(
+                    color: isSelected ? Color.black.opacity(0.6) : Color.black.opacity(0.2),
+                    radius: isSelected ? 6 : 2,
+                    x: 1,
+                    y: 1)
             
             VStack(alignment: .leading, spacing: 4) {
                 
@@ -44,7 +49,7 @@ private extension FeaturedRecipe {
 #if DEBUG
 struct FeaturedRecipeView_Previews: PreviewProvider {
     static var previews: some View {
-        FeaturedRecipeView(featured: sampleFeaturedRecipe)
+        FeaturedRecipeView(featured: sampleFeaturedRecipe, isSelected: false)
             .aspectRatio(16/9, contentMode: .fit)
             .previewLayout(.fixed(width: 300, height: 300))
             .padding()

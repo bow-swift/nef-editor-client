@@ -12,6 +12,7 @@ struct RecipeCatalogView: View {
                     ForEach(self.catalog.sections, id: \.title) { section in
                         CatalogSectionView(
                             section: section,
+                            selectedItem: self.selectedItem,
                             columns: self.columns(for: geometry.size),
                             handle: self.handle)
                     }

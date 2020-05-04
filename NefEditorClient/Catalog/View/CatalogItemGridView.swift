@@ -2,6 +2,7 @@ import SwiftUI
 
 struct CatalogItemGridView: View {
     let items: [CatalogItem]
+    let selectedItem: CatalogItem?
     let columns: Int
     let handle: (CatalogAction) -> Void
     
@@ -36,14 +37,14 @@ struct CatalogItemGridView: View {
             switch item {
             case .regular(let recipe):
                 return AnyView(
-                    RegularRecipeView(recipe: recipe)
+                    RegularRecipeView(recipe: recipe, isSelected: item == selectedItem)
                         .contextMenu {
                             self.duplicateButton(for: item)
                             self.removeButton(for: item)
                         })
             case .featured(let featured):
                 return AnyView(
-                    FeaturedRecipeView(featured: featured)
+                    FeaturedRecipeView(featured: featured, isSelected: item == selectedItem)
                         .contextMenu {
                             self.duplicateButton(for: item)
                         })
@@ -73,11 +74,11 @@ struct RecipeGridView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             ScrollView {
-                CatalogItemGridView(items: sampleFeaturedRecipes, columns: 2) { _ in }
+                CatalogItemGridView(items: sampleFeaturedRecipes, selectedItem: nil, columns: 2) { _ in }
             }
             
             ScrollView {
-                CatalogItemGridView(items: sampleRecipes, columns: 3) { _ in }
+                CatalogItemGridView(items: sampleRecipes, selectedItem: nil, columns: 3) { _ in }
             }
         }
     }
