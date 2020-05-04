@@ -8,6 +8,9 @@ struct RepositoryDetailView: View {
     var body: some View {
         self.contentView
             .navigationBarTitle(self.title)
+            .navigationBarItems(leading: Button("Cancel") {
+                self.handle(.dismissDetails)
+            }.foregroundColor(Color.nef))
             .onAppear {
                 self.loadRequirements()
             }

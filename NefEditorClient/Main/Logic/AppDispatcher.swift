@@ -44,7 +44,7 @@ let addDependencyDispatcher = StateDispatcher<Any, AppState, RepositoryDetailAct
     case let .dependencySelected(requirement, from: repository):
         return addDependency(requirement, from: repository)
         
-    case .loadRequirements(_):
+    case .loadRequirements(_), .dismissDetails:
         return .modify(id)^
     }
 }
