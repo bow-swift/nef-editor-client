@@ -2,6 +2,7 @@ import SwiftUI
 
 struct RecipeCatalogView: View {
     let catalog: Catalog
+    let selectedItem: CatalogItem?
     let handle: (CatalogAction) -> Void
     
     var body: some View {
@@ -15,6 +16,7 @@ struct RecipeCatalogView: View {
                             handle: self.handle)
                     }
                 }.padding()
+                .animation(nil)
             }
         }
     }
@@ -28,7 +30,7 @@ struct RecipeCatalogView: View {
 #if DEBUG
 struct RecipeCatalogView_Previews: PreviewProvider {
     static var previews: some View {
-        RecipeCatalogView(catalog: sampleCatalog) { _ in }
+        RecipeCatalogView(catalog: sampleCatalog, selectedItem: nil) { _ in }
             .previewLayout(.fixed(width: 910, height: 1024))
     }
 }

@@ -5,14 +5,14 @@ struct AppState: Equatable {
     let editState: EditState
     let searchState: SearchState
     let catalog: Catalog
-    let selectedItem: CatalogItem
+    let selectedItem: CatalogItem?
     
     func copy(
         panelState: PanelState? = nil,
         editState: EditState? = nil,
         searchState: SearchState? = nil,
         catalog: Catalog? = nil,
-        selectedItem: CatalogItem? = nil
+        selectedItem: CatalogItem?? = nil
     ) -> AppState {
         AppState(
             panelState: panelState ?? self.panelState,
@@ -29,10 +29,10 @@ struct AppState: Equatable {
         )
     }
     
-    static var catalogLens: Lens<AppState, Catalog> {
+    static var catalogLens: Lens<AppState, (Catalog, CatalogItem?)> {
         Lens(
-            get: { app in app.catalog },
-            set: { app, catalog in app.copy(catalog: catalog) }
+            get: { app in (app.catalog, app.selectedItem) },
+            set: { app, new in app.copy(catalog: new.0, selectedItem: new.1) }
         )
     }
     
@@ -43,7 +43,7 @@ struct AppState: Equatable {
         )
     }
     
-    static var selectedItemLens: Lens<AppState, CatalogItem> {
+    static var selectedItemLens: Lens<AppState, CatalogItem?> {
         Lens(
             get: { app in app.selectedItem },
             set: { app, item in app.copy(selectedItem: item) })

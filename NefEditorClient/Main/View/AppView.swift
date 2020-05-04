@@ -37,13 +37,19 @@ struct AppView<CatalogView: View, SearchView: View, DetailView: View, EditView: 
         state.panelState == .search
     }
     
+    var showDetail: Bool {
+        state.selectedItem != nil
+    }
+    
     var body: some View {
         NavigationView {
             HStack(spacing: 0) {
                 if !showSearch {
                     catalogView
                 }
-                detailView
+                if showDetail {
+                    detailView
+                }
                 if showSearch {
                     searchView
                 }
@@ -73,11 +79,19 @@ struct AppView<CatalogView: View, SearchView: View, DetailView: View, EditView: 
     }
     
     var detailView: some View {
-        detail
-            .frame(maxWidth: maxDetailWidth)
-            .padding()
-            .animation(.easeInOut)
-            .transition(.slide)
+        if state.panelState == .catalog {
+            return detail
+                .frame(maxWidth: maxDetailWidth)
+                .padding()
+                .animation(.easeInOut)
+                .transition(.move(edge: .trailing))
+        } else {
+            return detail
+                .frame(maxWidth: maxDetailWidth)
+                .padding()
+                .animation(.easeInOut)
+                .transition(.slide)
+        }
     }
     
     var searchView: some View {

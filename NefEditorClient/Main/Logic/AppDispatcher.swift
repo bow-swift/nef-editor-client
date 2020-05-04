@@ -67,16 +67,19 @@ func addDependency(
     from repository: Repository
 ) -> State<AppState, Void> {
     .modify { state in
-        let selected = state.selectedItem
-        let dependency = Dependency(repository: repository.name,
-                                    owner: repository.owner.login,
-                                    url: repository.htmlUrl,
-                                    avatar: repository.owner.avatarUrl,
-                                    requirement: requirement)
-        let newRecipe = selected.appending(dependency: dependency)
-        
-        return state.copy(
-            catalog: state.catalog.replacing(selected, by: newRecipe),
-            selectedItem: newRecipe)
+        if let selected = state.selectedItem {
+            let dependency = Dependency(repository: repository.name,
+                                        owner: repository.owner.login,
+                                        url: repository.htmlUrl,
+                                        avatar: repository.owner.avatarUrl,
+                                        requirement: requirement)
+            let newRecipe = selected.appending(dependency: dependency)
+            
+            return state.copy(
+                catalog: state.catalog.replacing(selected, by: newRecipe),
+                selectedItem: newRecipe)
+        } else {
+            return state
+        }
     }^
 }

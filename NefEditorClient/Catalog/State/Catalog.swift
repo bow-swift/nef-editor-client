@@ -8,8 +8,8 @@ struct Catalog: Equatable {
         [featured, userCreated]
     }
     
-    static var initialSelection: CatalogItem {
-        CatalogItem.featured(
+    static var initial: Catalog {
+        let bow = CatalogItem.featured(
             FeaturedRecipe(
                 recipe: Recipe(
                     title: "FP with Bow",
@@ -25,10 +25,6 @@ struct Catalog: Equatable {
                 backgroundImage: "bow-background",
                 textColor: .white)
         )
-    }
-    
-    static var initial: Catalog {
-        let bow = initialSelection
         
         let bowMaster = CatalogItem.featured(
             FeaturedRecipe(

@@ -1,27 +1,31 @@
 import SwiftUI
 
 struct CatalogItemDetailView: View {
-    let item: CatalogItem
+    let item: CatalogItem?
     let handle: (CatalogDetailAction) -> Void
     
     var body: some View {
         CardView {
             VStack(alignment: .leading, spacing: 8) {
                 HStack {
-                    Text(self.item.title)
+                    Text(self.item?.title ?? "")
                         .largeTitleStyle()
                     
                     Spacer()
                     
-                    if self.item.isEditable {
-                        Button(action: { self.handle(.edit(item: self.item)) }) {
+                    if self.item?.isEditable ?? false {
+                        Button(action: {
+                            if let item = self.item {
+                                self.handle(.edit(item: item))
+                            }
+                        }) {
                             Image.pencil
                         }
                         .buttonStyle(ActionButtonStyle())
                     }
                 }
                 
-                Text(self.item.description)
+                Text(self.item?.description ?? "")
                     .foregroundColor(.gray)
                 
                 Rectangle()
@@ -35,8 +39,10 @@ struct CatalogItemDetailView: View {
                     
                     Spacer()
                     
-                    if self.item.isEditable {
-                        Button(action: { self.handle(.searchDependency) }) {
+                    if self.item?.isEditable ?? false {
+                        Button(action: {
+                            self.handle(.searchDependency)
+                        }) {
                             Image.plus
                         }
                         .buttonStyle(ActionButtonStyle())
@@ -44,8 +50,8 @@ struct CatalogItemDetailView: View {
                 }.padding(.top, 24)
                 
                 DependencyListView(
-                    dependencies: self.item.dependencies,
-                    isEditable: self.item.isEditable
+                    dependencies: self.item?.dependencies ?? [],
+                    isEditable: self.item?.isEditable ?? false
                 ) { dependency in
                     self.handle(.remove(dependency))
                 }

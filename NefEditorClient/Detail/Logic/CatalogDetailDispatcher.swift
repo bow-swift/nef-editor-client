@@ -32,9 +32,12 @@ func searchDependency() -> State<AppState, Void> {
 
 func remove(dependency: Dependency) -> State<AppState, Void> {
     .modify { state in
-        let selected = state.selectedItem
-        let newSelected = selected.removing(dependency: dependency)
-        let newCatalog = state.catalog.replacing(selected, by: newSelected)
-        return state.copy(catalog: newCatalog, selectedItem: newSelected)
+        if let selected = state.selectedItem {
+            let newSelected = selected.removing(dependency: dependency)
+            let newCatalog = state.catalog.replacing(selected, by: newSelected)
+            return state.copy(catalog: newCatalog, selectedItem: newSelected)
+        } else {
+            return state
+        }
     }^
 }

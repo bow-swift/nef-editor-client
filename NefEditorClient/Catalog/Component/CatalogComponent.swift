@@ -1,9 +1,10 @@
 import BowArch
 
-typealias CatalogComponent = StoreComponent<Any, Catalog, CatalogAction, RecipeCatalogView>
+typealias CatalogComponent = StoreComponent<Any, (Catalog, CatalogItem?), CatalogAction, RecipeCatalogView>
 
-func catalogComponent(state: Catalog) -> CatalogComponent {
+func catalogComponent(catalog: Catalog, selectedItem: CatalogItem?) -> CatalogComponent {
     CatalogComponent(
-        initialState: state,
-        render: RecipeCatalogView.init)
+        initialState: (catalog, selectedItem)) { state, handle in
+            RecipeCatalogView(catalog: state.0, selectedItem: state.1, handle: handle)
+    }
 }
