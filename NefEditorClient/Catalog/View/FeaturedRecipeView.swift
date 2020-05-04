@@ -41,6 +41,7 @@ private extension FeaturedRecipe {
     }
 }
 
+#if DEBUG
 struct FeaturedRecipeView_Previews: PreviewProvider {
     static var previews: some View {
         FeaturedRecipeView(featured: sampleFeaturedRecipe)
@@ -49,3 +50,4 @@ struct FeaturedRecipeView_Previews: PreviewProvider {
             .padding()
     }
 }
+#endif

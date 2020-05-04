@@ -10,9 +10,11 @@ struct ActivityTextView: View {
     }
 }
 
+#if DEBUG
 struct ActivityTextView_Previews: PreviewProvider {
     static var previews: some View {
         ActivityTextView(message: "This is a sample message.")
             .previewLayout(.sizeThatFits)
     }
 }
+#endif

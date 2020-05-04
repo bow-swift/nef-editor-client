@@ -25,6 +25,7 @@ struct DependencyView: View {
     }
 }
 
+#if DEBUG
 struct DependencyView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
@@ -33,3 +34,4 @@ struct DependencyView_Previews: PreviewProvider {
         }.previewLayout(.sizeThatFits)
     }
 }
+#endif

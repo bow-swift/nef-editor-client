@@ -48,6 +48,7 @@ struct RepositoryDetailView: View {
     }
 }
 
+#if DEBUG
 struct RepositoryDetailView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
@@ -69,3 +70,4 @@ struct RepositoryDetailView_Previews: PreviewProvider {
         }.previewLayout(.fixed(width: 500, height: 500))
     }
 }
+#endif

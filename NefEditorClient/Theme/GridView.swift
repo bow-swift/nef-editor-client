@@ -39,6 +39,7 @@ struct GridView<Cell: View>: View {
     }
 }
 
+#if DEBUG
 struct GridView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
@@ -60,3 +61,4 @@ struct GridView_Previews: PreviewProvider {
         }
     }
 }
+#endif

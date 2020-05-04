@@ -42,6 +42,7 @@ struct CatalogSectionView: View {
     }
 }
 
+#if DEBUG
 struct CatalogSectionView_Previews: PreviewProvider {
     static var previews: some View {
         ScrollView {
@@ -49,3 +50,4 @@ struct CatalogSectionView_Previews: PreviewProvider {
         }
     }
 }
+#endif

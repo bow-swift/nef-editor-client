@@ -49,6 +49,7 @@ struct EditRecipeMetadataView: View {
     }
 }
 
+#if DEBUG
 struct EditRecipeMetadataView_Preview: PreviewProvider {
     static var previews: some View {
         NavigationView {
@@ -59,3 +60,4 @@ struct EditRecipeMetadataView_Preview: PreviewProvider {
         .navigationViewStyle(StackNavigationViewStyle())
     }
 }
+#endif

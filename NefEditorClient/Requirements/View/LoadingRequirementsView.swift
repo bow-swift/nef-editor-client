@@ -9,9 +9,11 @@ struct LoadingRequirementsView: View {
     }
 }
 
+#if DEBUG
 struct LoadingRequirementsView_Previews: PreviewProvider {
     static var previews: some View {
         LoadingRequirementsView(repository: sampleRepo)
             .previewLayout(.sizeThatFits)
     }
 }
+#endif

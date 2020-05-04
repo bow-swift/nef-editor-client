@@ -179,6 +179,7 @@ private struct SizedView<Content: View>: View {
     }
 }
 
+#if DEBUG
 struct TagCloud_Previews: PreviewProvider {
     static var tags = ["bow", "bow-openapi", "nef", "bow-arch", "nef-plugin"].map { tag in
         TagViewModel(text: tag, foregroundColor: .gray, backgroundColor: Color.gray.opacity(0.2))
@@ -195,3 +196,4 @@ struct TagCloud_Previews: PreviewProvider {
         .padding()
     }
 }
+#endif

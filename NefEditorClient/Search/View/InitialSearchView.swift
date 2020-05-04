@@ -6,9 +6,11 @@ struct InitialSearchView: View {
     }
 }
 
+#if DEBUG
 struct InitialSearchView_Previews: PreviewProvider {
     static var previews: some View {
         InitialSearchView()
             .previewLayout(.sizeThatFits)
     }
 }
+#endif

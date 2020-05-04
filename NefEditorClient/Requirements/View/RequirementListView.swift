@@ -16,9 +16,11 @@ struct RequirementListView: View {
     }
 }
 
+#if DEBUG
 struct RequirementListView_Previews: PreviewProvider {
     static var previews: some View {
         RequirementListView(requirements: sampleRequirements) { _ in }
             .previewLayout(.sizeThatFits)
     }
 }
+#endif

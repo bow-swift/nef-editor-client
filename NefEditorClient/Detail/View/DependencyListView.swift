@@ -21,9 +21,11 @@ struct DependencyListView: View {
     }
 }
 
+#if DEBUG
 struct DependencyListView_Previews: PreviewProvider {
     static var previews: some View {
         DependencyListView(dependencies: Array(repeating: bowDependency, count: 15),
                            isEditable: false) { _ in }
     }
 }
+#endif

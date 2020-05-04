@@ -16,6 +16,7 @@ struct TagView: View {
     }
 }
 
+#if DEBUG
 struct TagView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
@@ -26,3 +27,4 @@ struct TagView_Previews: PreviewProvider {
             .padding(16)
     }
 }
+#endif

@@ -18,6 +18,7 @@ struct ActivityIndicator: UIViewRepresentable {
     }
 }
 
+#if DEBUG
 struct ActivityIndicator_Previews: PreviewProvider {
     static var previews: some View {
         Group {
@@ -32,3 +33,4 @@ struct ActivityIndicator_Previews: PreviewProvider {
         }
     }
 }
+#endif

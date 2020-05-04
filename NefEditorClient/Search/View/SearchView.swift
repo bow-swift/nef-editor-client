@@ -83,6 +83,7 @@ struct SearchView<Detail: View>: View {
     }
 }
 
+#if DEBUG
 struct SearchView_Previews: PreviewProvider {
     static func state(_ loadingState: SearchLoadingState) -> SearchState {
         SearchState(loadingState: loadingState, modalState: .noModal)
@@ -105,3 +106,4 @@ struct SearchView_Previews: PreviewProvider {
         .previewLayout(.fixed(width: 910, height: 1024))
     }
 }
+#endif

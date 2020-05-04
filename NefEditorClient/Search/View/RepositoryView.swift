@@ -46,6 +46,7 @@ struct RepositoryView: View {
     }
 }
 
+#if DEBUG
 struct RepositoryView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
@@ -57,3 +58,4 @@ struct RepositoryView_Previews: PreviewProvider {
         }
     }
 }
+#endif
