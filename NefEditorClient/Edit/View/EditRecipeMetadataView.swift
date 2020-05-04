@@ -30,10 +30,15 @@ struct EditRecipeMetadataView: View {
             Section(header: Text("Description")) {
                 TextField("Enter a description for your nef recipe", text: $description)
             }
-        }.navigationBarItems(trailing:
-            Button("Save") {
-                self.handle(.saveRecipe(title: self.title, description: self.description))
-            }.foregroundColor(.nef)
+        }.navigationBarItems(
+            leading:
+                Button("Cancel") {
+                    self.handle(.dismissEdition)
+                }.foregroundColor(.nef),
+            trailing:
+                Button("Save") {
+                    self.handle(.saveRecipe(title: self.title, description: self.description))
+                }.foregroundColor(.nef)
         ).navigationBarTitle(self.navigationTitle)
     }
     
