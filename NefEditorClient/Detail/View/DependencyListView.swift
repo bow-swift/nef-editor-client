@@ -15,9 +15,8 @@ struct DependencyListView: View {
                         self.onRemoveDependency(self.dependencies[index])
                     }
                 }
-            }
-            
-        }
+            }.listRowBackground(Color.card)
+        }.background(Color.clear)
     }
 }
 
