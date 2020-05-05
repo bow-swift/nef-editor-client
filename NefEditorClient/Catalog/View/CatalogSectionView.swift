@@ -2,6 +2,7 @@ import SwiftUI
 
 struct CatalogSectionView: View {
     let section: CatalogSection
+    let selectedItem: CatalogItem?
     let columns: Int
     let handle: (CatalogAction) -> Void
     
@@ -11,9 +12,9 @@ struct CatalogSectionView: View {
                 Text(section.title)
                     .largeTitleStyle()
                 
-                Spacer()
-                
                 self.actionView(for: self.section)
+                
+                Spacer()
             }.padding(.top, 16)
             
             if section.items.isEmpty {
@@ -25,6 +26,7 @@ struct CatalogSectionView: View {
             } else {
                 CatalogItemGridView(
                     items: section.items,
+                    selectedItem: self.selectedItem,
                     columns: self.columns,
                     handle: self.handle)
             }
@@ -46,7 +48,7 @@ struct CatalogSectionView: View {
 struct CatalogSectionView_Previews: PreviewProvider {
     static var previews: some View {
         ScrollView {
-            CatalogSectionView(section: sampleRecipesSection, columns: 2) { _ in }
+            CatalogSectionView(section: sampleRecipesSection, selectedItem: nil, columns: 2) { _ in }
         }
     }
 }

@@ -40,7 +40,7 @@ func remove(item: CatalogItem) -> State<AppState, Void> {
     .modify { state in
         if item.isEditable {
             let newCatalog = state.catalog.removing(item)
-            let selectedItem = state.selectedItem == item ? Catalog.initialSelection : state.selectedItem
+            let selectedItem = state.selectedItem == item ? nil : state.selectedItem
             return state.copy(catalog: newCatalog, selectedItem: selectedItem)
         } else {
             return state
@@ -50,6 +50,10 @@ func remove(item: CatalogItem) -> State<AppState, Void> {
 
 func select(item: CatalogItem) -> State<AppState, Void> {
     .modify { state in
-        state.copy(selectedItem: item)
+        if state.selectedItem == item {
+            return state.copy(selectedItem: .some(nil))
+        } else {
+            return state.copy(selectedItem: item)
+        }
     }^
 }

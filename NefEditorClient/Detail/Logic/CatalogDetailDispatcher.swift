@@ -11,6 +11,8 @@ let catalogDetailDispatcher = CatalogDetailDispatcher.pure { action in
         return searchDependency()
     case .remove(let dependency):
         return remove(dependency: dependency)
+    case .dismissDetail:
+        return clearSelection()
     }
 }
 
@@ -32,9 +34,23 @@ func searchDependency() -> State<AppState, Void> {
 
 func remove(dependency: Dependency) -> State<AppState, Void> {
     .modify { state in
-        let selected = state.selectedItem
-        let newSelected = selected.removing(dependency: dependency)
-        let newCatalog = state.catalog.replacing(selected, by: newSelected)
-        return state.copy(catalog: newCatalog, selectedItem: newSelected)
+        if let selected = state.selectedItem {
+            let newSelected = selected.removing(dependency: dependency)
+            let newCatalog = state.catalog.replacing(selected, by: newSelected)
+            return state.copy(catalog: newCatalog, selectedItem: newSelected)
+        } else {
+            return state
+        }
+    }^
+}
+
+func clearSelection() -> State<AppState, Void> {
+    .modify { state in
+        if state.panelState == .search {
+            return state.copy(panelState: .catalog)
+        } else {
+            return state.copy(selectedItem: .some(nil))
+        }
+        
     }^
 }

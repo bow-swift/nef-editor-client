@@ -22,19 +22,28 @@ struct EditRecipeMetadataView: View {
     }
     
     var body: some View {
-        Form {
-            Section(header: Text("Title")) {
-                TextField("Enter a title for your nef recipe", text: $title)
+        ZStack {
+            Color.form.edgesIgnoringSafeArea(.all)
+            Form {
+                Section(header: Text("Title")) {
+                    TextField("Enter a title for your nef recipe", text: $title)
+                }
+                
+                Section(header: Text("Description")) {
+                    TextField("Enter a description for your nef recipe", text: $description)
+                }
             }
-            
-            Section(header: Text("Description")) {
-                TextField("Enter a description for your nef recipe", text: $description)
-            }
-        }.navigationBarItems(trailing:
-            Button("Save") {
-                self.handle(.saveRecipe(title: self.title, description: self.description))
-            }.foregroundColor(.nef)
-        ).navigationBarTitle(self.navigationTitle)
+        }.navigationBarItems(
+            leading:
+                Button("Cancel") {
+                    self.handle(.dismissEdition)
+                }.foregroundColor(.nef),
+            trailing:
+                Button("Save") {
+                    self.handle(.saveRecipe(title: self.title, description: self.description))
+                }.foregroundColor(.nef)
+        )
+        .navigationBarTitle(self.navigationTitle)
     }
     
     private var navigationTitle: String {

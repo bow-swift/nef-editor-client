@@ -17,7 +17,7 @@ func appComponent() -> AppComponent<CatalogChild, SearchChild, DetailChild, Edit
         editState: .notEditing,
         searchState: SearchState(loadingState: .initial, modalState: .noModal),
         catalog: Catalog.initial,
-        selectedItem: Catalog.initialSelection)
+        selectedItem: nil)
     let config = API.Config(basePath: "https://api.github.com")
     
     return AppComponent(
@@ -28,7 +28,7 @@ func appComponent() -> AppComponent<CatalogChild, SearchChild, DetailChild, Edit
         AppView(
             state: state,
             
-            catalog: catalogComponent(state: state.catalog)
+            catalog: catalogComponent(catalog: state.catalog, selectedItem: state.selectedItem)
                 .lift(initialState: state,
                       environment: config,
                       transformEnvironment: id,

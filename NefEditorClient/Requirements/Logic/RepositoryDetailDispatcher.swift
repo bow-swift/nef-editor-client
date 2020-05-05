@@ -13,6 +13,8 @@ let repositoryDetailDispatcher = RepositoryDetailDispatcher.effectful { action i
         }^
     case .dependencySelected(_, from: _):
         return EnvIO.pure(.modify(id)^)^
+    case .dismissDetails:
+        return EnvIO.pure(.set(.noModal)^)^
     }
 }
 

@@ -1,17 +1,38 @@
 import SwiftUI
 
 struct CardView<Content: View>: View {
+    @Environment(\.colorScheme) var colorScheme
+    
+    let isSelected: Bool
     let content: () -> Content
     
-    init(@ViewBuilder content: @escaping () -> Content) {
+    init(isSelected: Bool = false,
+         @ViewBuilder content: @escaping () -> Content) {
+        self.isSelected = isSelected
         self.content = content
     }
     
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 8)
-                .fill(Color.white)
-                .shadow(color: Color.black.opacity(0.1), radius: 2, x: 1, y: 1)
+                .fill(Color.card)
+                .if(colorScheme == .light,
+                    then: {
+                    $0.shadow(
+                        color: self.isSelected ?
+                            Color.shadow.opacity(0.3) :
+                            Color.shadow.opacity(0.1),
+                        radius: self.isSelected ? 6 : 2,
+                        x: 1,
+                        y: 1)
+                })
+                .if(isSelected && colorScheme == .dark,
+                    then: {
+                        $0.overlay(
+                            RoundedRectangle(cornerRadius: 8)
+                                .stroke(Color.shadow, lineWidth: 2)
+                        )
+                })
             self.content()
         }
     }

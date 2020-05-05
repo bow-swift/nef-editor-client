@@ -2,6 +2,22 @@ import SwiftUI
 
 extension Color {
     static var nef: Color {
-        Color(red: 57 / 255, green: 6 / 255, blue: 125 / 255)
+        Color("nefColor")
+    }
+    
+    static var card: Color {
+        Color("card")
+    }
+    
+    static var shadow: Color {
+        Color("shadow")
+    }
+    
+    static var form: Color {
+        Color("form")
+    }
+    
+    static var mainBackground: Color {
+        Color("mainBackground")
     }
 }

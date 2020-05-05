@@ -2,6 +2,7 @@ import SwiftUI
 
 struct RecipeCatalogView: View {
     let catalog: Catalog
+    let selectedItem: CatalogItem?
     let handle: (CatalogAction) -> Void
     
     var body: some View {
@@ -11,11 +12,13 @@ struct RecipeCatalogView: View {
                     ForEach(self.catalog.sections, id: \.title) { section in
                         CatalogSectionView(
                             section: section,
+                            selectedItem: self.selectedItem,
                             columns: self.columns(for: geometry.size),
                             handle: self.handle)
                     }
                 }.padding()
-            }
+            }.transition(.identity)
+            .animation(nil)
         }
     }
     
@@ -28,7 +31,7 @@ struct RecipeCatalogView: View {
 #if DEBUG
 struct RecipeCatalogView_Previews: PreviewProvider {
     static var previews: some View {
-        RecipeCatalogView(catalog: sampleCatalog) { _ in }
+        RecipeCatalogView(catalog: sampleCatalog, selectedItem: nil) { _ in }
             .previewLayout(.fixed(width: 910, height: 1024))
     }
 }

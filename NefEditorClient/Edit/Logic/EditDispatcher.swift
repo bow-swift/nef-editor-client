@@ -7,6 +7,9 @@ let editDispatcher = EditDispatcher.pure { input in
     switch input {
     case let .saveRecipe(title: title, description: description):
         return saveRecipe(title: title, description: description)
+        
+    case .dismissEdition:
+        return dismissModal()
     }
 }
 
