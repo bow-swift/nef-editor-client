@@ -33,6 +33,8 @@
 		11070293243C9F27008583EB /* EmptyRequirementsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11070292243C9F27008583EB /* EmptyRequirementsView.swift */; };
 		11070298243CA10E008583EB /* ErrorRequirementsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11070297243CA10E008583EB /* ErrorRequirementsView.swift */; };
 		1107029A243CA160008583EB /* RequirementListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11070299243CA160008583EB /* RequirementListView.swift */; };
+		112EA4E824618EC700F91DBA /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112EA4E724618EC700F91DBA /* Persistence.swift */; };
+		112EA4EA24618F7400F91DBA /* ICloudPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112EA4E924618F7400F91DBA /* ICloudPersistence.swift */; };
 		11425434244870FB00B2EA0C /* SearchAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11425433244870FB00B2EA0C /* SearchAction.swift */; };
 		114254362448732E00B2EA0C /* SearchDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114254352448732E00B2EA0C /* SearchDispatcher.swift */; };
 		1142543A244879DE00B2EA0C /* SearchComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11425439244879DE00B2EA0C /* SearchComponent.swift */; };
@@ -133,6 +135,9 @@
 		11070297243CA10E008583EB /* ErrorRequirementsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorRequirementsView.swift; sourceTree = "<group>"; };
 		11070299243CA160008583EB /* RequirementListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequirementListView.swift; sourceTree = "<group>"; };
 		1113BD90245B344D009B4EF2 /* GitHub */ = {isa = PBXFileReference; lastKnownFileType = folder; path = GitHub; sourceTree = "<group>"; };
+		112EA4E52461868000F91DBA /* NefEditorClientRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NefEditorClientRelease.entitlements; sourceTree = "<group>"; };
+		112EA4E724618EC700F91DBA /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		112EA4E924618F7400F91DBA /* ICloudPersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICloudPersistence.swift; sourceTree = "<group>"; };
 		11425433244870FB00B2EA0C /* SearchAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAction.swift; sourceTree = "<group>"; };
 		114254352448732E00B2EA0C /* SearchDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDispatcher.swift; sourceTree = "<group>"; };
 		11425439244879DE00B2EA0C /* SearchComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchComponent.swift; sourceTree = "<group>"; };
@@ -263,6 +268,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		112EA4E624618EA500F91DBA /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				112EA4E724618EC700F91DBA /* Persistence.swift */,
+				112EA4E924618F7400F91DBA /* ICloudPersistence.swift */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
 		11425432244870ED00B2EA0C /* Logic */ = {
 			isa = PBXGroup;
 			children = (
@@ -391,6 +405,7 @@
 			isa = PBXGroup;
 			children = (
 				1101A3B3245AD933002A848B /* NefEditorClient.entitlements */,
+				112EA4E52461868000F91DBA /* NefEditorClientRelease.entitlements */,
 				1163839124321FD400EB2DEF /* Info.plist */,
 				1163838324321FD100EB2DEF /* AppDelegate.swift */,
 				1163838524321FD100EB2DEF /* SceneDelegate.swift */,
@@ -402,6 +417,7 @@
 				114254432449909600B2EA0C /* GitHubExtensions */,
 				1163838E24321FD400EB2DEF /* LaunchScreen.storyboard */,
 				1163BA88244DF81A005B0785 /* Main */,
+				112EA4E624618EA500F91DBA /* Persistence */,
 				1163838B24321FD400EB2DEF /* Preview Content */,
 				11070283243C7FB4008583EB /* Requirements */,
 				11CB85912437821800CE4592 /* Search */,
@@ -754,6 +770,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				112EA4EA24618F7400F91DBA /* ICloudPersistence.swift in Sources */,
 				11C95A5524504E3D00659C97 /* Image+System.swift in Sources */,
 				11AD8DCD243DC4870005E450 /* TagView.swift in Sources */,
 				1163BA92244DF933005B0785 /* EditState.swift in Sources */,
@@ -812,6 +829,7 @@
 				11E07F16243B21A200A0A027 /* Array+Extensions.swift in Sources */,
 				11425434244870FB00B2EA0C /* SearchAction.swift in Sources */,
 				11B125B32444BC9000E2D1C3 /* CatalogItemGridView.swift in Sources */,
+				112EA4E824618EC700F91DBA /* Persistence.swift in Sources */,
 				1107028D243C9A25008583EB /* LoadingView.swift in Sources */,
 				114AF45424598736000116B7 /* EditDispatcher.swift in Sources */,
 				11AD8DD7243E19440005E450 /* Dependency.swift in Sources */,
