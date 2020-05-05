@@ -1010,7 +1010,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = NefEditorClient/NefEditorClient.entitlements;
+				CODE_SIGN_ENTITLEMENTS = NefEditorClient/NefEditorClientRelease.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
