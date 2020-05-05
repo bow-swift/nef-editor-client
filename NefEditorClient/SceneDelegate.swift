@@ -21,7 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
 
         // For some reason, I cannot set the background color of a SwiftUI List 🤷🏻‍♂️
-        UITableView.appearance().backgroundColor = UIColor(named: "card")!
+        UITableView.appearance().backgroundColor = UIColor.clear
         
         // Create the SwiftUI view that provides the window contents.
         let contentView = appComponent()

@@ -63,7 +63,7 @@ struct AppView<CatalogView: View, SearchView: View, DetailView: View, EditView: 
     }
     
     var backgroundView: some View {
-        Color.gray.opacity(0.1)
+        Color.mainBackground
             .edgesIgnoringSafeArea(.all)
     }
     
