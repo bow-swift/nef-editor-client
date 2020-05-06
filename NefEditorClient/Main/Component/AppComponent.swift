@@ -6,12 +6,7 @@ import SwiftUI
 
 typealias AppComponent<Catalog: View, Search: View, Detail: View, Edit: View> = StoreComponent<API.Config, AppState, AppAction, AppView<Catalog, Search, Detail, Edit>>
 
-typealias CatalogChild = StoreComponent<API.Config, AppState, AppAction, RecipeCatalogView>
-typealias SearchChild = StoreComponent<API.Config, AppState, AppAction, SearchView<SearchDetailChild>>
-typealias DetailChild = StoreComponent<API.Config, AppState, AppAction, CatalogItemDetailView>
-typealias EditChild = StoreComponent<API.Config, AppState, AppAction, EditRecipeMetadataView>
-
-func appComponent() -> AppComponent<CatalogChild, SearchChild, DetailChild, EditChild> {
+func appComponent() -> AppComponent<CatalogComponent, SearchComponent, CatalogDetailComponent, EditComponent> {
     let initialState = AppState(
         panelState: .catalog,
         editState: .notEditing,
@@ -29,35 +24,16 @@ func appComponent() -> AppComponent<CatalogChild, SearchChild, DetailChild, Edit
             state: state,
             
             catalog: catalogComponent(catalog: state.catalog, selectedItem: state.selectedItem)
-                .lift(initialState: state,
-                      environment: config,
-                      transformEnvironment: id,
-                      transformState: AppState.catalogLens,
-                      transformInput: AppAction.prism(for: AppAction.catalogAction))
-                .using(handle),
+                .using(handle, transformInput: AppAction.prism(for: AppAction.catalogAction)),
             
             search: searchComponent(config: config, state: state.searchState)
-                .lift(
-                    initialState: state,
-                    transformState: AppState.searchStateLens,
-                    transformInput: AppAction.prism(for: AppAction.searchAction))
-                .using(handle),
+                .using(handle, transformInput: AppAction.prism(for: AppAction.searchAction)),
             
             detail: catalogDetailComponent(state: state.selectedItem)
-                .lift(initialState: state,
-                      environment: config,
-                      transformEnvironment: id,
-                      transformState: AppState.selectedItemLens,
-                      transformInput: AppAction.prism(for: AppAction.catalogDetailAction))
-                .using(handle),
+                .using(handle, transformInput: AppAction.prism(for: AppAction.catalogDetailAction)),
             
             edit: editComponent(state: state.editState)
-                .lift(initialState: state,
-                      environment: config,
-                      transformEnvironment: id,
-                      transformState: AppState.editStateLens,
-                      transformInput: AppAction.prism(for: AppAction.editAction))
-                .using(handle),
+                .using(handle, transformInput: AppAction.prism(for: AppAction.editAction)),
             
             handle: handle)
     }
