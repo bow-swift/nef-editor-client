@@ -60,6 +60,9 @@ struct AppView<CatalogView: View, SearchView: View, DetailView: View, EditView: 
                 self.edit
             }
         }.navigationViewStyle(StackNavigationViewStyle())
+        .onAppear {
+            self.handle(.loadCatalog)
+        }
     }
     
     var backgroundView: some View {

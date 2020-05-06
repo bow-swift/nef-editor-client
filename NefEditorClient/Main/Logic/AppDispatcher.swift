@@ -4,9 +4,9 @@ import BowOptics
 import BowArch
 import GitHub
 
-typealias AppDispatcher = StateDispatcher<Any, AppState, AppAction>
+typealias AppDispatcher = StateDispatcher<Persistence, AppState, AppAction>
 
-let appDispatcher: StateDispatcher<API.Config, AppState, AppAction> = AppDispatcher.workflow { action in
+let appDispatcher: StateDispatcher<Dependencies, AppState, AppAction> = AppDispatcher.workflow { action in
     switch action {
     case .dismissModal:
         return [EnvIO.pure(dismissModal())^]
@@ -21,18 +21,25 @@ let appDispatcher: StateDispatcher<API.Config, AppState, AppAction> = AppDispatc
         
     case .catalogAction(_), .editAction(_), .catalogDetailAction(_):
         return []
+    case .loadCatalog:
+        return [fetchRecipes()]
     }
-}.combine(catalogDispatcher.widen(
+}.widen(transformEnvironment: \.persistence)
+.combine(catalogDispatcher.widen(
+    transformEnvironment: id,
     transformInput: AppAction.prism(for: AppAction.catalogAction)))
 .combine(editDispatcher.widen(
+    transformEnvironment: id,
     transformInput: AppAction.prism(for: AppAction.editAction)))
 .combine(catalogDetailDispatcher.widen(
+    transformEnvironment: id,
     transformInput: AppAction.prism(for: AppAction.catalogDetailAction)))
 .combine(addDependencyDispatcher.widen(
+    transformEnvironment: id,
     transformInput: AppAction.prism(for: AppAction.searchAction) +
         SearchAction.prism(for: SearchAction.repositoryDetailAction)))
-.widen(transformEnvironment: id)
 .combine(searchDispatcher.widen(
+    transformEnvironment: \.config,
     transformState: AppState.searchStateLens,
     transformInput: AppAction.prism(for: AppAction.searchAction)))
 
@@ -88,4 +95,15 @@ func persist(state: AppState) -> EnvIO<Persistence, Error, Void> {
     EnvIO.accessM { persistence in
         persistence.saveUserRecipes(state.catalog.userCreated.items.map(\.recipe))
     }
+}
+
+func fetchRecipes() -> EnvIO<Persistence, Error, State<AppState, Void>> {
+    EnvIO.accessM { persistence in
+        persistence.loadUserRecipes()
+    }.map { recipes in
+        .modify { state in
+            let newCatalog = state.catalog.userCreated(recipes)
+            return state.copy(catalog: newCatalog)
+        }^
+    }^
 }

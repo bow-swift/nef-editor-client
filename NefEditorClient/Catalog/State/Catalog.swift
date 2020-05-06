@@ -54,6 +54,13 @@ struct Catalog: Equatable {
         return Catalog(featured: featured, userCreated: myRecipes)
     }
     
+    func userCreated(_ recipes: [Recipe]) -> Catalog {
+        Catalog(featured: featured,
+                userCreated: CatalogSection(title: self.userCreated.title,
+                                            action: self.userCreated.action,
+                                            items: recipes.map(CatalogItem.regular)))
+    }
+    
     func appending(_ item: CatalogItem) -> Catalog {
         Catalog(featured: featured, userCreated: userCreated.appending(item))
     }
