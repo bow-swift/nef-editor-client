@@ -35,6 +35,7 @@
 		1107029A243CA160008583EB /* RequirementListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11070299243CA160008583EB /* RequirementListView.swift */; };
 		112EA4E824618EC700F91DBA /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112EA4E724618EC700F91DBA /* Persistence.swift */; };
 		112EA4EA24618F7400F91DBA /* ICloudPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112EA4E924618F7400F91DBA /* ICloudPersistence.swift */; };
+		1139BF7E2462DC5000BC283A /* GitHub in Frameworks */ = {isa = PBXBuildFile; productRef = 1139BF7D2462DC5000BC283A /* GitHub */; };
 		11425434244870FB00B2EA0C /* SearchAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11425433244870FB00B2EA0C /* SearchAction.swift */; };
 		114254362448732E00B2EA0C /* SearchDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114254352448732E00B2EA0C /* SearchDispatcher.swift */; };
 		1142543A244879DE00B2EA0C /* SearchComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11425439244879DE00B2EA0C /* SearchComponent.swift */; };
@@ -49,7 +50,6 @@
 		114AF45A24598D78000116B7 /* CatalogDetailAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114AF45924598D78000116B7 /* CatalogDetailAction.swift */; };
 		114AF45C24598E15000116B7 /* CatalogDetailDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114AF45B24598E15000116B7 /* CatalogDetailDispatcher.swift */; };
 		114AF45F24598FC0000116B7 /* CatalogDetailComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114AF45E24598FC0000116B7 /* CatalogDetailComponent.swift */; };
-		114AF4622459A880000116B7 /* GitHub in Frameworks */ = {isa = PBXBuildFile; productRef = 114AF4612459A880000116B7 /* GitHub */; };
 		114AF4652459CA18000116B7 /* AppDispatcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114AF4642459CA18000116B7 /* AppDispatcherTests.swift */; };
 		1163838424321FD100EB2DEF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1163838324321FD100EB2DEF /* AppDelegate.swift */; };
 		1163838624321FD100EB2DEF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1163838524321FD100EB2DEF /* SceneDelegate.swift */; };
@@ -134,10 +134,10 @@
 		11070292243C9F27008583EB /* EmptyRequirementsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyRequirementsView.swift; sourceTree = "<group>"; };
 		11070297243CA10E008583EB /* ErrorRequirementsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorRequirementsView.swift; sourceTree = "<group>"; };
 		11070299243CA160008583EB /* RequirementListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequirementListView.swift; sourceTree = "<group>"; };
-		1113BD90245B344D009B4EF2 /* GitHub */ = {isa = PBXFileReference; lastKnownFileType = folder; path = GitHub; sourceTree = "<group>"; };
 		112EA4E52461868000F91DBA /* NefEditorClientRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NefEditorClientRelease.entitlements; sourceTree = "<group>"; };
 		112EA4E724618EC700F91DBA /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		112EA4E924618F7400F91DBA /* ICloudPersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICloudPersistence.swift; sourceTree = "<group>"; };
+		1139BF7C2462DC4500BC283A /* GitHub */ = {isa = PBXFileReference; lastKnownFileType = folder; path = GitHub; sourceTree = "<group>"; };
 		11425433244870FB00B2EA0C /* SearchAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAction.swift; sourceTree = "<group>"; };
 		114254352448732E00B2EA0C /* SearchDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDispatcher.swift; sourceTree = "<group>"; };
 		11425439244879DE00B2EA0C /* SearchComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchComponent.swift; sourceTree = "<group>"; };
@@ -221,7 +221,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				11AD8DC5243CA8E90005E450 /* BowArch in Frameworks */,
-				114AF4622459A880000116B7 /* GitHub in Frameworks */,
+				1139BF7E2462DC5000BC283A /* GitHub in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -384,7 +384,7 @@
 			isa = PBXGroup;
 			children = (
 				11EDF467243714210092E959 /* github.yaml */,
-				1113BD90245B344D009B4EF2 /* GitHub */,
+				1139BF7C2462DC4500BC283A /* GitHub */,
 				1163838224321FD100EB2DEF /* NefEditorClient */,
 				1163839924321FD400EB2DEF /* NefEditorClientTests */,
 				1163838124321FD100EB2DEF /* Products */,
@@ -655,7 +655,7 @@
 			name = NefEditorClient;
 			packageProductDependencies = (
 				11AD8DC4243CA8E90005E450 /* BowArch */,
-				114AF4612459A880000116B7 /* GitHub */,
+				1139BF7D2462DC5000BC283A /* GitHub */,
 			);
 			productName = NefEditorClient;
 			productReference = 1163838024321FD100EB2DEF /* NefEditorClient.app */;
@@ -1162,7 +1162,7 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		114AF4612459A880000116B7 /* GitHub */ = {
+		1139BF7D2462DC5000BC283A /* GitHub */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = GitHub;
 		};

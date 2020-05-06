@@ -2,6 +2,7 @@ import GitHub
 import Bow
 import BowArch
 import BowOptics
+import BowEffects
 import SwiftUI
 
 typealias AppComponent<Catalog: View, Search: View, Detail: View, Edit: View> = StoreComponent<API.Config, AppState, AppAction, AppView<Catalog, Search, Detail, Edit>>
@@ -14,6 +15,8 @@ func appComponent() -> AppComponent<CatalogComponent, SearchComponent, CatalogDe
         catalog: Catalog.initial,
         selectedItem: nil)
     let config = API.Config(basePath: "https://api.github.com")
+    let persistence = ICloudPersistence()
+    let ref = IORef<Error, [Recipe]?>.unsafe(nil)
     
     return AppComponent(
         initialState: initialState,
@@ -36,5 +39,16 @@ func appComponent() -> AppComponent<CatalogComponent, SearchComponent, CatalogDe
                 .using(handle, transformInput: AppAction.prism(for: AppAction.editAction)),
             
             handle: handle)
+    }.onEffect { component in
+        let oldRecipes = IO<Error, [Recipe]?>.var()
+        let newRecipes = component.store().state.catalog.userCreated.items.map(\.recipe)
+        
+        return binding(
+            oldRecipes <- ref.get(),
+            |<-((oldRecipes.get != newRecipes) ?
+                persist(state: component.store().state).provide(persistence) :
+                IO.lazy()),
+            |<-ref.set(newRecipes),
+            yield: ())
     }
 }

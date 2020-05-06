@@ -26,11 +26,11 @@ class ICloudPersistence: Persistence {
     }
     
     func saveUserRecipes<E>(_ recipes: [Recipe]) -> EnvIO<E, Error, Void> {
-        if let recipes = self.recipes {
+        if let recipesFile = self.recipes {
             return EnvIO.invoke { _ in
                 let encoder = JSONEncoder()
                 let data = try encoder.encode(recipes)
-                try data.write(to: recipes)
+                try data.write(to: recipesFile)
             }
         } else {
             return EnvIO.pure(())^

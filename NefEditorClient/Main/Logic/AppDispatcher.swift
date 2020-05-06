@@ -83,3 +83,9 @@ func addDependency(
         }
     }^
 }
+
+func persist(state: AppState) -> EnvIO<Persistence, Error, Void> {
+    EnvIO.accessM { persistence in
+        persistence.saveUserRecipes(state.catalog.userCreated.items.map(\.recipe))
+    }
+}
