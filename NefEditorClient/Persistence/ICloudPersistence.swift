@@ -13,6 +13,10 @@ class ICloudPersistence: Persistence {
             .appendingPathExtension("json")
     }
     
+    var isPersistenceAvailable: Bool {
+        self.recipes != nil
+    }
+    
     func loadUserRecipes<E>() -> EnvIO<E, Error, [Recipe]> {
         EnvIO.invoke { _ in
             guard let recipes = self.recipes else { return [] }

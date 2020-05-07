@@ -24,4 +24,8 @@ extension Image {
     static var close: Image {
         Image(systemName: "xmark")
     }
+    
+    static var warning: Image {
+        Image(systemName: "exclamationmark.triangle.fill")
+    }
 }

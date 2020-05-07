@@ -22,7 +22,7 @@ let appDispatcher: StateDispatcher<AppDependencies, AppState, AppAction> = AppDi
     case .catalogAction(_), .editAction(_), .catalogDetailAction(_):
         return []
     case .initialLoad:
-        return [fetchRecipes()]
+        return [initialLoad()]
     }
 }.widen(transformEnvironment: \.persistence)
 .combine(catalogDispatcher.widen(
@@ -97,13 +97,29 @@ func persist(state: AppState) -> EnvIO<Persistence, Error, Void> {
     }
 }
 
-func fetchRecipes() -> EnvIO<Persistence, Error, State<AppState, Void>> {
+func initialLoad() -> EnvIO<Persistence, Error, State<AppState, Void>> {
+    let recipes = EnvIO<Persistence, Error, [Recipe]>.var()
+    let persistenceEnabled = EnvIO<Persistence, Error, ICloudStatus>.var()
+    
+    return binding(
+        (recipes, persistenceEnabled) <- parallel(
+            fetchRecipes(),
+            isICloudAvailable()),
+        yield: .modify { state in
+            let newCatalog = state.catalog.userCreated(recipes.get)
+            return state.copy(catalog: newCatalog, iCloudStatus: persistenceEnabled.get)
+        }^
+    )^
+}
+
+func fetchRecipes() -> EnvIO<Persistence, Error, [Recipe]> {
     EnvIO.accessM { persistence in
         persistence.loadUserRecipes()
-    }.map { recipes in
-        .modify { state in
-            let newCatalog = state.catalog.userCreated(recipes)
-            return state.copy(catalog: newCatalog)
-        }^
+    }
+}
+
+func isICloudAvailable() -> EnvIO<Persistence, Error, ICloudStatus> {
+    EnvIO.access(\.isPersistenceAvailable).map { isAvailable in
+        isAvailable ? .enabled : .disabled
     }^
 }

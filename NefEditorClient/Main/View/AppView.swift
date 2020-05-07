@@ -55,13 +55,24 @@ struct AppView<CatalogView: View, SearchView: View, DetailView: View, EditView: 
                 }
             }.background(
                 self.backgroundView
-            ).navigationBarTitle("nef editor", displayMode: .inline)
+            ).navigationBarItems(trailing: navigationButtons)
+            .navigationBarTitle("nef editor", displayMode: .inline)
             .modal(isPresented: isEditPresented) {
                 self.edit
             }
         }.navigationViewStyle(StackNavigationViewStyle())
         .onAppear {
             self.handle(.initialLoad)
+        }
+    }
+    
+    var navigationButtons: some View {
+        HStack {
+            if state.iCloudStatus == .disabled {
+                Button(action: {}) {
+                    Image.warning.foregroundColor(.yellow)
+                }
+            }
         }
     }
     
