@@ -1,6 +1,8 @@
 import SwiftUI
 
 struct CreditsView: View {
+    let handle: (CreditsAction) -> Void
+    
     var body: some View {
         VStack {
             Spacer()
@@ -12,7 +14,7 @@ struct CreditsView: View {
         .navigationBarTitle("Credits", displayMode: .inline)
         .navigationBarItems(leading:
             Button("Cancel") {
-                
+                self.handle(.dismissCredits)
             }.foregroundColor(Color.nef)
         )
     }
@@ -52,15 +54,15 @@ struct CreditsView: View {
                 .font(.caption)
             
             HStack(alignment: .center, spacing: 4) {
-                libraryView(image: .bow, name: "Bow")
-                libraryView(image: .bowArch, name: "Bow Arch")
-                libraryView(image: .bowOpenAPI, name: "Bow OpenAPI")
+                libraryView(image: .bow, name: "Bow", library: .bow)
+                libraryView(image: .bowArch, name: "Bow Arch", library: .bowArch)
+                libraryView(image: .bowOpenAPI, name: "Bow OpenAPI", library: .bowOpenAPI)
             }
         }
     }
     
-    func libraryView(image: Image, name: String) -> some View {
-        Button(action: {}) {
+    func libraryView(image: Image, name: String, library: Library) -> some View {
+        Button(action: { self.handle(.librarySelected(library)) }) {
             HStack {
                 image.resizable()
                     .frame(width: 40, height: 40)
@@ -80,7 +82,7 @@ struct CreditsView: View {
 struct CreditsView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            CreditsView()
+            CreditsView { _ in }
         }.navigationViewStyle(StackNavigationViewStyle())
             .previewLayout(.fixed(width: 500, height: 500))
     }

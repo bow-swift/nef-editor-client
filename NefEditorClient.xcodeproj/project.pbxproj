@@ -40,6 +40,8 @@
 		1139BF8624640D3800BC283A /* ICloudStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1139BF8524640D3800BC283A /* ICloudStatus.swift */; };
 		1139BF8A24641CB400BC283A /* CreditsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1139BF8924641CB400BC283A /* CreditsView.swift */; };
 		1139BF8C246425E100BC283A /* LibraryButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1139BF8B246425E100BC283A /* LibraryButtonStyle.swift */; };
+		1139BF9024642DCB00BC283A /* CreditsAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1139BF8F24642DCB00BC283A /* CreditsAction.swift */; };
+		1139BF9324642DF900BC283A /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1139BF9224642DF900BC283A /* Library.swift */; };
 		11425434244870FB00B2EA0C /* SearchAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11425433244870FB00B2EA0C /* SearchAction.swift */; };
 		114254362448732E00B2EA0C /* SearchDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114254352448732E00B2EA0C /* SearchDispatcher.swift */; };
 		1142543A244879DE00B2EA0C /* SearchComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11425439244879DE00B2EA0C /* SearchComponent.swift */; };
@@ -146,6 +148,8 @@
 		1139BF8924641CB400BC283A /* CreditsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsView.swift; sourceTree = "<group>"; };
 		1139BF8B246425E100BC283A /* LibraryButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryButtonStyle.swift; sourceTree = "<group>"; };
 		1139BF8D24642C5A00BC283A /* GitHub */ = {isa = PBXFileReference; lastKnownFileType = folder; path = GitHub; sourceTree = "<group>"; };
+		1139BF8F24642DCB00BC283A /* CreditsAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsAction.swift; sourceTree = "<group>"; };
+		1139BF9224642DF900BC283A /* Library.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
 		11425433244870FB00B2EA0C /* SearchAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAction.swift; sourceTree = "<group>"; };
 		114254352448732E00B2EA0C /* SearchDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDispatcher.swift; sourceTree = "<group>"; };
 		11425439244879DE00B2EA0C /* SearchComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchComponent.swift; sourceTree = "<group>"; };
@@ -296,6 +300,8 @@
 		1139BF8724641C9D00BC283A /* Credits */ = {
 			isa = PBXGroup;
 			children = (
+				1139BF9124642DE700BC283A /* State */,
+				1139BF8E24642DBD00BC283A /* Logic */,
 				1139BF8824641CA800BC283A /* View */,
 			);
 			path = Credits;
@@ -307,6 +313,22 @@
 				1139BF8924641CB400BC283A /* CreditsView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		1139BF8E24642DBD00BC283A /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				1139BF8F24642DCB00BC283A /* CreditsAction.swift */,
+			);
+			path = Logic;
+			sourceTree = "<group>";
+		};
+		1139BF9124642DE700BC283A /* State */ = {
+			isa = PBXGroup;
+			children = (
+				1139BF9224642DF900BC283A /* Library.swift */,
+			);
+			path = State;
 			sourceTree = "<group>";
 		};
 		11425432244870ED00B2EA0C /* Logic */ = {
@@ -823,6 +845,7 @@
 				1187BD692444525800FF668F /* CatalogItem.swift in Sources */,
 				11EDF4492435F4B70092E959 /* RecipeCatalogView.swift in Sources */,
 				1101A3B2245AD23F002A848B /* View+Conditional.swift in Sources */,
+				1139BF9324642DF900BC283A /* Library.swift in Sources */,
 				11B125B72444BCAC00E2D1C3 /* CatalogSection.swift in Sources */,
 				11070298243CA10E008583EB /* ErrorRequirementsView.swift in Sources */,
 				1142543F2448A87000B2EA0C /* RepositoryDetailDispatcher.swift in Sources */,
@@ -848,6 +871,7 @@
 				11BFEA0F243B560500D4F891 /* EmptySearchView.swift in Sources */,
 				1107028B243C9987008583EB /* RepositoryDetailState.swift in Sources */,
 				1101A3B0245AB994002A848B /* AvatarView.swift in Sources */,
+				1139BF9024642DCB00BC283A /* CreditsAction.swift in Sources */,
 				1187BD65243FABED00FF668F /* FeaturedRecipe.swift in Sources */,
 				1142543A244879DE00B2EA0C /* SearchComponent.swift in Sources */,
 				11BFEA09243B525100D4F891 /* LoadingSearchView.swift in Sources */,
