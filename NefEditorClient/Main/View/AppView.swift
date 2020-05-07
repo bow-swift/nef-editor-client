@@ -61,7 +61,7 @@ struct AppView<CatalogView: View, SearchView: View, DetailView: View, EditView: 
             }
         }.navigationViewStyle(StackNavigationViewStyle())
         .onAppear {
-            self.handle(.loadCatalog)
+            self.handle(.initialLoad)
         }
     }
     

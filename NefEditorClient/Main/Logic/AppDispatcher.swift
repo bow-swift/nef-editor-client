@@ -21,7 +21,7 @@ let appDispatcher: StateDispatcher<AppDependencies, AppState, AppAction> = AppDi
         
     case .catalogAction(_), .editAction(_), .catalogDetailAction(_):
         return []
-    case .loadCatalog:
+    case .initialLoad:
         return [fetchRecipes()]
     }
 }.widen(transformEnvironment: \.persistence)

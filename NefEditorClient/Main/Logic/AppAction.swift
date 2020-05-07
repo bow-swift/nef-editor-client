@@ -5,6 +5,6 @@ enum AppAction: AutoPrism {
     case searchAction(SearchAction)
     case editAction(EditAction)
     case catalogDetailAction(CatalogDetailAction)
-    case loadCatalog
+    case initialLoad
     case dismissModal
 }

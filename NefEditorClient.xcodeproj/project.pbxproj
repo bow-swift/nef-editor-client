@@ -37,6 +37,7 @@
 		112EA4EA24618F7400F91DBA /* ICloudPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112EA4E924618F7400F91DBA /* ICloudPersistence.swift */; };
 		1139BF7E2462DC5000BC283A /* GitHub in Frameworks */ = {isa = PBXBuildFile; productRef = 1139BF7D2462DC5000BC283A /* GitHub */; };
 		1139BF812462E23700BC283A /* AppDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1139BF802462E23700BC283A /* AppDependencies.swift */; };
+		1139BF8624640D3800BC283A /* ICloudStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1139BF8524640D3800BC283A /* ICloudStatus.swift */; };
 		11425434244870FB00B2EA0C /* SearchAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11425433244870FB00B2EA0C /* SearchAction.swift */; };
 		114254362448732E00B2EA0C /* SearchDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114254352448732E00B2EA0C /* SearchDispatcher.swift */; };
 		1142543A244879DE00B2EA0C /* SearchComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11425439244879DE00B2EA0C /* SearchComponent.swift */; };
@@ -139,7 +140,8 @@
 		112EA4E724618EC700F91DBA /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		112EA4E924618F7400F91DBA /* ICloudPersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICloudPersistence.swift; sourceTree = "<group>"; };
 		1139BF802462E23700BC283A /* AppDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependencies.swift; sourceTree = "<group>"; };
-		1139BF822463FFFD00BC283A /* GitHub */ = {isa = PBXFileReference; lastKnownFileType = folder; path = GitHub; sourceTree = "<group>"; };
+		1139BF8424640C2500BC283A /* GitHub */ = {isa = PBXFileReference; lastKnownFileType = folder; path = GitHub; sourceTree = "<group>"; };
+		1139BF8524640D3800BC283A /* ICloudStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICloudStatus.swift; sourceTree = "<group>"; };
 		11425433244870FB00B2EA0C /* SearchAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAction.swift; sourceTree = "<group>"; };
 		114254352448732E00B2EA0C /* SearchDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDispatcher.swift; sourceTree = "<group>"; };
 		11425439244879DE00B2EA0C /* SearchComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchComponent.swift; sourceTree = "<group>"; };
@@ -394,7 +396,7 @@
 			isa = PBXGroup;
 			children = (
 				11EDF467243714210092E959 /* github.yaml */,
-				1139BF822463FFFD00BC283A /* GitHub */,
+				1139BF8424640C2500BC283A /* GitHub */,
 				1163838224321FD100EB2DEF /* NefEditorClient */,
 				1163839924321FD400EB2DEF /* NefEditorClientTests */,
 				1163838124321FD100EB2DEF /* Products */,
@@ -479,6 +481,7 @@
 			isa = PBXGroup;
 			children = (
 				1163BA8D244DF8B3005B0785 /* AppState.swift */,
+				1139BF8524640D3800BC283A /* ICloudStatus.swift */,
 				1163BA8F244DF8E4005B0785 /* PanelState.swift */,
 			);
 			path = State;
@@ -785,6 +788,7 @@
 				11C95A5524504E3D00659C97 /* Image+System.swift in Sources */,
 				11AD8DCD243DC4870005E450 /* TagView.swift in Sources */,
 				1163BA92244DF933005B0785 /* EditState.swift in Sources */,
+				1139BF8624640D3800BC283A /* ICloudStatus.swift in Sources */,
 				1142543D2448A80900B2EA0C /* RepositoryDetailAction.swift in Sources */,
 				11E07F18243B353500A0A027 /* SearchBar.swift in Sources */,
 				11B125C02447077000E2D1C3 /* DependencyView.swift in Sources */,
