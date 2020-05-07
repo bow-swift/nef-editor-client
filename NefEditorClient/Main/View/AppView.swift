@@ -1,28 +1,32 @@
 import SwiftUI
 import GitHub
 
-struct AppView<CatalogView: View, SearchView: View, DetailView: View, EditView: View>: View {
+struct AppView<CatalogView: View, SearchView: View, DetailView: View, EditView: View, CreditsView: View>: View {
     let state: AppState
     let catalog: CatalogView
     let search: SearchView
     let detail: DetailView
     let edit: EditView
+    let credits: CreditsView
     let handle: (AppAction) -> Void
     
     let isEditPresented: Binding<Bool>
     let isAlertPresented: Binding<Bool>
+    let isCreditsPresented: Binding<Bool>
     
     init(state: AppState,
          catalog: CatalogView,
          search: SearchView,
          detail: DetailView,
          edit: EditView,
+         credits: CreditsView,
          handle: @escaping (AppAction) -> Void) {
         self.state = state
         self.catalog = catalog
         self.search = search
         self.detail = detail
         self.edit = edit
+        self.credits = credits
         self.handle = handle
         
         self.isEditPresented = Binding(
@@ -38,6 +42,15 @@ struct AppView<CatalogView: View, SearchView: View, DetailView: View, EditView: 
             set: { newState in
                 if !newState {
                     handle(.dismissAlert)
+                }
+            }
+        )
+        
+        self.isCreditsPresented = Binding(
+            get: { state.creditsModal == .shown },
+            set: { newState in
+                if !newState {
+                    handle(.dismissModal)
                 }
             }
         )
@@ -70,6 +83,9 @@ struct AppView<CatalogView: View, SearchView: View, DetailView: View, EditView: 
             .modal(isPresented: isEditPresented) {
                 self.edit
             }
+            .modal(isPresented: isCreditsPresented) {
+                self.credits
+            }
             .alert(isPresented: isAlertPresented) {
                 self.iCloudAlert
             }
@@ -85,6 +101,10 @@ struct AppView<CatalogView: View, SearchView: View, DetailView: View, EditView: 
                 Button(action: { self.handle(.showAlert) }) {
                     Image.warning.foregroundColor(.yellow)
                 }
+            }
+            
+            Button(action: { self.handle(.showCredits) }) {
+                Image.info.foregroundColor(.nef)
             }
         }
     }

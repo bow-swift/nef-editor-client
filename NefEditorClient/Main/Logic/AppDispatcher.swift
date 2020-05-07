@@ -21,6 +21,9 @@ let appDispatcher: StateDispatcher<AppDependencies, AppState, AppAction> = AppDi
     case .showSettings:
         return [showSettings().contramap(id)]
         
+    case .showCredits:
+        return [EnvIO.pure(showCredits())^]
+        
     case .searchAction(let action):
         switch action {
         case .cancelSearch:
@@ -29,7 +32,7 @@ let appDispatcher: StateDispatcher<AppDependencies, AppState, AppAction> = AppDi
             return []
         }
         
-    case .catalogAction(_), .editAction(_), .catalogDetailAction(_):
+    case .catalogAction(_), .editAction(_), .catalogDetailAction(_), .creditsAction(_):
         return []
     case .initialLoad:
         return [initialLoad()]
@@ -52,6 +55,9 @@ let appDispatcher: StateDispatcher<AppDependencies, AppState, AppAction> = AppDi
     transformEnvironment: \.config,
     transformState: AppState.searchStateLens,
     transformInput: AppAction.prism(for: AppAction.searchAction)))
+.combine(creditsDispatcher.widen(
+    transformEnvironment: id,
+    transformInput: AppAction.prism(for: AppAction.creditsAction)))
 
 let prism = AppAction.prism(for: AppAction.searchAction) +
 SearchAction.prism(for: SearchAction.repositoryDetailAction)
@@ -70,7 +76,8 @@ func dismissModal() -> State<AppState, Void> {
     .modify { state in
         state.copy(
             editState: .notEditing,
-            searchState: state.searchState.copy(modalState: .noModal))
+            searchState: state.searchState.copy(modalState: .noModal),
+            creditsModal: .hidden)
     }^
 }
 
@@ -93,6 +100,12 @@ func showSettings() -> EnvIO<Any, Error, State<AppState, Void>> {
             UIApplication.shared.open(settingsUrl, completionHandler: nil)
         }
     }.as(dismissAlert())^
+}
+
+func showCredits() -> State<AppState, Void> {
+    .modify { state in
+        state.copy(creditsModal: .shown)
+    }^
 }
 
 func cancelSearch() -> State<AppState, Void> {
