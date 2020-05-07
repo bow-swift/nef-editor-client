@@ -14,7 +14,8 @@ func appComponent() -> AppComponent<CatalogComponent, SearchComponent, CatalogDe
         searchState: SearchState(loadingState: .initial, modalState: .noModal),
         catalog: Catalog.initial,
         selectedItem: nil,
-        iCloudStatus: .enabled)
+        iCloudStatus: .enabled,
+        iCloudAlert: .hidden)
     let config = API.Config(basePath: "https://api.github.com")
     let persistence = ICloudPersistence()
     let dependencies = AppDependencies(persistence: persistence, config: config)

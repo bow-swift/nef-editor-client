@@ -7,6 +7,7 @@ struct AppState: Equatable {
     let catalog: Catalog
     let selectedItem: CatalogItem?
     let iCloudStatus: ICloudStatus
+    let iCloudAlert: ICloudAlert
     
     func copy(
         panelState: PanelState? = nil,
@@ -14,7 +15,8 @@ struct AppState: Equatable {
         searchState: SearchState? = nil,
         catalog: Catalog? = nil,
         selectedItem: CatalogItem?? = nil,
-        iCloudStatus: ICloudStatus? = nil
+        iCloudStatus: ICloudStatus? = nil,
+        iCloudAlert: ICloudAlert? = nil
     ) -> AppState {
         AppState(
             panelState: panelState ?? self.panelState,
@@ -22,7 +24,8 @@ struct AppState: Equatable {
             searchState: searchState ?? self.searchState,
             catalog: catalog ?? self.catalog,
             selectedItem: selectedItem ?? self.selectedItem,
-            iCloudStatus: iCloudStatus ?? self.iCloudStatus
+            iCloudStatus: iCloudStatus ?? self.iCloudStatus,
+            iCloudAlert: iCloudAlert ?? self.iCloudAlert
         )
     }
     

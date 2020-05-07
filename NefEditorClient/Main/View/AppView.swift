@@ -10,6 +10,7 @@ struct AppView<CatalogView: View, SearchView: View, DetailView: View, EditView: 
     let handle: (AppAction) -> Void
     
     let isEditPresented: Binding<Bool>
+    let isAlertPresented: Binding<Bool>
     
     init(state: AppState,
          catalog: CatalogView,
@@ -31,6 +32,15 @@ struct AppView<CatalogView: View, SearchView: View, DetailView: View, EditView: 
                     handle(.dismissModal)
                 }
             })
+        
+        self.isAlertPresented = Binding(
+            get: { state.iCloudAlert == .shown },
+            set: { newState in
+                if !newState {
+                    handle(.dismissAlert)
+                }
+            }
+        )
     }
     
     var showSearch: Bool {
@@ -60,6 +70,9 @@ struct AppView<CatalogView: View, SearchView: View, DetailView: View, EditView: 
             .modal(isPresented: isEditPresented) {
                 self.edit
             }
+            .alert(isPresented: isAlertPresented) {
+                self.iCloudAlert
+            }
         }.navigationViewStyle(StackNavigationViewStyle())
         .onAppear {
             self.handle(.initialLoad)
@@ -69,7 +82,7 @@ struct AppView<CatalogView: View, SearchView: View, DetailView: View, EditView: 
     var navigationButtons: some View {
         HStack {
             if state.iCloudStatus == .disabled {
-                Button(action: {}) {
+                Button(action: { self.handle(.showAlert) }) {
                     Image.warning.foregroundColor(.yellow)
                 }
             }
@@ -112,5 +125,17 @@ struct AppView<CatalogView: View, SearchView: View, DetailView: View, EditView: 
         search
             .animation(.easeInOut)
             .transition(.move(edge: .trailing))
+    }
+    
+    var iCloudAlert: Alert {
+        Alert(
+            title: Text("iCloud Disabled"),
+            message: Text("iCloud is disabled for this app and we will not be able to persist the changes you make. Go to settings and enable iCloud for this app."),
+            primaryButton: Alert.Button.default(Text("Go to Settings")) {
+                self.handle(.showSettings)
+            },
+            secondaryButton: Alert.Button.cancel {
+                self.handle(.dismissAlert)
+            })
     }
 }

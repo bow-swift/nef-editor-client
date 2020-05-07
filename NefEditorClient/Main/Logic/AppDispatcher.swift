@@ -3,6 +3,7 @@ import BowEffects
 import BowOptics
 import BowArch
 import GitHub
+import UIKit
 
 typealias AppDispatcher = StateDispatcher<Persistence, AppState, AppAction>
 
@@ -10,7 +11,16 @@ let appDispatcher: StateDispatcher<AppDependencies, AppState, AppAction> = AppDi
     switch action {
     case .dismissModal:
         return [EnvIO.pure(dismissModal())^]
+        
+    case .showAlert:
+        return [EnvIO.pure(showAlert())^]
+        
+    case .dismissAlert:
+        return [EnvIO.pure(dismissAlert())^]
     
+    case .showSettings:
+        return [showSettings().contramap(id)]
+        
     case .searchAction(let action):
         switch action {
         case .cancelSearch:
@@ -58,9 +68,31 @@ let addDependencyDispatcher = StateDispatcher<Any, AppState, RepositoryDetailAct
 
 func dismissModal() -> State<AppState, Void> {
     .modify { state in
-        state.copy(editState: .notEditing,
-                   searchState: state.searchState.copy(modalState: .noModal))
+        state.copy(
+            editState: .notEditing,
+            searchState: state.searchState.copy(modalState: .noModal))
     }^
+}
+
+func showAlert() -> State<AppState, Void> {
+    .modify { state in
+        state.copy(iCloudAlert: .shown)
+    }^
+}
+
+func dismissAlert() -> State<AppState, Void> {
+    .modify { state in
+        state.copy(iCloudAlert: .hidden)
+    }^
+}
+
+func showSettings() -> EnvIO<Any, Error, State<AppState, Void>> {
+    EnvIO.later(.main) {
+        guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else { return }
+        if UIApplication.shared.canOpenURL(settingsUrl) {
+            UIApplication.shared.open(settingsUrl, completionHandler: nil)
+        }
+    }.as(dismissAlert())^
 }
 
 func cancelSearch() -> State<AppState, Void> {

@@ -7,4 +7,7 @@ enum AppAction: AutoPrism {
     case catalogDetailAction(CatalogDetailAction)
     case initialLoad
     case dismissModal
+    case showAlert
+    case dismissAlert
+    case showSettings
 }
