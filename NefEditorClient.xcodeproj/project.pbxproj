@@ -171,7 +171,7 @@
 		114AF45B24598E15000116B7 /* CatalogDetailDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogDetailDispatcher.swift; sourceTree = "<group>"; };
 		114AF45E24598FC0000116B7 /* CatalogDetailComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogDetailComponent.swift; sourceTree = "<group>"; };
 		114AF4642459CA18000116B7 /* AppDispatcherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDispatcherTests.swift; sourceTree = "<group>"; };
-		1163838024321FD100EB2DEF /* NefEditorClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NefEditorClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1163838024321FD100EB2DEF /* nef.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nef.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1163838324321FD100EB2DEF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1163838524321FD100EB2DEF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		1163838924321FD400EB2DEF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -465,7 +465,7 @@
 		1163838124321FD100EB2DEF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1163838024321FD100EB2DEF /* NefEditorClient.app */,
+				1163838024321FD100EB2DEF /* nef.app */,
 				1163839624321FD400EB2DEF /* NefEditorClientTests.xctest */,
 			);
 			name = Products;
@@ -733,7 +733,7 @@
 				1139BF7D2462DC5000BC283A /* GitHub */,
 			);
 			productName = NefEditorClient;
-			productReference = 1163838024321FD100EB2DEF /* NefEditorClient.app */;
+			productReference = 1163838024321FD100EB2DEF /* nef.app */;
 			productType = "com.apple.product-type.application";
 		};
 		1163839524321FD400EB2DEF /* NefEditorClientTests */ = {
@@ -1099,7 +1099,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.47deg.nef-editor-client";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = nef;
 				PROVISIONING_PROFILE_SPECIFIER = "nef editor client Dev";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SUPPORTS_MACCATALYST = YES;
@@ -1126,7 +1126,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.47deg.nef-editor-client";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = nef;
 				PROVISIONING_PROFILE_SPECIFIER = "nef editor client Dist";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SUPPORTS_MACCATALYST = YES;
