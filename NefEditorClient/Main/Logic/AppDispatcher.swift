@@ -6,7 +6,7 @@ import GitHub
 
 typealias AppDispatcher = StateDispatcher<Persistence, AppState, AppAction>
 
-let appDispatcher: StateDispatcher<Dependencies, AppState, AppAction> = AppDispatcher.workflow { action in
+let appDispatcher: StateDispatcher<AppDependencies, AppState, AppAction> = AppDispatcher.workflow { action in
     switch action {
     case .dismissModal:
         return [EnvIO.pure(dismissModal())^]

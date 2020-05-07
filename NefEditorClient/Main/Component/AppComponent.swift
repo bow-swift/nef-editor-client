@@ -5,7 +5,7 @@ import BowOptics
 import BowEffects
 import SwiftUI
 
-typealias AppComponent<Catalog: View, Search: View, Detail: View, Edit: View> = StoreComponent<Dependencies, AppState, AppAction, AppView<Catalog, Search, Detail, Edit>>
+typealias AppComponent<Catalog: View, Search: View, Detail: View, Edit: View> = StoreComponent<AppDependencies, AppState, AppAction, AppView<Catalog, Search, Detail, Edit>>
 
 func appComponent() -> AppComponent<CatalogComponent, SearchComponent, CatalogDetailComponent, EditComponent> {
     let initialState = AppState(
@@ -16,7 +16,7 @@ func appComponent() -> AppComponent<CatalogComponent, SearchComponent, CatalogDe
         selectedItem: nil)
     let config = API.Config(basePath: "https://api.github.com")
     let persistence = ICloudPersistence()
-    let dependencies = Dependencies(persistence: persistence, config: config)
+    let dependencies = AppDependencies(persistence: persistence, config: config)
     let ref = IORef<Error, [Recipe]?>.unsafe(nil)
     
     return AppComponent(

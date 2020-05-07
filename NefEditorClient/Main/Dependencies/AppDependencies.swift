@@ -1,6 +1,6 @@
 import GitHub
 
-struct Dependencies {
+struct AppDependencies {
     let persistence: Persistence
     let config: API.Config
 }
