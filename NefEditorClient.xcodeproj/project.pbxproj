@@ -138,8 +138,8 @@
 		112EA4E52461868000F91DBA /* NefEditorClientRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NefEditorClientRelease.entitlements; sourceTree = "<group>"; };
 		112EA4E724618EC700F91DBA /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		112EA4E924618F7400F91DBA /* ICloudPersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICloudPersistence.swift; sourceTree = "<group>"; };
-		1139BF7C2462DC4500BC283A /* GitHub */ = {isa = PBXFileReference; lastKnownFileType = folder; path = GitHub; sourceTree = "<group>"; };
 		1139BF802462E23700BC283A /* AppDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependencies.swift; sourceTree = "<group>"; };
+		1139BF822463FFFD00BC283A /* GitHub */ = {isa = PBXFileReference; lastKnownFileType = folder; path = GitHub; sourceTree = "<group>"; };
 		11425433244870FB00B2EA0C /* SearchAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAction.swift; sourceTree = "<group>"; };
 		114254352448732E00B2EA0C /* SearchDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDispatcher.swift; sourceTree = "<group>"; };
 		11425439244879DE00B2EA0C /* SearchComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchComponent.swift; sourceTree = "<group>"; };
@@ -394,7 +394,7 @@
 			isa = PBXGroup;
 			children = (
 				11EDF467243714210092E959 /* github.yaml */,
-				1139BF7C2462DC4500BC283A /* GitHub */,
+				1139BF822463FFFD00BC283A /* GitHub */,
 				1163838224321FD100EB2DEF /* NefEditorClient */,
 				1163839924321FD400EB2DEF /* NefEditorClientTests */,
 				1163838124321FD100EB2DEF /* Products */,

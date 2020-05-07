@@ -14,26 +14,20 @@ class ICloudPersistence: Persistence {
     }
     
     func loadUserRecipes<E>() -> EnvIO<E, Error, [Recipe]> {
-        if let recipes = self.recipes {
-            return EnvIO.invoke { _ in
-                let decoder = JSONDecoder()
-                let data = try Data.init(contentsOf: recipes)
-                return try decoder.decode([Recipe].self, from: data)
-            }
-        } else {
-            return EnvIO.pure([])^
+        EnvIO.invoke { _ in
+            guard let recipes = self.recipes else { return [] }
+            let decoder = JSONDecoder()
+            let data = try Data.init(contentsOf: recipes)
+            return try decoder.decode([Recipe].self, from: data)
         }
     }
     
     func saveUserRecipes<E>(_ recipes: [Recipe]) -> EnvIO<E, Error, Void> {
-        if let recipesFile = self.recipes {
-            return EnvIO.invoke { _ in
-                let encoder = JSONEncoder()
-                let data = try encoder.encode(recipes)
-                try data.write(to: recipesFile)
-            }
-        } else {
-            return EnvIO.pure(())^
+        EnvIO.invoke { _ in
+            guard let recipesFile = self.recipes else { return }
+            let encoder = JSONEncoder()
+            let data = try encoder.encode(recipes)
+            try data.write(to: recipesFile)
         }
     }
 }
