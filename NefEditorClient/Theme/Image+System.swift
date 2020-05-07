@@ -29,6 +29,10 @@ extension Image {
         Image(systemName: "exclamationmark.triangle.fill")
     }
     
+    static var info: Image {
+        Image(systemName: "info.circle.fill")
+    }
+    
     static var appIcon: Image {
         Image("nefCredits")
     }
