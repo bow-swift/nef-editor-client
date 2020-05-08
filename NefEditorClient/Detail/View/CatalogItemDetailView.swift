@@ -60,7 +60,7 @@ struct CatalogItemDetailView: View {
                     self.handle(.remove(dependency))
                 }
                 
-                Button(action: {}) {
+                Button(action: { self.handle(.generatePlayground(for: self.item)) }) {
                     HStack(spacing: 12) {
                         Image.nefClear
                             .resizable()
