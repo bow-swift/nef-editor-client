@@ -5,7 +5,7 @@ struct AppView<CatalogView: View, SearchView: View, DetailView: View, EditView: 
     let state: AppState
     let catalog: CatalogView
     let search: SearchView
-    let detail: DetailView
+    let detail: (CatalogItem) -> DetailView
     let edit: EditView
     let credits: CreditsView
     let handle: (AppAction) -> Void
@@ -17,7 +17,7 @@ struct AppView<CatalogView: View, SearchView: View, DetailView: View, EditView: 
     init(state: AppState,
          catalog: CatalogView,
          search: SearchView,
-         detail: DetailView,
+         detail: @escaping (CatalogItem) -> DetailView,
          edit: EditView,
          credits: CreditsView,
          handle: @escaping (AppAction) -> Void) {
@@ -126,18 +126,22 @@ struct AppView<CatalogView: View, SearchView: View, DetailView: View, EditView: 
     }
     
     var detailView: some View {
-        if state.panelState == .catalog {
-            return detail
-                .frame(maxWidth: maxDetailWidth)
-                .padding()
-                .animation(.easeInOut)
-                .transition(.move(edge: .trailing))
+        if let item = state.selectedItem {
+            if state.panelState == .catalog {
+                return AnyView(detail(item)
+                    .frame(maxWidth: maxDetailWidth)
+                    .padding()
+                    .animation(.easeInOut)
+                    .transition(.move(edge: .trailing)))
+            } else {
+                return AnyView(detail(item)
+                    .frame(maxWidth: maxDetailWidth)
+                    .padding()
+                    .animation(.easeInOut)
+                    .transition(.slide))
+            }
         } else {
-            return detail
-                .frame(maxWidth: maxDetailWidth)
-                .padding()
-                .animation(.easeInOut)
-                .transition(.slide)
+            return AnyView(EmptyView())
         }
     }
     

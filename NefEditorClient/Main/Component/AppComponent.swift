@@ -36,8 +36,10 @@ func appComponent() -> AppComponent<CatalogComponent, SearchComponent, CatalogDe
             search: searchComponent(config: config, state: state.searchState)
                 .using(handle, transformInput: AppAction.prism(for: AppAction.searchAction)),
             
-            detail: catalogDetailComponent(state: state.selectedItem)
-                .using(handle, transformInput: AppAction.prism(for: AppAction.catalogDetailAction)),
+            detail: { item in
+                catalogDetailComponent(state: item)
+                    .using(handle, transformInput: AppAction.prism(for: AppAction.catalogDetailAction))
+            },
             
             edit: editComponent(state: state.editState)
                 .using(handle, transformInput: AppAction.prism(for: AppAction.editAction)),
