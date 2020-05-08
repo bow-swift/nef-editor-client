@@ -45,6 +45,10 @@
 		1139BF9524642F0B00BC283A /* CreditsDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1139BF9424642F0B00BC283A /* CreditsDispatcher.swift */; };
 		1139BF9724642F8200BC283A /* CreditsModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1139BF9624642F8200BC283A /* CreditsModal.swift */; };
 		1139BF9A2464321E00BC283A /* CreditsComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1139BF992464321E00BC283A /* CreditsComponent.swift */; };
+		1139BF9E24645D0800BC283A /* SignInButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1139BF9D24645D0800BC283A /* SignInButton.swift */; };
+		1139BFA124645F3400BC283A /* AuthenticationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1139BFA024645F3400BC283A /* AuthenticationInfo.swift */; };
+		1139BFA52464609600BC283A /* GenerationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1139BFA42464609600BC283A /* GenerationView.swift */; };
+		1139BFA72464634D00BC283A /* AuthenticationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1139BFA62464634D00BC283A /* AuthenticationState.swift */; };
 		11425434244870FB00B2EA0C /* SearchAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11425433244870FB00B2EA0C /* SearchAction.swift */; };
 		114254362448732E00B2EA0C /* SearchDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114254352448732E00B2EA0C /* SearchDispatcher.swift */; };
 		1142543A244879DE00B2EA0C /* SearchComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11425439244879DE00B2EA0C /* SearchComponent.swift */; };
@@ -156,6 +160,10 @@
 		1139BF9424642F0B00BC283A /* CreditsDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsDispatcher.swift; sourceTree = "<group>"; };
 		1139BF9624642F8200BC283A /* CreditsModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsModal.swift; sourceTree = "<group>"; };
 		1139BF992464321E00BC283A /* CreditsComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsComponent.swift; sourceTree = "<group>"; };
+		1139BF9D24645D0800BC283A /* SignInButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInButton.swift; sourceTree = "<group>"; };
+		1139BFA024645F3400BC283A /* AuthenticationInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationInfo.swift; sourceTree = "<group>"; };
+		1139BFA42464609600BC283A /* GenerationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerationView.swift; sourceTree = "<group>"; };
+		1139BFA62464634D00BC283A /* AuthenticationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationState.swift; sourceTree = "<group>"; };
 		11425433244870FB00B2EA0C /* SearchAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAction.swift; sourceTree = "<group>"; };
 		114254352448732E00B2EA0C /* SearchDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDispatcher.swift; sourceTree = "<group>"; };
 		11425439244879DE00B2EA0C /* SearchComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchComponent.swift; sourceTree = "<group>"; };
@@ -347,6 +355,48 @@
 			path = Component;
 			sourceTree = "<group>";
 		};
+		1139BF9B24645B0000BC283A /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				1139BF9F24645F2000BC283A /* State */,
+				1139BF9C24645CF600BC283A /* View */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		1139BF9C24645CF600BC283A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1139BF9D24645D0800BC283A /* SignInButton.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1139BF9F24645F2000BC283A /* State */ = {
+			isa = PBXGroup;
+			children = (
+				1139BFA024645F3400BC283A /* AuthenticationInfo.swift */,
+				1139BFA62464634D00BC283A /* AuthenticationState.swift */,
+			);
+			path = State;
+			sourceTree = "<group>";
+		};
+		1139BFA22464604B00BC283A /* Generation */ = {
+			isa = PBXGroup;
+			children = (
+				1139BFA32464608B00BC283A /* View */,
+			);
+			path = Generation;
+			sourceTree = "<group>";
+		};
+		1139BFA32464608B00BC283A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1139BFA42464609600BC283A /* GenerationView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		11425432244870ED00B2EA0C /* Logic */ = {
 			isa = PBXGroup;
 			children = (
@@ -480,11 +530,13 @@
 				1163838324321FD100EB2DEF /* AppDelegate.swift */,
 				1163838524321FD100EB2DEF /* SceneDelegate.swift */,
 				1163838924321FD400EB2DEF /* Assets.xcassets */,
+				1139BF9B24645B0000BC283A /* Authentication */,
 				11AD8DCA243DC42E0005E450 /* Catalog */,
 				1139BF8724641C9D00BC283A /* Credits */,
 				11B125BD2447074500E2D1C3 /* Detail */,
 				114AF44D2459863B000116B7 /* Edit */,
 				11E07F14243B218E00A0A027 /* Extensions */,
+				1139BFA22464604B00BC283A /* Generation */,
 				114254432449909600B2EA0C /* GitHubExtensions */,
 				1163838E24321FD400EB2DEF /* LaunchScreen.storyboard */,
 				1163BA88244DF81A005B0785 /* Main */,
@@ -866,6 +918,7 @@
 				1139BF9324642DF900BC283A /* Library.swift in Sources */,
 				11B125B72444BCAC00E2D1C3 /* CatalogSection.swift in Sources */,
 				11070298243CA10E008583EB /* ErrorRequirementsView.swift in Sources */,
+				1139BFA72464634D00BC283A /* AuthenticationState.swift in Sources */,
 				1142543F2448A87000B2EA0C /* RepositoryDetailDispatcher.swift in Sources */,
 				11B125C6244721BF00E2D1C3 /* ColorPalette.swift in Sources */,
 				1139BF8A24641CB400BC283A /* CreditsView.swift in Sources */,
@@ -898,6 +951,8 @@
 				11BFEA07243B519A00D4F891 /* SearchState.swift in Sources */,
 				11EDF44F2435F5AA0092E959 /* AppView.swift in Sources */,
 				11425445244990AB00B2EA0C /* Data+Equatable.swift in Sources */,
+				1139BFA124645F3400BC283A /* AuthenticationInfo.swift in Sources */,
+				1139BFA52464609600BC283A /* GenerationView.swift in Sources */,
 				1139BF9724642F8200BC283A /* CreditsModal.swift in Sources */,
 				11B125C424471E1C00E2D1C3 /* ActionButtonStyle.swift in Sources */,
 				11C95ABA24584BE300659C97 /* CatalogDispatcher.swift in Sources */,
@@ -919,6 +974,7 @@
 				11070289243C81DC008583EB /* RequirementView.swift in Sources */,
 				1163BA90244DF8E4005B0785 /* PanelState.swift in Sources */,
 				11AD8DD9243E20BB0005E450 /* TagCloud.swift in Sources */,
+				1139BF9E24645D0800BC283A /* SignInButton.swift in Sources */,
 				1187BD67243FAD6300FF668F /* FeaturedRecipeView.swift in Sources */,
 				11E07F13243B20E000A0A027 /* RepositoryGridView.swift in Sources */,
 				1139BF812462E23700BC283A /* AppDependencies.swift in Sources */,
