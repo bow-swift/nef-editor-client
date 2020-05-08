@@ -121,6 +121,11 @@
 		11EDF44F2435F5AA0092E959 /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EDF44E2435F5AA0092E959 /* AppView.swift */; };
 		11EDF468243714210092E959 /* github.yaml in Resources */ = {isa = PBXBuildFile; fileRef = 11EDF467243714210092E959 /* github.yaml */; };
 		11EF0A7F24373DCE009E894D /* RepositoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EF0A7E24373DCE009E894D /* RepositoryView.swift */; };
+		11FE7AC4246583B80011DB41 /* GenerationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FE7AC3246583B80011DB41 /* GenerationState.swift */; };
+		11FE7AC824659BAC0011DB41 /* GenerationComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FE7AC724659BAC0011DB41 /* GenerationComponent.swift */; };
+		11FE7ACB24659C0F0011DB41 /* GenerationAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FE7ACA24659C0F0011DB41 /* GenerationAction.swift */; };
+		11FE7ACD2465AD330011DB41 /* GenerationErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FE7ACC2465AD330011DB41 /* GenerationErrorView.swift */; };
+		11FE7ACF2465B8930011DB41 /* GenerationDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FE7ACE2465B8930011DB41 /* GenerationDispatcher.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -239,6 +244,11 @@
 		11EDF44E2435F5AA0092E959 /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
 		11EDF467243714210092E959 /* github.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = github.yaml; sourceTree = "<group>"; };
 		11EF0A7E24373DCE009E894D /* RepositoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryView.swift; sourceTree = "<group>"; };
+		11FE7AC3246583B80011DB41 /* GenerationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerationState.swift; sourceTree = "<group>"; };
+		11FE7AC724659BAC0011DB41 /* GenerationComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerationComponent.swift; sourceTree = "<group>"; };
+		11FE7ACA24659C0F0011DB41 /* GenerationAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerationAction.swift; sourceTree = "<group>"; };
+		11FE7ACC2465AD330011DB41 /* GenerationErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerationErrorView.swift; sourceTree = "<group>"; };
+		11FE7ACE2465B8930011DB41 /* GenerationDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerationDispatcher.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -384,6 +394,9 @@
 		1139BFA22464604B00BC283A /* Generation */ = {
 			isa = PBXGroup;
 			children = (
+				11FE7AC624659B9C0011DB41 /* Component */,
+				11FE7AC924659BFA0011DB41 /* Logic */,
+				11FE7AC5246583CA0011DB41 /* State */,
 				1139BFA32464608B00BC283A /* View */,
 			);
 			path = Generation;
@@ -392,6 +405,7 @@
 		1139BFA32464608B00BC283A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				11FE7ACC2465AD330011DB41 /* GenerationErrorView.swift */,
 				1139BFA42464609600BC283A /* GenerationView.swift */,
 			);
 			path = View;
@@ -764,6 +778,31 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		11FE7AC5246583CA0011DB41 /* State */ = {
+			isa = PBXGroup;
+			children = (
+				11FE7AC3246583B80011DB41 /* GenerationState.swift */,
+			);
+			path = State;
+			sourceTree = "<group>";
+		};
+		11FE7AC624659B9C0011DB41 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				11FE7AC724659BAC0011DB41 /* GenerationComponent.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		11FE7AC924659BFA0011DB41 /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				11FE7ACA24659C0F0011DB41 /* GenerationAction.swift */,
+				11FE7ACE2465B8930011DB41 /* GenerationDispatcher.swift */,
+			);
+			path = Logic;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -902,6 +941,7 @@
 				1139BF9A2464321E00BC283A /* CreditsComponent.swift in Sources */,
 				11AD8DCD243DC4870005E450 /* TagView.swift in Sources */,
 				1163BA92244DF933005B0785 /* EditState.swift in Sources */,
+				11FE7ACD2465AD330011DB41 /* GenerationErrorView.swift in Sources */,
 				1139BF8624640D3800BC283A /* ICloudStatus.swift in Sources */,
 				1142543D2448A80900B2EA0C /* RepositoryDetailAction.swift in Sources */,
 				11E07F18243B353500A0A027 /* SearchBar.swift in Sources */,
@@ -932,6 +972,7 @@
 				11BFEA00243B410D00D4F891 /* PreviewData.swift in Sources */,
 				11070293243C9F27008583EB /* EmptyRequirementsView.swift in Sources */,
 				1163BA9A244ED9A3005B0785 /* AppComponent.swift in Sources */,
+				11FE7ACF2465B8930011DB41 /* GenerationDispatcher.swift in Sources */,
 				1163BA87244DF22E005B0785 /* EditRecipeMetadataView.swift in Sources */,
 				11BFEA0B243B538300D4F891 /* ViewStyle.swift in Sources */,
 				114AF45F24598FC0000116B7 /* CatalogDetailComponent.swift in Sources */,
@@ -955,6 +996,7 @@
 				1139BFA52464609600BC283A /* GenerationView.swift in Sources */,
 				1139BF9724642F8200BC283A /* CreditsModal.swift in Sources */,
 				11B125C424471E1C00E2D1C3 /* ActionButtonStyle.swift in Sources */,
+				11FE7AC4246583B80011DB41 /* GenerationState.swift in Sources */,
 				11C95ABA24584BE300659C97 /* CatalogDispatcher.swift in Sources */,
 				1163838624321FD100EB2DEF /* SceneDelegate.swift in Sources */,
 				11BFEA11243B571B00D4F891 /* ErrorSearchView.swift in Sources */,
@@ -964,6 +1006,7 @@
 				11C95ABD24584D9700659C97 /* CatalogComponent.swift in Sources */,
 				11070286243C8178008583EB /* Requirement.swift in Sources */,
 				11B125B924459B4800E2D1C3 /* TagViewModel.swift in Sources */,
+				11FE7ACB24659C0F0011DB41 /* GenerationAction.swift in Sources */,
 				11E07F16243B21A200A0A027 /* Array+Extensions.swift in Sources */,
 				11425434244870FB00B2EA0C /* SearchAction.swift in Sources */,
 				11B125B32444BC9000E2D1C3 /* CatalogItemGridView.swift in Sources */,
@@ -985,6 +1028,7 @@
 				11BFEA0D243B553000D4F891 /* InitialSearchView.swift in Sources */,
 				11B125B62444BCAC00E2D1C3 /* Catalog.swift in Sources */,
 				11E07F11243B118F00A0A027 /* GridView.swift in Sources */,
+				11FE7AC824659BAC0011DB41 /* GenerationComponent.swift in Sources */,
 				1163BA95244ED043005B0785 /* AppAction.swift in Sources */,
 				11EDF44D2435F5410092E959 /* SearchView.swift in Sources */,
 				1101A3AC245AB5F6002A848B /* URLImage.swift in Sources */,
