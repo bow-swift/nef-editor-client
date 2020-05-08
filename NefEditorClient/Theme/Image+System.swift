@@ -33,6 +33,10 @@ extension Image {
         Image(systemName: "info.circle.fill")
     }
     
+    static var nefClear: Image {
+        Image("nef")
+    }
+    
     static var appIcon: Image {
         Image("nefCredits")
     }

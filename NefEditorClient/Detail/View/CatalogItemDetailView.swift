@@ -64,7 +64,7 @@ struct CatalogItemDetailView: View {
                 
                 Button(action: {}) {
                     HStack(spacing: 12) {
-                        Image("nef")
+                        Image.nefClear
                             .resizable()
                             .frame(width: 32, height: 32)
                         Text("Create Swift Playground")
