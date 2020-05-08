@@ -32,7 +32,7 @@ let appDispatcher: StateDispatcher<AppDependencies, AppState, AppAction> = AppDi
             return []
         }
         
-    case .catalogAction(_), .editAction(_), .catalogDetailAction(_), .creditsAction(_):
+    case .catalogAction(_), .editAction(_), .catalogDetailAction(_), .creditsAction(_), .generationAction(_):
         return []
     case .initialLoad:
         return [initialLoad()]
@@ -55,6 +55,9 @@ let appDispatcher: StateDispatcher<AppDependencies, AppState, AppAction> = AppDi
     transformEnvironment: \.config,
     transformState: AppState.searchStateLens,
     transformInput: AppAction.prism(for: AppAction.searchAction)))
+.combine(generationDispatcher.widen(
+    transformEnvironment: id,
+    transformInput: AppAction.prism(for: AppAction.generationAction)))
 .combine(creditsDispatcher.widen(
     transformEnvironment: id,
     transformInput: AppAction.prism(for: AppAction.creditsAction)))
@@ -77,7 +80,8 @@ func dismissModal() -> State<AppState, Void> {
         state.copy(
             editState: .notEditing,
             searchState: state.searchState.copy(modalState: .noModal),
-            creditsModal: .hidden)
+            creditsModal: .hidden,
+            generationState: .notGenerating)
     }^
 }
 

@@ -1,24 +1,27 @@
 import SwiftUI
 import GitHub
 
-struct AppView<CatalogView: View, SearchView: View, DetailView: View, EditView: View, CreditsView: View>: View {
+struct AppView<CatalogView: View, SearchView: View, DetailView: View, EditView: View, GenerationView: View, CreditsView: View>: View {
     let state: AppState
     let catalog: CatalogView
     let search: SearchView
     let detail: (CatalogItem) -> DetailView
     let edit: EditView
+    let generation: (GenerationState) -> GenerationView
     let credits: CreditsView
     let handle: (AppAction) -> Void
     
     let isEditPresented: Binding<Bool>
     let isAlertPresented: Binding<Bool>
     let isCreditsPresented: Binding<Bool>
+    let isGenerationPresented: Binding<Bool>
     
     init(state: AppState,
          catalog: CatalogView,
          search: SearchView,
          detail: @escaping (CatalogItem) -> DetailView,
          edit: EditView,
+         generation: @escaping (GenerationState) -> GenerationView,
          credits: CreditsView,
          handle: @escaping (AppAction) -> Void) {
         self.state = state
@@ -26,6 +29,7 @@ struct AppView<CatalogView: View, SearchView: View, DetailView: View, EditView: 
         self.search = search
         self.detail = detail
         self.edit = edit
+        self.generation = generation
         self.credits = credits
         self.handle = handle
         
@@ -48,6 +52,15 @@ struct AppView<CatalogView: View, SearchView: View, DetailView: View, EditView: 
         
         self.isCreditsPresented = Binding(
             get: { state.creditsModal == .shown },
+            set: { newState in
+                if !newState {
+                    handle(.dismissModal)
+                }
+            }
+        )
+        
+        self.isGenerationPresented = Binding(
+            get: { state.generationState != .notGenerating },
             set: { newState in
                 if !newState {
                     handle(.dismissModal)
@@ -85,6 +98,9 @@ struct AppView<CatalogView: View, SearchView: View, DetailView: View, EditView: 
             }
             .modal(isPresented: isCreditsPresented) {
                 self.credits
+            }
+            .modal(isPresented: isGenerationPresented) {
+                self.generation(self.state.generationState)
             }
             .alert(isPresented: isAlertPresented) {
                 self.iCloudAlert
