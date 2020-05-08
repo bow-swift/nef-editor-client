@@ -3,31 +3,53 @@ import AuthenticationServices
 
 struct GenerationView: View {
     @Environment(\.colorScheme) var colorScheme
-    let authentication: AuthenticationState
-    let item: CatalogItem
+    let state: GenerationState
+    let handle: (GenerationAction) -> Void
+    @State var showAlert = false
     
     var body: some View {
+        self.contentView
+            .alert(isPresented: $showAlert) {
+                Alert(title: Text("Generation is still not available."))
+            }
+            .navigationBarTitle("Generate nef Playground", displayMode: .inline)
+            .navigationBarItems(leading:
+                Button("Cancel") {
+                    self.handle(.dismissGeneration)
+                }.foregroundColor(.nef)
+            )
+    }
+    
+    var contentView: some View {
+        switch state {
+        case .notGenerating:
+            return AnyView(EmptyView())
+        case let .initial(authentication, item):
+            return AnyView(initialView(authentication: authentication, item: item))
+        case .generating(_):
+            return AnyView(EmptyView())
+        case let .error(generationError):
+            return AnyView(GenerationErrorView(message: generationError.description))
+        }
+    }
+    
+    func initialView(authentication: AuthenticationState, item: CatalogItem) -> some View {
         VStack {
-            DependencyListView(dependencies: [bowDependency, bowArchDependency], isEditable: false, onRemoveDependency: { _ in })
-            
+            DependencyListView(dependencies: item.dependencies, isEditable: false, onRemoveDependency: { _ in })
+
             Rectangle()
                 .fill(Color.gray.opacity(0.7))
                 .frame(height: 2)
-            
-            self.bottomView
-        }.navigationBarTitle("Generate nef Playground", displayMode: .inline)
-        .navigationBarItems(leading:
-            Button("Cancel") {
-                
-            }.foregroundColor(.nef)
-        )
+
+            self.bottomView(authentication: authentication)
+        }
     }
     
     var style: ASAuthorizationAppleIDButton.Style {
         (self.colorScheme == .dark) ? .white : .black
     }
     
-    var bottomView: some View {
+    func bottomView(authentication: AuthenticationState) -> some View {
         Group {
             if authentication == .unauthenticated {
                 self.unauthenticatedView
@@ -38,12 +60,12 @@ struct GenerationView: View {
     }
     
     var authenticatedView: some View {
-        Button(action: { }) {
+        Button(action: { self.showAlert = true }) {
             HStack {
                 Image.nefClear
                     .resizable()
                     .frame(width: 24, height: 24)
-                Text("Generate nef Playground")
+                Text("Generate Swift Playground")
             }
         }.buttonStyle(TextButtonStyle())
         .padding()
@@ -60,8 +82,8 @@ struct GenerationView: View {
     }
     
     var signInButton: some View {
-        SignInButton(style: self.style) { either in
-            print(either)
+        SignInButton(style: self.style) { result in
+            self.handle(.authenticationResult(result))
         }.frame(height: 56)
         .padding()
     }
@@ -76,11 +98,10 @@ struct GenerationView_Previews: PreviewProvider {
     
     static var previews: some View {
         Group {
-            GenerationView(authentication: .unauthenticated,
-                           item: item)
+            GenerationView(state: .initial(.unauthenticated, item)) { _ in }
             
-            GenerationView(authentication: .authenticated(AuthenticationInfo(user: "", identityToken: "", authorizationCode: "")),
-                           item: item)
+            GenerationView(state: .initial(.authenticated(AuthenticationInfo(user: "", identityToken: "", authorizationCode: "")), item)) { _ in }
+            
         }.previewLayout(.fixed(width: 500, height: 500))
     }
 }
