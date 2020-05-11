@@ -41,7 +41,7 @@ struct GenerationView: View {
                 .fill(Color.gray.opacity(0.7))
                 .frame(height: 2)
 
-            self.bottomView(authentication: authentication)
+            self.bottomView(authentication: authentication, item: item)
         }
     }
     
@@ -49,10 +49,10 @@ struct GenerationView: View {
         (self.colorScheme == .dark) ? .white : .black
     }
     
-    func bottomView(authentication: AuthenticationState) -> some View {
+    func bottomView(authentication: AuthenticationState, item: CatalogItem) -> some View {
         Group {
             if authentication == .unauthenticated {
-                self.unauthenticatedView
+                self.unauthenticatedView(item: item)
             } else {
                 self.authenticatedView
             }
@@ -71,19 +71,19 @@ struct GenerationView: View {
         .padding()
     }
         
-    var unauthenticatedView: some View {
+    func unauthenticatedView(item: CatalogItem) -> some View {
         Group {
             Text("In order to generate your nef Playground, you need to sign in.")
                 .activityStyle()
                 .padding()
             
-            self.signInButton
+            self.signInButton(item: item)
         }
     }
     
-    var signInButton: some View {
+    func signInButton(item: CatalogItem) -> some View {
         SignInButton(style: self.style) { result in
-            self.handle(.authenticationResult(result))
+            self.handle(.authenticationResult(result, item: item))
         }.frame(height: 56)
         .padding()
     }

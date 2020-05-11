@@ -5,8 +5,10 @@ typealias GenerationDispatcher = StateDispatcher<Any, AppState, GenerationAction
 
 let generationDispatcher = GenerationDispatcher.pure { input in
     switch input {
-    case .authenticationResult(let result):
-        return result.fold(authenticationError, authenticationSuccess)
+    case let .authenticationResult(result, item):
+        return result.fold(
+            authenticationError,
+            { info in authenticationSuccess(info, item) })
     case .dismissGeneration:
         return dismissModal()
     }
@@ -20,11 +22,11 @@ func authenticationError(_ error: Error) -> State<AppState, Void> {
     }^
 }
 
-func authenticationSuccess(_ info: AuthenticationInfo) -> State<AppState, Void> {
+func authenticationSuccess(_ info: AuthenticationInfo, _ item: CatalogItem) -> State<AppState, Void> {
     .modify { state in
         state.copy(
             authenticationState: .authenticated(info),
-            generationState: .initial(.authenticated(info), state.selectedItem!)
+            generationState: .initial(.authenticated(info), item)
         )
     }^
 }
