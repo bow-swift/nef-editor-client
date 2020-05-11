@@ -12,7 +12,7 @@ struct GenerationView: View {
             .alert(isPresented: $showAlert) {
                 Alert(title: Text("Generation is still not available."))
             }
-            .navigationBarTitle("Generate nef Playground", displayMode: .inline)
+            .navigationBarTitle("Generate Swift Playground", displayMode: .inline)
             .navigationBarItems(leading:
                 Button("Cancel") {
                     self.handle(.dismissGeneration)
@@ -73,7 +73,7 @@ struct GenerationView: View {
         
     func unauthenticatedView(item: CatalogItem) -> some View {
         Group {
-            Text("In order to generate your nef Playground, you need to sign in.")
+            Text("In order to generate your Swift Playground, you need to sign in.")
                 .activityStyle()
                 .padding()
             
