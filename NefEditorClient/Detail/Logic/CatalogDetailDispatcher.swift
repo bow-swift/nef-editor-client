@@ -13,6 +13,8 @@ let catalogDetailDispatcher = CatalogDetailDispatcher.pure { action in
         return remove(dependency: dependency)
     case .dismissDetail:
         return clearSelection()
+    case .generatePlayground(for: let item):
+        return generatePlayground(for: item)
     }
 }
 
@@ -51,6 +53,11 @@ func clearSelection() -> State<AppState, Void> {
         } else {
             return state.copy(selectedItem: .some(nil))
         }
-        
+    }^
+}
+
+func generatePlayground(for item: CatalogItem) -> State<AppState, Void> {
+    .modify { state in
+        state.copy(generationState: .initial(state.authenticationState, item))
     }^
 }

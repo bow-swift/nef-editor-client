@@ -5,9 +5,15 @@ import BowOptics
 import BowEffects
 import SwiftUI
 
-typealias AppComponent<Catalog: View, Search: View, Detail: View, Edit: View, Credits: View> = StoreComponent<AppDependencies, AppState, AppAction, AppView<Catalog, Search, Detail, Edit, Credits>>
+typealias AppComponent<Catalog: View, Search: View, Detail: View, Edit: View, Generation: View, Credits: View> =
+    StoreComponent<
+        AppDependencies,
+        AppState,
+        AppAction,
+        AppView<Catalog, Search, Detail, Edit, Generation, Credits>
+    >
 
-func appComponent() -> AppComponent<CatalogComponent, SearchComponent, CatalogDetailComponent, EditComponent, CreditsComponent> {
+func appComponent() -> AppComponent<CatalogComponent, SearchComponent, CatalogDetailComponent, EditComponent, GenerationComponent, CreditsComponent> {
     let initialState = AppState(
         panelState: .catalog,
         editState: .notEditing,
@@ -16,7 +22,9 @@ func appComponent() -> AppComponent<CatalogComponent, SearchComponent, CatalogDe
         selectedItem: nil,
         iCloudStatus: .enabled,
         iCloudAlert: .hidden,
-        creditsModal: .hidden)
+        creditsModal: .hidden,
+        authenticationState: .unauthenticated,
+        generationState: .notGenerating)
     let config = API.Config(basePath: "https://api.github.com")
     let persistence = ICloudPersistence()
     let dependencies = AppDependencies(persistence: persistence, config: config)
@@ -36,11 +44,18 @@ func appComponent() -> AppComponent<CatalogComponent, SearchComponent, CatalogDe
             search: searchComponent(config: config, state: state.searchState)
                 .using(handle, transformInput: AppAction.prism(for: AppAction.searchAction)),
             
-            detail: catalogDetailComponent(state: state.selectedItem)
-                .using(handle, transformInput: AppAction.prism(for: AppAction.catalogDetailAction)),
+            detail: { item in
+                catalogDetailComponent(state: item)
+                    .using(handle, transformInput: AppAction.prism(for: AppAction.catalogDetailAction))
+            },
             
             edit: editComponent(state: state.editState)
                 .using(handle, transformInput: AppAction.prism(for: AppAction.editAction)),
+            
+            generation: { state in
+                generationComponent(state: state)
+                    .using(handle, transformInput: AppAction.prism(for: AppAction.generationAction))
+            },
             
             credits: creditsComponent()
                 .using(handle, transformInput: AppAction.prism(for: AppAction.creditsAction)),

@@ -45,6 +45,10 @@
 		1139BF9524642F0B00BC283A /* CreditsDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1139BF9424642F0B00BC283A /* CreditsDispatcher.swift */; };
 		1139BF9724642F8200BC283A /* CreditsModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1139BF9624642F8200BC283A /* CreditsModal.swift */; };
 		1139BF9A2464321E00BC283A /* CreditsComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1139BF992464321E00BC283A /* CreditsComponent.swift */; };
+		1139BF9E24645D0800BC283A /* SignInButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1139BF9D24645D0800BC283A /* SignInButton.swift */; };
+		1139BFA124645F3400BC283A /* AuthenticationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1139BFA024645F3400BC283A /* AuthenticationInfo.swift */; };
+		1139BFA52464609600BC283A /* GenerationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1139BFA42464609600BC283A /* GenerationView.swift */; };
+		1139BFA72464634D00BC283A /* AuthenticationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1139BFA62464634D00BC283A /* AuthenticationState.swift */; };
 		11425434244870FB00B2EA0C /* SearchAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11425433244870FB00B2EA0C /* SearchAction.swift */; };
 		114254362448732E00B2EA0C /* SearchDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114254352448732E00B2EA0C /* SearchDispatcher.swift */; };
 		1142543A244879DE00B2EA0C /* SearchComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11425439244879DE00B2EA0C /* SearchComponent.swift */; };
@@ -117,6 +121,11 @@
 		11EDF44F2435F5AA0092E959 /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EDF44E2435F5AA0092E959 /* AppView.swift */; };
 		11EDF468243714210092E959 /* github.yaml in Resources */ = {isa = PBXBuildFile; fileRef = 11EDF467243714210092E959 /* github.yaml */; };
 		11EF0A7F24373DCE009E894D /* RepositoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EF0A7E24373DCE009E894D /* RepositoryView.swift */; };
+		11FE7AC4246583B80011DB41 /* GenerationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FE7AC3246583B80011DB41 /* GenerationState.swift */; };
+		11FE7AC824659BAC0011DB41 /* GenerationComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FE7AC724659BAC0011DB41 /* GenerationComponent.swift */; };
+		11FE7ACB24659C0F0011DB41 /* GenerationAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FE7ACA24659C0F0011DB41 /* GenerationAction.swift */; };
+		11FE7ACD2465AD330011DB41 /* GenerationErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FE7ACC2465AD330011DB41 /* GenerationErrorView.swift */; };
+		11FE7ACF2465B8930011DB41 /* GenerationDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FE7ACE2465B8930011DB41 /* GenerationDispatcher.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -156,6 +165,10 @@
 		1139BF9424642F0B00BC283A /* CreditsDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsDispatcher.swift; sourceTree = "<group>"; };
 		1139BF9624642F8200BC283A /* CreditsModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsModal.swift; sourceTree = "<group>"; };
 		1139BF992464321E00BC283A /* CreditsComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsComponent.swift; sourceTree = "<group>"; };
+		1139BF9D24645D0800BC283A /* SignInButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInButton.swift; sourceTree = "<group>"; };
+		1139BFA024645F3400BC283A /* AuthenticationInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationInfo.swift; sourceTree = "<group>"; };
+		1139BFA42464609600BC283A /* GenerationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerationView.swift; sourceTree = "<group>"; };
+		1139BFA62464634D00BC283A /* AuthenticationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationState.swift; sourceTree = "<group>"; };
 		11425433244870FB00B2EA0C /* SearchAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAction.swift; sourceTree = "<group>"; };
 		114254352448732E00B2EA0C /* SearchDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDispatcher.swift; sourceTree = "<group>"; };
 		11425439244879DE00B2EA0C /* SearchComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchComponent.swift; sourceTree = "<group>"; };
@@ -171,7 +184,7 @@
 		114AF45B24598E15000116B7 /* CatalogDetailDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogDetailDispatcher.swift; sourceTree = "<group>"; };
 		114AF45E24598FC0000116B7 /* CatalogDetailComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogDetailComponent.swift; sourceTree = "<group>"; };
 		114AF4642459CA18000116B7 /* AppDispatcherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDispatcherTests.swift; sourceTree = "<group>"; };
-		1163838024321FD100EB2DEF /* NefEditorClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NefEditorClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1163838024321FD100EB2DEF /* nef.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nef.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1163838324321FD100EB2DEF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1163838524321FD100EB2DEF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		1163838924321FD400EB2DEF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -231,6 +244,11 @@
 		11EDF44E2435F5AA0092E959 /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
 		11EDF467243714210092E959 /* github.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = github.yaml; sourceTree = "<group>"; };
 		11EF0A7E24373DCE009E894D /* RepositoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryView.swift; sourceTree = "<group>"; };
+		11FE7AC3246583B80011DB41 /* GenerationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerationState.swift; sourceTree = "<group>"; };
+		11FE7AC724659BAC0011DB41 /* GenerationComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerationComponent.swift; sourceTree = "<group>"; };
+		11FE7ACA24659C0F0011DB41 /* GenerationAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerationAction.swift; sourceTree = "<group>"; };
+		11FE7ACC2465AD330011DB41 /* GenerationErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerationErrorView.swift; sourceTree = "<group>"; };
+		11FE7ACE2465B8930011DB41 /* GenerationDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerationDispatcher.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -345,6 +363,52 @@
 				1139BF992464321E00BC283A /* CreditsComponent.swift */,
 			);
 			path = Component;
+			sourceTree = "<group>";
+		};
+		1139BF9B24645B0000BC283A /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				1139BF9F24645F2000BC283A /* State */,
+				1139BF9C24645CF600BC283A /* View */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		1139BF9C24645CF600BC283A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1139BF9D24645D0800BC283A /* SignInButton.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1139BF9F24645F2000BC283A /* State */ = {
+			isa = PBXGroup;
+			children = (
+				1139BFA024645F3400BC283A /* AuthenticationInfo.swift */,
+				1139BFA62464634D00BC283A /* AuthenticationState.swift */,
+			);
+			path = State;
+			sourceTree = "<group>";
+		};
+		1139BFA22464604B00BC283A /* Generation */ = {
+			isa = PBXGroup;
+			children = (
+				11FE7AC624659B9C0011DB41 /* Component */,
+				11FE7AC924659BFA0011DB41 /* Logic */,
+				11FE7AC5246583CA0011DB41 /* State */,
+				1139BFA32464608B00BC283A /* View */,
+			);
+			path = Generation;
+			sourceTree = "<group>";
+		};
+		1139BFA32464608B00BC283A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				11FE7ACC2465AD330011DB41 /* GenerationErrorView.swift */,
+				1139BFA42464609600BC283A /* GenerationView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		11425432244870ED00B2EA0C /* Logic */ = {
@@ -465,7 +529,7 @@
 		1163838124321FD100EB2DEF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1163838024321FD100EB2DEF /* NefEditorClient.app */,
+				1163838024321FD100EB2DEF /* nef.app */,
 				1163839624321FD400EB2DEF /* NefEditorClientTests.xctest */,
 			);
 			name = Products;
@@ -480,11 +544,13 @@
 				1163838324321FD100EB2DEF /* AppDelegate.swift */,
 				1163838524321FD100EB2DEF /* SceneDelegate.swift */,
 				1163838924321FD400EB2DEF /* Assets.xcassets */,
+				1139BF9B24645B0000BC283A /* Authentication */,
 				11AD8DCA243DC42E0005E450 /* Catalog */,
 				1139BF8724641C9D00BC283A /* Credits */,
 				11B125BD2447074500E2D1C3 /* Detail */,
 				114AF44D2459863B000116B7 /* Edit */,
 				11E07F14243B218E00A0A027 /* Extensions */,
+				1139BFA22464604B00BC283A /* Generation */,
 				114254432449909600B2EA0C /* GitHubExtensions */,
 				1163838E24321FD400EB2DEF /* LaunchScreen.storyboard */,
 				1163BA88244DF81A005B0785 /* Main */,
@@ -712,6 +778,31 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		11FE7AC5246583CA0011DB41 /* State */ = {
+			isa = PBXGroup;
+			children = (
+				11FE7AC3246583B80011DB41 /* GenerationState.swift */,
+			);
+			path = State;
+			sourceTree = "<group>";
+		};
+		11FE7AC624659B9C0011DB41 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				11FE7AC724659BAC0011DB41 /* GenerationComponent.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		11FE7AC924659BFA0011DB41 /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				11FE7ACA24659C0F0011DB41 /* GenerationAction.swift */,
+				11FE7ACE2465B8930011DB41 /* GenerationDispatcher.swift */,
+			);
+			path = Logic;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -733,7 +824,7 @@
 				1139BF7D2462DC5000BC283A /* GitHub */,
 			);
 			productName = NefEditorClient;
-			productReference = 1163838024321FD100EB2DEF /* NefEditorClient.app */;
+			productReference = 1163838024321FD100EB2DEF /* nef.app */;
 			productType = "com.apple.product-type.application";
 		};
 		1163839524321FD400EB2DEF /* NefEditorClientTests */ = {
@@ -850,6 +941,7 @@
 				1139BF9A2464321E00BC283A /* CreditsComponent.swift in Sources */,
 				11AD8DCD243DC4870005E450 /* TagView.swift in Sources */,
 				1163BA92244DF933005B0785 /* EditState.swift in Sources */,
+				11FE7ACD2465AD330011DB41 /* GenerationErrorView.swift in Sources */,
 				1139BF8624640D3800BC283A /* ICloudStatus.swift in Sources */,
 				1142543D2448A80900B2EA0C /* RepositoryDetailAction.swift in Sources */,
 				11E07F18243B353500A0A027 /* SearchBar.swift in Sources */,
@@ -866,6 +958,7 @@
 				1139BF9324642DF900BC283A /* Library.swift in Sources */,
 				11B125B72444BCAC00E2D1C3 /* CatalogSection.swift in Sources */,
 				11070298243CA10E008583EB /* ErrorRequirementsView.swift in Sources */,
+				1139BFA72464634D00BC283A /* AuthenticationState.swift in Sources */,
 				1142543F2448A87000B2EA0C /* RepositoryDetailDispatcher.swift in Sources */,
 				11B125C6244721BF00E2D1C3 /* ColorPalette.swift in Sources */,
 				1139BF8A24641CB400BC283A /* CreditsView.swift in Sources */,
@@ -879,6 +972,7 @@
 				11BFEA00243B410D00D4F891 /* PreviewData.swift in Sources */,
 				11070293243C9F27008583EB /* EmptyRequirementsView.swift in Sources */,
 				1163BA9A244ED9A3005B0785 /* AppComponent.swift in Sources */,
+				11FE7ACF2465B8930011DB41 /* GenerationDispatcher.swift in Sources */,
 				1163BA87244DF22E005B0785 /* EditRecipeMetadataView.swift in Sources */,
 				11BFEA0B243B538300D4F891 /* ViewStyle.swift in Sources */,
 				114AF45F24598FC0000116B7 /* CatalogDetailComponent.swift in Sources */,
@@ -898,8 +992,11 @@
 				11BFEA07243B519A00D4F891 /* SearchState.swift in Sources */,
 				11EDF44F2435F5AA0092E959 /* AppView.swift in Sources */,
 				11425445244990AB00B2EA0C /* Data+Equatable.swift in Sources */,
+				1139BFA124645F3400BC283A /* AuthenticationInfo.swift in Sources */,
+				1139BFA52464609600BC283A /* GenerationView.swift in Sources */,
 				1139BF9724642F8200BC283A /* CreditsModal.swift in Sources */,
 				11B125C424471E1C00E2D1C3 /* ActionButtonStyle.swift in Sources */,
+				11FE7AC4246583B80011DB41 /* GenerationState.swift in Sources */,
 				11C95ABA24584BE300659C97 /* CatalogDispatcher.swift in Sources */,
 				1163838624321FD100EB2DEF /* SceneDelegate.swift in Sources */,
 				11BFEA11243B571B00D4F891 /* ErrorSearchView.swift in Sources */,
@@ -909,6 +1006,7 @@
 				11C95ABD24584D9700659C97 /* CatalogComponent.swift in Sources */,
 				11070286243C8178008583EB /* Requirement.swift in Sources */,
 				11B125B924459B4800E2D1C3 /* TagViewModel.swift in Sources */,
+				11FE7ACB24659C0F0011DB41 /* GenerationAction.swift in Sources */,
 				11E07F16243B21A200A0A027 /* Array+Extensions.swift in Sources */,
 				11425434244870FB00B2EA0C /* SearchAction.swift in Sources */,
 				11B125B32444BC9000E2D1C3 /* CatalogItemGridView.swift in Sources */,
@@ -919,6 +1017,7 @@
 				11070289243C81DC008583EB /* RequirementView.swift in Sources */,
 				1163BA90244DF8E4005B0785 /* PanelState.swift in Sources */,
 				11AD8DD9243E20BB0005E450 /* TagCloud.swift in Sources */,
+				1139BF9E24645D0800BC283A /* SignInButton.swift in Sources */,
 				1187BD67243FAD6300FF668F /* FeaturedRecipeView.swift in Sources */,
 				11E07F13243B20E000A0A027 /* RepositoryGridView.swift in Sources */,
 				1139BF812462E23700BC283A /* AppDependencies.swift in Sources */,
@@ -929,6 +1028,7 @@
 				11BFEA0D243B553000D4F891 /* InitialSearchView.swift in Sources */,
 				11B125B62444BCAC00E2D1C3 /* Catalog.swift in Sources */,
 				11E07F11243B118F00A0A027 /* GridView.swift in Sources */,
+				11FE7AC824659BAC0011DB41 /* GenerationComponent.swift in Sources */,
 				1163BA95244ED043005B0785 /* AppAction.swift in Sources */,
 				11EDF44D2435F5410092E959 /* SearchView.swift in Sources */,
 				1101A3AC245AB5F6002A848B /* URLImage.swift in Sources */,
@@ -1089,6 +1189,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"NefEditorClient/Preview Content\"";
 				DEVELOPMENT_TEAM = P548S5LU96;
 				ENABLE_PREVIEWS = YES;
@@ -1099,7 +1200,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.47deg.nef-editor-client";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = nef;
 				PROVISIONING_PROFILE_SPECIFIER = "nef editor client Dev";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SUPPORTS_MACCATALYST = YES;
@@ -1116,6 +1217,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"NefEditorClient/Preview Content\"";
 				DEVELOPMENT_TEAM = P548S5LU96;
 				ENABLE_PREVIEWS = YES;
@@ -1126,7 +1228,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.47deg.nef-editor-client";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = nef;
 				PROVISIONING_PROFILE_SPECIFIER = "nef editor client Dist";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SUPPORTS_MACCATALYST = YES;

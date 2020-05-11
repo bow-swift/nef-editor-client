@@ -9,6 +9,8 @@ struct AppState: Equatable {
     let iCloudStatus: ICloudStatus
     let iCloudAlert: ICloudAlert
     let creditsModal: CreditsModal
+    let authenticationState: AuthenticationState
+    let generationState: GenerationState
     
     func copy(
         panelState: PanelState? = nil,
@@ -18,7 +20,9 @@ struct AppState: Equatable {
         selectedItem: CatalogItem?? = nil,
         iCloudStatus: ICloudStatus? = nil,
         iCloudAlert: ICloudAlert? = nil,
-        creditsModal: CreditsModal? = nil
+        creditsModal: CreditsModal? = nil,
+        authenticationState: AuthenticationState? = nil,
+        generationState: GenerationState? = nil
     ) -> AppState {
         AppState(
             panelState: panelState ?? self.panelState,
@@ -28,7 +32,9 @@ struct AppState: Equatable {
             selectedItem: selectedItem ?? self.selectedItem,
             iCloudStatus: iCloudStatus ?? self.iCloudStatus,
             iCloudAlert: iCloudAlert ?? self.iCloudAlert,
-            creditsModal: creditsModal ?? self.creditsModal
+            creditsModal: creditsModal ?? self.creditsModal,
+            authenticationState: authenticationState ?? self.authenticationState,
+            generationState: generationState ?? self.generationState
         )
     }
     

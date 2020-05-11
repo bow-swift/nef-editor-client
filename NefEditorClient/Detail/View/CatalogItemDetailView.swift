@@ -1,23 +1,21 @@
 import SwiftUI
 
 struct CatalogItemDetailView: View {
-    let item: CatalogItem?
+    let item: CatalogItem
     let handle: (CatalogDetailAction) -> Void
     
     var body: some View {
         CardView {
             VStack(alignment: .leading, spacing: 8) {
                 HStack {
-                    Text(self.item?.title ?? "")
+                    Text(self.item.title)
                         .largeTitleStyle()
                     
                     Spacer()
                     
-                    if self.item?.isEditable ?? false {
+                    if self.item.isEditable{
                         Button(action: {
-                            if let item = self.item {
-                                self.handle(.edit(item: item))
-                            }
+                            self.handle(.edit(item: self.item))
                         }) {
                             Image.pencil
                         }
@@ -31,7 +29,7 @@ struct CatalogItemDetailView: View {
                     }.buttonStyle(ActionButtonStyle())
                 }
                 
-                Text(self.item?.description ?? "")
+                Text(self.item.description)
                     .foregroundColor(.gray)
                 
                 Rectangle()
@@ -45,7 +43,7 @@ struct CatalogItemDetailView: View {
                     
                     Spacer()
                     
-                    if self.item?.isEditable ?? false {
+                    if self.item.isEditable {
                         Button(action: {
                             self.handle(.searchDependency)
                         }) {
@@ -56,15 +54,15 @@ struct CatalogItemDetailView: View {
                 }.padding(.top, 24)
                 
                 DependencyListView(
-                    dependencies: self.item?.dependencies ?? [],
-                    isEditable: self.item?.isEditable ?? false
+                    dependencies: self.item.dependencies,
+                    isEditable: self.item.isEditable
                 ) { dependency in
                     self.handle(.remove(dependency))
                 }
                 
-                Button(action: {}) {
+                Button(action: { self.handle(.generatePlayground(for: self.item)) }) {
                     HStack(spacing: 12) {
-                        Image("nef")
+                        Image.nefClear
                             .resizable()
                             .frame(width: 32, height: 32)
                         Text("Create Swift Playground")
