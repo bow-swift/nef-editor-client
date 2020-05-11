@@ -8,8 +8,8 @@ enum AppAction: AutoPrism {
     case creditsAction(CreditsAction)
     case initialLoad
     case dismissModal
-    case showAlert
-    case dismissAlert
+    case showICloudAlert
+    case dismissICloudAlert
     case showSettings
     case showCredits
 }

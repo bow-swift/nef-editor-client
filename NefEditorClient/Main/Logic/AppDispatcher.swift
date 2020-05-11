@@ -12,11 +12,11 @@ let appDispatcher: StateDispatcher<AppDependencies, AppState, AppAction> = AppDi
     case .dismissModal:
         return [EnvIO.pure(dismissModal())^]
         
-    case .showAlert:
-        return [EnvIO.pure(showAlert())^]
+    case .showICloudAlert:
+        return [EnvIO.pure(showICloudAlert())^]
         
-    case .dismissAlert:
-        return [EnvIO.pure(dismissAlert())^]
+    case .dismissICloudAlert:
+        return [EnvIO.pure(dismissICloudAlert())^]
     
     case .showSettings:
         return [showSettings().contramap(id)]
@@ -81,13 +81,13 @@ func dismissModal() -> State<AppState, Void> {
     }^
 }
 
-func showAlert() -> State<AppState, Void> {
+func showICloudAlert() -> State<AppState, Void> {
     .modify { state in
         state.copy(iCloudAlert: .shown)
     }^
 }
 
-func dismissAlert() -> State<AppState, Void> {
+func dismissICloudAlert() -> State<AppState, Void> {
     .modify { state in
         state.copy(iCloudAlert: .hidden)
     }^
@@ -99,7 +99,7 @@ func showSettings() -> EnvIO<Any, Error, State<AppState, Void>> {
         if UIApplication.shared.canOpenURL(settingsUrl) {
             UIApplication.shared.open(settingsUrl, completionHandler: nil)
         }
-    }.as(dismissAlert())^
+    }.as(dismissICloudAlert())^
 }
 
 func showCredits() -> State<AppState, Void> {

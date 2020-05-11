@@ -41,7 +41,7 @@ struct AppView<CatalogView: View, SearchView: View, DetailView: View, EditView: 
             get: { state.iCloudAlert == .shown },
             set: { newState in
                 if !newState {
-                    handle(.dismissAlert)
+                    handle(.dismissICloudAlert)
                 }
             }
         )
@@ -98,7 +98,7 @@ struct AppView<CatalogView: View, SearchView: View, DetailView: View, EditView: 
     var navigationButtons: some View {
         HStack {
             if state.iCloudStatus == .disabled {
-                Button(action: { self.handle(.showAlert) }) {
+                Button(action: { self.handle(.showICloudAlert) }) {
                     Image.warning.foregroundColor(.yellow)
                 }
             }
@@ -155,7 +155,7 @@ struct AppView<CatalogView: View, SearchView: View, DetailView: View, EditView: 
                 self.handle(.showSettings)
             },
             secondaryButton: Alert.Button.cancel {
-                self.handle(.dismissAlert)
+                self.handle(.dismissICloudAlert)
             })
     }
 }
