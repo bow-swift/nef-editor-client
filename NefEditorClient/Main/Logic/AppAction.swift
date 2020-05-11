@@ -5,6 +5,11 @@ enum AppAction: AutoPrism {
     case searchAction(SearchAction)
     case editAction(EditAction)
     case catalogDetailAction(CatalogDetailAction)
-    case loadCatalog
+    case creditsAction(CreditsAction)
+    case initialLoad
     case dismissModal
+    case showICloudAlert
+    case dismissICloudAlert
+    case showSettings
+    case showCredits
 }

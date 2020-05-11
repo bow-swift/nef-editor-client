@@ -5,15 +5,18 @@ import BowOptics
 import BowEffects
 import SwiftUI
 
-typealias AppComponent<Catalog: View, Search: View, Detail: View, Edit: View> = StoreComponent<AppDependencies, AppState, AppAction, AppView<Catalog, Search, Detail, Edit>>
+typealias AppComponent<Catalog: View, Search: View, Detail: View, Edit: View, Credits: View> = StoreComponent<AppDependencies, AppState, AppAction, AppView<Catalog, Search, Detail, Edit, Credits>>
 
-func appComponent() -> AppComponent<CatalogComponent, SearchComponent, CatalogDetailComponent, EditComponent> {
+func appComponent() -> AppComponent<CatalogComponent, SearchComponent, CatalogDetailComponent, EditComponent, CreditsComponent> {
     let initialState = AppState(
         panelState: .catalog,
         editState: .notEditing,
         searchState: SearchState(loadingState: .initial, modalState: .noModal),
         catalog: Catalog.initial,
-        selectedItem: nil)
+        selectedItem: nil,
+        iCloudStatus: .enabled,
+        iCloudAlert: .hidden,
+        creditsModal: .hidden)
     let config = API.Config(basePath: "https://api.github.com")
     let persistence = ICloudPersistence()
     let dependencies = AppDependencies(persistence: persistence, config: config)
@@ -38,6 +41,9 @@ func appComponent() -> AppComponent<CatalogComponent, SearchComponent, CatalogDe
             
             edit: editComponent(state: state.editState)
                 .using(handle, transformInput: AppAction.prism(for: AppAction.editAction)),
+            
+            credits: creditsComponent()
+                .using(handle, transformInput: AppAction.prism(for: AppAction.creditsAction)),
             
             handle: handle)
     }.onEffect { component in

@@ -37,6 +37,14 @@
 		112EA4EA24618F7400F91DBA /* ICloudPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112EA4E924618F7400F91DBA /* ICloudPersistence.swift */; };
 		1139BF7E2462DC5000BC283A /* GitHub in Frameworks */ = {isa = PBXBuildFile; productRef = 1139BF7D2462DC5000BC283A /* GitHub */; };
 		1139BF812462E23700BC283A /* AppDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1139BF802462E23700BC283A /* AppDependencies.swift */; };
+		1139BF8624640D3800BC283A /* ICloudStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1139BF8524640D3800BC283A /* ICloudStatus.swift */; };
+		1139BF8A24641CB400BC283A /* CreditsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1139BF8924641CB400BC283A /* CreditsView.swift */; };
+		1139BF8C246425E100BC283A /* LibraryButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1139BF8B246425E100BC283A /* LibraryButtonStyle.swift */; };
+		1139BF9024642DCB00BC283A /* CreditsAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1139BF8F24642DCB00BC283A /* CreditsAction.swift */; };
+		1139BF9324642DF900BC283A /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1139BF9224642DF900BC283A /* Library.swift */; };
+		1139BF9524642F0B00BC283A /* CreditsDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1139BF9424642F0B00BC283A /* CreditsDispatcher.swift */; };
+		1139BF9724642F8200BC283A /* CreditsModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1139BF9624642F8200BC283A /* CreditsModal.swift */; };
+		1139BF9A2464321E00BC283A /* CreditsComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1139BF992464321E00BC283A /* CreditsComponent.swift */; };
 		11425434244870FB00B2EA0C /* SearchAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11425433244870FB00B2EA0C /* SearchAction.swift */; };
 		114254362448732E00B2EA0C /* SearchDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114254352448732E00B2EA0C /* SearchDispatcher.swift */; };
 		1142543A244879DE00B2EA0C /* SearchComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11425439244879DE00B2EA0C /* SearchComponent.swift */; };
@@ -139,7 +147,15 @@
 		112EA4E724618EC700F91DBA /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		112EA4E924618F7400F91DBA /* ICloudPersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICloudPersistence.swift; sourceTree = "<group>"; };
 		1139BF802462E23700BC283A /* AppDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependencies.swift; sourceTree = "<group>"; };
-		1139BF822463FFFD00BC283A /* GitHub */ = {isa = PBXFileReference; lastKnownFileType = folder; path = GitHub; sourceTree = "<group>"; };
+		1139BF8524640D3800BC283A /* ICloudStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICloudStatus.swift; sourceTree = "<group>"; };
+		1139BF8924641CB400BC283A /* CreditsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsView.swift; sourceTree = "<group>"; };
+		1139BF8B246425E100BC283A /* LibraryButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryButtonStyle.swift; sourceTree = "<group>"; };
+		1139BF8D24642C5A00BC283A /* GitHub */ = {isa = PBXFileReference; lastKnownFileType = folder; path = GitHub; sourceTree = "<group>"; };
+		1139BF8F24642DCB00BC283A /* CreditsAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsAction.swift; sourceTree = "<group>"; };
+		1139BF9224642DF900BC283A /* Library.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
+		1139BF9424642F0B00BC283A /* CreditsDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsDispatcher.swift; sourceTree = "<group>"; };
+		1139BF9624642F8200BC283A /* CreditsModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsModal.swift; sourceTree = "<group>"; };
+		1139BF992464321E00BC283A /* CreditsComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsComponent.swift; sourceTree = "<group>"; };
 		11425433244870FB00B2EA0C /* SearchAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAction.swift; sourceTree = "<group>"; };
 		114254352448732E00B2EA0C /* SearchDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDispatcher.swift; sourceTree = "<group>"; };
 		11425439244879DE00B2EA0C /* SearchComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchComponent.swift; sourceTree = "<group>"; };
@@ -287,6 +303,50 @@
 			path = Dependencies;
 			sourceTree = "<group>";
 		};
+		1139BF8724641C9D00BC283A /* Credits */ = {
+			isa = PBXGroup;
+			children = (
+				1139BF982464320F00BC283A /* Component */,
+				1139BF8E24642DBD00BC283A /* Logic */,
+				1139BF9124642DE700BC283A /* State */,
+				1139BF8824641CA800BC283A /* View */,
+			);
+			path = Credits;
+			sourceTree = "<group>";
+		};
+		1139BF8824641CA800BC283A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1139BF8924641CB400BC283A /* CreditsView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1139BF8E24642DBD00BC283A /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				1139BF8F24642DCB00BC283A /* CreditsAction.swift */,
+				1139BF9424642F0B00BC283A /* CreditsDispatcher.swift */,
+			);
+			path = Logic;
+			sourceTree = "<group>";
+		};
+		1139BF9124642DE700BC283A /* State */ = {
+			isa = PBXGroup;
+			children = (
+				1139BF9224642DF900BC283A /* Library.swift */,
+			);
+			path = State;
+			sourceTree = "<group>";
+		};
+		1139BF982464320F00BC283A /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				1139BF992464321E00BC283A /* CreditsComponent.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
 		11425432244870ED00B2EA0C /* Logic */ = {
 			isa = PBXGroup;
 			children = (
@@ -394,7 +454,7 @@
 			isa = PBXGroup;
 			children = (
 				11EDF467243714210092E959 /* github.yaml */,
-				1139BF822463FFFD00BC283A /* GitHub */,
+				1139BF8D24642C5A00BC283A /* GitHub */,
 				1163838224321FD100EB2DEF /* NefEditorClient */,
 				1163839924321FD400EB2DEF /* NefEditorClientTests */,
 				1163838124321FD100EB2DEF /* Products */,
@@ -421,6 +481,7 @@
 				1163838524321FD100EB2DEF /* SceneDelegate.swift */,
 				1163838924321FD400EB2DEF /* Assets.xcassets */,
 				11AD8DCA243DC42E0005E450 /* Catalog */,
+				1139BF8724641C9D00BC283A /* Credits */,
 				11B125BD2447074500E2D1C3 /* Detail */,
 				114AF44D2459863B000116B7 /* Edit */,
 				11E07F14243B218E00A0A027 /* Extensions */,
@@ -479,6 +540,8 @@
 			isa = PBXGroup;
 			children = (
 				1163BA8D244DF8B3005B0785 /* AppState.swift */,
+				1139BF9624642F8200BC283A /* CreditsModal.swift */,
+				1139BF8524640D3800BC283A /* ICloudStatus.swift */,
 				1163BA8F244DF8E4005B0785 /* PanelState.swift */,
 			);
 			path = State;
@@ -610,6 +673,7 @@
 				11B125C5244721BF00E2D1C3 /* ColorPalette.swift */,
 				11E07F10243B118F00A0A027 /* GridView.swift */,
 				11C95A5424504E3D00659C97 /* Image+System.swift */,
+				1139BF8B246425E100BC283A /* LibraryButtonStyle.swift */,
 				1107028C243C9A25008583EB /* LoadingView.swift */,
 				11E07F17243B353500A0A027 /* SearchBar.swift */,
 				11B125C72447242C00E2D1C3 /* TextButtonStyle.swift */,
@@ -783,8 +847,10 @@
 			files = (
 				112EA4EA24618F7400F91DBA /* ICloudPersistence.swift in Sources */,
 				11C95A5524504E3D00659C97 /* Image+System.swift in Sources */,
+				1139BF9A2464321E00BC283A /* CreditsComponent.swift in Sources */,
 				11AD8DCD243DC4870005E450 /* TagView.swift in Sources */,
 				1163BA92244DF933005B0785 /* EditState.swift in Sources */,
+				1139BF8624640D3800BC283A /* ICloudStatus.swift in Sources */,
 				1142543D2448A80900B2EA0C /* RepositoryDetailAction.swift in Sources */,
 				11E07F18243B353500A0A027 /* SearchBar.swift in Sources */,
 				11B125C02447077000E2D1C3 /* DependencyView.swift in Sources */,
@@ -797,13 +863,17 @@
 				1187BD692444525800FF668F /* CatalogItem.swift in Sources */,
 				11EDF4492435F4B70092E959 /* RecipeCatalogView.swift in Sources */,
 				1101A3B2245AD23F002A848B /* View+Conditional.swift in Sources */,
+				1139BF9324642DF900BC283A /* Library.swift in Sources */,
 				11B125B72444BCAC00E2D1C3 /* CatalogSection.swift in Sources */,
 				11070298243CA10E008583EB /* ErrorRequirementsView.swift in Sources */,
 				1142543F2448A87000B2EA0C /* RepositoryDetailDispatcher.swift in Sources */,
 				11B125C6244721BF00E2D1C3 /* ColorPalette.swift in Sources */,
+				1139BF8A24641CB400BC283A /* CreditsView.swift in Sources */,
 				1163BA8E244DF8B3005B0785 /* AppState.swift in Sources */,
+				1139BF8C246425E100BC283A /* LibraryButtonStyle.swift in Sources */,
 				11EF0A7F24373DCE009E894D /* RepositoryView.swift in Sources */,
 				11BFE9FE243B3C2200D4F891 /* ActivityIndicator.swift in Sources */,
+				1139BF9524642F0B00BC283A /* CreditsDispatcher.swift in Sources */,
 				11B125C2244709EA00E2D1C3 /* DependencyListView.swift in Sources */,
 				114254362448732E00B2EA0C /* SearchDispatcher.swift in Sources */,
 				11BFEA00243B410D00D4F891 /* PreviewData.swift in Sources */,
@@ -820,6 +890,7 @@
 				11BFEA0F243B560500D4F891 /* EmptySearchView.swift in Sources */,
 				1107028B243C9987008583EB /* RepositoryDetailState.swift in Sources */,
 				1101A3B0245AB994002A848B /* AvatarView.swift in Sources */,
+				1139BF9024642DCB00BC283A /* CreditsAction.swift in Sources */,
 				1187BD65243FABED00FF668F /* FeaturedRecipe.swift in Sources */,
 				1142543A244879DE00B2EA0C /* SearchComponent.swift in Sources */,
 				11BFEA09243B525100D4F891 /* LoadingSearchView.swift in Sources */,
@@ -827,6 +898,7 @@
 				11BFEA07243B519A00D4F891 /* SearchState.swift in Sources */,
 				11EDF44F2435F5AA0092E959 /* AppView.swift in Sources */,
 				11425445244990AB00B2EA0C /* Data+Equatable.swift in Sources */,
+				1139BF9724642F8200BC283A /* CreditsModal.swift in Sources */,
 				11B125C424471E1C00E2D1C3 /* ActionButtonStyle.swift in Sources */,
 				11C95ABA24584BE300659C97 /* CatalogDispatcher.swift in Sources */,
 				1163838624321FD100EB2DEF /* SceneDelegate.swift in Sources */,

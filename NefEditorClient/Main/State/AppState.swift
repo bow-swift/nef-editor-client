@@ -6,20 +6,30 @@ struct AppState: Equatable {
     let searchState: SearchState
     let catalog: Catalog
     let selectedItem: CatalogItem?
+    let iCloudStatus: ICloudStatus
+    let iCloudAlert: ICloudAlert
+    let creditsModal: CreditsModal
     
     func copy(
         panelState: PanelState? = nil,
         editState: EditState? = nil,
         searchState: SearchState? = nil,
         catalog: Catalog? = nil,
-        selectedItem: CatalogItem?? = nil
+        selectedItem: CatalogItem?? = nil,
+        iCloudStatus: ICloudStatus? = nil,
+        iCloudAlert: ICloudAlert? = nil,
+        creditsModal: CreditsModal? = nil
     ) -> AppState {
         AppState(
             panelState: panelState ?? self.panelState,
             editState: editState ?? self.editState,
             searchState: searchState ?? self.searchState,
             catalog: catalog ?? self.catalog,
-            selectedItem: selectedItem ?? self.selectedItem)
+            selectedItem: selectedItem ?? self.selectedItem,
+            iCloudStatus: iCloudStatus ?? self.iCloudStatus,
+            iCloudAlert: iCloudAlert ?? self.iCloudAlert,
+            creditsModal: creditsModal ?? self.creditsModal
+        )
     }
     
     static var searchStateLens: Lens<AppState, SearchState> {

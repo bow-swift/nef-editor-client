@@ -3,6 +3,7 @@ import BowEffects
 import BowOptics
 import BowArch
 import GitHub
+import UIKit
 
 typealias AppDispatcher = StateDispatcher<Persistence, AppState, AppAction>
 
@@ -10,7 +11,19 @@ let appDispatcher: StateDispatcher<AppDependencies, AppState, AppAction> = AppDi
     switch action {
     case .dismissModal:
         return [EnvIO.pure(dismissModal())^]
+        
+    case .showICloudAlert:
+        return [EnvIO.pure(showICloudAlert())^]
+        
+    case .dismissICloudAlert:
+        return [EnvIO.pure(dismissICloudAlert())^]
     
+    case .showSettings:
+        return [showSettings().contramap(id)]
+        
+    case .showCredits:
+        return [EnvIO.pure(showCredits())^]
+        
     case .searchAction(let action):
         switch action {
         case .cancelSearch:
@@ -19,10 +32,10 @@ let appDispatcher: StateDispatcher<AppDependencies, AppState, AppAction> = AppDi
             return []
         }
         
-    case .catalogAction(_), .editAction(_), .catalogDetailAction(_):
+    case .catalogAction(_), .editAction(_), .catalogDetailAction(_), .creditsAction(_):
         return []
-    case .loadCatalog:
-        return [fetchRecipes()]
+    case .initialLoad:
+        return [initialLoad()]
     }
 }.widen(transformEnvironment: \.persistence)
 .combine(catalogDispatcher.widen(
@@ -42,6 +55,9 @@ let appDispatcher: StateDispatcher<AppDependencies, AppState, AppAction> = AppDi
     transformEnvironment: \.config,
     transformState: AppState.searchStateLens,
     transformInput: AppAction.prism(for: AppAction.searchAction)))
+.combine(creditsDispatcher.widen(
+    transformEnvironment: id,
+    transformInput: AppAction.prism(for: AppAction.creditsAction)))
 
 let prism = AppAction.prism(for: AppAction.searchAction) +
 SearchAction.prism(for: SearchAction.repositoryDetailAction)
@@ -58,8 +74,37 @@ let addDependencyDispatcher = StateDispatcher<Any, AppState, RepositoryDetailAct
 
 func dismissModal() -> State<AppState, Void> {
     .modify { state in
-        state.copy(editState: .notEditing,
-                   searchState: state.searchState.copy(modalState: .noModal))
+        state.copy(
+            editState: .notEditing,
+            searchState: state.searchState.copy(modalState: .noModal),
+            creditsModal: .hidden)
+    }^
+}
+
+func showICloudAlert() -> State<AppState, Void> {
+    .modify { state in
+        state.copy(iCloudAlert: .shown)
+    }^
+}
+
+func dismissICloudAlert() -> State<AppState, Void> {
+    .modify { state in
+        state.copy(iCloudAlert: .hidden)
+    }^
+}
+
+func showSettings() -> EnvIO<Any, Error, State<AppState, Void>> {
+    EnvIO.later(.main) {
+        guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else { return }
+        if UIApplication.shared.canOpenURL(settingsUrl) {
+            UIApplication.shared.open(settingsUrl, completionHandler: nil)
+        }
+    }.as(dismissICloudAlert())^
+}
+
+func showCredits() -> State<AppState, Void> {
+    .modify { state in
+        state.copy(creditsModal: .shown)
     }^
 }
 
@@ -97,13 +142,29 @@ func persist(state: AppState) -> EnvIO<Persistence, Error, Void> {
     }
 }
 
-func fetchRecipes() -> EnvIO<Persistence, Error, State<AppState, Void>> {
+func initialLoad() -> EnvIO<Persistence, Error, State<AppState, Void>> {
+    let recipes = EnvIO<Persistence, Error, [Recipe]>.var()
+    let persistenceEnabled = EnvIO<Persistence, Error, ICloudStatus>.var()
+    
+    return binding(
+        (recipes, persistenceEnabled) <- parallel(
+            fetchRecipes(),
+            isICloudAvailable()),
+        yield: .modify { state in
+            let newCatalog = state.catalog.userCreated(recipes.get)
+            return state.copy(catalog: newCatalog, iCloudStatus: persistenceEnabled.get)
+        }^
+    )^
+}
+
+func fetchRecipes() -> EnvIO<Persistence, Error, [Recipe]> {
     EnvIO.accessM { persistence in
         persistence.loadUserRecipes()
-    }.map { recipes in
-        .modify { state in
-            let newCatalog = state.catalog.userCreated(recipes)
-            return state.copy(catalog: newCatalog)
-        }^
+    }
+}
+
+func isICloudAvailable() -> EnvIO<Persistence, Error, ICloudStatus> {
+    EnvIO.access(\.isPersistenceAvailable).map { isAvailable in
+        isAvailable ? .enabled : .disabled
     }^
 }

@@ -24,4 +24,32 @@ extension Image {
     static var close: Image {
         Image(systemName: "xmark")
     }
+    
+    static var warning: Image {
+        Image(systemName: "exclamationmark.triangle.fill")
+    }
+    
+    static var info: Image {
+        Image(systemName: "info.circle.fill")
+    }
+    
+    static var appIcon: Image {
+        Image("nefCredits")
+    }
+    
+    static var bow: Image {
+        Image("bow")
+    }
+    
+    static var bowArch: Image {
+        Image("bow")
+    }
+    
+    static var bowOpenAPI: Image {
+        Image("bow-openapi")
+    }
+    
+    static var fortySeven: Image {
+        Image("fortyseven")
+    }
 }
