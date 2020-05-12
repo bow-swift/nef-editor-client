@@ -1,4 +1,4 @@
 enum AuthenticationState: Equatable {
-    case authenticated(AuthenticationInfo)
+    case authenticated(token: String)
     case unauthenticated
 }
