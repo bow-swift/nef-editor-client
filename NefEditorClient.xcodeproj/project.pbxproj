@@ -46,6 +46,9 @@
 		1107029A243CA160008583EB /* RequirementListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11070299243CA160008583EB /* RequirementListView.swift */; };
 		112EA4E824618EC700F91DBA /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112EA4E724618EC700F91DBA /* Persistence.swift */; };
 		112EA4EA24618F7400F91DBA /* ICloudPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112EA4E924618F7400F91DBA /* ICloudPersistence.swift */; };
+		112FDCB6246AC8FD009A2B97 /* NefAPI in Frameworks */ = {isa = PBXBuildFile; productRef = 112FDCB5246AC8FD009A2B97 /* NefAPI */; };
+		112FDCB9246AC99A009A2B97 /* NefEditorData in Frameworks */ = {isa = PBXBuildFile; productRef = 112FDCB8246AC99A009A2B97 /* NefEditorData */; };
+		112FDCBB246AC99A009A2B97 /* NefEditorUtils in Frameworks */ = {isa = PBXBuildFile; productRef = 112FDCBA246AC99A009A2B97 /* NefEditorUtils */; };
 		1139BF7E2462DC5000BC283A /* GitHub in Frameworks */ = {isa = PBXBuildFile; productRef = 1139BF7D2462DC5000BC283A /* GitHub */; };
 		1139BF812462E23700BC283A /* AppDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1139BF802462E23700BC283A /* AppDependencies.swift */; };
 		1139BF8624640D3800BC283A /* ICloudStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1139BF8524640D3800BC283A /* ICloudStatus.swift */; };
@@ -138,7 +141,6 @@
 		11FE7ACD2465AD330011DB41 /* GenerationErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FE7ACC2465AD330011DB41 /* GenerationErrorView.swift */; };
 		11FE7ACF2465B8930011DB41 /* GenerationDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FE7ACE2465B8930011DB41 /* GenerationDispatcher.swift */; };
 		11FE7AE4246A99D40011DB41 /* nef.yaml in Resources */ = {isa = PBXBuildFile; fileRef = 11FE7AE3246A99D40011DB41 /* nef.yaml */; };
-		11FE7AEC246AA2EF0011DB41 /* Nef in Frameworks */ = {isa = PBXBuildFile; productRef = 11FE7AEB246AA2EF0011DB41 /* Nef */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -168,11 +170,11 @@
 		112EA4E52461868000F91DBA /* NefEditorClientRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NefEditorClientRelease.entitlements; sourceTree = "<group>"; };
 		112EA4E724618EC700F91DBA /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		112EA4E924618F7400F91DBA /* ICloudPersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICloudPersistence.swift; sourceTree = "<group>"; };
+		112FDCB4246AC8F1009A2B97 /* NefAPI */ = {isa = PBXFileReference; lastKnownFileType = folder; path = NefAPI; sourceTree = "<group>"; };
 		1139BF802462E23700BC283A /* AppDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependencies.swift; sourceTree = "<group>"; };
 		1139BF8524640D3800BC283A /* ICloudStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICloudStatus.swift; sourceTree = "<group>"; };
 		1139BF8924641CB400BC283A /* CreditsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsView.swift; sourceTree = "<group>"; };
 		1139BF8B246425E100BC283A /* LibraryButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryButtonStyle.swift; sourceTree = "<group>"; };
-		1139BF8D24642C5A00BC283A /* GitHub */ = {isa = PBXFileReference; lastKnownFileType = folder; path = GitHub; sourceTree = "<group>"; };
 		1139BF8F24642DCB00BC283A /* CreditsAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsAction.swift; sourceTree = "<group>"; };
 		1139BF9224642DF900BC283A /* Library.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
 		1139BF9424642F0B00BC283A /* CreditsDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsDispatcher.swift; sourceTree = "<group>"; };
@@ -263,7 +265,7 @@
 		11FE7ACC2465AD330011DB41 /* GenerationErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerationErrorView.swift; sourceTree = "<group>"; };
 		11FE7ACE2465B8930011DB41 /* GenerationDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerationDispatcher.swift; sourceTree = "<group>"; };
 		11FE7AE3246A99D40011DB41 /* nef.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = nef.yaml; sourceTree = "<group>"; };
-		11FE7AEA246AA2DB0011DB41 /* Nef */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Nef; sourceTree = "<group>"; };
+		11FE7AED246AC11E0011DB41 /* GitHub */ = {isa = PBXFileReference; lastKnownFileType = folder; path = GitHub; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -271,9 +273,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				11FE7AEC246AA2EF0011DB41 /* Nef in Frameworks */,
+				112FDCBB246AC99A009A2B97 /* NefEditorUtils in Frameworks */,
+				112FDCB6246AC8FD009A2B97 /* NefAPI in Frameworks */,
 				11AD8DC5243CA8E90005E450 /* BowArch in Frameworks */,
 				1139BF7E2462DC5000BC283A /* GitHub in Frameworks */,
+				112FDCB9246AC99A009A2B97 /* NefEditorData in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -535,8 +539,8 @@
 			children = (
 				11EDF467243714210092E959 /* github.yaml */,
 				11FE7AE3246A99D40011DB41 /* nef.yaml */,
-				1139BF8D24642C5A00BC283A /* GitHub */,
-				11FE7AEA246AA2DB0011DB41 /* Nef */,
+				11FE7AED246AC11E0011DB41 /* GitHub */,
+				112FDCB4246AC8F1009A2B97 /* NefAPI */,
 				1163838224321FD100EB2DEF /* NefEditorClient */,
 				1163839924321FD400EB2DEF /* NefEditorClientTests */,
 				1163838124321FD100EB2DEF /* Products */,
@@ -840,7 +844,9 @@
 			packageProductDependencies = (
 				11AD8DC4243CA8E90005E450 /* BowArch */,
 				1139BF7D2462DC5000BC283A /* GitHub */,
-				11FE7AEB246AA2EF0011DB41 /* Nef */,
+				112FDCB5246AC8FD009A2B97 /* NefAPI */,
+				112FDCB8246AC99A009A2B97 /* NefEditorData */,
+				112FDCBA246AC99A009A2B97 /* NefEditorUtils */,
 			);
 			productName = NefEditorClient;
 			productReference = 1163838024321FD100EB2DEF /* nef.app */;
@@ -900,6 +906,7 @@
 			mainGroup = 1163837724321FD100EB2DEF;
 			packageReferences = (
 				11AD8DC3243CA8E80005E450 /* XCRemoteSwiftPackageReference "bow-arch" */,
+				112FDCB7246AC999009A2B97 /* XCRemoteSwiftPackageReference "nef-editor-server" */,
 			);
 			productRefGroup = 1163838124321FD100EB2DEF /* Products */;
 			projectDirPath = "";
@@ -968,7 +975,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "rm -rf Nef\nbow-openapi --name Nef --schema nef.yaml --output .\n";
+			shellScript = "rm -rf NefAPI\nbow-openapi --name NefAPI --schema nef.yaml --output .\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1403,6 +1410,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		112FDCB7246AC999009A2B97 /* XCRemoteSwiftPackageReference "nef-editor-server" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/47deg/nef-editor-server";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		11AD8DC3243CA8E80005E450 /* XCRemoteSwiftPackageReference "bow-arch" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/bow-swift/bow-arch.git";
@@ -1414,6 +1429,20 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		112FDCB5246AC8FD009A2B97 /* NefAPI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = NefAPI;
+		};
+		112FDCB8246AC99A009A2B97 /* NefEditorData */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 112FDCB7246AC999009A2B97 /* XCRemoteSwiftPackageReference "nef-editor-server" */;
+			productName = NefEditorData;
+		};
+		112FDCBA246AC99A009A2B97 /* NefEditorUtils */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 112FDCB7246AC999009A2B97 /* XCRemoteSwiftPackageReference "nef-editor-server" */;
+			productName = NefEditorUtils;
+		};
 		1139BF7D2462DC5000BC283A /* GitHub */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = GitHub;
@@ -1422,10 +1451,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 11AD8DC3243CA8E80005E450 /* XCRemoteSwiftPackageReference "bow-arch" */;
 			productName = BowArch;
-		};
-		11FE7AEB246AA2EF0011DB41 /* Nef */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Nef;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -1,6 +1,8 @@
 import GitHub
+import NefAPI
 
 struct AppDependencies {
     let persistence: Persistence
-    let config: API.Config
+    let gitHubConfig: GitHub.API.Config
+    let nefConfig: NefAPI.API.Config
 }

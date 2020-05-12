@@ -5,13 +5,9 @@ struct GenerationView: View {
     @Environment(\.colorScheme) var colorScheme
     let state: GenerationState
     let handle: (GenerationAction) -> Void
-    @State var showAlert = false
     
     var body: some View {
         self.contentView
-            .alert(isPresented: $showAlert) {
-                Alert(title: Text("Generation is still not available."))
-            }
             .navigationBarTitle("Generate Swift Playground", displayMode: .inline)
             .navigationBarItems(leading:
                 Button("Cancel") {
@@ -50,17 +46,16 @@ struct GenerationView: View {
     }
     
     func bottomView(authentication: AuthenticationState, item: CatalogItem) -> some View {
-        Group {
-            if authentication == .unauthenticated {
-                self.unauthenticatedView(item: item)
-            } else {
-                self.authenticatedView
-            }
+        switch authentication {
+        case .unauthenticated:
+            return AnyView(self.unauthenticatedView(item: item))
+        case let .authenticated(info):
+            return AnyView(self.authenticatedView(info: info, item: item))
         }
     }
     
-    var authenticatedView: some View {
-        Button(action: { self.showAlert = true }) {
+    func authenticatedView(info: AuthenticationInfo, item: CatalogItem) -> some View {
+        Button(action: { self.handle(.generate(item: item, info: info)) }) {
             HStack {
                 Image.nefClear
                     .resizable()

@@ -27,30 +27,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/NefEditorError'
-                
-  /playgroundBook:
-    post:
-      summary: Sign in with Apple.
-      operationId: signin
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/AppleSignInRequest"
-      responses:
-        '200':
-          description: The request was successful.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/AppleSignInResponse'
-        '500':
-          description: The request was aborted.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/NefEditorError'
 
 components:
   schemas:
@@ -83,15 +59,4 @@ components:
         - token
       properties:
         token:
-          type: string
-
-    PlaygroundBookGenerated:
-      type: object
-      required:
-        - name
-        - zip
-      properties:
-        name:
-          type: string
-        zip:
           type: string

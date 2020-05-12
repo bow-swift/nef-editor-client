@@ -52,11 +52,11 @@ let appDispatcher: StateDispatcher<AppDependencies, AppState, AppAction> = AppDi
     transformInput: AppAction.prism(for: AppAction.searchAction) +
         SearchAction.prism(for: SearchAction.repositoryDetailAction)))
 .combine(searchDispatcher.widen(
-    transformEnvironment: \.config,
+    transformEnvironment: \.gitHubConfig,
     transformState: AppState.searchStateLens,
     transformInput: AppAction.prism(for: AppAction.searchAction)))
 .combine(generationDispatcher.widen(
-    transformEnvironment: id,
+    transformEnvironment: \.nefConfig,
     transformInput: AppAction.prism(for: AppAction.generationAction)))
 .combine(creditsDispatcher.widen(
     transformEnvironment: id,
