@@ -3,5 +3,5 @@ import Bow
 enum GenerationAction {
     case authenticationResult(Either<Error, AuthenticationInfo>, item: CatalogItem)
     case dismissGeneration
-    case generate(item: CatalogItem, info: AuthenticationInfo)
+    case generate(item: CatalogItem, token: String)
 }
