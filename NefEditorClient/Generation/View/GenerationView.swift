@@ -20,10 +20,18 @@ struct GenerationView: View {
         switch state {
         case .notGenerating:
             return AnyView(EmptyView())
+        case .authenticating:
+            return AnyView(
+                GenerationLoadingView(message: "Signing in...")
+            )
         case let .initial(authentication, item):
             return AnyView(initialView(authentication: authentication, item: item))
-        case .generating(_):
-            return AnyView(EmptyView())
+        case .generating(let item):
+            return AnyView(
+                GenerationLoadingView(message: "Generating Swift Playground '\(item.title)'...\n\nPlease wait, this may take several minutes.")
+            )
+        case .finished(let item):
+            return AnyView(Text("'\(item.title)' was generated successfully."))
         case let .error(generationError):
             return AnyView(GenerationErrorView(message: generationError.description))
         }
@@ -49,13 +57,15 @@ struct GenerationView: View {
         switch authentication {
         case .unauthenticated:
             return AnyView(self.unauthenticatedView(item: item))
-        case let .authenticated(info):
-            return AnyView(self.authenticatedView(info: info, item: item))
+        case let .authenticated(token: token):
+            return AnyView(self.authenticatedView(token: token, item: item))
         }
     }
     
-    func authenticatedView(info: AuthenticationInfo, item: CatalogItem) -> some View {
-        Button(action: { self.handle(.generate(item: item, info: info)) }) {
+    func authenticatedView(token: String, item: CatalogItem) -> some View {
+        Button(action: {
+            self.handle(.generate(item: item, token: token))
+        }) {
             HStack {
                 Image.nefClear
                     .resizable()
@@ -95,7 +105,7 @@ struct GenerationView_Previews: PreviewProvider {
         Group {
             GenerationView(state: .initial(.unauthenticated, item)) { _ in }
             
-            GenerationView(state: .initial(.authenticated(AuthenticationInfo(user: "", identityToken: "", authorizationCode: "")), item)) { _ in }
+            GenerationView(state: .initial(.authenticated(token: ""), item)) { _ in }
             
         }.previewLayout(.fixed(width: 500, height: 500))
     }
