@@ -1,7 +1,9 @@
 enum GenerationState: Equatable {
     case notGenerating
+    case authenticating
     case initial(AuthenticationState, CatalogItem)
     case generating(CatalogItem)
+    case finished(CatalogItem)
     case error(GenerationError)
 }
 
