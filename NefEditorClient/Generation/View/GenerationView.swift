@@ -30,8 +30,8 @@ struct GenerationView: View {
             return AnyView(
                 GenerationLoadingView(message: "Generating Swift Playground '\(item.title)'...\n\nPlease wait, this may take several minutes.")
             )
-        case .finished(let item):
-            return AnyView(Text("'\(item.title)' was generated successfully."))
+        case let .finished(item, url):
+            return AnyView(finishedView(item: item, url: url))
         case let .error(generationError):
             return AnyView(GenerationErrorView(message: generationError.description))
         }
@@ -91,6 +91,21 @@ struct GenerationView: View {
             self.handle(.authenticationResult(result, item: item))
         }.frame(height: 56)
         .padding()
+    }
+    
+    func finishedView(item: CatalogItem, url: URL) -> some View {
+        VStack {
+            Text("Generation successful!").largeTitleStyle()
+            
+            Text("Your playground '\(item.title)' was generated successfully.\n\nOpen it in Swift Playgrounds, or download the app from App Store.")
+                .activityStyle()
+                .multilineTextAlignment(.center)
+                .padding()
+            
+            Button("Open in Swift Playgrounds") {
+                self.handle(.openPlayground(url: url))
+            }.buttonStyle(TextButtonStyle())
+        }.padding()
     }
 }
 
