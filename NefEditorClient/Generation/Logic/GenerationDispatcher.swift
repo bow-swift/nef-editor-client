@@ -4,6 +4,8 @@ import BowEffects
 import BowArch
 import NefAPI
 import NefEditorData
+import NefEditorUtils
+import UIKit
 
 typealias GenerationDispatcher = StateDispatcher<API.Config, AppState, GenerationAction>
 
@@ -17,6 +19,8 @@ let generationDispatcher = GenerationDispatcher.workflow { input in
         return [EnvIO.pure(dismissModal())^]
     case let .generate(item: item, token: token):
         return generate(item: item, token: token)
+    case let .openPlayground(url: url):
+        return [openPlayground(url: url)]
     }
 }
 
@@ -51,11 +55,12 @@ func generate(item: CatalogItem, token: String) -> [EnvIO<API.Config, Error, Sta
     [
         EnvIO.pure(setGenerating(item: item))^,
         downloadPlayground(token: token, item: item)
-            .as(
+            .flatMap(unzipPlayground)
+            .map { url in
                 .modify { state in
-                    state.copy(generationState: .finished(item))
+                    state.copy(generationState: .finished(item, url))
                 }^
-            ).handleError { _ in
+            }.handleError { _ in
                 .modify { state in
                     state.copy(generationState: .error(.networkFailure))
                 }^
@@ -87,7 +92,7 @@ func signIn(info: AuthenticationInfo, item: CatalogItem) -> EnvIO<API.Config, Er
         }^
 }
 
-func downloadPlayground(token: String, item: CatalogItem) -> EnvIO<API.Config, Error, URL> {
+func downloadPlayground(token: String, item: CatalogItem) -> EnvIO<API.Config, Error, Data> {
     
     EnvIO { config in
         let recipe = itemToPlaygroundRecipe(item)
@@ -105,11 +110,9 @@ func downloadPlayground(token: String, item: CatalogItem) -> EnvIO<API.Config, E
                     forKey: "Authorization"
                 ).headers
             
-            return config
-                .session.downloadTaskIO(with: request)
-                .map { result in result.url }
+            return config.session.downloadDataTaskIO(with: request)
         } else {
-            fatalError()
+            return IO.raiseError(GenerationError.networkFailure)
         }
     }
 }
@@ -133,5 +136,47 @@ func requirementToPlaygroundRequirement(_ requirement: Requirement) -> Playgroun
         return .branch(branch.name)
     case .version(let tag):
         return .version(tag.name)
+    }
+}
+
+func unzipPlayground(_ data: Data) -> EnvIO<API.Config, Error, URL> {
+    EnvIO { _ in
+        let decoder = JSONDecoder()
+        if let playground = try? decoder.decode(PlaygroundBookGenerated.self, from: data) {
+            return playground.zip.unzipIO(output: FileManager.default.temporaryDirectory, name: "\(playground.name)-\(Date().timeIntervalSince1970).playgroundbook")
+                .provide(FileManager.default)
+        } else {
+            return IO.raiseError(GenerationError.networkFailure)
+        }
+    }
+}
+
+enum AppStore {
+    static let swiftPlaygroundsURL = URL(string: "itms-apps://itunes.apple.com/app/id908519492")!
+}
+
+func openPlayground(url: URL) -> EnvIO<API.Config, Error, State<AppState, Void>> {
+    EnvIO.later(.main) {
+        if UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url)
+        } else {
+            UIApplication.shared.open(AppStore.swiftPlaygroundsURL)
+        }
+    }.as(.modify(id)^)^
+}
+
+extension URLSession {
+    func downloadDataTaskIO(with request: URLRequest) -> IO<Error, Data> {
+        IO.async { callback in
+            self.downloadTask(with: request) { url, response, error in
+                if let url = url, let data = try? Data(contentsOf: url) {
+                    callback(.right(data))
+                } else if let error = error {
+                    callback(.left(error))
+                } else {
+                    callback(.left(GenerationError.dataCorrupted))
+                }
+            }.resume()
+        }^
     }
 }
