@@ -18,6 +18,17 @@
 			name = GenerateGitHubAPI;
 			productName = GenerateGitHubAPI;
 		};
+		11FE7AE5246A9A0B0011DB41 /* GenerateNefAPI */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 11FE7AE6246A9A0B0011DB41 /* Build configuration list for PBXAggregateTarget "GenerateNefAPI" */;
+			buildPhases = (
+				11FE7AE9246A9A190011DB41 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = GenerateNefAPI;
+			productName = GenerateNefClient;
+		};
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
@@ -126,6 +137,8 @@
 		11FE7ACB24659C0F0011DB41 /* GenerationAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FE7ACA24659C0F0011DB41 /* GenerationAction.swift */; };
 		11FE7ACD2465AD330011DB41 /* GenerationErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FE7ACC2465AD330011DB41 /* GenerationErrorView.swift */; };
 		11FE7ACF2465B8930011DB41 /* GenerationDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FE7ACE2465B8930011DB41 /* GenerationDispatcher.swift */; };
+		11FE7AE4246A99D40011DB41 /* nef.yaml in Resources */ = {isa = PBXBuildFile; fileRef = 11FE7AE3246A99D40011DB41 /* nef.yaml */; };
+		11FE7AEC246AA2EF0011DB41 /* Nef in Frameworks */ = {isa = PBXBuildFile; productRef = 11FE7AEB246AA2EF0011DB41 /* Nef */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -249,6 +262,8 @@
 		11FE7ACA24659C0F0011DB41 /* GenerationAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerationAction.swift; sourceTree = "<group>"; };
 		11FE7ACC2465AD330011DB41 /* GenerationErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerationErrorView.swift; sourceTree = "<group>"; };
 		11FE7ACE2465B8930011DB41 /* GenerationDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerationDispatcher.swift; sourceTree = "<group>"; };
+		11FE7AE3246A99D40011DB41 /* nef.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = nef.yaml; sourceTree = "<group>"; };
+		11FE7AEA246AA2DB0011DB41 /* Nef */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Nef; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -256,6 +271,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11FE7AEC246AA2EF0011DB41 /* Nef in Frameworks */,
 				11AD8DC5243CA8E90005E450 /* BowArch in Frameworks */,
 				1139BF7E2462DC5000BC283A /* GitHub in Frameworks */,
 			);
@@ -518,7 +534,9 @@
 			isa = PBXGroup;
 			children = (
 				11EDF467243714210092E959 /* github.yaml */,
+				11FE7AE3246A99D40011DB41 /* nef.yaml */,
 				1139BF8D24642C5A00BC283A /* GitHub */,
+				11FE7AEA246AA2DB0011DB41 /* Nef */,
 				1163838224321FD100EB2DEF /* NefEditorClient */,
 				1163839924321FD400EB2DEF /* NefEditorClientTests */,
 				1163838124321FD100EB2DEF /* Products */,
@@ -822,6 +840,7 @@
 			packageProductDependencies = (
 				11AD8DC4243CA8E90005E450 /* BowArch */,
 				1139BF7D2462DC5000BC283A /* GitHub */,
+				11FE7AEB246AA2EF0011DB41 /* Nef */,
 			);
 			productName = NefEditorClient;
 			productReference = 1163838024321FD100EB2DEF /* nef.app */;
@@ -865,6 +884,9 @@
 					11EDF469243714580092E959 = {
 						CreatedOnToolsVersion = 11.3.1;
 					};
+					11FE7AE5246A9A0B0011DB41 = {
+						CreatedOnToolsVersion = 11.4.1;
+					};
 				};
 			};
 			buildConfigurationList = 1163837B24321FD100EB2DEF /* Build configuration list for PBXProject "NefEditorClient" */;
@@ -886,6 +908,7 @@
 				1163837F24321FD100EB2DEF /* NefEditorClient */,
 				1163839524321FD400EB2DEF /* NefEditorClientTests */,
 				11EDF469243714580092E959 /* GenerateGitHubAPI */,
+				11FE7AE5246A9A0B0011DB41 /* GenerateNefAPI */,
 			);
 		};
 /* End PBXProject section */
@@ -897,6 +920,7 @@
 			files = (
 				1163839024321FD400EB2DEF /* LaunchScreen.storyboard in Resources */,
 				1163838D24321FD400EB2DEF /* Preview Assets.xcassets in Resources */,
+				11FE7AE4246A99D40011DB41 /* nef.yaml in Resources */,
 				1163838A24321FD400EB2DEF /* Assets.xcassets in Resources */,
 				11EDF468243714210092E959 /* github.yaml in Resources */,
 			);
@@ -927,7 +951,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "bow-openapi --name GitHub --schema github.yaml --output ./GitHub\n";
+			shellScript = "rm -rf GitHub\nbow-openapi --name GitHub --schema github.yaml --output .\n";
+		};
+		11FE7AE9246A9A190011DB41 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "rm -rf Nef\nbow-openapi --name Nef --schema nef.yaml --output .\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1295,6 +1336,22 @@
 			};
 			name = Release;
 		};
+		11FE7AE7246A9A0B0011DB41 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		11FE7AE8246A9A0B0011DB41 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1334,6 +1391,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		11FE7AE6246A9A0B0011DB41 /* Build configuration list for PBXAggregateTarget "GenerateNefAPI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				11FE7AE7246A9A0B0011DB41 /* Debug */,
+				11FE7AE8246A9A0B0011DB41 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
@@ -1356,6 +1422,10 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 11AD8DC3243CA8E80005E450 /* XCRemoteSwiftPackageReference "bow-arch" */;
 			productName = BowArch;
+		};
+		11FE7AEB246AA2EF0011DB41 /* Nef */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Nef;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
