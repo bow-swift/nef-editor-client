@@ -148,6 +148,7 @@ func unzipPlayground(_ data: Data) -> EnvIO<API.Config, GenerationError, URL> {
             let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
             
             return FileManager.default.removeItemIO(at: documentsDirectory.appendingPathComponent("recipe"))
+                .handleError { _ in () }
                 .followedBy(
                     playground.zip.unzipIO(output: documentsDirectory, name: "recipe")
                         .provide(FileManager.default)
