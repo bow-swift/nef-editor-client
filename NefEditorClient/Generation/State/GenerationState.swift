@@ -5,8 +5,20 @@ enum GenerationState: Equatable {
     case authenticating
     case initial(AuthenticationState, CatalogItem)
     case generating(CatalogItem)
-    case finished(CatalogItem, URL)
+    case finished(CatalogItem, URL, SharingState)
     case error(GenerationError)
+    
+    var shouldShowShare: Bool {
+        guard case let .finished(_, _, sharingState) = self else {
+            return false
+        }
+        return sharingState == .sharing
+    }
+}
+
+enum SharingState: Equatable {
+    case notSharing
+    case sharing
 }
 
 enum GenerationError: Error, Equatable, CustomStringConvertible {

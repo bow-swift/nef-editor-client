@@ -19,8 +19,10 @@ let generationDispatcher = GenerationDispatcher.workflow { input in
         return [EnvIO.pure(dismissModal())^]
     case let .generate(item: item, token: token):
         return generate(item: item, token: token)
-    case .openPlayground(url: let url):
-        return [openPlayground(url: url)]
+    case .sharePlayground:
+        return [EnvIO.pure(showShareDialog())^]
+    case .dismissShare:
+        return [EnvIO.pure(dismissShareDialog())^]
     }
 }
 
@@ -58,7 +60,7 @@ func generate(item: CatalogItem, token: String) -> [EnvIO<API.Config, Error, Sta
             .flatMap(unzipPlayground)
             .map { url in
                 .modify { state in
-                    state.copy(generationState: .finished(item, url))
+                    state.copy(generationState: .finished(item, url, .notSharing))
                 }^
             }.handleError { error in
                 .modify { state in
@@ -164,33 +166,22 @@ func unzipPlayground(_ data: Data) -> EnvIO<API.Config, GenerationError, URL> {
     }
 }
 
-enum AppStore {
-    static let swiftPlaygroundsURL = URL(string: "itms-apps://itunes.apple.com/app/id908519492")!
-}
-
-func openPlayground(url: URL) -> EnvIO<API.Config, Error, State<AppState, Void>> {
-    copyToSwiftPlaygrounds(url: url)
-        .followedBy(
-            EnvIO.later(.main) {
-                if let swiftPlaygroundsApp = URL(string: "x-com-apple-playgrounds://"),
-                    UIApplication.shared.canOpenURL(url) {
-                    UIApplication.shared.open(swiftPlaygroundsApp)
-                } else {
-                    UIApplication.shared.open(AppStore.swiftPlaygroundsURL)
-                }
-            }
-        ).as(.modify(id)^)^
-}
-
-func copyToSwiftPlaygrounds(url: URL) -> EnvIO<API.Config, Error, Void> {
-    EnvIO { _ in
-        if let playgroundsContainer = FileManager.default.url(forUbiquityContainerIdentifier: "iCloud.com.apple.Playgrounds") {
-            let filename = url.lastPathComponent
-            return FileManager.default.copyItemIO(at: url, to: playgroundsContainer.appendingPathComponent(filename))
-        } else {
-            return IO.lazy()
+func showShareDialog() -> State<AppState, Void> {
+    .modify { state in
+        guard case let .finished(item, url, _) = state.generationState else {
+            return state
         }
-    }
+        return state.copy(generationState: .finished(item, url, .sharing))
+    }^
+}
+
+func dismissShareDialog() -> State<AppState, Void> {
+    .modify { state in
+        guard case let .finished(item, url, _) = state.generationState else {
+            return state
+        }
+        return state.copy(generationState: .finished(item, url, .notSharing))
+    }^
 }
 
 extension URLSession {

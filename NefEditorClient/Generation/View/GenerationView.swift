@@ -6,7 +6,22 @@ struct GenerationView: View {
     let state: GenerationState
     let handle: (GenerationAction) -> Void
     
-//    @State var isSharePresented = false
+    let isSharePresented: Binding<Bool>
+    
+    init(state: GenerationState,
+         handle: @escaping (GenerationAction) -> Void) {
+        self.state = state
+        self.handle = handle
+        
+        self.isSharePresented = Binding(
+            get: { state.shouldShowShare },
+            set: { newValue in
+                if !newValue {
+                    handle(.dismissShare)
+                }
+            }
+        )
+    }
     
     var body: some View {
         self.contentView
@@ -16,19 +31,8 @@ struct GenerationView: View {
                     self.handle(.dismissGeneration)
                 }.foregroundColor(.nef)
             )
-//            .sheet(isPresented: $isSharePresented) {
-//                ActivityViewController(activityItems: [self.url], applicationActivities: nil)
-//            }
     }
-    
-    var url: URL {
-        if case let .finished(_, url) = state {
-            return URL(fileURLWithPath: url.path, isDirectory: true)
-        } else {
-            return URL(string: "https://bow-swift.io")!
-        }
-    }
-    
+
     var contentView: some View {
         switch state {
         case .notGenerating:
@@ -43,7 +47,7 @@ struct GenerationView: View {
             return AnyView(
                 GenerationLoadingView(message: "Generating Swift Playground '\(item.title)'...\n\nPlease wait, this may take several minutes.")
             )
-        case let .finished(item, url):
+        case let .finished(item, url, _):
             return AnyView(finishedView(item: item, url: url))
         case let .error(generationError):
             return AnyView(GenerationErrorView(message: generationError.description))
@@ -120,11 +124,14 @@ struct GenerationView: View {
                 .multilineTextAlignment(.center)
                 .padding()
             
-            Button("Open in Swift Playgrounds") {
-                self.handle(.openPlayground(url: url))
+            Button("Open Swift Playground") {
+                self.handle(.sharePlayground)
             }.buttonStyle(TextButtonStyle())
             .padding(.top, 24)
         }.padding()
+        .modal(isPresented: self.isSharePresented, withNavigation: false) {
+            ActivityViewController(activityItems: [url], applicationActivities: nil)
+        }
     }
 }
 
@@ -141,7 +148,7 @@ struct GenerationView_Previews: PreviewProvider {
             
             GenerationView(state: .initial(.authenticated(token: ""), item)) { _ in }
             
-            GenerationView(state: .finished(item, URL(string: "https://bow-swift.io")!)) { _ in }
+            GenerationView(state: .finished(item, URL(string: "https://bow-swift.io")!, .notSharing)) { _ in }
             
         }.previewLayout(.fixed(width: 500, height: 500))
     }
