@@ -55,18 +55,7 @@ func setAuthenticating() -> State<AppState, Void> {
 func generate(item: CatalogItem, token: String) -> [EnvIO<API.Config, Error, State<AppState, Void>>] {
     [
         EnvIO.pure(setGenerating(item: item))^,
-        downloadPlayground(token: token, item: item)
-            .flatMap(unzipPlayground)
-            .map { url in
-                .modify { state in
-                    state.copy(generationState: .finished(item, url, .notSharing))
-                }^
-            }.handleError { error in
-                .modify { state in
-                    state.copy(generationState: .error(error))
-                }^
-            }^
-            .mapError(id)
+        downloadPlaygroundWorkflow(token: token, item: item)
     ]
 }
 
@@ -92,6 +81,15 @@ func signIn(info: AuthenticationInfo, item: CatalogItem) -> EnvIO<API.Config, Er
                 )
             }^
         }^
+}
+
+func downloadPlaygroundWorkflow(token: String, item: CatalogItem) -> EnvIO<API.Config, Error, State<AppState, Void>> {
+    downloadPlayground(token: token, item: item)
+        .flatMap(unzipPlayground)
+        .map { url in
+            showPlaygroundFinished(url: url, item: item)
+        }.handleError(showPlaygroundError)^
+        .mapError(id)
 }
 
 func downloadPlayground(token: String, item: CatalogItem) -> EnvIO<API.Config, GenerationError, Data> {
@@ -163,6 +161,18 @@ func unzipPlayground(_ data: Data) -> EnvIO<API.Config, GenerationError, URL> {
             return IO.raiseError(GenerationError.dataCorrupted)
         }
     }
+}
+
+func showPlaygroundFinished(url: URL, item: CatalogItem) -> State<AppState, Void> {
+    .modify { state in
+        state.copy(generationState: .finished(item, url, .notSharing))
+    }^
+}
+
+func showPlaygroundError(_ error: GenerationError) -> State<AppState, Void> {
+    .modify { state in
+        state.copy(generationState: .error(error))
+    }^
 }
 
 func showShareDialog() -> State<AppState, Void> {
