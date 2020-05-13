@@ -1,4 +1,5 @@
 import GitHub
+import NefAPI
 import Bow
 import BowArch
 import BowOptics
@@ -25,9 +26,14 @@ func appComponent() -> AppComponent<CatalogComponent, SearchComponent, CatalogDe
         creditsModal: .hidden,
         authenticationState: .unauthenticated,
         generationState: .notGenerating)
-    let config = API.Config(basePath: "https://api.github.com")
+    
+    let gitHubConfig = makeGitHubConfig()
+    let nefConfig = makeNefConfig()
     let persistence = ICloudPersistence()
-    let dependencies = AppDependencies(persistence: persistence, config: config)
+    let dependencies = AppDependencies(
+        persistence: persistence,
+        gitHubConfig: gitHubConfig,
+        nefConfig: nefConfig)
     let ref = IORef<Error, [Recipe]?>.unsafe(nil)
     
     return AppComponent(
@@ -41,7 +47,7 @@ func appComponent() -> AppComponent<CatalogComponent, SearchComponent, CatalogDe
             catalog: catalogComponent(catalog: state.catalog, selectedItem: state.selectedItem)
                 .using(handle, transformInput: AppAction.prism(for: AppAction.catalogAction)),
             
-            search: searchComponent(config: config, state: state.searchState)
+            search: searchComponent(config: gitHubConfig, state: state.searchState)
                 .using(handle, transformInput: AppAction.prism(for: AppAction.searchAction)),
             
             detail: { item in
@@ -73,4 +79,21 @@ func appComponent() -> AppComponent<CatalogComponent, SearchComponent, CatalogDe
             |<-ref.set(newRecipes),
             yield: ())
     }
+}
+
+func makeGitHubConfig() -> GitHub.API.Config {
+    GitHub.API.Config(basePath: "https://api.github.com")
+}
+
+func makeNefConfig() -> NefAPI.API.Config {
+    let configuration = URLSessionConfiguration.default
+    configuration.timeoutIntervalForRequest = 420
+    configuration.timeoutIntervalForResource = 420
+    
+    let session = URLSession(configuration: configuration)
+    
+    return NefAPI.API.Config(
+        basePath: "https://nef.miguelangel.me/",
+        session: session)
+        .appending(contentType: .json)
 }

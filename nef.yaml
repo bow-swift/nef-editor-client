@@ -1,0 +1,62 @@
+openapi: "3.0.0"
+info:
+  title: nef Playgrounds - Server
+  version: "1.0.0"
+
+paths:
+  /signin:
+    post:
+      summary: Sign in with Apple.
+      operationId: signin
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AppleSignInRequest"
+      responses:
+        '200':
+          description: The request was successful.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AppleSignInResponse'
+        '500':
+          description: The request was aborted.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NefEditorError'
+
+components:
+  schemas:
+
+    NefEditorError:
+      type: object
+      required:
+        - error
+        - reason
+      properties:
+        error:
+          type: boolean
+        reason:
+          type: string
+
+    AppleSignInRequest:
+      type: object
+      required:
+        - identityToken
+        - authorizationCode
+      properties:
+        identityToken:
+          type: string
+        authorizationCode:
+          type: string
+
+    AppleSignInResponse:
+      type: object
+      required:
+        - token
+      properties:
+        token:
+          type: string

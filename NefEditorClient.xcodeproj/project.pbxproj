@@ -18,6 +18,17 @@
 			name = GenerateGitHubAPI;
 			productName = GenerateGitHubAPI;
 		};
+		11FE7AE5246A9A0B0011DB41 /* GenerateNefAPI */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 11FE7AE6246A9A0B0011DB41 /* Build configuration list for PBXAggregateTarget "GenerateNefAPI" */;
+			buildPhases = (
+				11FE7AE9246A9A190011DB41 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = GenerateNefAPI;
+			productName = GenerateNefClient;
+		};
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
@@ -35,6 +46,8 @@
 		1107029A243CA160008583EB /* RequirementListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11070299243CA160008583EB /* RequirementListView.swift */; };
 		112EA4E824618EC700F91DBA /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112EA4E724618EC700F91DBA /* Persistence.swift */; };
 		112EA4EA24618F7400F91DBA /* ICloudPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112EA4E924618F7400F91DBA /* ICloudPersistence.swift */; };
+		112FDCB6246AC8FD009A2B97 /* NefAPI in Frameworks */ = {isa = PBXBuildFile; productRef = 112FDCB5246AC8FD009A2B97 /* NefAPI */; };
+		112FDCB9246AC99A009A2B97 /* NefEditorData in Frameworks */ = {isa = PBXBuildFile; productRef = 112FDCB8246AC99A009A2B97 /* NefEditorData */; };
 		1139BF7E2462DC5000BC283A /* GitHub in Frameworks */ = {isa = PBXBuildFile; productRef = 1139BF7D2462DC5000BC283A /* GitHub */; };
 		1139BF812462E23700BC283A /* AppDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1139BF802462E23700BC283A /* AppDependencies.swift */; };
 		1139BF8624640D3800BC283A /* ICloudStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1139BF8524640D3800BC283A /* ICloudStatus.swift */; };
@@ -64,6 +77,10 @@
 		114AF45C24598E15000116B7 /* CatalogDetailDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114AF45B24598E15000116B7 /* CatalogDetailDispatcher.swift */; };
 		114AF45F24598FC0000116B7 /* CatalogDetailComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114AF45E24598FC0000116B7 /* CatalogDetailComponent.swift */; };
 		114AF4652459CA18000116B7 /* AppDispatcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114AF4642459CA18000116B7 /* AppDispatcherTests.swift */; };
+		1150CDC3246AEE8C003509B4 /* GenerationLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1150CDC2246AEE8C003509B4 /* GenerationLoadingView.swift */; };
+		1150CDC5246AF468003509B4 /* NefEditorUtils in Frameworks */ = {isa = PBXBuildFile; productRef = 1150CDC4246AF468003509B4 /* NefEditorUtils */; };
+		1150CDC7246B0D8D003509B4 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1150CDC6246B0D8D003509B4 /* ActivityViewController.swift */; };
+		1150CDC9246C43C0003509B4 /* URLSession+IO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1150CDC8246C43C0003509B4 /* URLSession+IO.swift */; };
 		1163838424321FD100EB2DEF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1163838324321FD100EB2DEF /* AppDelegate.swift */; };
 		1163838624321FD100EB2DEF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1163838524321FD100EB2DEF /* SceneDelegate.swift */; };
 		1163838A24321FD400EB2DEF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1163838924321FD400EB2DEF /* Assets.xcassets */; };
@@ -126,6 +143,7 @@
 		11FE7ACB24659C0F0011DB41 /* GenerationAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FE7ACA24659C0F0011DB41 /* GenerationAction.swift */; };
 		11FE7ACD2465AD330011DB41 /* GenerationErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FE7ACC2465AD330011DB41 /* GenerationErrorView.swift */; };
 		11FE7ACF2465B8930011DB41 /* GenerationDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FE7ACE2465B8930011DB41 /* GenerationDispatcher.swift */; };
+		11FE7AE4246A99D40011DB41 /* nef.yaml in Resources */ = {isa = PBXBuildFile; fileRef = 11FE7AE3246A99D40011DB41 /* nef.yaml */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -155,11 +173,11 @@
 		112EA4E52461868000F91DBA /* NefEditorClientRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NefEditorClientRelease.entitlements; sourceTree = "<group>"; };
 		112EA4E724618EC700F91DBA /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		112EA4E924618F7400F91DBA /* ICloudPersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICloudPersistence.swift; sourceTree = "<group>"; };
+		112FDCB4246AC8F1009A2B97 /* NefAPI */ = {isa = PBXFileReference; lastKnownFileType = folder; path = NefAPI; sourceTree = "<group>"; };
 		1139BF802462E23700BC283A /* AppDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependencies.swift; sourceTree = "<group>"; };
 		1139BF8524640D3800BC283A /* ICloudStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICloudStatus.swift; sourceTree = "<group>"; };
 		1139BF8924641CB400BC283A /* CreditsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsView.swift; sourceTree = "<group>"; };
 		1139BF8B246425E100BC283A /* LibraryButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryButtonStyle.swift; sourceTree = "<group>"; };
-		1139BF8D24642C5A00BC283A /* GitHub */ = {isa = PBXFileReference; lastKnownFileType = folder; path = GitHub; sourceTree = "<group>"; };
 		1139BF8F24642DCB00BC283A /* CreditsAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsAction.swift; sourceTree = "<group>"; };
 		1139BF9224642DF900BC283A /* Library.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
 		1139BF9424642F0B00BC283A /* CreditsDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsDispatcher.swift; sourceTree = "<group>"; };
@@ -184,6 +202,9 @@
 		114AF45B24598E15000116B7 /* CatalogDetailDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogDetailDispatcher.swift; sourceTree = "<group>"; };
 		114AF45E24598FC0000116B7 /* CatalogDetailComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogDetailComponent.swift; sourceTree = "<group>"; };
 		114AF4642459CA18000116B7 /* AppDispatcherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDispatcherTests.swift; sourceTree = "<group>"; };
+		1150CDC2246AEE8C003509B4 /* GenerationLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerationLoadingView.swift; sourceTree = "<group>"; };
+		1150CDC6246B0D8D003509B4 /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
+		1150CDC8246C43C0003509B4 /* URLSession+IO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+IO.swift"; sourceTree = "<group>"; };
 		1163838024321FD100EB2DEF /* nef.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nef.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1163838324321FD100EB2DEF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1163838524321FD100EB2DEF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -249,6 +270,8 @@
 		11FE7ACA24659C0F0011DB41 /* GenerationAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerationAction.swift; sourceTree = "<group>"; };
 		11FE7ACC2465AD330011DB41 /* GenerationErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerationErrorView.swift; sourceTree = "<group>"; };
 		11FE7ACE2465B8930011DB41 /* GenerationDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerationDispatcher.swift; sourceTree = "<group>"; };
+		11FE7AE3246A99D40011DB41 /* nef.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = nef.yaml; sourceTree = "<group>"; };
+		11FE7AED246AC11E0011DB41 /* GitHub */ = {isa = PBXFileReference; lastKnownFileType = folder; path = GitHub; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -256,8 +279,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1150CDC5246AF468003509B4 /* NefEditorUtils in Frameworks */,
+				112FDCB6246AC8FD009A2B97 /* NefAPI in Frameworks */,
 				11AD8DC5243CA8E90005E450 /* BowArch in Frameworks */,
 				1139BF7E2462DC5000BC283A /* GitHub in Frameworks */,
+				112FDCB9246AC99A009A2B97 /* NefEditorData in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,6 +433,7 @@
 			children = (
 				11FE7ACC2465AD330011DB41 /* GenerationErrorView.swift */,
 				1139BFA42464609600BC283A /* GenerationView.swift */,
+				1150CDC2246AEE8C003509B4 /* GenerationLoadingView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -518,7 +545,9 @@
 			isa = PBXGroup;
 			children = (
 				11EDF467243714210092E959 /* github.yaml */,
-				1139BF8D24642C5A00BC283A /* GitHub */,
+				11FE7AE3246A99D40011DB41 /* nef.yaml */,
+				11FE7AED246AC11E0011DB41 /* GitHub */,
+				112FDCB4246AC8F1009A2B97 /* NefAPI */,
 				1163838224321FD100EB2DEF /* NefEditorClient */,
 				1163839924321FD400EB2DEF /* NefEditorClientTests */,
 				1163838124321FD100EB2DEF /* Products */,
@@ -734,6 +763,7 @@
 				11B125C324471E1C00E2D1C3 /* ActionButtonStyle.swift */,
 				11BFE9FD243B3C2200D4F891 /* ActivityIndicator.swift */,
 				11070290243C9DF9008583EB /* ActivityTextView.swift */,
+				1150CDC6246B0D8D003509B4 /* ActivityViewController.swift */,
 				1101A3AF245AB994002A848B /* AvatarView.swift */,
 				11CB85922437825100CE4592 /* CardView.swift */,
 				11B125C5244721BF00E2D1C3 /* ColorPalette.swift */,
@@ -767,6 +797,7 @@
 			isa = PBXGroup;
 			children = (
 				11E07F15243B21A200A0A027 /* Array+Extensions.swift */,
+				1150CDC8246C43C0003509B4 /* URLSession+IO.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -822,6 +853,9 @@
 			packageProductDependencies = (
 				11AD8DC4243CA8E90005E450 /* BowArch */,
 				1139BF7D2462DC5000BC283A /* GitHub */,
+				112FDCB5246AC8FD009A2B97 /* NefAPI */,
+				112FDCB8246AC99A009A2B97 /* NefEditorData */,
+				1150CDC4246AF468003509B4 /* NefEditorUtils */,
 			);
 			productName = NefEditorClient;
 			productReference = 1163838024321FD100EB2DEF /* nef.app */;
@@ -865,6 +899,9 @@
 					11EDF469243714580092E959 = {
 						CreatedOnToolsVersion = 11.3.1;
 					};
+					11FE7AE5246A9A0B0011DB41 = {
+						CreatedOnToolsVersion = 11.4.1;
+					};
 				};
 			};
 			buildConfigurationList = 1163837B24321FD100EB2DEF /* Build configuration list for PBXProject "NefEditorClient" */;
@@ -878,6 +915,7 @@
 			mainGroup = 1163837724321FD100EB2DEF;
 			packageReferences = (
 				11AD8DC3243CA8E80005E450 /* XCRemoteSwiftPackageReference "bow-arch" */,
+				112FDCB7246AC999009A2B97 /* XCRemoteSwiftPackageReference "nef-editor-server" */,
 			);
 			productRefGroup = 1163838124321FD100EB2DEF /* Products */;
 			projectDirPath = "";
@@ -886,6 +924,7 @@
 				1163837F24321FD100EB2DEF /* NefEditorClient */,
 				1163839524321FD400EB2DEF /* NefEditorClientTests */,
 				11EDF469243714580092E959 /* GenerateGitHubAPI */,
+				11FE7AE5246A9A0B0011DB41 /* GenerateNefAPI */,
 			);
 		};
 /* End PBXProject section */
@@ -897,6 +936,7 @@
 			files = (
 				1163839024321FD400EB2DEF /* LaunchScreen.storyboard in Resources */,
 				1163838D24321FD400EB2DEF /* Preview Assets.xcassets in Resources */,
+				11FE7AE4246A99D40011DB41 /* nef.yaml in Resources */,
 				1163838A24321FD400EB2DEF /* Assets.xcassets in Resources */,
 				11EDF468243714210092E959 /* github.yaml in Resources */,
 			);
@@ -927,7 +967,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "bow-openapi --name GitHub --schema github.yaml --output ./GitHub\n";
+			shellScript = "rm -rf GitHub\nbow-openapi --name GitHub --schema github.yaml --output .\n";
+		};
+		11FE7AE9246A9A190011DB41 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "rm -rf NefAPI\nbow-openapi --name NefAPI --schema nef.yaml --output .\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -948,6 +1005,7 @@
 				11B125C02447077000E2D1C3 /* DependencyView.swift in Sources */,
 				114AF44C24597675000116B7 /* View+Modal.swift in Sources */,
 				11070291243C9DF9008583EB /* ActivityTextView.swift in Sources */,
+				1150CDC9246C43C0003509B4 /* URLSession+IO.swift in Sources */,
 				1163BA97244ED0C5005B0785 /* AppDispatcher.swift in Sources */,
 				1107028F243C9D0A008583EB /* LoadingRequirementsView.swift in Sources */,
 				11CB85952437848A00CE4592 /* TextStyle.swift in Sources */,
@@ -991,6 +1049,7 @@
 				11B125C82447242C00E2D1C3 /* TextButtonStyle.swift in Sources */,
 				11BFEA07243B519A00D4F891 /* SearchState.swift in Sources */,
 				11EDF44F2435F5AA0092E959 /* AppView.swift in Sources */,
+				1150CDC3246AEE8C003509B4 /* GenerationLoadingView.swift in Sources */,
 				11425445244990AB00B2EA0C /* Data+Equatable.swift in Sources */,
 				1139BFA124645F3400BC283A /* AuthenticationInfo.swift in Sources */,
 				1139BFA52464609600BC283A /* GenerationView.swift in Sources */,
@@ -1011,6 +1070,7 @@
 				11425434244870FB00B2EA0C /* SearchAction.swift in Sources */,
 				11B125B32444BC9000E2D1C3 /* CatalogItemGridView.swift in Sources */,
 				112EA4E824618EC700F91DBA /* Persistence.swift in Sources */,
+				1150CDC7246B0D8D003509B4 /* ActivityViewController.swift in Sources */,
 				1107028D243C9A25008583EB /* LoadingView.swift in Sources */,
 				114AF45424598736000116B7 /* EditDispatcher.swift in Sources */,
 				11AD8DD7243E19440005E450 /* Dependency.swift in Sources */,
@@ -1189,7 +1249,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"NefEditorClient/Preview Content\"";
 				DEVELOPMENT_TEAM = P548S5LU96;
 				ENABLE_PREVIEWS = YES;
@@ -1217,7 +1277,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"NefEditorClient/Preview Content\"";
 				DEVELOPMENT_TEAM = P548S5LU96;
 				ENABLE_PREVIEWS = YES;
@@ -1295,6 +1355,22 @@
 			};
 			name = Release;
 		};
+		11FE7AE7246A9A0B0011DB41 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		11FE7AE8246A9A0B0011DB41 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1334,9 +1410,26 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		11FE7AE6246A9A0B0011DB41 /* Build configuration list for PBXAggregateTarget "GenerateNefAPI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				11FE7AE7246A9A0B0011DB41 /* Debug */,
+				11FE7AE8246A9A0B0011DB41 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		112FDCB7246AC999009A2B97 /* XCRemoteSwiftPackageReference "nef-editor-server" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/47deg/nef-editor-server";
+			requirement = {
+				branch = post_playgroundBook;
+				kind = branch;
+			};
+		};
 		11AD8DC3243CA8E80005E450 /* XCRemoteSwiftPackageReference "bow-arch" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/bow-swift/bow-arch.git";
@@ -1348,9 +1441,23 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		112FDCB5246AC8FD009A2B97 /* NefAPI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = NefAPI;
+		};
+		112FDCB8246AC99A009A2B97 /* NefEditorData */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 112FDCB7246AC999009A2B97 /* XCRemoteSwiftPackageReference "nef-editor-server" */;
+			productName = NefEditorData;
+		};
 		1139BF7D2462DC5000BC283A /* GitHub */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = GitHub;
+		};
+		1150CDC4246AF468003509B4 /* NefEditorUtils */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 112FDCB7246AC999009A2B97 /* XCRemoteSwiftPackageReference "nef-editor-server" */;
+			productName = NefEditorUtils;
 		};
 		11AD8DC4243CA8E90005E450 /* BowArch */ = {
 			isa = XCSwiftPackageProductDependency;
