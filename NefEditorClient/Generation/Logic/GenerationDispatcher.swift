@@ -169,13 +169,28 @@ enum AppStore {
 }
 
 func openPlayground(url: URL) -> EnvIO<API.Config, Error, State<AppState, Void>> {
-    EnvIO.later(.main) {
-        if UIApplication.shared.canOpenURL(url) {
-            UIApplication.shared.open(url)
+    copyToSwiftPlaygrounds(url: url)
+        .followedBy(
+            EnvIO.later(.main) {
+                if let swiftPlaygroundsApp = URL(string: "x-com-apple-playgrounds://"),
+                    UIApplication.shared.canOpenURL(url) {
+                    UIApplication.shared.open(swiftPlaygroundsApp)
+                } else {
+                    UIApplication.shared.open(AppStore.swiftPlaygroundsURL)
+                }
+            }
+        ).as(.modify(id)^)^
+}
+
+func copyToSwiftPlaygrounds(url: URL) -> EnvIO<API.Config, Error, Void> {
+    EnvIO { _ in
+        if let playgroundsContainer = FileManager.default.url(forUbiquityContainerIdentifier: "iCloud.com.apple.Playgrounds") {
+            let filename = url.lastPathComponent
+            return FileManager.default.copyItemIO(at: url, to: playgroundsContainer.appendingPathComponent(filename))
         } else {
-            UIApplication.shared.open(AppStore.swiftPlaygroundsURL)
+            return IO.lazy()
         }
-    }.as(.modify(id)^)^
+    }
 }
 
 extension URLSession {
