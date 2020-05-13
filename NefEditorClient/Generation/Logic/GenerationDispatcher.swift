@@ -5,7 +5,6 @@ import BowArch
 import NefAPI
 import NefEditorData
 import NefEditorUtils
-import UIKit
 
 typealias GenerationDispatcher = StateDispatcher<API.Config, AppState, GenerationAction>
 
