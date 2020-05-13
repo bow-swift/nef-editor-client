@@ -27,18 +27,8 @@ func appComponent() -> AppComponent<CatalogComponent, SearchComponent, CatalogDe
         authenticationState: .unauthenticated,
         generationState: .notGenerating)
     
-    let configuration = URLSessionConfiguration.default
-    configuration.timeoutIntervalForRequest = 420
-    configuration.timeoutIntervalForResource = 420
-    
-    let session = URLSession(configuration: configuration)
-    
-    let gitHubConfig = GitHub.API.Config(
-        basePath: "https://api.github.com")
-    let nefConfig = NefAPI.API.Config(
-        basePath: "https://nef.miguelangel.me/",
-        session: session)
-        .appending(contentType: .json)
+    let gitHubConfig = makeGitHubConfig()
+    let nefConfig = makeNefConfig()
     let persistence = ICloudPersistence()
     let dependencies = AppDependencies(
         persistence: persistence,
@@ -89,4 +79,21 @@ func appComponent() -> AppComponent<CatalogComponent, SearchComponent, CatalogDe
             |<-ref.set(newRecipes),
             yield: ())
     }
+}
+
+func makeGitHubConfig() -> GitHub.API.Config {
+    GitHub.API.Config(basePath: "https://api.github.com")
+}
+
+func makeNefConfig() -> NefAPI.API.Config {
+    let configuration = URLSessionConfiguration.default
+    configuration.timeoutIntervalForRequest = 420
+    configuration.timeoutIntervalForResource = 420
+    
+    let session = URLSession(configuration: configuration)
+    
+    return NefAPI.API.Config(
+        basePath: "https://nef.miguelangel.me/",
+        session: session)
+        .appending(contentType: .json)
 }
