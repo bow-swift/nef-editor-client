@@ -20,39 +20,12 @@
         }
       },
       {
-        "package": "nef",
-        "repositoryURL": "https://github.com/bow-swift/nef.git",
-        "state": {
-          "branch": "develop",
-          "revision": "88f5ec762cdc017ab8b33c054137c45c0a19434b",
-          "version": null
-        }
-      },
-      {
         "package": "nef-editor-server",
         "repositoryURL": "https://github.com/47deg/nef-editor-server",
         "state": {
-          "branch": "master",
-          "revision": "dd5ab3b443cf317a57aa62830274e1952ef3bacd",
+          "branch": "post_playgroundBook",
+          "revision": "67f012ea0365745ec7a92039d91e1d14d7103268",
           "version": null
-        }
-      },
-      {
-        "package": "Nimble",
-        "repositoryURL": "https://github.com/Quick/Nimble.git",
-        "state": {
-          "branch": null,
-          "revision": "7fd118ec8795888bcbbebc1a41f6984454c4cd6f",
-          "version": "8.0.7"
-        }
-      },
-      {
-        "package": "Quick",
-        "repositoryURL": "https://github.com/Quick/Quick.git",
-        "state": {
-          "branch": null,
-          "revision": "33682c2f6230c60614861dfc61df267e11a1602f",
-          "version": "2.2.0"
         }
       },
       {
@@ -65,30 +38,12 @@
         }
       },
       {
-        "package": "swift-argument-parser",
-        "repositoryURL": "https://github.com/apple/swift-argument-parser",
-        "state": {
-          "branch": null,
-          "revision": "9f04d1ff1afbccd02279338a2c91e5f27c45e93a",
-          "version": "0.0.5"
-        }
-      },
-      {
         "package": "SwiftCheck",
         "repositoryURL": "https://github.com/bow-swift/SwiftCheck.git",
         "state": {
           "branch": null,
           "revision": "748359f9a95edf94d0c4664102f104f56b1ff1fb",
           "version": "0.12.1"
-        }
-      },
-      {
-        "package": "Swiftline",
-        "repositoryURL": "https://github.com/bow-swift/Swiftline.git",
-        "state": {
-          "branch": null,
-          "revision": "541096a44678aeb42aa53ff48a9fbd714fd9b126",
-          "version": "0.5.5"
         }
       },
       {
