@@ -19,7 +19,7 @@ let generationDispatcher = GenerationDispatcher.workflow { input in
         return [EnvIO.pure(dismissModal())^]
     case let .generate(item: item, token: token):
         return generate(item: item, token: token)
-    case let .openPlayground(url: url):
+    case .openPlayground(url: let url):
         return [openPlayground(url: url)]
     }
 }
@@ -60,11 +60,12 @@ func generate(item: CatalogItem, token: String) -> [EnvIO<API.Config, Error, Sta
                 .modify { state in
                     state.copy(generationState: .finished(item, url))
                 }^
-            }.handleError { _ in
+            }.handleError { error in
                 .modify { state in
-                    state.copy(generationState: .error(.networkFailure))
+                    state.copy(generationState: .error(error))
                 }^
             }^
+            .mapError(id)
     ]
 }
 
@@ -92,7 +93,7 @@ func signIn(info: AuthenticationInfo, item: CatalogItem) -> EnvIO<API.Config, Er
         }^
 }
 
-func downloadPlayground(token: String, item: CatalogItem) -> EnvIO<API.Config, Error, Data> {
+func downloadPlayground(token: String, item: CatalogItem) -> EnvIO<API.Config, GenerationError, Data> {
     
     EnvIO { config in
         let recipe = itemToPlaygroundRecipe(item)
@@ -111,6 +112,7 @@ func downloadPlayground(token: String, item: CatalogItem) -> EnvIO<API.Config, E
                 ).headers
             
             return config.session.downloadDataTaskIO(with: request)
+                .mapError { _ in GenerationError.networkFailure }
         } else {
             return IO.raiseError(GenerationError.networkFailure)
         }
@@ -139,14 +141,24 @@ func requirementToPlaygroundRequirement(_ requirement: Requirement) -> Playgroun
     }
 }
 
-func unzipPlayground(_ data: Data) -> EnvIO<API.Config, Error, URL> {
+func unzipPlayground(_ data: Data) -> EnvIO<API.Config, GenerationError, URL> {
     EnvIO { _ in
         let decoder = JSONDecoder()
         if let playground = try? decoder.decode(PlaygroundBookGenerated.self, from: data) {
-            return playground.zip.unzipIO(output: FileManager.default.temporaryDirectory, name: "\(playground.name)-\(Date().timeIntervalSince1970).playgroundbook")
-                .provide(FileManager.default)
+            let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+            
+            return FileManager.default.removeItemIO(at: documentsDirectory.appendingPathComponent("recipe"))
+                .followedBy(
+                    playground.zip.unzipIO(output: documentsDirectory, name: "recipe")
+                        .provide(FileManager.default)
+                        .map { url in
+                            url.appendingPathComponent(playground.name)
+                                .appendingPathExtension("playgroundbook")
+                        }
+                )^
+                .mapError { _ in GenerationError.dataCorrupted }
         } else {
-            return IO.raiseError(GenerationError.networkFailure)
+            return IO.raiseError(GenerationError.dataCorrupted)
         }
     }
 }

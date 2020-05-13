@@ -33,6 +33,10 @@ extension Image {
         Image(systemName: "info.circle.fill")
     }
     
+    static var success: Image {
+        Image(systemName: "checkmark.seal.fill")
+    }
+    
     static var nefClear: Image {
         Image("nef")
     }

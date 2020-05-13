@@ -6,6 +6,8 @@ struct GenerationView: View {
     let state: GenerationState
     let handle: (GenerationAction) -> Void
     
+//    @State var isSharePresented = false
+    
     var body: some View {
         self.contentView
             .navigationBarTitle("Generate Swift Playground", displayMode: .inline)
@@ -14,6 +16,17 @@ struct GenerationView: View {
                     self.handle(.dismissGeneration)
                 }.foregroundColor(.nef)
             )
+//            .sheet(isPresented: $isSharePresented) {
+//                ActivityViewController(activityItems: [self.url], applicationActivities: nil)
+//            }
+    }
+    
+    var url: URL {
+        if case let .finished(_, url) = state {
+            return URL(fileURLWithPath: url.path, isDirectory: true)
+        } else {
+            return URL(string: "https://bow-swift.io")!
+        }
     }
     
     var contentView: some View {
@@ -95,6 +108,11 @@ struct GenerationView: View {
     
     func finishedView(item: CatalogItem, url: URL) -> some View {
         VStack {
+            Image.success
+                .font(Font.system(size: 64))
+                .foregroundColor(.green)
+                .padding()
+            
             Text("Generation successful!").largeTitleStyle()
             
             Text("Your playground '\(item.title)' was generated successfully.\n\nOpen it in Swift Playgrounds, or download the app from App Store.")
@@ -105,6 +123,7 @@ struct GenerationView: View {
             Button("Open in Swift Playgrounds") {
                 self.handle(.openPlayground(url: url))
             }.buttonStyle(TextButtonStyle())
+            .padding(.top, 24)
         }.padding()
     }
 }
@@ -121,6 +140,8 @@ struct GenerationView_Previews: PreviewProvider {
             GenerationView(state: .initial(.unauthenticated, item)) { _ in }
             
             GenerationView(state: .initial(.authenticated(token: ""), item)) { _ in }
+            
+            GenerationView(state: .finished(item, URL(string: "https://bow-swift.io")!)) { _ in }
             
         }.previewLayout(.fixed(width: 500, height: 500))
     }
