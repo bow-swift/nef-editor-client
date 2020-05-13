@@ -7,7 +7,7 @@ struct DependencyListView: View {
     
     var body: some View {
         List {
-            ForEach(Array(dependencies.enumerated()), id: \.offset) { item in
+            ForEach(Array(dependencies.enumerated()), id: \.element.id) { item in
                 DependencyView(dependency: item.element)
             }.if(isEditable) { view in
                 view.onDelete { indexSet in
