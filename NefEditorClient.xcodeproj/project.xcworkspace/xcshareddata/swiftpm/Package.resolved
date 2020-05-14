@@ -15,16 +15,25 @@
         "repositoryURL": "https://github.com/bow-swift/bow-arch.git",
         "state": {
           "branch": "master",
-          "revision": "0395fbedcdf3df75c586c5e563d19d3703592ca5",
+          "revision": "52bf8efe67be5aaac3e1b9da7d10281fcf116ec1",
           "version": null
+        }
+      },
+      {
+        "package": "Lottie",
+        "repositoryURL": "https://github.com/airbnb/lottie-ios.git",
+        "state": {
+          "branch": null,
+          "revision": "4e5877425dae5c10792fc9d22d53dc6bf6824dc1",
+          "version": "3.1.8"
         }
       },
       {
         "package": "nef-editor-server",
         "repositoryURL": "https://github.com/47deg/nef-editor-server",
         "state": {
-          "branch": "post_playgroundBook",
-          "revision": "67f012ea0365745ec7a92039d91e1d14d7103268",
+          "branch": "master",
+          "revision": "434096eb250a9da3e0f4d20c920a2c4bb294fc7e",
           "version": null
         }
       },

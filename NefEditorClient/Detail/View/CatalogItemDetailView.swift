@@ -20,6 +20,7 @@ struct CatalogItemDetailView: View {
                             Image.pencil
                         }
                         .buttonStyle(ActionButtonStyle())
+                        .offset(y: 4)
                     }
                     
                     Button(action: {
@@ -27,31 +28,19 @@ struct CatalogItemDetailView: View {
                     }) {
                         Image.close
                     }.buttonStyle(ActionButtonStyle())
+                     .offset(y: 4)
                 }
                 
                 Text(self.item.description)
                     .foregroundColor(.gray)
                 
-                Rectangle()
-                    .fill(Color.gray.opacity(0.2))
-                    .frame(maxHeight: 2)
+                Rectangle.separator
                     .padding(.top, 8)
                 
-                HStack(alignment: .center) {
-                    Text("Dependencies")
-                        .titleStyle()
-                    
-                    Spacer()
-                    
-                    if self.item.isEditable {
-                        Button(action: {
-                            self.handle(.searchDependency)
-                        }) {
-                            Image.plus
-                        }
-                        .buttonStyle(ActionButtonStyle())
-                    }
-                }.padding(.top, 24)
+                SectionTitle(title: "Dependencies",
+                             action: .init(icon: Image.plus,
+                                           handle: self.handle(.searchDependency)))
+                    .padding(.top, 24)
                 
                 DependencyListView(
                     dependencies: self.item.dependencies,

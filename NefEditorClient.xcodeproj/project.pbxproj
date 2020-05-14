@@ -150,6 +150,12 @@
 		11FE7ACD2465AD330011DB41 /* GenerationErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FE7ACC2465AD330011DB41 /* GenerationErrorView.swift */; };
 		11FE7ACF2465B8930011DB41 /* GenerationDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FE7ACE2465B8930011DB41 /* GenerationDispatcher.swift */; };
 		11FE7AE4246A99D40011DB41 /* nef.yaml in Resources */ = {isa = PBXBuildFile; fileRef = 11FE7AE3246A99D40011DB41 /* nef.yaml */; };
+		8B06E8CA246D4A12008C7189 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 8B06E8C9246D4A12008C7189 /* Lottie */; };
+		8B06E8CC246D4D97008C7189 /* Rectangle+Separator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B06E8CB246D4D97008C7189 /* Rectangle+Separator.swift */; };
+		8B06E8CE246D5361008C7189 /* SectionTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B06E8CD246D5361008C7189 /* SectionTitle.swift */; };
+		8B3FEAEF246DA3FE00642BF3 /* LottieAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3FEAEE246DA3FE00642BF3 /* LottieAnimation.swift */; };
+		8B3FEAF1246DA41900642BF3 /* Animations in Resources */ = {isa = PBXBuildFile; fileRef = 8B3FEAF0246DA41900642BF3 /* Animations */; };
+		8BC3C90B246D7A2600EC9F36 /* GenerationSuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3C90A246D7A2600EC9F36 /* GenerationSuccessView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -284,6 +290,11 @@
 		11FE7ACE2465B8930011DB41 /* GenerationDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerationDispatcher.swift; sourceTree = "<group>"; };
 		11FE7AE3246A99D40011DB41 /* nef.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = nef.yaml; sourceTree = "<group>"; };
 		11FE7AED246AC11E0011DB41 /* GitHub */ = {isa = PBXFileReference; lastKnownFileType = folder; path = GitHub; sourceTree = "<group>"; };
+		8B06E8CB246D4D97008C7189 /* Rectangle+Separator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Rectangle+Separator.swift"; sourceTree = "<group>"; };
+		8B06E8CD246D5361008C7189 /* SectionTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTitle.swift; sourceTree = "<group>"; };
+		8B3FEAEE246DA3FE00642BF3 /* LottieAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LottieAnimation.swift; sourceTree = "<group>"; };
+		8B3FEAF0246DA41900642BF3 /* Animations */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Animations; sourceTree = "<group>"; };
+		8BC3C90A246D7A2600EC9F36 /* GenerationSuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerationSuccessView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -296,6 +307,7 @@
 				11AD8DC5243CA8E90005E450 /* BowArch in Frameworks */,
 				1139BF7E2462DC5000BC283A /* GitHub in Frameworks */,
 				112FDCB9246AC99A009A2B97 /* NefEditorData in Frameworks */,
+				8B06E8CA246D4A12008C7189 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -446,6 +458,7 @@
 				11FE7ACC2465AD330011DB41 /* GenerationErrorView.swift */,
 				1139BFA42464609600BC283A /* GenerationView.swift */,
 				1150CDC2246AEE8C003509B4 /* GenerationLoadingView.swift */,
+				8BC3C90A246D7A2600EC9F36 /* GenerationSuccessView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -585,6 +598,7 @@
 				1163838324321FD100EB2DEF /* AppDelegate.swift */,
 				1163838524321FD100EB2DEF /* SceneDelegate.swift */,
 				1163838924321FD400EB2DEF /* Assets.xcassets */,
+				8B3FEAF0246DA41900642BF3 /* Animations */,
 				1139BF9B24645B0000BC283A /* Authentication */,
 				11AD8DCA243DC42E0005E450 /* Catalog */,
 				1139BF8724641C9D00BC283A /* Credits */,
@@ -787,8 +801,11 @@
 				1155FDD8246D92AA00F5F819 /* KeyboardPadding.swift */,
 				1139BF8B246425E100BC283A /* LibraryButtonStyle.swift */,
 				1107028C243C9A25008583EB /* LoadingView.swift */,
+				8B3FEAEE246DA3FE00642BF3 /* LottieAnimation.swift */,
 				1155FDD6246D696700F5F819 /* NavigationBarButtonStyle.swift */,
+				8B06E8CB246D4D97008C7189 /* Rectangle+Separator.swift */,
 				11E07F17243B353500A0A027 /* SearchBar.swift */,
+				8B06E8CD246D5361008C7189 /* SectionTitle.swift */,
 				11B125C72447242C00E2D1C3 /* TextButtonStyle.swift */,
 				11CB85942437848A00CE4592 /* TextStyle.swift */,
 				1101A3AB245AB5F6002A848B /* URLImage.swift */,
@@ -874,6 +891,7 @@
 				112FDCB5246AC8FD009A2B97 /* NefAPI */,
 				112FDCB8246AC99A009A2B97 /* NefEditorData */,
 				1150CDC4246AF468003509B4 /* NefEditorUtils */,
+				8B06E8C9246D4A12008C7189 /* Lottie */,
 			);
 			productName = NefEditorClient;
 			productReference = 1163838024321FD100EB2DEF /* nef.app */;
@@ -934,6 +952,7 @@
 			packageReferences = (
 				11AD8DC3243CA8E80005E450 /* XCRemoteSwiftPackageReference "bow-arch" */,
 				112FDCB7246AC999009A2B97 /* XCRemoteSwiftPackageReference "nef-editor-server" */,
+				8B06E8C8246D4A12008C7189 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = 1163838124321FD100EB2DEF /* Products */;
 			projectDirPath = "";
@@ -955,6 +974,7 @@
 				1163839024321FD400EB2DEF /* LaunchScreen.storyboard in Resources */,
 				1163838D24321FD400EB2DEF /* Preview Assets.xcassets in Resources */,
 				11FE7AE4246A99D40011DB41 /* nef.yaml in Resources */,
+				8B3FEAF1246DA41900642BF3 /* Animations in Resources */,
 				1163838A24321FD400EB2DEF /* Assets.xcassets in Resources */,
 				11EDF468243714210092E959 /* github.yaml in Resources */,
 			);
@@ -1015,6 +1035,7 @@
 				11C95A5524504E3D00659C97 /* Image+System.swift in Sources */,
 				1139BF9A2464321E00BC283A /* CreditsComponent.swift in Sources */,
 				11AD8DCD243DC4870005E450 /* TagView.swift in Sources */,
+				8BC3C90B246D7A2600EC9F36 /* GenerationSuccessView.swift in Sources */,
 				1163BA92244DF933005B0785 /* EditState.swift in Sources */,
 				11FE7ACD2465AD330011DB41 /* GenerationErrorView.swift in Sources */,
 				1139BF8624640D3800BC283A /* ICloudStatus.swift in Sources */,
@@ -1047,6 +1068,7 @@
 				1139BF9524642F0B00BC283A /* CreditsDispatcher.swift in Sources */,
 				11B125C2244709EA00E2D1C3 /* DependencyListView.swift in Sources */,
 				114254362448732E00B2EA0C /* SearchDispatcher.swift in Sources */,
+				8B3FEAEF246DA3FE00642BF3 /* LottieAnimation.swift in Sources */,
 				11BFEA00243B410D00D4F891 /* PreviewData.swift in Sources */,
 				11070293243C9F27008583EB /* EmptyRequirementsView.swift in Sources */,
 				1163BA9A244ED9A3005B0785 /* AppComponent.swift in Sources */,
@@ -1054,6 +1076,7 @@
 				1163BA87244DF22E005B0785 /* EditRecipeMetadataView.swift in Sources */,
 				11BFEA0B243B538300D4F891 /* ViewStyle.swift in Sources */,
 				114AF45F24598FC0000116B7 /* CatalogDetailComponent.swift in Sources */,
+				8B06E8CC246D4D97008C7189 /* Rectangle+Separator.swift in Sources */,
 				11B125B22444BC9000E2D1C3 /* CatalogSectionView.swift in Sources */,
 				11EDF44B2435F4FE0092E959 /* CatalogItemDetailView.swift in Sources */,
 				1163838424321FD100EB2DEF /* AppDelegate.swift in Sources */,
@@ -1108,6 +1131,7 @@
 				1155FDD9246D92AA00F5F819 /* KeyboardPadding.swift in Sources */,
 				11CB85932437825100CE4592 /* CardView.swift in Sources */,
 				11AD8DCF243E16480005E450 /* RegularRecipeView.swift in Sources */,
+				8B06E8CE246D5361008C7189 /* SectionTitle.swift in Sources */,
 				114254422448AEFF00B2EA0C /* RepositoryDetailComponent.swift in Sources */,
 				11BFEA0D243B553000D4F891 /* InitialSearchView.swift in Sources */,
 				11B125B62444BCAC00E2D1C3 /* Catalog.swift in Sources */,
@@ -1284,6 +1308,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.47deg.nef-editor-client";
+				"PRODUCT_BUNDLE_IDENTIFIER[sdk=macosx*]" = "";
 				PRODUCT_NAME = nef;
 				PROVISIONING_PROFILE_SPECIFIER = "nef editor client Dev";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
@@ -1450,7 +1475,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/47deg/nef-editor-server";
 			requirement = {
-				branch = post_playgroundBook;
+				branch = master;
 				kind = branch;
 			};
 		};
@@ -1460,6 +1485,14 @@
 			requirement = {
 				branch = master;
 				kind = branch;
+			};
+		};
+		8B06E8C8246D4A12008C7189 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.1.8;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -1487,6 +1520,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 11AD8DC3243CA8E80005E450 /* XCRemoteSwiftPackageReference "bow-arch" */;
 			productName = BowArch;
+		};
+		8B06E8C9246D4A12008C7189 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8B06E8C8246D4A12008C7189 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

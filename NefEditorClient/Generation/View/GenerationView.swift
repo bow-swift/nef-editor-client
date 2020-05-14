@@ -5,7 +5,6 @@ struct GenerationView: View {
     @Environment(\.colorScheme) var colorScheme
     let state: GenerationState
     let handle: (GenerationAction) -> Void
-    
     let isSharePresented: Binding<Bool>
     
     init(state: GenerationState,
@@ -38,30 +37,30 @@ struct GenerationView: View {
         case .notGenerating:
             return AnyView(EmptyView())
         case .authenticating:
-            return AnyView(
-                GenerationLoadingView(message: "Signing in...")
-            )
+            return AnyView(GenerationLoadingView(message: "Signing in..."))
         case let .initial(authentication, item):
             return AnyView(initialView(authentication: authentication, item: item))
         case .generating(let item):
             return AnyView(
-                GenerationLoadingView(message: "Generating Swift Playground '\(item.title)'...\n\nPlease wait, this may take several minutes.")
+                GenerationLoadingView(message: "Generating Swift Playground '\(item.title)'...\n\nPlease wait, this may take several minutes.",
+                                      animation: .init(lottie: .playgroundLoading, isLoop: true, offset: .init(x: -110, y: 0)))
             )
         case let .finished(item, url, _):
             return AnyView(finishedView(item: item, url: url))
         case let .error(generationError):
-            return AnyView(GenerationErrorView(message: generationError.description))
+            return AnyView(
+                GenerationErrorView(message: generationError.description,
+                                    animation: .init(lottie: .generalError))
+            )
         }
     }
     
     func initialView(authentication: AuthenticationState, item: CatalogItem) -> some View {
         VStack {
             DependencyListView(dependencies: item.dependencies, isEditable: false, onRemoveDependency: { _ in })
-
-            Rectangle()
-                .fill(Color.gray.opacity(0.7))
-                .frame(height: 2)
-
+            
+            Rectangle.separator
+            
             self.bottomView(authentication: authentication, item: item)
         }
     }
@@ -97,8 +96,7 @@ struct GenerationView: View {
         Group {
             Text("In order to generate your Swift Playground, you need to sign in.")
                 .activityStyle()
-                .padding()
-            
+                .padding(EdgeInsets(top: 8, leading: 0, bottom: -10, trailing: 0))
             self.signInButton(item: item)
         }
     }
@@ -112,22 +110,21 @@ struct GenerationView: View {
     
     func finishedView(item: CatalogItem, url: URL) -> some View {
         VStack {
-            Image.success
-                .font(Font.system(size: 64))
-                .foregroundColor(.green)
-                .padding()
+            GenerationSuccessView(animation: .playgroundSuccess)
             
-            Text("Generation successful!").largeTitleStyle()
+            Text("Generation successful!")
+                .largeTitleStyle()
+                .padding()
             
             Text("Your playground '\(item.title)' was generated successfully.\n\nOpen it in Swift Playgrounds, or download the app from App Store.")
                 .activityStyle()
                 .multilineTextAlignment(.center)
-                .padding()
+            
+            Spacer()
             
             Button("Open Swift Playground") {
                 self.handle(.sharePlayground)
             }.buttonStyle(TextButtonStyle())
-            .padding(.top, 24)
         }.padding()
         .modal(isPresented: self.isSharePresented, withNavigation: false) {
             ActivityViewController(activityItems: [url], applicationActivities: nil)

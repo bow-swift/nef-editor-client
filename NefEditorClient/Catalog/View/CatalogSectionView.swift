@@ -8,17 +8,10 @@ struct CatalogSectionView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            HStack(alignment: .firstTextBaseline) {
-                Text(section.title)
-                    .largeTitleStyle()
-                
-                self.actionView(for: self.section)
-                
-                Spacer()
-            }
-            .padding(.top, 16)
-            .padding(.horizontal, 16)
-            
+            sectionTitle(for: self.section)
+                .padding(.top, 16)
+                .padding(.horizontal, 16)
+
             if section.items.isEmpty {
                 Text("There are no recipes yet.")
                     .activityStyle()
@@ -36,14 +29,14 @@ struct CatalogSectionView: View {
         }
     }
     
-    func actionView(for section: CatalogSection) -> some View {
-        if let action = section.action {
-            return AnyView(Button(action: { self.handle(action.action) }) {
-                Image(systemName: action.icon)
-            }.buttonStyle(ActionButtonStyle()))
-        } else {
-            return AnyView(EmptyView())
+    func sectionTitle(for section: CatalogSection) -> some View {
+        guard let action = section.action else {
+            return SectionTitle(title: section.title)
         }
+        
+        return SectionTitle(title: section.title,
+                            action: .init(icon: Image(systemName: action.icon),
+                                          handle: self.handle(action.action)))
     }
 }
 
