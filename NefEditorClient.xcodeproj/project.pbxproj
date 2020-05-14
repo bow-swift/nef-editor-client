@@ -56,7 +56,6 @@
 		1139BF9024642DCB00BC283A /* CreditsAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1139BF8F24642DCB00BC283A /* CreditsAction.swift */; };
 		1139BF9324642DF900BC283A /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1139BF9224642DF900BC283A /* Library.swift */; };
 		1139BF9524642F0B00BC283A /* CreditsDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1139BF9424642F0B00BC283A /* CreditsDispatcher.swift */; };
-		1139BF9724642F8200BC283A /* CreditsModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1139BF9624642F8200BC283A /* CreditsModal.swift */; };
 		1139BF9A2464321E00BC283A /* CreditsComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1139BF992464321E00BC283A /* CreditsComponent.swift */; };
 		1139BF9E24645D0800BC283A /* SignInButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1139BF9D24645D0800BC283A /* SignInButton.swift */; };
 		1139BFA124645F3400BC283A /* AuthenticationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1139BFA024645F3400BC283A /* AuthenticationInfo.swift */; };
@@ -82,6 +81,9 @@
 		1150CDC7246B0D8D003509B4 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1150CDC6246B0D8D003509B4 /* ActivityViewController.swift */; };
 		1150CDC9246C43C0003509B4 /* URLSession+IO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1150CDC8246C43C0003509B4 /* URLSession+IO.swift */; };
 		1155FDCD246D26E900F5F819 /* MainDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1155FDCC246D26E900F5F819 /* MainDispatcher.swift */; };
+		1155FDCF246D286E00F5F819 /* AppModalState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1155FDCE246D286E00F5F819 /* AppModalState.swift */; };
+		1155FDD1246D2B0E00F5F819 /* AppModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1155FDD0246D2B0E00F5F819 /* AppModalView.swift */; };
+		1155FDD3246D2D0100F5F819 /* AppModalComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1155FDD2246D2D0100F5F819 /* AppModalComponent.swift */; };
 		1163838424321FD100EB2DEF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1163838324321FD100EB2DEF /* AppDelegate.swift */; };
 		1163838624321FD100EB2DEF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1163838524321FD100EB2DEF /* SceneDelegate.swift */; };
 		1163838A24321FD400EB2DEF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1163838924321FD400EB2DEF /* Assets.xcassets */; };
@@ -182,7 +184,6 @@
 		1139BF8F24642DCB00BC283A /* CreditsAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsAction.swift; sourceTree = "<group>"; };
 		1139BF9224642DF900BC283A /* Library.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
 		1139BF9424642F0B00BC283A /* CreditsDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsDispatcher.swift; sourceTree = "<group>"; };
-		1139BF9624642F8200BC283A /* CreditsModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsModal.swift; sourceTree = "<group>"; };
 		1139BF992464321E00BC283A /* CreditsComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsComponent.swift; sourceTree = "<group>"; };
 		1139BF9D24645D0800BC283A /* SignInButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInButton.swift; sourceTree = "<group>"; };
 		1139BFA024645F3400BC283A /* AuthenticationInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationInfo.swift; sourceTree = "<group>"; };
@@ -207,6 +208,9 @@
 		1150CDC6246B0D8D003509B4 /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		1150CDC8246C43C0003509B4 /* URLSession+IO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+IO.swift"; sourceTree = "<group>"; };
 		1155FDCC246D26E900F5F819 /* MainDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDispatcher.swift; sourceTree = "<group>"; };
+		1155FDCE246D286E00F5F819 /* AppModalState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModalState.swift; sourceTree = "<group>"; };
+		1155FDD0246D2B0E00F5F819 /* AppModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModalView.swift; sourceTree = "<group>"; };
+		1155FDD2246D2D0100F5F819 /* AppModalComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModalComponent.swift; sourceTree = "<group>"; };
 		1163838024321FD100EB2DEF /* nef.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nef.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1163838324321FD100EB2DEF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1163838524321FD100EB2DEF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -629,6 +633,7 @@
 			isa = PBXGroup;
 			children = (
 				11EDF44E2435F5AA0092E959 /* AppView.swift */,
+				1155FDD0246D2B0E00F5F819 /* AppModalView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -636,8 +641,8 @@
 		1163BA8A244DF844005B0785 /* State */ = {
 			isa = PBXGroup;
 			children = (
+				1155FDCE246D286E00F5F819 /* AppModalState.swift */,
 				1163BA8D244DF8B3005B0785 /* AppState.swift */,
-				1139BF9624642F8200BC283A /* CreditsModal.swift */,
 				1139BF8524640D3800BC283A /* ICloudStatus.swift */,
 				1163BA8F244DF8E4005B0785 /* PanelState.swift */,
 			);
@@ -658,6 +663,7 @@
 			isa = PBXGroup;
 			children = (
 				1163BA99244ED9A3005B0785 /* AppComponent.swift */,
+				1155FDD2246D2D0100F5F819 /* AppModalComponent.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -1010,6 +1016,7 @@
 				114AF44C24597675000116B7 /* View+Modal.swift in Sources */,
 				11070291243C9DF9008583EB /* ActivityTextView.swift in Sources */,
 				1150CDC9246C43C0003509B4 /* URLSession+IO.swift in Sources */,
+				1155FDD1246D2B0E00F5F819 /* AppModalView.swift in Sources */,
 				1163BA97244ED0C5005B0785 /* AppDispatcher.swift in Sources */,
 				1107028F243C9D0A008583EB /* LoadingRequirementsView.swift in Sources */,
 				11CB85952437848A00CE4592 /* TextStyle.swift in Sources */,
@@ -1057,7 +1064,7 @@
 				11425445244990AB00B2EA0C /* Data+Equatable.swift in Sources */,
 				1139BFA124645F3400BC283A /* AuthenticationInfo.swift in Sources */,
 				1139BFA52464609600BC283A /* GenerationView.swift in Sources */,
-				1139BF9724642F8200BC283A /* CreditsModal.swift in Sources */,
+				1155FDD3246D2D0100F5F819 /* AppModalComponent.swift in Sources */,
 				11B125C424471E1C00E2D1C3 /* ActionButtonStyle.swift in Sources */,
 				11FE7AC4246583B80011DB41 /* GenerationState.swift in Sources */,
 				11C95ABA24584BE300659C97 /* CatalogDispatcher.swift in Sources */,
@@ -1070,6 +1077,7 @@
 				11070286243C8178008583EB /* Requirement.swift in Sources */,
 				11B125B924459B4800E2D1C3 /* TagViewModel.swift in Sources */,
 				11FE7ACB24659C0F0011DB41 /* GenerationAction.swift in Sources */,
+				1155FDCF246D286E00F5F819 /* AppModalState.swift in Sources */,
 				11E07F16243B21A200A0A027 /* Array+Extensions.swift in Sources */,
 				11425434244870FB00B2EA0C /* SearchAction.swift in Sources */,
 				11B125B32444BC9000E2D1C3 /* CatalogItemGridView.swift in Sources */,
