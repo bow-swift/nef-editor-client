@@ -40,7 +40,7 @@ struct TagCloud: View {
         ZStack(alignment: .topLeading) {
             ForEach(Array(tags.enumerated()), id: \.element.text) { tag in
                 SizedView(content: TagView(tag: tag.element))
-                    .offset(offsets[tag.offset])
+                    .offset(offsets[safe: tag.offset] ?? .hidden)
             }
 
             Color.clear
