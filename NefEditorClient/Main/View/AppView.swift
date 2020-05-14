@@ -1,40 +1,32 @@
 import SwiftUI
 import GitHub
 
-struct AppView<CatalogView: View, SearchView: View, DetailView: View, EditView: View, GenerationView: View, CreditsView: View>: View {
+struct AppView<CatalogView: View, SearchView: View, DetailView: View, ModalView: View>: View {
     let state: AppState
     let catalog: CatalogView
     let search: SearchView
     let detail: (CatalogItem) -> DetailView
-    let edit: EditView
-    let generation: (GenerationState) -> GenerationView
-    let credits: CreditsView
+    let modal: (AppModalState) -> ModalView
     let handle: (AppAction) -> Void
     
-    let isEditPresented: Binding<Bool>
+    let isModalPresented: Binding<Bool>
     let isAlertPresented: Binding<Bool>
-    let isCreditsPresented: Binding<Bool>
-    let isGenerationPresented: Binding<Bool>
     
     init(state: AppState,
          catalog: CatalogView,
          search: SearchView,
          detail: @escaping (CatalogItem) -> DetailView,
-         edit: EditView,
-         generation: @escaping (GenerationState) -> GenerationView,
-         credits: CreditsView,
+         modal: @escaping (AppModalState) -> ModalView,
          handle: @escaping (AppAction) -> Void) {
         self.state = state
         self.catalog = catalog
         self.search = search
         self.detail = detail
-        self.edit = edit
-        self.generation = generation
-        self.credits = credits
+        self.modal = modal
         self.handle = handle
         
-        self.isEditPresented = Binding(
-            get: { state.editState != .notEditing },
+        self.isModalPresented = Binding(
+            get: { state.modalState != .noModal },
             set: { newState in
                 if !newState {
                     handle(.dismissModal)
@@ -46,24 +38,6 @@ struct AppView<CatalogView: View, SearchView: View, DetailView: View, EditView: 
             set: { newState in
                 if !newState {
                     handle(.dismissICloudAlert)
-                }
-            }
-        )
-        
-        self.isCreditsPresented = Binding(
-            get: { state.creditsModal == .shown },
-            set: { newState in
-                if !newState {
-                    handle(.dismissModal)
-                }
-            }
-        )
-        
-        self.isGenerationPresented = Binding(
-            get: { state.generationState != .notGenerating },
-            set: { newState in
-                if !newState {
-                    handle(.dismissModal)
                 }
             }
         )
@@ -79,35 +53,38 @@ struct AppView<CatalogView: View, SearchView: View, DetailView: View, EditView: 
     
     var body: some View {
         NavigationView {
-            HStack(spacing: 0) {
-                if !showSearch {
-                    catalogView
-                }
-                if showDetail {
-                    detailView
-                }
-                if showSearch {
-                    searchView
-                }
-            }.background(
+            self.contentView.background(
                 self.backgroundView
-            ).navigationBarItems(trailing: navigationButtons)
+            )
+            .navigationBarItems(trailing: navigationButtons)
+            
             .navigationBarTitle("nef editor", displayMode: .inline)
-            .modal(isPresented: isEditPresented) {
-                self.edit
+            
+            .modal(isPresented: isModalPresented) {
+                self.modal(self.state.modalState)
             }
-            .modal(isPresented: isCreditsPresented) {
-                self.credits
-            }
-            .modal(isPresented: isGenerationPresented) {
-                self.generation(self.state.generationState)
-            }
+            
             .alert(isPresented: isAlertPresented) {
                 self.iCloudAlert
             }
-        }.navigationViewStyle(StackNavigationViewStyle())
+        }
+        .navigationViewStyle(StackNavigationViewStyle())
         .onAppear {
             self.handle(.initialLoad)
+        }
+    }
+    
+    var contentView: some View {
+        GeometryReader { proxy in
+            HStack(spacing: 0) {
+                if !self.showSearch {
+                    self.catalogView
+                }
+                self.detailView(parentSize: proxy.size)
+                if self.showSearch {
+                    self.searchView
+                }
+            }
         }
     }
     
@@ -117,11 +94,15 @@ struct AppView<CatalogView: View, SearchView: View, DetailView: View, EditView: 
                 Button(action: { self.handle(.showICloudAlert) }) {
                     Image.warning.foregroundColor(.yellow)
                 }
+                .padding(8)
+                .safeHoverEffect()
             }
             
             Button(action: { self.handle(.showCredits) }) {
                 Image.info.foregroundColor(.nef)
             }
+            .padding(8)
+            .safeHoverEffect()
         }
     }
     
@@ -132,33 +113,24 @@ struct AppView<CatalogView: View, SearchView: View, DetailView: View, EditView: 
     
     var catalogView: some View {
         catalog
-            .animation(.easeInOut)
             .transition(.move(edge: .leading))
+            .animation(.easeInOut)
     }
     
-    var maxDetailWidth: CGFloat {
-        max(UIScreen.main.bounds.width,
-            UIScreen.main.bounds.height) / 3
-    }
-    
-    var detailView: some View {
-        if let item = state.selectedItem {
-            if state.panelState == .catalog {
-                return AnyView(detail(item)
-                    .frame(maxWidth: maxDetailWidth)
+    func detailView(parentSize: CGSize) -> some View {
+        Group {
+            if state.selectedItem != nil {
+                detail(state.selectedItem!)
+                    .frame(maxWidth: 340,
+                           maxHeight: .infinity)
                     .padding()
-                    .animation(.easeInOut)
-                    .transition(.move(edge: .trailing)))
+                    .modifier(KeyboardPadding(maxPadding: 100))
             } else {
-                return AnyView(detail(item)
-                    .frame(maxWidth: maxDetailWidth)
-                    .padding()
-                    .animation(.easeInOut)
-                    .transition(.slide))
+                EmptyView().frame(width: 0)
             }
-        } else {
-            return AnyView(EmptyView())
         }
+        .animation(.easeInOut)
+        .transition(.move(edge: .trailing))
     }
     
     var searchView: some View {

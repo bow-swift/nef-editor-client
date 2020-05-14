@@ -12,6 +12,6 @@ struct TextButtonStyle: ButtonStyle {
                 .fill(configuration.isPressed
                     ? Color.nef.opacity(0.7)
                     : Color.nef))
-            
+            .safeHoverEffect()
     }
 }

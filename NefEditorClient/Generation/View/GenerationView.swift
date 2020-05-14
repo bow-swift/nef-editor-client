@@ -29,7 +29,7 @@ struct GenerationView: View {
             .navigationBarItems(leading:
                 Button("Cancel") {
                     self.handle(.dismissGeneration)
-                }.foregroundColor(.nef)
+                }.navigationBarButtonStyle()
             )
     }
 

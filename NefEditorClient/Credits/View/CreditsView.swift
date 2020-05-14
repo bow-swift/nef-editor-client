@@ -15,7 +15,7 @@ struct CreditsView: View {
         .navigationBarItems(leading:
             Button("Cancel") {
                 self.handle(.dismissCredits)
-            }.foregroundColor(Color.nef)
+            }.navigationBarButtonStyle()
         )
     }
     

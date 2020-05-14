@@ -15,7 +15,9 @@ struct CatalogSectionView: View {
                 self.actionView(for: self.section)
                 
                 Spacer()
-            }.padding(.top, 16)
+            }
+            .padding(.top, 16)
+            .padding(.horizontal, 16)
             
             if section.items.isEmpty {
                 Text("There are no recipes yet.")
@@ -29,6 +31,7 @@ struct CatalogSectionView: View {
                     selectedItem: self.selectedItem,
                     columns: self.columns,
                     handle: self.handle)
+                .padding(.horizontal, 16)
             }
         }
     }

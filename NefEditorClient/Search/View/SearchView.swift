@@ -31,7 +31,7 @@ struct SearchView<Detail: View>: View {
             self.contentView.fill.layoutPriority(1)
         }.modal(isPresented: isDetailPresented) {
             self.detail
-        }
+        }.modifier(KeyboardPadding())
     }
     
     private var searchView: some View {
@@ -45,7 +45,7 @@ struct SearchView<Detail: View>: View {
                     Text("Cancel").foregroundColor(.nef)
                 }.padding(.trailing)
             }
-        }.padding(.top).padding(.horizontal)
+        }.padding(.top).padding(.trailing)
     }
     
     private var contentView: some View {
@@ -71,7 +71,7 @@ struct SearchView<Detail: View>: View {
                     columns: self.columns(for: geometry.size.width)) { repository in
                         self.handle(.showDetails(repository))
                 }
-                .padding()
+                .padding(.trailing)
                 .fill
             }
         }

@@ -17,6 +17,7 @@ struct CatalogItemGridView: View {
                             self.handle(.select(item: item))
                         }
                     }
+                    .safeHoverEffect()
         }
     }
     

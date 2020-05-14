@@ -9,6 +9,14 @@ struct DependencyListView: View {
         List {
             ForEach(Array(dependencies.enumerated()), id: \.element.id) { item in
                 DependencyView(dependency: item.element)
+                    .if(self.isEditable) { view in
+                        view.contextMenu {
+                            Button(action: { self.onRemoveDependency(item.element) }) {
+                                Text("Delete dependency")
+                                Image.trash
+                            }
+                        }
+                    }
             }.if(isEditable) { view in
                 view.onDelete { indexSet in
                     if let index = indexSet.first {
