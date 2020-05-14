@@ -39,18 +39,19 @@ struct GenerationView: View {
             return AnyView(EmptyView())
         case .authenticating:
             return AnyView(
-                GenerationLoadingView(message: "Signing in...")
+                GenerationLoadingView(message: "Signing in...", animation: .init(lottie: .signinLoading))
             )
         case let .initial(authentication, item):
             return AnyView(initialView(authentication: authentication, item: item))
         case .generating(let item):
             return AnyView(
-                GenerationLoadingView(message: "Generating Swift Playground '\(item.title)'...\n\nPlease wait, this may take several minutes.")
+                GenerationLoadingView(message: "Generating Swift Playground '\(item.title)'...\n\nPlease wait, this may take several minutes.",
+                                      animation: .init(lottie: .playgroundLoading, isLoop: true, offset: .init(x: -100, y: 0)))
             )
         case let .finished(item, url, _):
             return AnyView(finishedView(item: item, url: url))
         case let .error(generationError):
-            return AnyView(GenerationErrorView(message: generationError.description))
+            return AnyView(GenerationErrorView(message: generationError.description, animation: .init(lottie: .generalError)))
         }
     }
     
@@ -109,22 +110,21 @@ struct GenerationView: View {
     
     func finishedView(item: CatalogItem, url: URL) -> some View {
         VStack {
-            Image.success
-                .font(Font.system(size: 64))
-                .foregroundColor(.green)
-                .padding()
+            GenerationSuccessView(animation: .playgroundSuccess)
             
-            Text("Generation successful!").largeTitleStyle()
+            Text("Generation successful!")
+                .largeTitleStyle()
+                .padding()
             
             Text("Your playground '\(item.title)' was generated successfully.\n\nOpen it in Swift Playgrounds, or download the app from App Store.")
                 .activityStyle()
                 .multilineTextAlignment(.center)
-                .padding()
+            
+            Spacer()
             
             Button("Open Swift Playground") {
                 self.handle(.sharePlayground)
             }.buttonStyle(TextButtonStyle())
-            .padding(.top, 24)
         }.padding()
         .modal(isPresented: self.isSharePresented, withNavigation: false) {
             ActivityViewController(activityItems: [url], applicationActivities: nil)

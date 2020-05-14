@@ -1,1 +1,1 @@
-typealias GenerationErrorView = ActivityTextView
+typealias GenerationErrorView = LoadingView
