@@ -121,19 +121,9 @@ struct AppView<CatalogView: View, SearchView: View, DetailView: View, ModalView:
             } else {
                 EmptyView().frame(width: 0)
             }
-        }.animation(.easeInOut)
-            .transition(.move(edge: .trailing))
-        
-//        if let item = state.selectedItem {
-//            let width = max(parentSize.width, parentSize.height) / 3
-//            return AnyView(detail(item)
-//                .frame(width: width)
-//                .animation(.easeInOut)
-//                .transition(.move(edge: .trailing))
-//            )
-//        } else {
-//            return AnyView(EmptyView().frame(width: 0))
-//        }
+        }
+        .animation(.easeInOut)
+        .transition(.move(edge: .trailing))
     }
     
     var searchView: some View {
