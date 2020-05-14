@@ -12,6 +12,7 @@ struct CatalogItemGridView: View {
             columns: self.columns) { row, column in
                 self.viewForItem(row: row, column: column)
                     .aspectRatio(16/9, contentMode: .fit)
+                    .frame(width: 340)
                     .onTapGesture {
                         if let item = self.item(row: row, column: column) {
                             self.handle(.select(item: item))

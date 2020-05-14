@@ -10,7 +10,7 @@ struct RepositoryGridView: View {
         GridView(rows: self.rows, columns: self.columns) { row, column in
             self.viewForItemAt(row, column)
                 .aspectRatio(16/9, contentMode: .fit)
-                .animation(nil)
+                .frame(width: 340)
                 .onTapGesture {
                     if let repository = self.itemAt(row, column) {
                         self.onRepositorySelected(repository)
