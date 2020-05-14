@@ -42,15 +42,21 @@ struct GenerationView: View {
             return AnyView(initialView(authentication: authentication, item: item))
         case .generating(let item):
             return AnyView(
-                GenerationLoadingView(message: "Generating Swift Playground '\(item.title)'...\n\nPlease wait, this may take several minutes.",
-                                      animation: .init(lottie: .playgroundLoading, isLoop: true, offset: .init(x: -110, y: 0)))
+                VStack {
+                    GenerationLoadingView(message: "Generating Swift Playground '\(item.title)'...\n\nPlease wait, this may take several minutes.",
+                                          animation: .init(lottie: .playgroundLoading, isLoop: true, offset: .init(x: -110, y: 0))).padding(.top, 80)
+                    Spacer()
+                }
             )
         case let .finished(item, url, _):
             return AnyView(finishedView(item: item, url: url))
         case let .error(generationError):
             return AnyView(
-                GenerationErrorView(message: generationError.description,
-                                    animation: .init(lottie: .generalError))
+                VStack {
+                    GenerationErrorView(message: generationError.description,
+                                        animation: .init(lottie: .generalError)).padding(.top, 80)
+                    Spacer()
+                }
             )
         }
     }
