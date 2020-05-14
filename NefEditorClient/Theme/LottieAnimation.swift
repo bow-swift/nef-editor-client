@@ -2,16 +2,15 @@ import SwiftUI
 import Lottie
 
 enum LottieAnimation: String {
-    case signinLoading = "signin-loading"
-    case signinSuccess = "signin-done"
+    case generalError = "general-error"
+    case githubSearch = "github-search"
     case playgroundLoading = "playgroundbook-loading"
     case playgroundSuccess = "playgroundbook-success"
-    case generalError = "error-deadpool"
 }
 
 extension LottieAnimation {
     func view(isLoop: Bool) -> AnimationLottieView? {
-        guard let animation = Lottie.Animation.named(rawValue) else { return nil }
+        guard let animation = Lottie.Animation.named(rawValue, subdirectory: "Animations") else { return nil }
         return AnimationLottieView(animation: animation, isLoop: isLoop)
     }
 }
@@ -20,15 +19,17 @@ struct AnimationLottieView: UIViewRepresentable {
     let animation: Lottie.Animation
     let isLoop: Bool
     
-    func makeUIView(context: Context) -> UIView {
+    func makeCoordinator() -> Coordinator {
+        Coordinator(self)
+    }
+    
+    func makeUIView(context: UIViewRepresentableContext<AnimationLottieView>) -> UIView {
         let view = UIView()
         let animationView = AnimationView()
-        view.addSubview(animationView)
-        
-        animationView.animation = animation
         animationView.contentMode = .scaleAspectFit
         animationView.translatesAutoresizingMaskIntoConstraints = false
-
+        view.addSubview(animationView)
+        
         NSLayoutConstraint.activate([
             animationView.widthAnchor.constraint(equalTo: view.widthAnchor),
             animationView.heightAnchor.constraint(equalTo: view.heightAnchor)
@@ -37,11 +38,22 @@ struct AnimationLottieView: UIViewRepresentable {
         return view
     }
 
-    func updateUIView(_ view: UIView, context: Context) {
+    func updateUIView(_ view: UIView, context: UIViewRepresentableContext<AnimationLottieView>) {
+        let environment = context.coordinator.parent
         guard let view = view.subviews.first,
               let animationView = view as? AnimationView else { return }
         
-        animationView.loopMode = isLoop ? .loop : .playOnce
+        animationView.animation = environment.animation
+        animationView.loopMode = environment.isLoop ? .loop : .playOnce
         animationView.play()
+    }
+    
+    class Coordinator: NSObject {
+        let parent: AnimationLottieView
+    
+        init(_ animationView: AnimationLottieView) {
+            self.parent = animationView
+            super.init()
+        }
     }
 }

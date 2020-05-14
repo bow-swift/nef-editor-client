@@ -5,7 +5,6 @@ struct GenerationView: View {
     @Environment(\.colorScheme) var colorScheme
     let state: GenerationState
     let handle: (GenerationAction) -> Void
-    
     let isSharePresented: Binding<Bool>
     
     init(state: GenerationState,
@@ -38,20 +37,21 @@ struct GenerationView: View {
         case .notGenerating:
             return AnyView(EmptyView())
         case .authenticating:
-            return AnyView(
-                GenerationLoadingView(message: "Signing in...", animation: .init(lottie: .signinLoading))
-            )
+            return AnyView(GenerationLoadingView(message: "Signing in..."))
         case let .initial(authentication, item):
             return AnyView(initialView(authentication: authentication, item: item))
         case .generating(let item):
             return AnyView(
                 GenerationLoadingView(message: "Generating Swift Playground '\(item.title)'...\n\nPlease wait, this may take several minutes.",
-                                      animation: .init(lottie: .playgroundLoading, isLoop: true, offset: .init(x: -100, y: 0)))
+                                      animation: .init(lottie: .playgroundLoading, isLoop: true, offset: .init(x: -110, y: 0)))
             )
         case let .finished(item, url, _):
             return AnyView(finishedView(item: item, url: url))
         case let .error(generationError):
-            return AnyView(GenerationErrorView(message: generationError.description, animation: .init(lottie: .generalError)))
+            return AnyView(
+                GenerationErrorView(message: generationError.description,
+                                    animation: .init(lottie: .generalError, isLoop: true))
+            )
         }
     }
     

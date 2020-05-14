@@ -1,7 +1,9 @@
 import SwiftUI
 
-struct LoadingView: View {
-    struct Animation {
+struct LoadingView: View, Identifiable {
+    struct Animation: Identifiable {
+        var id: LottieAnimation { lottie }
+        
         let lottie: LottieAnimation
         let offset: CGPoint
         let isLoop: Bool
@@ -15,6 +17,7 @@ struct LoadingView: View {
     
     let message: String
     let animation: Animation?
+    var id: String { message }
     
     init(message: String, animation: Animation? = nil) {
         self.message = message
@@ -24,6 +27,7 @@ struct LoadingView: View {
     var body: some View {
         VStack {
             self.animationView()
+                .padding()
             
             Text(self.message)
                 .activityStyle()

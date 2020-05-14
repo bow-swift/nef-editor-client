@@ -53,7 +53,10 @@ struct SearchView<Detail: View>: View {
         case .initial:
             return AnyView(InitialSearchView())
         case .loading(let query):
-            return AnyView(LoadingSearchView(query: query))
+            return AnyView(
+                LoadingSearchView(message: query,
+                                  animation: .init(lottie: .githubSearch, isLoop: true, offset: .init(x: -110, y: 0)))
+            )
         case .empty(let query):
             return AnyView(EmptySearchView(query: query))
         case .loaded(let repositories):

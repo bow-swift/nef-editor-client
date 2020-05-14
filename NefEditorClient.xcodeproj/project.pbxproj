@@ -153,12 +153,8 @@
 		8B06E8CA246D4A12008C7189 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 8B06E8C9246D4A12008C7189 /* Lottie */; };
 		8B06E8CC246D4D97008C7189 /* Rectangle+Separator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B06E8CB246D4D97008C7189 /* Rectangle+Separator.swift */; };
 		8B06E8CE246D5361008C7189 /* SectionTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B06E8CD246D5361008C7189 /* SectionTitle.swift */; };
-		8B952015246D6641000F9DE4 /* playgroundbook-loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 8B95200F246D6640000F9DE4 /* playgroundbook-loading.json */; };
-		8B952016246D6641000F9DE4 /* playgroundbook-success.json in Resources */ = {isa = PBXBuildFile; fileRef = 8B952010246D6640000F9DE4 /* playgroundbook-success.json */; };
-		8B952017246D6641000F9DE4 /* signin-loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 8B952011246D6640000F9DE4 /* signin-loading.json */; };
-		8B952019246D6641000F9DE4 /* signin-done.json in Resources */ = {isa = PBXBuildFile; fileRef = 8B952013246D6640000F9DE4 /* signin-done.json */; };
-		8B95201A246D6641000F9DE4 /* error-deadpool.json in Resources */ = {isa = PBXBuildFile; fileRef = 8B952014246D6641000F9DE4 /* error-deadpool.json */; };
-		8BC3C909246D6AC600EC9F36 /* LottieAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3C908246D6AC600EC9F36 /* LottieAnimation.swift */; };
+		8B3FEAEF246DA3FE00642BF3 /* LottieAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3FEAEE246DA3FE00642BF3 /* LottieAnimation.swift */; };
+		8B3FEAF1246DA41900642BF3 /* Animations in Resources */ = {isa = PBXBuildFile; fileRef = 8B3FEAF0246DA41900642BF3 /* Animations */; };
 		8BC3C90B246D7A2600EC9F36 /* GenerationSuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3C90A246D7A2600EC9F36 /* GenerationSuccessView.swift */; };
 /* End PBXBuildFile section */
 
@@ -296,12 +292,8 @@
 		11FE7AED246AC11E0011DB41 /* GitHub */ = {isa = PBXFileReference; lastKnownFileType = folder; path = GitHub; sourceTree = "<group>"; };
 		8B06E8CB246D4D97008C7189 /* Rectangle+Separator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Rectangle+Separator.swift"; sourceTree = "<group>"; };
 		8B06E8CD246D5361008C7189 /* SectionTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTitle.swift; sourceTree = "<group>"; };
-		8B95200F246D6640000F9DE4 /* playgroundbook-loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "playgroundbook-loading.json"; sourceTree = "<group>"; };
-		8B952010246D6640000F9DE4 /* playgroundbook-success.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "playgroundbook-success.json"; sourceTree = "<group>"; };
-		8B952011246D6640000F9DE4 /* signin-loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "signin-loading.json"; sourceTree = "<group>"; };
-		8B952013246D6640000F9DE4 /* signin-done.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "signin-done.json"; sourceTree = "<group>"; };
-		8B952014246D6641000F9DE4 /* error-deadpool.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "error-deadpool.json"; sourceTree = "<group>"; };
-		8BC3C908246D6AC600EC9F36 /* LottieAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieAnimation.swift; sourceTree = "<group>"; };
+		8B3FEAEE246DA3FE00642BF3 /* LottieAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LottieAnimation.swift; sourceTree = "<group>"; };
+		8B3FEAF0246DA41900642BF3 /* Animations */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Animations; sourceTree = "<group>"; };
 		8BC3C90A246D7A2600EC9F36 /* GenerationSuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerationSuccessView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -591,7 +583,7 @@
 		1163838124321FD100EB2DEF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1163838024321FD100EB2DEF /* nef.app */,
+				1163838024321FD100EB2DEF /* nef Playgrounds.app */,
 				1163839624321FD400EB2DEF /* NefEditorClientTests.xctest */,
 			);
 			name = Products;
@@ -606,7 +598,7 @@
 				1163838324321FD100EB2DEF /* AppDelegate.swift */,
 				1163838524321FD100EB2DEF /* SceneDelegate.swift */,
 				1163838924321FD400EB2DEF /* Assets.xcassets */,
-				8B06E8CF246D5B4C008C7189 /* Animations */,
+				8B3FEAF0246DA41900642BF3 /* Animations */,
 				1139BF9B24645B0000BC283A /* Authentication */,
 				11AD8DCA243DC42E0005E450 /* Catalog */,
 				1139BF8724641C9D00BC283A /* Credits */,
@@ -810,7 +802,10 @@
 				1139BF8B246425E100BC283A /* LibraryButtonStyle.swift */,
 				1107028C243C9A25008583EB /* LoadingView.swift */,
 				1155FDD6246D696700F5F819 /* NavigationBarButtonStyle.swift */,
+				8B3FEAEE246DA3FE00642BF3 /* LottieAnimation.swift */,
+				8B06E8CB246D4D97008C7189 /* Rectangle+Separator.swift */,
 				11E07F17243B353500A0A027 /* SearchBar.swift */,
+				8B06E8CD246D5361008C7189 /* SectionTitle.swift */,
 				11B125C72447242C00E2D1C3 /* TextButtonStyle.swift */,
 				11CB85942437848A00CE4592 /* TextStyle.swift */,
 				1101A3AB245AB5F6002A848B /* URLImage.swift */,
@@ -818,8 +813,6 @@
 				1155FDD4246D5D3800F5F819 /* View+Hover.swift */,
 				114AF44B24597675000116B7 /* View+Modal.swift */,
 				11BFEA0A243B538300D4F891 /* ViewStyle.swift */,
-				8B06E8CB246D4D97008C7189 /* Rectangle+Separator.swift */,
-				8B06E8CD246D5361008C7189 /* SectionTitle.swift */,
 			);
 			path = Theme;
 			sourceTree = "<group>";
@@ -876,19 +869,6 @@
 			path = Logic;
 			sourceTree = "<group>";
 		};
-		8B06E8CF246D5B4C008C7189 /* Animations */ = {
-			isa = PBXGroup;
-			children = (
-				8B952014246D6641000F9DE4 /* error-deadpool.json */,
-				8B95200F246D6640000F9DE4 /* playgroundbook-loading.json */,
-				8B952010246D6640000F9DE4 /* playgroundbook-success.json */,
-				8B952013246D6640000F9DE4 /* signin-done.json */,
-				8B952011246D6640000F9DE4 /* signin-loading.json */,
-				8BC3C908246D6AC600EC9F36 /* LottieAnimation.swift */,
-			);
-			path = Animations;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -914,7 +894,7 @@
 				8B06E8C9246D4A12008C7189 /* Lottie */,
 			);
 			productName = NefEditorClient;
-			productReference = 1163838024321FD100EB2DEF /* nef.app */;
+			productReference = 1163838024321FD100EB2DEF /* nef Playgrounds.app */;
 			productType = "com.apple.product-type.application";
 		};
 		1163839524321FD400EB2DEF /* NefEditorClientTests */ = {
@@ -991,15 +971,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B952016246D6641000F9DE4 /* playgroundbook-success.json in Resources */,
-				8B95201A246D6641000F9DE4 /* error-deadpool.json in Resources */,
-				8B952015246D6641000F9DE4 /* playgroundbook-loading.json in Resources */,
 				1163839024321FD400EB2DEF /* LaunchScreen.storyboard in Resources */,
 				1163838D24321FD400EB2DEF /* Preview Assets.xcassets in Resources */,
-				8B952019246D6641000F9DE4 /* signin-done.json in Resources */,
 				11FE7AE4246A99D40011DB41 /* nef.yaml in Resources */,
+				8B3FEAF1246DA41900642BF3 /* Animations in Resources */,
 				1163838A24321FD400EB2DEF /* Assets.xcassets in Resources */,
-				8B952017246D6641000F9DE4 /* signin-loading.json in Resources */,
 				11EDF468243714210092E959 /* github.yaml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1092,6 +1068,7 @@
 				1139BF9524642F0B00BC283A /* CreditsDispatcher.swift in Sources */,
 				11B125C2244709EA00E2D1C3 /* DependencyListView.swift in Sources */,
 				114254362448732E00B2EA0C /* SearchDispatcher.swift in Sources */,
+				8B3FEAEF246DA3FE00642BF3 /* LottieAnimation.swift in Sources */,
 				11BFEA00243B410D00D4F891 /* PreviewData.swift in Sources */,
 				11070293243C9F27008583EB /* EmptyRequirementsView.swift in Sources */,
 				1163BA9A244ED9A3005B0785 /* AppComponent.swift in Sources */,
@@ -1103,7 +1080,6 @@
 				11B125B22444BC9000E2D1C3 /* CatalogSectionView.swift in Sources */,
 				11EDF44B2435F4FE0092E959 /* CatalogItemDetailView.swift in Sources */,
 				1163838424321FD100EB2DEF /* AppDelegate.swift in Sources */,
-				8BC3C909246D6AC600EC9F36 /* LottieAnimation.swift in Sources */,
 				114AF45224598700000116B7 /* EditAction.swift in Sources */,
 				114AF45724598960000116B7 /* EditComponent.swift in Sources */,
 				11BFEA0F243B560500D4F891 /* EmptySearchView.swift in Sources */,
@@ -1333,7 +1309,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.47deg.nef-editor-client";
 				"PRODUCT_BUNDLE_IDENTIFIER[sdk=macosx*]" = "";
-				PRODUCT_NAME = nef;
+				PRODUCT_NAME = "nef Playgrounds";
 				PROVISIONING_PROFILE_SPECIFIER = "nef editor client Dev";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SUPPORTS_MACCATALYST = YES;
@@ -1361,7 +1337,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.47deg.nef-editor-client";
-				PRODUCT_NAME = nef;
+				PRODUCT_NAME = "nef Playgrounds";
 				PROVISIONING_PROFILE_SPECIFIER = "nef editor client Dist";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SUPPORTS_MACCATALYST = YES;
