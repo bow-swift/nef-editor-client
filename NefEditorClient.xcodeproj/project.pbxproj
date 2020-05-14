@@ -84,6 +84,8 @@
 		1155FDCF246D286E00F5F819 /* AppModalState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1155FDCE246D286E00F5F819 /* AppModalState.swift */; };
 		1155FDD1246D2B0E00F5F819 /* AppModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1155FDD0246D2B0E00F5F819 /* AppModalView.swift */; };
 		1155FDD3246D2D0100F5F819 /* AppModalComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1155FDD2246D2D0100F5F819 /* AppModalComponent.swift */; };
+		1155FDD5246D5D3800F5F819 /* View+Hover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1155FDD4246D5D3800F5F819 /* View+Hover.swift */; };
+		1155FDD7246D696700F5F819 /* NavigationBarButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1155FDD6246D696700F5F819 /* NavigationBarButtonStyle.swift */; };
 		1163838424321FD100EB2DEF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1163838324321FD100EB2DEF /* AppDelegate.swift */; };
 		1163838624321FD100EB2DEF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1163838524321FD100EB2DEF /* SceneDelegate.swift */; };
 		1163838A24321FD400EB2DEF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1163838924321FD400EB2DEF /* Assets.xcassets */; };
@@ -211,6 +213,8 @@
 		1155FDCE246D286E00F5F819 /* AppModalState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModalState.swift; sourceTree = "<group>"; };
 		1155FDD0246D2B0E00F5F819 /* AppModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModalView.swift; sourceTree = "<group>"; };
 		1155FDD2246D2D0100F5F819 /* AppModalComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModalComponent.swift; sourceTree = "<group>"; };
+		1155FDD4246D5D3800F5F819 /* View+Hover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Hover.swift"; sourceTree = "<group>"; };
+		1155FDD6246D696700F5F819 /* NavigationBarButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarButtonStyle.swift; sourceTree = "<group>"; };
 		1163838024321FD100EB2DEF /* nef.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nef.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1163838324321FD100EB2DEF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1163838524321FD100EB2DEF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -780,11 +784,13 @@
 				11C95A5424504E3D00659C97 /* Image+System.swift */,
 				1139BF8B246425E100BC283A /* LibraryButtonStyle.swift */,
 				1107028C243C9A25008583EB /* LoadingView.swift */,
+				1155FDD6246D696700F5F819 /* NavigationBarButtonStyle.swift */,
 				11E07F17243B353500A0A027 /* SearchBar.swift */,
 				11B125C72447242C00E2D1C3 /* TextButtonStyle.swift */,
 				11CB85942437848A00CE4592 /* TextStyle.swift */,
 				1101A3AB245AB5F6002A848B /* URLImage.swift */,
 				1101A3B1245AD23F002A848B /* View+Conditional.swift */,
+				1155FDD4246D5D3800F5F819 /* View+Hover.swift */,
 				114AF44B24597675000116B7 /* View+Modal.swift */,
 				11BFEA0A243B538300D4F891 /* ViewStyle.swift */,
 			);
@@ -1051,6 +1057,7 @@
 				114AF45224598700000116B7 /* EditAction.swift in Sources */,
 				114AF45724598960000116B7 /* EditComponent.swift in Sources */,
 				11BFEA0F243B560500D4F891 /* EmptySearchView.swift in Sources */,
+				1155FDD7246D696700F5F819 /* NavigationBarButtonStyle.swift in Sources */,
 				1107028B243C9987008583EB /* RepositoryDetailState.swift in Sources */,
 				1101A3B0245AB994002A848B /* AvatarView.swift in Sources */,
 				1139BF9024642DCB00BC283A /* CreditsAction.swift in Sources */,
@@ -1071,6 +1078,7 @@
 				1163838624321FD100EB2DEF /* SceneDelegate.swift in Sources */,
 				11BFEA11243B571B00D4F891 /* ErrorSearchView.swift in Sources */,
 				11C95AB824584B7200659C97 /* CatalogAction.swift in Sources */,
+				1155FDD5246D5D3800F5F819 /* View+Hover.swift in Sources */,
 				1107029A243CA160008583EB /* RequirementListView.swift in Sources */,
 				114AF45A24598D78000116B7 /* CatalogDetailAction.swift in Sources */,
 				11C95ABD24584D9700659C97 /* CatalogComponent.swift in Sources */,

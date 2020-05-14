@@ -9,6 +9,6 @@ struct LibraryButtonStyle: ButtonStyle {
                 .fill(configuration.isPressed
                     ? Color.nef.opacity(0.1)
                     : Color.clear))
-            
+            .safeHoverEffect()
     }
 }

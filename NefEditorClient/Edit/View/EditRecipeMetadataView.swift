@@ -37,11 +37,11 @@ struct EditRecipeMetadataView: View {
             leading:
                 Button("Cancel") {
                     self.handle(.dismissEdition)
-                }.foregroundColor(.nef),
+                }.navigationBarButtonStyle(),
             trailing:
                 Button("Save") {
                     self.handle(.saveRecipe(title: self.title, description: self.description))
-                }.foregroundColor(.nef)
+                }.navigationBarButtonStyle()
         )
         .navigationBarTitle(self.navigationTitle)
     }

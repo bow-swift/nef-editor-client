@@ -11,5 +11,6 @@ struct ActionButtonStyle: ButtonStyle {
                     configuration.isPressed
                         ? Color.nef.opacity(0.7)
                         : Color.nef))
+            .safeHoverEffect()
     }
 }

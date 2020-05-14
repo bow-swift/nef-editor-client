@@ -67,7 +67,8 @@ struct AppView<CatalogView: View, SearchView: View, DetailView: View, ModalView:
             .alert(isPresented: isAlertPresented) {
                 self.iCloudAlert
             }
-        }.navigationViewStyle(StackNavigationViewStyle())
+        }
+        .navigationViewStyle(StackNavigationViewStyle())
         .onAppear {
             self.handle(.initialLoad)
         }
@@ -93,11 +94,15 @@ struct AppView<CatalogView: View, SearchView: View, DetailView: View, ModalView:
                 Button(action: { self.handle(.showICloudAlert) }) {
                     Image.warning.foregroundColor(.yellow)
                 }
+                .padding(8)
+                .safeHoverEffect()
             }
             
             Button(action: { self.handle(.showCredits) }) {
                 Image.info.foregroundColor(.nef)
             }
+            .padding(8)
+            .safeHoverEffect()
         }
     }
     

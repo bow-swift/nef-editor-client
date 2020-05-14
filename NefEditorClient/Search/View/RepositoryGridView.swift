@@ -16,6 +16,7 @@ struct RepositoryGridView: View {
                         self.onRepositorySelected(repository)
                     }
                 }
+                .safeHoverEffect()
         }
     }
     
