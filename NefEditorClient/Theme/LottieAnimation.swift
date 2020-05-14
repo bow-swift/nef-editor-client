@@ -3,6 +3,7 @@ import Lottie
 
 enum LottieAnimation: String {
     case generalError = "general-error"
+    case generalLoading = "general-loading"
     case githubSearch = "github-search"
     case playgroundLoading = "playgroundbook-loading"
     case playgroundSuccess = "playgroundbook-success"

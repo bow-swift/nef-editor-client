@@ -37,7 +37,13 @@ struct GenerationView: View {
         case .notGenerating:
             return AnyView(EmptyView())
         case .authenticating:
-            return AnyView(GenerationLoadingView(message: "Signing in..."))
+            return AnyView(
+                VStack {
+                    GenerationLoadingView(message: "Signing in...", animation: .init(lottie: .generalLoading))
+                        .padding(.top, 40)
+                    Spacer()
+                }
+            )
         case let .initial(authentication, item):
             return AnyView(initialView(authentication: authentication, item: item))
         case .generating(let item):
@@ -54,7 +60,7 @@ struct GenerationView: View {
             return AnyView(
                 VStack {
                     GenerationErrorView(message: generationError.description,
-                                        animation: .init(lottie: .generalError, offset: .init(x: -6, y: 0))).padding(.top, 80)
+                                        animation: .init(lottie: .generalError)).padding(.top, 80)
                     Spacer()
                 }
             )
