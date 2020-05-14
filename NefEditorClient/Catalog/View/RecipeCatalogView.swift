@@ -17,13 +17,14 @@ struct RecipeCatalogView: View {
                             handle: self.handle)
                     }
                 }.padding()
-            }.transition(.identity)
+            }
+            .transition(.identity)
             .animation(nil)
         }
     }
     
     private func columns(for size: CGSize) -> Int {
-        let minimumCardWidth: CGFloat = 350
+        let minimumCardWidth: CGFloat = 340
         return Int(floor(size.width / minimumCardWidth))
     }
 }

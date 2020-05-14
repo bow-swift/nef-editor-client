@@ -53,29 +53,37 @@ struct AppView<CatalogView: View, SearchView: View, DetailView: View, ModalView:
     
     var body: some View {
         NavigationView {
-            HStack(spacing: 0) {
-                if !showSearch {
-                    catalogView
-                }
-                if showDetail {
-                    detailView
-                }
-                if showSearch {
-                    searchView
-                }
-            }.background(
+            self.contentView.background(
                 self.backgroundView
-            ).navigationBarItems(trailing: navigationButtons)
+            )
+            .navigationBarItems(trailing: navigationButtons)
+            
             .navigationBarTitle("nef editor", displayMode: .inline)
+            
             .modal(isPresented: isModalPresented) {
                 self.modal(self.state.modalState)
             }
+            
             .alert(isPresented: isAlertPresented) {
                 self.iCloudAlert
             }
         }.navigationViewStyle(StackNavigationViewStyle())
         .onAppear {
             self.handle(.initialLoad)
+        }
+    }
+    
+    var contentView: some View {
+        GeometryReader { proxy in
+            HStack(spacing: 0) {
+                if !self.showSearch {
+                    self.catalogView
+                }
+                self.detailView(parentSize: proxy.size)
+                if self.showSearch {
+                    self.searchView
+                }
+            }
         }
     }
     
@@ -100,33 +108,32 @@ struct AppView<CatalogView: View, SearchView: View, DetailView: View, ModalView:
     
     var catalogView: some View {
         catalog
-            .animation(.easeInOut)
             .transition(.move(edge: .leading))
+            .animation(.easeInOut)
     }
     
-    var maxDetailWidth: CGFloat {
-        max(UIScreen.main.bounds.width,
-            UIScreen.main.bounds.height) / 3
-    }
-    
-    var detailView: some View {
-        if let item = state.selectedItem {
-            if state.panelState == .catalog {
-                return AnyView(detail(item)
-                    .frame(maxWidth: maxDetailWidth)
+    func detailView(parentSize: CGSize) -> some View {
+        Group {
+            if state.selectedItem != nil {
+                detail(state.selectedItem!)
+                    .frame(width: max(parentSize.width, parentSize.height) / 3)
                     .padding()
-                    .animation(.easeInOut)
-                    .transition(.move(edge: .trailing)))
             } else {
-                return AnyView(detail(item)
-                    .frame(maxWidth: maxDetailWidth)
-                    .padding()
-                    .animation(.easeInOut)
-                    .transition(.slide))
+                EmptyView().frame(width: 0)
             }
-        } else {
-            return AnyView(EmptyView())
-        }
+        }.animation(.easeInOut)
+            .transition(.move(edge: .trailing))
+        
+//        if let item = state.selectedItem {
+//            let width = max(parentSize.width, parentSize.height) / 3
+//            return AnyView(detail(item)
+//                .frame(width: width)
+//                .animation(.easeInOut)
+//                .transition(.move(edge: .trailing))
+//            )
+//        } else {
+//            return AnyView(EmptyView().frame(width: 0))
+//        }
     }
     
     var searchView: some View {
