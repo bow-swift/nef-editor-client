@@ -86,6 +86,7 @@
 		1155FDD3246D2D0100F5F819 /* AppModalComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1155FDD2246D2D0100F5F819 /* AppModalComponent.swift */; };
 		1155FDD5246D5D3800F5F819 /* View+Hover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1155FDD4246D5D3800F5F819 /* View+Hover.swift */; };
 		1155FDD7246D696700F5F819 /* NavigationBarButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1155FDD6246D696700F5F819 /* NavigationBarButtonStyle.swift */; };
+		1155FDD9246D92AA00F5F819 /* KeyboardPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1155FDD8246D92AA00F5F819 /* KeyboardPadding.swift */; };
 		1163838424321FD100EB2DEF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1163838324321FD100EB2DEF /* AppDelegate.swift */; };
 		1163838624321FD100EB2DEF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1163838524321FD100EB2DEF /* SceneDelegate.swift */; };
 		1163838A24321FD400EB2DEF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1163838924321FD400EB2DEF /* Assets.xcassets */; };
@@ -215,6 +216,7 @@
 		1155FDD2246D2D0100F5F819 /* AppModalComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModalComponent.swift; sourceTree = "<group>"; };
 		1155FDD4246D5D3800F5F819 /* View+Hover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Hover.swift"; sourceTree = "<group>"; };
 		1155FDD6246D696700F5F819 /* NavigationBarButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarButtonStyle.swift; sourceTree = "<group>"; };
+		1155FDD8246D92AA00F5F819 /* KeyboardPadding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardPadding.swift; sourceTree = "<group>"; };
 		1163838024321FD100EB2DEF /* nef.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nef.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1163838324321FD100EB2DEF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1163838524321FD100EB2DEF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -782,6 +784,7 @@
 				11B125C5244721BF00E2D1C3 /* ColorPalette.swift */,
 				11E07F10243B118F00A0A027 /* GridView.swift */,
 				11C95A5424504E3D00659C97 /* Image+System.swift */,
+				1155FDD8246D92AA00F5F819 /* KeyboardPadding.swift */,
 				1139BF8B246425E100BC283A /* LibraryButtonStyle.swift */,
 				1107028C243C9A25008583EB /* LoadingView.swift */,
 				1155FDD6246D696700F5F819 /* NavigationBarButtonStyle.swift */,
@@ -1102,6 +1105,7 @@
 				11E07F13243B20E000A0A027 /* RepositoryGridView.swift in Sources */,
 				1139BF812462E23700BC283A /* AppDependencies.swift in Sources */,
 				11AD8DC9243CAAE20005E450 /* RepositoryDetailView.swift in Sources */,
+				1155FDD9246D92AA00F5F819 /* KeyboardPadding.swift in Sources */,
 				11CB85932437825100CE4592 /* CardView.swift in Sources */,
 				11AD8DCF243E16480005E450 /* RegularRecipeView.swift in Sources */,
 				114254422448AEFF00B2EA0C /* RepositoryDetailComponent.swift in Sources */,
