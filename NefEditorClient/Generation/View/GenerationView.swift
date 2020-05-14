@@ -54,7 +54,7 @@ struct GenerationView: View {
             return AnyView(
                 VStack {
                     GenerationErrorView(message: generationError.description,
-                                        animation: .init(lottie: .generalError)).padding(.top, 80)
+                                        animation: .init(lottie: .generalError, offset: .init(x: -6, y: 0))).padding(.top, 80)
                     Spacer()
                 }
             )
