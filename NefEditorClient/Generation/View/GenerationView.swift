@@ -50,7 +50,7 @@ struct GenerationView: View {
         case let .error(generationError):
             return AnyView(
                 GenerationErrorView(message: generationError.description,
-                                    animation: .init(lottie: .generalError)).padding(.top, -48)
+                                    animation: .init(lottie: .generalError))
             )
         }
     }

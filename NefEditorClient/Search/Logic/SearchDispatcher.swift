@@ -38,9 +38,8 @@ func search(
 ) -> [EnvIO<API.Config, Error, State<SearchState, Void>>] {
     [
         EnvIO.pure(setLoading(query: query))^,
-        backgroundSearch(query: query).handleError { _ in
-            onError(query: query)
-        }^
+        backgroundSearch(query: query)
+            .handleError { _ in onError(query: query) }^
     ]
 }
 

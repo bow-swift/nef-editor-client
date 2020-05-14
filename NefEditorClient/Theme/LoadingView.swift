@@ -27,7 +27,7 @@ struct LoadingView: View, Identifiable {
     var body: some View {
         VStack {
             self.animationView()
-                .padding()
+                .padding(.bottom, 16)
             
             Text(self.message)
                 .activityStyle()
