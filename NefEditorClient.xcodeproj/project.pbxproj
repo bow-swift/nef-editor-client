@@ -151,6 +151,7 @@
 		11FE7ACF2465B8930011DB41 /* GenerationDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FE7ACE2465B8930011DB41 /* GenerationDispatcher.swift */; };
 		11FE7AE4246A99D40011DB41 /* nef.yaml in Resources */ = {isa = PBXBuildFile; fileRef = 11FE7AE3246A99D40011DB41 /* nef.yaml */; };
 		8B06E8CA246D4A12008C7189 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 8B06E8C9246D4A12008C7189 /* Lottie */; };
+		8B06E8CC246D4D97008C7189 /* Rectangle+Separator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B06E8CB246D4D97008C7189 /* Rectangle+Separator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -285,6 +286,7 @@
 		11FE7ACE2465B8930011DB41 /* GenerationDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerationDispatcher.swift; sourceTree = "<group>"; };
 		11FE7AE3246A99D40011DB41 /* nef.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = nef.yaml; sourceTree = "<group>"; };
 		11FE7AED246AC11E0011DB41 /* GitHub */ = {isa = PBXFileReference; lastKnownFileType = folder; path = GitHub; sourceTree = "<group>"; };
+		8B06E8CB246D4D97008C7189 /* Rectangle+Separator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Rectangle+Separator.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -798,6 +800,7 @@
 				1155FDD4246D5D3800F5F819 /* View+Hover.swift */,
 				114AF44B24597675000116B7 /* View+Modal.swift */,
 				11BFEA0A243B538300D4F891 /* ViewStyle.swift */,
+				8B06E8CB246D4D97008C7189 /* Rectangle+Separator.swift */,
 			);
 			path = Theme;
 			sourceTree = "<group>";
@@ -1058,6 +1061,7 @@
 				1163BA87244DF22E005B0785 /* EditRecipeMetadataView.swift in Sources */,
 				11BFEA0B243B538300D4F891 /* ViewStyle.swift in Sources */,
 				114AF45F24598FC0000116B7 /* CatalogDetailComponent.swift in Sources */,
+				8B06E8CC246D4D97008C7189 /* Rectangle+Separator.swift in Sources */,
 				11B125B22444BC9000E2D1C3 /* CatalogSectionView.swift in Sources */,
 				11EDF44B2435F4FE0092E959 /* CatalogItemDetailView.swift in Sources */,
 				1163838424321FD100EB2DEF /* AppDelegate.swift in Sources */,

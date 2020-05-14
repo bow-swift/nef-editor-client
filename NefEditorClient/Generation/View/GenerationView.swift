@@ -57,11 +57,9 @@ struct GenerationView: View {
     func initialView(authentication: AuthenticationState, item: CatalogItem) -> some View {
         VStack {
             DependencyListView(dependencies: item.dependencies, isEditable: false, onRemoveDependency: { _ in })
-
-            Rectangle()
-                .fill(Color.gray.opacity(0.7))
-                .frame(height: 2)
-
+            
+            Rectangle.separator
+            
             self.bottomView(authentication: authentication, item: item)
         }
     }
@@ -97,8 +95,7 @@ struct GenerationView: View {
         Group {
             Text("In order to generate your Swift Playground, you need to sign in.")
                 .activityStyle()
-                .padding()
-            
+                .padding(EdgeInsets(top: 8, leading: 0, bottom: -10, trailing: 0))
             self.signInButton(item: item)
         }
     }
