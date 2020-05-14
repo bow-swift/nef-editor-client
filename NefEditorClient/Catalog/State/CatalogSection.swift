@@ -1,3 +1,5 @@
+import Foundation
+
 struct CatalogSection: Equatable {
     let title: String
     let action: CatalogSectionAction?
