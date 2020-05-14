@@ -30,11 +30,14 @@ struct GridView<Cell: View>: View {
         VStack(alignment: self.horizontalAlignment, spacing: self.horizontalSpacing) {
             ForEach(0 ..< self.rows, id: \.self) { row in
                 HStack(alignment: self.verticalAlignment, spacing: self.verticalSpacing) {
-                    Spacer(minLength: 0)
                     ForEach(0 ..< self.columns, id: \.self) { column in
-                        self.cellAt(row, column)
+                        Group {
+                            if column != 0 {
+                                Spacer(minLength: 0)
+                            }
+                            self.cellAt(row, column)
+                        }
                     }
-                    Spacer(minLength: 0)
                 }
             }
         }

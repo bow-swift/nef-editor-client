@@ -16,7 +16,7 @@ struct RecipeCatalogView: View {
                             columns: self.columns(for: geometry.size),
                             handle: self.handle)
                     }
-                }.padding()
+                }
             }
             .transition(.identity)
             .animation(nil)
