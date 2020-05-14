@@ -23,7 +23,7 @@ let catalogDispatcher = CatalogDispatcher.pure { action in
 
 func addRecipe() -> State<AppState, Void> {
     .modify { state in
-        state.copy(editState: .newRecipe)
+        state.copy(modalState: .edit(.newRecipe))
     }^
 }
 

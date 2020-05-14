@@ -1,40 +1,32 @@
 import SwiftUI
 import GitHub
 
-struct AppView<CatalogView: View, SearchView: View, DetailView: View, EditView: View, GenerationView: View, CreditsView: View>: View {
+struct AppView<CatalogView: View, SearchView: View, DetailView: View, ModalView: View>: View {
     let state: AppState
     let catalog: CatalogView
     let search: SearchView
     let detail: (CatalogItem) -> DetailView
-    let edit: EditView
-    let generation: (GenerationState) -> GenerationView
-    let credits: CreditsView
+    let modal: (AppModalState) -> ModalView
     let handle: (AppAction) -> Void
     
-    let isEditPresented: Binding<Bool>
+    let isModalPresented: Binding<Bool>
     let isAlertPresented: Binding<Bool>
-    let isCreditsPresented: Binding<Bool>
-    let isGenerationPresented: Binding<Bool>
     
     init(state: AppState,
          catalog: CatalogView,
          search: SearchView,
          detail: @escaping (CatalogItem) -> DetailView,
-         edit: EditView,
-         generation: @escaping (GenerationState) -> GenerationView,
-         credits: CreditsView,
+         modal: @escaping (AppModalState) -> ModalView,
          handle: @escaping (AppAction) -> Void) {
         self.state = state
         self.catalog = catalog
         self.search = search
         self.detail = detail
-        self.edit = edit
-        self.generation = generation
-        self.credits = credits
+        self.modal = modal
         self.handle = handle
         
-        self.isEditPresented = Binding(
-            get: { state.editState != .notEditing },
+        self.isModalPresented = Binding(
+            get: { state.modalState != .noModal },
             set: { newState in
                 if !newState {
                     handle(.dismissModal)
@@ -46,24 +38,6 @@ struct AppView<CatalogView: View, SearchView: View, DetailView: View, EditView: 
             set: { newState in
                 if !newState {
                     handle(.dismissICloudAlert)
-                }
-            }
-        )
-        
-        self.isCreditsPresented = Binding(
-            get: { state.creditsModal == .shown },
-            set: { newState in
-                if !newState {
-                    handle(.dismissModal)
-                }
-            }
-        )
-        
-        self.isGenerationPresented = Binding(
-            get: { state.generationState != .notGenerating },
-            set: { newState in
-                if !newState {
-                    handle(.dismissModal)
                 }
             }
         )
@@ -93,14 +67,8 @@ struct AppView<CatalogView: View, SearchView: View, DetailView: View, EditView: 
                 self.backgroundView
             ).navigationBarItems(trailing: navigationButtons)
             .navigationBarTitle("nef editor", displayMode: .inline)
-            .modal(isPresented: isEditPresented) {
-                self.edit
-            }
-            .modal(isPresented: isCreditsPresented) {
-                self.credits
-            }
-            .modal(isPresented: isGenerationPresented) {
-                self.generation(self.state.generationState)
+            .modal(isPresented: isModalPresented) {
+                self.modal(self.state.modalState)
             }
             .alert(isPresented: isAlertPresented) {
                 self.iCloudAlert

@@ -48,8 +48,6 @@ struct EditRecipeMetadataView: View {
     
     private var navigationTitle: String {
         switch state {
-        case .notEditing:
-            return ""
         case .newRecipe:
             return "New recipe"
         case .editRecipe(_):

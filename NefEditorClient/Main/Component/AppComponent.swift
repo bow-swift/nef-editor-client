@@ -6,26 +6,24 @@ import BowOptics
 import BowEffects
 import SwiftUI
 
-typealias AppComponent<Catalog: View, Search: View, Detail: View, Edit: View, Generation: View, Credits: View> =
+typealias AppComponent<Catalog: View, Search: View, Detail: View, Modal: View> =
     StoreComponent<
         AppDependencies,
         AppState,
         AppAction,
-        AppView<Catalog, Search, Detail, Edit, Generation, Credits>
+        AppView<Catalog, Search, Detail, Modal>
     >
 
-func appComponent() -> AppComponent<CatalogComponent, SearchComponent, CatalogDetailComponent, EditComponent, GenerationComponent, CreditsComponent> {
+func appComponent() -> AppComponent<CatalogComponent, SearchComponent, CatalogDetailComponent, AppModalComponent> {
     let initialState = AppState(
         panelState: .catalog,
-        editState: .notEditing,
+        modalState: .noModal,
         searchState: SearchState(loadingState: .initial, modalState: .noModal),
         catalog: Catalog.initial,
         selectedItem: nil,
         iCloudStatus: .enabled,
         iCloudAlert: .hidden,
-        creditsModal: .hidden,
-        authenticationState: .unauthenticated,
-        generationState: .notGenerating)
+        authenticationState: .unauthenticated)
     
     let gitHubConfig = makeGitHubConfig()
     let nefConfig = makeNefConfig()
@@ -55,16 +53,10 @@ func appComponent() -> AppComponent<CatalogComponent, SearchComponent, CatalogDe
                     .using(handle, transformInput: AppAction.prism(for: AppAction.catalogDetailAction))
             },
             
-            edit: editComponent(state: state.editState)
-                .using(handle, transformInput: AppAction.prism(for: AppAction.editAction)),
-            
-            generation: { state in
-                generationComponent(state: state)
-                    .using(handle, transformInput: AppAction.prism(for: AppAction.generationAction))
+            modal: { state in
+                appModalComponent(state: state)
+                    .using(handle, transformInput: Prism.identity)
             },
-            
-            credits: creditsComponent()
-                .using(handle, transformInput: AppAction.prism(for: AppAction.creditsAction)),
             
             handle: handle)
     }.onEffect { component in
@@ -93,7 +85,7 @@ func makeNefConfig() -> NefAPI.API.Config {
     let session = URLSession(configuration: configuration)
     
     return NefAPI.API.Config(
-        basePath: "https://nef.miguelangel.me/",
+        basePath: "https://nef.47deg.com",
         session: session)
         .appending(contentType: .json)
 }

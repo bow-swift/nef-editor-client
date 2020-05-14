@@ -30,8 +30,8 @@ func authenticationError(_ error: Error) -> [EnvIO<API.Config, Error, State<AppS
         EnvIO.pure(
             .modify { state in
                 state.copy(
-                    authenticationState: .unauthenticated,
-                    generationState: .error(.invalidAuthentication))
+                    modalState: .generation(.error(.invalidAuthentication)),
+                    authenticationState: .unauthenticated)
             }^
         )^
     ]
@@ -47,7 +47,7 @@ func authenticationSuccess(_ info: AuthenticationInfo, _ item: CatalogItem) -> [
 func setAuthenticating() -> State<AppState, Void> {
     .modify { state in
         state.copy(
-            generationState: .authenticating
+            modalState: .generation(.authenticating)
         )
     }^
 }
@@ -62,7 +62,7 @@ func generate(item: CatalogItem, token: String) -> [EnvIO<API.Config, Error, Sta
 func setGenerating(item: CatalogItem) -> State<AppState, Void> {
     .modify { state in
         state.copy(
-            generationState: .generating(item)
+            modalState: .generation(.generating(item))
         )
     }^
 }
@@ -76,8 +76,8 @@ func signIn(info: AuthenticationInfo, item: CatalogItem) -> EnvIO<API.Config, Er
         .map { response in
             .modify { state in
                 state.copy(
-                    authenticationState: .authenticated(token: response.token),
-                    generationState: .initial(.authenticated(token: response.token), item)
+                    modalState: .generation(.initial(.authenticated(token: response.token), item)),
+                    authenticationState: .authenticated(token: response.token)
                 )
             }^
         }^
@@ -165,30 +165,30 @@ func unzipPlayground(_ data: Data) -> EnvIO<API.Config, GenerationError, URL> {
 
 func showPlaygroundFinished(url: URL, item: CatalogItem) -> State<AppState, Void> {
     .modify { state in
-        state.copy(generationState: .finished(item, url, .notSharing))
+        state.copy(modalState: .generation(.finished(item, url, .notSharing)))
     }^
 }
 
 func showPlaygroundError(_ error: GenerationError) -> State<AppState, Void> {
     .modify { state in
-        state.copy(generationState: .error(error))
+        state.copy(modalState: .generation(.error(error)))
     }^
 }
 
 func showShareDialog() -> State<AppState, Void> {
     .modify { state in
-        guard case let .finished(item, url, _) = state.generationState else {
+        guard case let .finished(item, url, _) = state.modalState.generationState else {
             return state
         }
-        return state.copy(generationState: .finished(item, url, .sharing))
+        return state.copy(modalState: .generation(.finished(item, url, .sharing)))
     }^
 }
 
 func dismissShareDialog() -> State<AppState, Void> {
     .modify { state in
-        guard case let .finished(item, url, _) = state.generationState else {
+        guard case let .finished(item, url, _) = state.modalState.generationState else {
             return state
         }
-        return state.copy(generationState: .finished(item, url, .notSharing))
+        return state.copy(modalState: .generation(.finished(item, url, .notSharing)))
     }^
 }

@@ -21,7 +21,7 @@ let catalogDetailDispatcher = CatalogDetailDispatcher.pure { action in
 func edit(item: CatalogItem) -> State<AppState, Void> {
     if case let .regular(recipe) = item {
         return .modify { state in
-            state.copy(editState: .editRecipe(recipe))
+            state.copy(modalState: .edit(.editRecipe(recipe)))
         }^
     } else {
         return .modify(id)^
@@ -58,6 +58,6 @@ func clearSelection() -> State<AppState, Void> {
 
 func generatePlayground(for item: CatalogItem) -> State<AppState, Void> {
     .modify { state in
-        state.copy(generationState: .initial(state.authenticationState, item))
+        state.copy(modalState: .generation(.initial(state.authenticationState, item)))
     }^
 }

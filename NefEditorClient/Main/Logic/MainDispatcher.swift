@@ -51,10 +51,8 @@ let addDependencyDispatcher = StateDispatcher<Any, AppState, RepositoryDetailAct
 func dismissModal() -> State<AppState, Void> {
     .modify { state in
         state.copy(
-            editState: .notEditing,
-            searchState: state.searchState.copy(modalState: .noModal),
-            creditsModal: .hidden,
-            generationState: .notGenerating)
+            modalState: .noModal,
+            searchState: state.searchState.copy(modalState: .noModal))
     }^
 }
 
@@ -81,7 +79,7 @@ func showSettings() -> EnvIO<Any, Error, State<AppState, Void>> {
 
 func showCredits() -> State<AppState, Void> {
     .modify { state in
-        state.copy(creditsModal: .shown)
+        state.copy(modalState: .credits)
     }^
 }
 
