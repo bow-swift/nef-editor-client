@@ -150,6 +150,7 @@
 		11FE7ACD2465AD330011DB41 /* GenerationErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FE7ACC2465AD330011DB41 /* GenerationErrorView.swift */; };
 		11FE7ACF2465B8930011DB41 /* GenerationDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FE7ACE2465B8930011DB41 /* GenerationDispatcher.swift */; };
 		11FE7AE4246A99D40011DB41 /* nef.yaml in Resources */ = {isa = PBXBuildFile; fileRef = 11FE7AE3246A99D40011DB41 /* nef.yaml */; };
+		8B06E8CA246D4A12008C7189 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 8B06E8C9246D4A12008C7189 /* Lottie */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -296,6 +297,7 @@
 				11AD8DC5243CA8E90005E450 /* BowArch in Frameworks */,
 				1139BF7E2462DC5000BC283A /* GitHub in Frameworks */,
 				112FDCB9246AC99A009A2B97 /* NefEditorData in Frameworks */,
+				8B06E8CA246D4A12008C7189 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -874,6 +876,7 @@
 				112FDCB5246AC8FD009A2B97 /* NefAPI */,
 				112FDCB8246AC99A009A2B97 /* NefEditorData */,
 				1150CDC4246AF468003509B4 /* NefEditorUtils */,
+				8B06E8C9246D4A12008C7189 /* Lottie */,
 			);
 			productName = NefEditorClient;
 			productReference = 1163838024321FD100EB2DEF /* nef.app */;
@@ -934,6 +937,7 @@
 			packageReferences = (
 				11AD8DC3243CA8E80005E450 /* XCRemoteSwiftPackageReference "bow-arch" */,
 				112FDCB7246AC999009A2B97 /* XCRemoteSwiftPackageReference "nef-editor-server" */,
+				8B06E8C8246D4A12008C7189 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = 1163838124321FD100EB2DEF /* Products */;
 			projectDirPath = "";
@@ -1450,7 +1454,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/47deg/nef-editor-server";
 			requirement = {
-				branch = post_playgroundBook;
+				branch = master;
 				kind = branch;
 			};
 		};
@@ -1460,6 +1464,14 @@
 			requirement = {
 				branch = master;
 				kind = branch;
+			};
+		};
+		8B06E8C8246D4A12008C7189 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.1.8;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -1487,6 +1499,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 11AD8DC3243CA8E80005E450 /* XCRemoteSwiftPackageReference "bow-arch" */;
 			productName = BowArch;
+		};
+		8B06E8C9246D4A12008C7189 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8B06E8C8246D4A12008C7189 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
