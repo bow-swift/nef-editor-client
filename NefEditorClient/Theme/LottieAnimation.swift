@@ -3,19 +3,30 @@ import Lottie
 
 enum LottieAnimation: String {
     case generalError = "general-error"
+    case generalLoading = "general-loading"
     case githubSearch = "github-search"
     case playgroundLoading = "playgroundbook-loading"
     case playgroundSuccess = "playgroundbook-success"
+    
+    func fixOffset(size: CGSize) -> CGSize {
+        switch self {
+        case .playgroundLoading:
+            return .init(width: -size.width*0.2, height: 0)
+        default:
+            return .zero
+        }
+    }
 }
 
 extension LottieAnimation {
     func view(isLoop: Bool) -> AnimationLottieView? {
         guard let animation = Lottie.Animation.named(rawValue, subdirectory: "Animations") else { return nil }
-        return AnimationLottieView(animation: animation, isLoop: isLoop)
+        return AnimationLottieView(id: rawValue, animation: animation, isLoop: isLoop)
     }
 }
 
-struct AnimationLottieView: UIViewRepresentable {
+struct AnimationLottieView: UIViewRepresentable, Identifiable {
+    let id: String
     let animation: Lottie.Animation
     let isLoop: Bool
     
@@ -24,27 +35,24 @@ struct AnimationLottieView: UIViewRepresentable {
     }
     
     func makeUIView(context: UIViewRepresentableContext<AnimationLottieView>) -> UIView {
-        let view = UIView()
-        let animationView = AnimationView()
+        UIView()
+    }
+
+    func updateUIView(_ view: UIView, context: UIViewRepresentableContext<AnimationLottieView>) {
+        let animationView = Lottie.AnimationView()
         animationView.contentMode = .scaleAspectFit
         animationView.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.subviews.first?.removeFromSuperview()
         view.addSubview(animationView)
         
         NSLayoutConstraint.activate([
             animationView.widthAnchor.constraint(equalTo: view.widthAnchor),
             animationView.heightAnchor.constraint(equalTo: view.heightAnchor)
         ])
-
-        return view
-    }
-
-    func updateUIView(_ view: UIView, context: UIViewRepresentableContext<AnimationLottieView>) {
-        let environment = context.coordinator.parent
-        guard let view = view.subviews.first,
-              let animationView = view as? AnimationView else { return }
         
-        animationView.animation = environment.animation
-        animationView.loopMode = environment.isLoop ? .loop : .playOnce
+        animationView.animation = animation
+        animationView.loopMode = isLoop ? .loop : .playOnce
         animationView.play()
     }
     

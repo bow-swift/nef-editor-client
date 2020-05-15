@@ -37,20 +37,16 @@ struct GenerationView: View {
         case .notGenerating:
             return AnyView(EmptyView())
         case .authenticating:
-            return AnyView(GenerationLoadingView(message: "Signing in..."))
+            return AnyView(GenerationSigninView())
         case let .initial(authentication, item):
             return AnyView(initialView(authentication: authentication, item: item))
         case .generating(let item):
-            return AnyView(
-                GenerationLoadingView(message: "Generating Swift Playground '\(item.title)'...\n\nPlease wait, this may take several minutes.",
-                                      animation: .init(lottie: .playgroundLoading, isLoop: true, offset: .init(x: -110, y: 0)))
-            )
+            return AnyView(GenerationPlaygroundBookView(playgroundName: item.title))
         case let .finished(item, url, _):
             return AnyView(finishedView(item: item, url: url))
         case let .error(generationError):
             return AnyView(
-                GenerationErrorView(message: generationError.description,
-                                    animation: .init(lottie: .generalError))
+                GenerationErrorView(message: generationError.description)
             )
         }
     }
@@ -111,7 +107,8 @@ struct GenerationView: View {
     func finishedView(item: CatalogItem, url: URL) -> some View {
         VStack {
             GenerationSuccessView(animation: .playgroundSuccess)
-            
+                .padding()
+                
             Text("Generation successful!")
                 .largeTitleStyle()
                 .padding()
@@ -145,9 +142,15 @@ struct GenerationView_Previews: PreviewProvider {
             
             GenerationView(state: .initial(.authenticated(token: ""), item)) { _ in }
             
+            GenerationView(state: .authenticating) { _ in }
+            
+            GenerationView(state: .generating(item)) { _ in }
+            
+            GenerationView(state: .error(.dataCorrupted)) { _ in }
+            
             GenerationView(state: .finished(item, URL(string: "https://bow-swift.io")!, .notSharing)) { _ in }
             
-        }.previewLayout(.fixed(width: 500, height: 500))
+        }.previewLayout(.fixed(width: 800, height: 800))
     }
 }
 

@@ -1,1 +1,0 @@
-typealias GenerationLoadingView = LoadingView

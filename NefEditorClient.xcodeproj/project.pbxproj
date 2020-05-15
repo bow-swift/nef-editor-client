@@ -38,7 +38,7 @@
 		11070286243C8178008583EB /* Requirement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11070285243C8178008583EB /* Requirement.swift */; };
 		11070289243C81DC008583EB /* RequirementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11070288243C81DC008583EB /* RequirementView.swift */; };
 		1107028B243C9987008583EB /* RepositoryDetailState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1107028A243C9987008583EB /* RepositoryDetailState.swift */; };
-		1107028D243C9A25008583EB /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1107028C243C9A25008583EB /* LoadingView.swift */; };
+		1107028D243C9A25008583EB /* AnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1107028C243C9A25008583EB /* AnimationView.swift */; };
 		1107028F243C9D0A008583EB /* LoadingRequirementsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1107028E243C9D0A008583EB /* LoadingRequirementsView.swift */; };
 		11070291243C9DF9008583EB /* ActivityTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11070290243C9DF9008583EB /* ActivityTextView.swift */; };
 		11070293243C9F27008583EB /* EmptyRequirementsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11070292243C9F27008583EB /* EmptyRequirementsView.swift */; };
@@ -68,6 +68,7 @@
 		1142543F2448A87000B2EA0C /* RepositoryDetailDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1142543E2448A87000B2EA0C /* RepositoryDetailDispatcher.swift */; };
 		114254422448AEFF00B2EA0C /* RepositoryDetailComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114254412448AEFF00B2EA0C /* RepositoryDetailComponent.swift */; };
 		11425445244990AB00B2EA0C /* Data+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11425444244990AB00B2EA0C /* Data+Equatable.swift */; };
+		1146B09D246F102100DACF98 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1146B09C246F102100DACF98 /* LoadingView.swift */; };
 		114AF44C24597675000116B7 /* View+Modal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114AF44B24597675000116B7 /* View+Modal.swift */; };
 		114AF45224598700000116B7 /* EditAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114AF45124598700000116B7 /* EditAction.swift */; };
 		114AF45424598736000116B7 /* EditDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114AF45324598736000116B7 /* EditDispatcher.swift */; };
@@ -76,7 +77,7 @@
 		114AF45C24598E15000116B7 /* CatalogDetailDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114AF45B24598E15000116B7 /* CatalogDetailDispatcher.swift */; };
 		114AF45F24598FC0000116B7 /* CatalogDetailComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114AF45E24598FC0000116B7 /* CatalogDetailComponent.swift */; };
 		114AF4652459CA18000116B7 /* AppDispatcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114AF4642459CA18000116B7 /* AppDispatcherTests.swift */; };
-		1150CDC3246AEE8C003509B4 /* GenerationLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1150CDC2246AEE8C003509B4 /* GenerationLoadingView.swift */; };
+		1150CDC3246AEE8C003509B4 /* GenerationSigninView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1150CDC2246AEE8C003509B4 /* GenerationSigninView.swift */; };
 		1150CDC5246AF468003509B4 /* NefEditorUtils in Frameworks */ = {isa = PBXBuildFile; productRef = 1150CDC4246AF468003509B4 /* NefEditorUtils */; };
 		1150CDC7246B0D8D003509B4 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1150CDC6246B0D8D003509B4 /* ActivityViewController.swift */; };
 		1150CDC9246C43C0003509B4 /* URLSession+IO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1150CDC8246C43C0003509B4 /* URLSession+IO.swift */; };
@@ -155,6 +156,7 @@
 		8B06E8CE246D5361008C7189 /* SectionTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B06E8CD246D5361008C7189 /* SectionTitle.swift */; };
 		8B3FEAEF246DA3FE00642BF3 /* LottieAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3FEAEE246DA3FE00642BF3 /* LottieAnimation.swift */; };
 		8B3FEAF1246DA41900642BF3 /* Animations in Resources */ = {isa = PBXBuildFile; fileRef = 8B3FEAF0246DA41900642BF3 /* Animations */; };
+		8B787847246ECD9D003828F0 /* GenerationPlaygroundBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B787846246ECD9D003828F0 /* GenerationPlaygroundBookView.swift */; };
 		8BC3C90B246D7A2600EC9F36 /* GenerationSuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3C90A246D7A2600EC9F36 /* GenerationSuccessView.swift */; };
 /* End PBXBuildFile section */
 
@@ -176,7 +178,7 @@
 		11070285243C8178008583EB /* Requirement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requirement.swift; sourceTree = "<group>"; };
 		11070288243C81DC008583EB /* RequirementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequirementView.swift; sourceTree = "<group>"; };
 		1107028A243C9987008583EB /* RepositoryDetailState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailState.swift; sourceTree = "<group>"; };
-		1107028C243C9A25008583EB /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		1107028C243C9A25008583EB /* AnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationView.swift; sourceTree = "<group>"; };
 		1107028E243C9D0A008583EB /* LoadingRequirementsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingRequirementsView.swift; sourceTree = "<group>"; };
 		11070290243C9DF9008583EB /* ActivityTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTextView.swift; sourceTree = "<group>"; };
 		11070292243C9F27008583EB /* EmptyRequirementsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyRequirementsView.swift; sourceTree = "<group>"; };
@@ -185,7 +187,6 @@
 		112EA4E52461868000F91DBA /* NefEditorClientRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NefEditorClientRelease.entitlements; sourceTree = "<group>"; };
 		112EA4E724618EC700F91DBA /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		112EA4E924618F7400F91DBA /* ICloudPersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICloudPersistence.swift; sourceTree = "<group>"; };
-		112FDCB4246AC8F1009A2B97 /* NefAPI */ = {isa = PBXFileReference; lastKnownFileType = folder; path = NefAPI; sourceTree = "<group>"; };
 		1139BF802462E23700BC283A /* AppDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependencies.swift; sourceTree = "<group>"; };
 		1139BF8524640D3800BC283A /* ICloudStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICloudStatus.swift; sourceTree = "<group>"; };
 		1139BF8924641CB400BC283A /* CreditsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsView.swift; sourceTree = "<group>"; };
@@ -205,6 +206,9 @@
 		1142543E2448A87000B2EA0C /* RepositoryDetailDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailDispatcher.swift; sourceTree = "<group>"; };
 		114254412448AEFF00B2EA0C /* RepositoryDetailComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailComponent.swift; sourceTree = "<group>"; };
 		11425444244990AB00B2EA0C /* Data+Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Equatable.swift"; sourceTree = "<group>"; };
+		1146B09A246F0DD900DACF98 /* GitHub */ = {isa = PBXFileReference; lastKnownFileType = folder; path = GitHub; sourceTree = "<group>"; };
+		1146B09B246F0DE600DACF98 /* NefAPI */ = {isa = PBXFileReference; lastKnownFileType = folder; path = NefAPI; sourceTree = "<group>"; };
+		1146B09C246F102100DACF98 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		114AF44B24597675000116B7 /* View+Modal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Modal.swift"; sourceTree = "<group>"; };
 		114AF45124598700000116B7 /* EditAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAction.swift; sourceTree = "<group>"; };
 		114AF45324598736000116B7 /* EditDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDispatcher.swift; sourceTree = "<group>"; };
@@ -213,7 +217,7 @@
 		114AF45B24598E15000116B7 /* CatalogDetailDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogDetailDispatcher.swift; sourceTree = "<group>"; };
 		114AF45E24598FC0000116B7 /* CatalogDetailComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogDetailComponent.swift; sourceTree = "<group>"; };
 		114AF4642459CA18000116B7 /* AppDispatcherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDispatcherTests.swift; sourceTree = "<group>"; };
-		1150CDC2246AEE8C003509B4 /* GenerationLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerationLoadingView.swift; sourceTree = "<group>"; };
+		1150CDC2246AEE8C003509B4 /* GenerationSigninView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerationSigninView.swift; sourceTree = "<group>"; };
 		1150CDC6246B0D8D003509B4 /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		1150CDC8246C43C0003509B4 /* URLSession+IO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+IO.swift"; sourceTree = "<group>"; };
 		1155FDCC246D26E900F5F819 /* MainDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDispatcher.swift; sourceTree = "<group>"; };
@@ -289,11 +293,11 @@
 		11FE7ACC2465AD330011DB41 /* GenerationErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerationErrorView.swift; sourceTree = "<group>"; };
 		11FE7ACE2465B8930011DB41 /* GenerationDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerationDispatcher.swift; sourceTree = "<group>"; };
 		11FE7AE3246A99D40011DB41 /* nef.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = nef.yaml; sourceTree = "<group>"; };
-		11FE7AED246AC11E0011DB41 /* GitHub */ = {isa = PBXFileReference; lastKnownFileType = folder; path = GitHub; sourceTree = "<group>"; };
 		8B06E8CB246D4D97008C7189 /* Rectangle+Separator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Rectangle+Separator.swift"; sourceTree = "<group>"; };
 		8B06E8CD246D5361008C7189 /* SectionTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTitle.swift; sourceTree = "<group>"; };
 		8B3FEAEE246DA3FE00642BF3 /* LottieAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LottieAnimation.swift; sourceTree = "<group>"; };
 		8B3FEAF0246DA41900642BF3 /* Animations */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Animations; sourceTree = "<group>"; };
+		8B787846246ECD9D003828F0 /* GenerationPlaygroundBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerationPlaygroundBookView.swift; sourceTree = "<group>"; };
 		8BC3C90A246D7A2600EC9F36 /* GenerationSuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerationSuccessView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -456,9 +460,10 @@
 			isa = PBXGroup;
 			children = (
 				11FE7ACC2465AD330011DB41 /* GenerationErrorView.swift */,
-				1139BFA42464609600BC283A /* GenerationView.swift */,
-				1150CDC2246AEE8C003509B4 /* GenerationLoadingView.swift */,
+				8B787846246ECD9D003828F0 /* GenerationPlaygroundBookView.swift */,
+				1150CDC2246AEE8C003509B4 /* GenerationSigninView.swift */,
 				8BC3C90A246D7A2600EC9F36 /* GenerationSuccessView.swift */,
+				1139BFA42464609600BC283A /* GenerationView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -571,8 +576,8 @@
 			children = (
 				11EDF467243714210092E959 /* github.yaml */,
 				11FE7AE3246A99D40011DB41 /* nef.yaml */,
-				11FE7AED246AC11E0011DB41 /* GitHub */,
-				112FDCB4246AC8F1009A2B97 /* NefAPI */,
+				1146B09A246F0DD900DACF98 /* GitHub */,
+				1146B09B246F0DE600DACF98 /* NefAPI */,
 				1163838224321FD100EB2DEF /* NefEditorClient */,
 				1163839924321FD400EB2DEF /* NefEditorClientTests */,
 				1163838124321FD100EB2DEF /* Products */,
@@ -793,6 +798,7 @@
 				11BFE9FD243B3C2200D4F891 /* ActivityIndicator.swift */,
 				11070290243C9DF9008583EB /* ActivityTextView.swift */,
 				1150CDC6246B0D8D003509B4 /* ActivityViewController.swift */,
+				1107028C243C9A25008583EB /* AnimationView.swift */,
 				1101A3AF245AB994002A848B /* AvatarView.swift */,
 				11CB85922437825100CE4592 /* CardView.swift */,
 				11B125C5244721BF00E2D1C3 /* ColorPalette.swift */,
@@ -800,7 +806,7 @@
 				11C95A5424504E3D00659C97 /* Image+System.swift */,
 				1155FDD8246D92AA00F5F819 /* KeyboardPadding.swift */,
 				1139BF8B246425E100BC283A /* LibraryButtonStyle.swift */,
-				1107028C243C9A25008583EB /* LoadingView.swift */,
+				1146B09C246F102100DACF98 /* LoadingView.swift */,
 				8B3FEAEE246DA3FE00642BF3 /* LottieAnimation.swift */,
 				1155FDD6246D696700F5F819 /* NavigationBarButtonStyle.swift */,
 				8B06E8CB246D4D97008C7189 /* Rectangle+Separator.swift */,
@@ -1035,6 +1041,7 @@
 				11C95A5524504E3D00659C97 /* Image+System.swift in Sources */,
 				1139BF9A2464321E00BC283A /* CreditsComponent.swift in Sources */,
 				11AD8DCD243DC4870005E450 /* TagView.swift in Sources */,
+				8B787847246ECD9D003828F0 /* GenerationPlaygroundBookView.swift in Sources */,
 				8BC3C90B246D7A2600EC9F36 /* GenerationSuccessView.swift in Sources */,
 				1163BA92244DF933005B0785 /* EditState.swift in Sources */,
 				11FE7ACD2465AD330011DB41 /* GenerationErrorView.swift in Sources */,
@@ -1093,7 +1100,7 @@
 				11B125C82447242C00E2D1C3 /* TextButtonStyle.swift in Sources */,
 				11BFEA07243B519A00D4F891 /* SearchState.swift in Sources */,
 				11EDF44F2435F5AA0092E959 /* AppView.swift in Sources */,
-				1150CDC3246AEE8C003509B4 /* GenerationLoadingView.swift in Sources */,
+				1150CDC3246AEE8C003509B4 /* GenerationSigninView.swift in Sources */,
 				11425445244990AB00B2EA0C /* Data+Equatable.swift in Sources */,
 				1139BFA124645F3400BC283A /* AuthenticationInfo.swift in Sources */,
 				1139BFA52464609600BC283A /* GenerationView.swift in Sources */,
@@ -1117,7 +1124,7 @@
 				11B125B32444BC9000E2D1C3 /* CatalogItemGridView.swift in Sources */,
 				112EA4E824618EC700F91DBA /* Persistence.swift in Sources */,
 				1150CDC7246B0D8D003509B4 /* ActivityViewController.swift in Sources */,
-				1107028D243C9A25008583EB /* LoadingView.swift in Sources */,
+				1107028D243C9A25008583EB /* AnimationView.swift in Sources */,
 				114AF45424598736000116B7 /* EditDispatcher.swift in Sources */,
 				11AD8DD7243E19440005E450 /* Dependency.swift in Sources */,
 				11070289243C81DC008583EB /* RequirementView.swift in Sources */,
@@ -1127,6 +1134,7 @@
 				1187BD67243FAD6300FF668F /* FeaturedRecipeView.swift in Sources */,
 				11E07F13243B20E000A0A027 /* RepositoryGridView.swift in Sources */,
 				1139BF812462E23700BC283A /* AppDependencies.swift in Sources */,
+				1146B09D246F102100DACF98 /* LoadingView.swift in Sources */,
 				11AD8DC9243CAAE20005E450 /* RepositoryDetailView.swift in Sources */,
 				1155FDD9246D92AA00F5F819 /* KeyboardPadding.swift in Sources */,
 				11CB85932437825100CE4592 /* CardView.swift in Sources */,
