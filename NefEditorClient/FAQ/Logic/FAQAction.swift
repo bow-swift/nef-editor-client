@@ -14,9 +14,9 @@ enum FAQAction {
         case .visit47Degrees:
             return URL(string: "https://www.47deg.com")
         case .visitBowSwift:
-            return URL(string: "https://www.bow-swift.io")
+            return URL(string: "https://github.com/bow-swift")
         case .followBowSwift:
-            return URL(string: "https://www.twitter.com/bow-swift")
+            return URL(string: "https://www.twitter.com/bow_swift")
         default:
             return nil
         }
