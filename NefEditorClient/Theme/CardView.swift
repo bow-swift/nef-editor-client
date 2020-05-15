@@ -4,7 +4,7 @@ enum Card {
     static var minimumWidth: CGFloat {
         let screen = UIScreen.main.bounds
         let width = max(screen.size.width, screen.size.height)
-        if width > 1100 {
+        if width > 1200 {
             return 420
         } else {
             return 340
