@@ -1,6 +1,8 @@
 import SwiftUI
 
 struct FAQView: View {
+    let handle: (FAQAction) -> Void
+    
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 24) {
@@ -16,9 +18,9 @@ struct FAQView: View {
                     In order to do so, your dependencies will be downloaded in our server, and put together into a Swift Playground Book that you will receive.
                     """)
                     
-                    link(text: "Visit nef GitHub repository")
+                    link(text: "Visit nef GitHub repository", action: .visitNef)
                     
-                    link(text: "Visit 47 Degrees website")
+                    link(text: "Visit 47 Degrees website", action: .visit47Degrees)
                 }
                 
                 Rectangle.separator
@@ -56,9 +58,9 @@ struct FAQView: View {
                         Even if you cannot contribute, just sharing on Twitter or starring our projects gives us motivation to continue working on this.
                         """)
                     
-                    link(text: "Visit bow-swift on GitHub")
+                    link(text: "Visit bow-swift on GitHub", action: .visitBowSwift)
                     
-                    link(text: "Follow @bow-swift on Twitter")
+                    link(text: "Follow @bow-swift on Twitter", action: .followBowSwift)
                 }
                 
                 Rectangle.separator
@@ -78,7 +80,7 @@ struct FAQView: View {
         .navigationBarTitle("F.A.Q.", displayMode: .inline)
         .navigationBarItems(leading:
             Button("Cancel") {
-                
+                self.handle(.dismissFAQ)
             }.navigationBarButtonStyle()
         )
     }
@@ -100,9 +102,9 @@ struct FAQView: View {
         }
     }
     
-    func link(text: String) -> some View {
+    func link(text: String, action: FAQAction) -> some View {
         Button(text) {
-            
+            self.handle(action)
         }.foregroundColor(.nef)
         .safeHoverEffect()
     }
@@ -112,7 +114,7 @@ struct FAQView: View {
 struct FAQView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            FAQView()
+            FAQView() { _ in }
         }
         .navigationViewStyle(StackNavigationViewStyle())
         .previewLayout(.fixed(width: 500, height: 1550))
