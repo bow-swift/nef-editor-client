@@ -10,6 +10,7 @@ extension View {
                 .activityStyle()
                 .multilineTextAlignment(.center)
                 .fixedSize(horizontal: false, vertical: true)
+                .padding()
                 .layoutPriority(1)
         }
     }

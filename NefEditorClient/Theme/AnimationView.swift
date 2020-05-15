@@ -20,22 +20,22 @@ struct AnimationView: View {
     }
     
     var body: some View {
-        GeometryReader { geometry in
-            self.animationView(size: geometry.size)
-        }
+        self.animationView()
     }
     
-    private func animationView(size: CGSize) -> some View {
+    private func animationView() -> some View {
         guard let animation = animation,
               let lottieView = animation.lottie.view(isLoop: animation.isLoop) else {
             return AnyView(ActivityIndicator(isAnimating: .constant(true), style: .large))
         }
         
         return AnyView(
-            lottieView
-                .offset(animation.lottie.fixOffset)
-                .aspectRatio(contentMode: .fill)
-                .frame(width: size.width, height: size.height)
+            GeometryReader { geometry in
+                lottieView
+                    .offset(animation.lottie.fixOffset(size: geometry.size))
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: geometry.size.width, height: geometry.size.height)
+            }
         )
     }
 }

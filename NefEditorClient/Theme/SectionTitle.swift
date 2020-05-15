@@ -24,7 +24,7 @@ struct SectionTitle: View {
             Text(title)
                 .largeTitleStyle()
             self.actionView()
-                .alignmentGuide(.firstTextBaseline) { d in d[.bottom]*0.82 }
+                .alignmentGuide(.firstTextBaseline) { d in d[.bottom] * 0.82 }
                 .padding(.leading, 16)
             Spacer()
         }

@@ -8,10 +8,10 @@ enum LottieAnimation: String {
     case playgroundLoading = "playgroundbook-loading"
     case playgroundSuccess = "playgroundbook-success"
     
-    var fixOffset: CGSize {
+    func fixOffset(size: CGSize) -> CGSize {
         switch self {
         case .playgroundLoading:
-            return .init(width: -140, height: 0)
+            return .init(width: -size.width*0.2, height: 0)
         default:
             return .zero
         }
