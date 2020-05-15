@@ -33,8 +33,8 @@ extension Image {
         Image(systemName: "info.circle.fill")
     }
     
-    static var success: Image {
-        Image(systemName: "checkmark.seal.fill")
+    static var faq: Image {
+        Image(systemName: "questionmark.circle.fill")
     }
     
     static var nefClear: Image {

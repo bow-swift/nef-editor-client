@@ -14,4 +14,5 @@ enum AppAction: AutoPrism {
     case dismissICloudAlert
     case showSettings
     case showCredits
+    case showFAQ
 }

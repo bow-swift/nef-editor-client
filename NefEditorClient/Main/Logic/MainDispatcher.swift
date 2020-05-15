@@ -23,6 +23,9 @@ let mainDispatcher = MainDispatcher.workflow { action in
     case .showCredits:
         return [EnvIO.pure(showCredits())^]
         
+    case .showFAQ:
+        return [EnvIO.pure(showFAQ())^]
+        
     case .searchAction(let action):
         switch action {
         case .cancelSearch:
@@ -80,6 +83,12 @@ func showSettings() -> EnvIO<Any, Error, State<AppState, Void>> {
 func showCredits() -> State<AppState, Void> {
     .modify { state in
         state.copy(modalState: .credits)
+    }^
+}
+
+func showFAQ() -> State<AppState, Void> {
+    .modify { state in
+        state.copy(modalState: .faq)
     }^
 }
 
