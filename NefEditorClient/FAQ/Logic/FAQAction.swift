@@ -1,19 +1,24 @@
+import Foundation
+
 enum FAQAction {
     case visitNef
     case visit47Degrees
     case visitBowSwift
     case followBowSwift
+    case dismissFAQ
     
-    var url: String {
+    var url: URL? {
         switch self {
         case .visitNef:
-            return "https://github.com/bow-swift/nef"
+            return URL(string: "https://github.com/bow-swift/nef")
         case .visit47Degrees:
-            return "https://www.47deg.com"
+            return URL(string: "https://www.47deg.com")
         case .visitBowSwift:
-            return "https://www.bow-swift.io"
+            return URL(string: "https://www.bow-swift.io")
         case .followBowSwift:
-            return "https://www.twitter.com/bow-swift"
+            return URL(string: "https://www.twitter.com/bow-swift")
+        default:
+            return nil
         }
     }
 }
