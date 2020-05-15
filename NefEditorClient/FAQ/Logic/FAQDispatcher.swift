@@ -7,7 +7,12 @@ import UIKit
 typealias FAQDispatcher = StateDispatcher<Any, AppState, FAQAction>
 
 let faqDispatcher = FAQDispatcher.effectful { input in
-    return open(url: input.url)
+    switch input {
+    case .dismissFAQ:
+        return EnvIO.pure(dismissModal())^
+    default:
+        return open(url: input.url)
+    }
 }
 
 func open(url: URL?) -> EnvIO<Any, Error, State<AppState, Void>> {
