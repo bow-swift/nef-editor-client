@@ -37,32 +37,16 @@ struct GenerationView: View {
         case .notGenerating:
             return AnyView(EmptyView())
         case .authenticating:
-            return AnyView(
-                VStack {
-                    GenerationLoadingView(message: "Signing in...", animation: .init(lottie: .generalLoading, isLoop: true))
-                        .padding(.top, 40)
-                    Spacer()
-                }
-            )
+            return AnyView(GenerationSigninView())
         case let .initial(authentication, item):
             return AnyView(initialView(authentication: authentication, item: item))
         case .generating(let item):
-            return AnyView(
-                VStack {
-                    GenerationLoadingView(message: "Generating Swift Playground '\(item.title)'...\n\nPlease wait, this may take several minutes.",
-                                          animation: .init(lottie: .playgroundLoading, isLoop: true)).padding(.top, 80)
-                    Spacer()
-                }
-            )
+            return AnyView(GenerationPlaygroundBookView(playgroundName: item.title))
         case let .finished(item, url, _):
             return AnyView(finishedView(item: item, url: url))
         case let .error(generationError):
             return AnyView(
-                VStack {
-                    GenerationErrorView(message: generationError.description,
-                                        animation: .init(lottie: .generalError)).padding(.top, 80)
-                    Spacer()
-                }
+                GenerationErrorView(message: generationError.description)
             )
         }
     }
@@ -123,7 +107,8 @@ struct GenerationView: View {
     func finishedView(item: CatalogItem, url: URL) -> some View {
         VStack {
             GenerationSuccessView(animation: .playgroundSuccess)
-            
+                .padding()
+                
             Text("Generation successful!")
                 .largeTitleStyle()
                 .padding()

@@ -11,7 +11,7 @@ enum LottieAnimation: String {
     var fixOffset: CGSize {
         switch self {
         case .playgroundLoading:
-            return .init(width: -110, height: 0)
+            return .init(width: -140, height: 0)
         default:
             return .zero
         }
@@ -39,7 +39,7 @@ struct AnimationLottieView: UIViewRepresentable, Identifiable {
     }
 
     func updateUIView(_ view: UIView, context: UIViewRepresentableContext<AnimationLottieView>) {
-        let animationView = AnimationView()
+        let animationView = Lottie.AnimationView()
         animationView.contentMode = .scaleAspectFit
         animationView.translatesAutoresizingMaskIntoConstraints = false
         
