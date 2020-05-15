@@ -24,8 +24,8 @@ struct RecipeCatalogView: View {
     }
     
     private func columns(for size: CGSize) -> Int {
-        let minimumCardWidth: CGFloat = 340
-        return Int(floor(size.width / minimumCardWidth))
+        let minimumCardWidth: CGFloat = Card.minimumWidth
+        return max(Int(floor(size.width / minimumCardWidth)), 1)
     }
 }
 

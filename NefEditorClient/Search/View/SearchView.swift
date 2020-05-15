@@ -81,8 +81,8 @@ struct SearchView<Detail: View>: View {
     }
     
     private func columns(for width: CGFloat) -> Int {
-        let minimumCardWidth: CGFloat = 350
-        return Int(floor(width / minimumCardWidth))
+        let minimumCardWidth: CGFloat = Card.minimumWidth
+        return max(Int(floor(width / minimumCardWidth)), 1)
     }
 }
 

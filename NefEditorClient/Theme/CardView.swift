@@ -1,5 +1,17 @@
 import SwiftUI
 
+enum Card {
+    static var minimumWidth: CGFloat {
+        let screen = UIScreen.main.bounds
+        let width = max(screen.size.width, screen.size.height)
+        if width > 1100 {
+            return 420
+        } else {
+            return 340
+        }
+    }
+}
+
 struct CardView<Content: View>: View {
     @Environment(\.colorScheme) var colorScheme
     
