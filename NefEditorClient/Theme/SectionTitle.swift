@@ -24,6 +24,8 @@ struct SectionTitle: View {
             Text(title)
                 .largeTitleStyle()
             self.actionView()
+                .alignmentGuide(.firstTextBaseline) { d in d[.bottom]*0.82 }
+                .padding(.leading, 16)
             Spacer()
         }
     }
@@ -36,7 +38,6 @@ struct SectionTitle: View {
         return AnyView(
             Button(action: action.handle) { action.icon }
                 .buttonStyle(ActionButtonStyle())
-                .offset(x: 16, y: 4)
         )
     }
 }
