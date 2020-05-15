@@ -86,20 +86,16 @@ struct FAQView: View {
     }
     
     func questionView(question: String, answer: String) -> some View {
-        HStack {
-            VStack(alignment: .leading, spacing: 16) {
-                Text(question)
-                    .titleStyle()
-                
-                Text(answer)
-                    .activityStyle()
-                    .lineLimit(.max)
-                    .multilineTextAlignment(.leading)
-                    .frame(maxWidth: .infinity)
-                    .padding(.leading, 16)
-            }
-            Spacer(minLength: 0)
-        }
+        VStack(alignment: .leading, spacing: 16) {
+            Text(question)
+                .titleStyle()
+            
+            Text(answer)
+                .activityStyle()
+                .lineLimit(.max)
+                .multilineTextAlignment(.leading)
+                .frame(maxWidth: .infinity)
+        }.frame(maxWidth: .infinity)
     }
     
     func link(text: String, action: FAQAction) -> some View {
