@@ -39,7 +39,7 @@ struct GenerationView: View {
         case .authenticating:
             return AnyView(
                 VStack {
-                    GenerationLoadingView(message: "Signing in...", animation: .init(lottie: .generalLoading))
+                    GenerationLoadingView(message: "Signing in...", animation: .init(lottie: .generalLoading, isLoop: true))
                         .padding(.top, 40)
                     Spacer()
                 }
@@ -50,7 +50,7 @@ struct GenerationView: View {
             return AnyView(
                 VStack {
                     GenerationLoadingView(message: "Generating Swift Playground '\(item.title)'...\n\nPlease wait, this may take several minutes.",
-                                          animation: .init(lottie: .playgroundLoading, isLoop: true, offset: .init(x: -110, y: 0))).padding(.top, 80)
+                                          animation: .init(lottie: .playgroundLoading, isLoop: true)).padding(.top, 80)
                     Spacer()
                 }
             )

@@ -7,6 +7,15 @@ enum LottieAnimation: String {
     case githubSearch = "github-search"
     case playgroundLoading = "playgroundbook-loading"
     case playgroundSuccess = "playgroundbook-success"
+    
+    var fixOffset: CGSize {
+        switch self {
+        case .playgroundLoading:
+            return .init(width: -110, height: 0)
+        default:
+            return .zero
+        }
+    }
 }
 
 extension LottieAnimation {

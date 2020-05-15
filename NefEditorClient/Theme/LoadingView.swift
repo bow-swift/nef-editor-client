@@ -5,12 +5,10 @@ struct LoadingView: View, Identifiable {
         var id: LottieAnimation { lottie }
         
         let lottie: LottieAnimation
-        let offset: CGPoint
         let isLoop: Bool
         
-        init(lottie: LottieAnimation, isLoop: Bool = false, offset: CGPoint = .zero) {
+        init(lottie: LottieAnimation, isLoop: Bool = false) {
             self.lottie = lottie
-            self.offset = offset
             self.isLoop = isLoop
         }
     }
@@ -27,7 +25,6 @@ struct LoadingView: View, Identifiable {
     var body: some View {
         VStack {
             self.animationView()
-                .padding(.bottom, 16)
             
             Text(self.message)
                 .activityStyle()
@@ -44,8 +41,8 @@ struct LoadingView: View, Identifiable {
         
         return AnyView(
             lottieView
-                .offset(x: animation.offset.x, y: animation.offset.y)
-                .frame(width: 600, height: 300)
+            .offset(animation.lottie.fixOffset)
+            .frame(width: 600, height: 300)
         )
     }
 }
