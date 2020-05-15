@@ -1,10 +1,11 @@
 import SwiftUI
 
-struct AppModalView<EditView: View, GenerationView: View, CreditsView: View>: View {
+struct AppModalView<EditView: View, GenerationView: View, CreditsView: View, FAQView: View>: View {
     let state: AppModalState
     let editView: (EditState) -> EditView
     let generationView: (GenerationState) -> GenerationView
     let creditsView: CreditsView
+    let faqView: FAQView
     
     var body: some View {
         switch state {
@@ -16,6 +17,8 @@ struct AppModalView<EditView: View, GenerationView: View, CreditsView: View>: Vi
             return AnyView(creditsView)
         case .generation(let generationState):
             return AnyView(generationView(generationState))
+        case .faq:
+            return AnyView(faqView)
         }
     }
 }

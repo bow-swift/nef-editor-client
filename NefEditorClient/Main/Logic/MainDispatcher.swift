@@ -31,7 +31,7 @@ let mainDispatcher = MainDispatcher.workflow { action in
             return []
         }
         
-    case .catalogAction(_), .editAction(_), .catalogDetailAction(_), .creditsAction(_), .generationAction(_):
+    case .catalogAction(_), .editAction(_), .catalogDetailAction(_), .creditsAction(_), .generationAction(_), .faqAction(_):
         return []
     case .initialLoad:
         return [initialLoad()]

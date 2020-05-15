@@ -7,6 +7,7 @@ enum AppAction: AutoPrism {
     case catalogDetailAction(CatalogDetailAction)
     case generationAction(GenerationAction)
     case creditsAction(CreditsAction)
+    case faqAction(FAQAction)
     case initialLoad
     case dismissModal
     case showICloudAlert

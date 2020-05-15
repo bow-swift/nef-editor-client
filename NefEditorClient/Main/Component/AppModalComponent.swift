@@ -1,6 +1,6 @@
 import BowArch
 
-typealias AppModalComponent = StoreComponent<Any, AppModalState, AppAction, AppModalView<EditComponent, GenerationComponent, CreditsComponent>>
+typealias AppModalComponent = StoreComponent<Any, AppModalState, AppAction, AppModalView<EditComponent, GenerationComponent, CreditsComponent, FAQComponent>>
 
 func appModalComponent(state: AppModalState) -> AppModalComponent {
     AppModalComponent(initialState: state) { state, handle in
@@ -18,7 +18,10 @@ func appModalComponent(state: AppModalState) -> AppModalComponent {
             },
          
             creditsView: creditsComponent()
-                .using(handle, transformInput: AppAction.prism(for: AppAction.creditsAction))
+                .using(handle, transformInput: AppAction.prism(for: AppAction.creditsAction)),
+            
+            faqView: faqComponent()
+                .using(handle, transformInput: AppAction.prism(for: AppAction.faqAction))
         )
     }
 }

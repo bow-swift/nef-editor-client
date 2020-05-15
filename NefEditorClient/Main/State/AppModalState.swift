@@ -3,6 +3,7 @@ enum AppModalState: Equatable {
     case edit(EditState)
     case credits
     case generation(GenerationState)
+    case faq
     
     var editState: EditState? {
         guard case let .edit(state) = self else {
