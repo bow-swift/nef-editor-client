@@ -69,6 +69,10 @@
 		114254422448AEFF00B2EA0C /* RepositoryDetailComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114254412448AEFF00B2EA0C /* RepositoryDetailComponent.swift */; };
 		11425445244990AB00B2EA0C /* Data+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11425444244990AB00B2EA0C /* Data+Equatable.swift */; };
 		1146B09D246F102100DACF98 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1146B09C246F102100DACF98 /* LoadingView.swift */; };
+		1146B0A6246F14F900DACF98 /* FAQAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1146B0A0246F14F900DACF98 /* FAQAction.swift */; };
+		1146B0A7246F14F900DACF98 /* FAQDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1146B0A1246F14F900DACF98 /* FAQDispatcher.swift */; };
+		1146B0A8246F14F900DACF98 /* FAQComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1146B0A3246F14F900DACF98 /* FAQComponent.swift */; };
+		1146B0A9246F14F900DACF98 /* FAQView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1146B0A5246F14F900DACF98 /* FAQView.swift */; };
 		114AF44C24597675000116B7 /* View+Modal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114AF44B24597675000116B7 /* View+Modal.swift */; };
 		114AF45224598700000116B7 /* EditAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114AF45124598700000116B7 /* EditAction.swift */; };
 		114AF45424598736000116B7 /* EditDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114AF45324598736000116B7 /* EditDispatcher.swift */; };
@@ -209,6 +213,10 @@
 		1146B09A246F0DD900DACF98 /* GitHub */ = {isa = PBXFileReference; lastKnownFileType = folder; path = GitHub; sourceTree = "<group>"; };
 		1146B09B246F0DE600DACF98 /* NefAPI */ = {isa = PBXFileReference; lastKnownFileType = folder; path = NefAPI; sourceTree = "<group>"; };
 		1146B09C246F102100DACF98 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		1146B0A0246F14F900DACF98 /* FAQAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FAQAction.swift; sourceTree = "<group>"; };
+		1146B0A1246F14F900DACF98 /* FAQDispatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FAQDispatcher.swift; sourceTree = "<group>"; };
+		1146B0A3246F14F900DACF98 /* FAQComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FAQComponent.swift; sourceTree = "<group>"; };
+		1146B0A5246F14F900DACF98 /* FAQView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FAQView.swift; sourceTree = "<group>"; };
 		114AF44B24597675000116B7 /* View+Modal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Modal.swift"; sourceTree = "<group>"; };
 		114AF45124598700000116B7 /* EditAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAction.swift; sourceTree = "<group>"; };
 		114AF45324598736000116B7 /* EditDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDispatcher.swift; sourceTree = "<group>"; };
@@ -510,6 +518,41 @@
 			path = GitHubExtensions;
 			sourceTree = "<group>";
 		};
+		1146B09E246F14F900DACF98 /* FAQ */ = {
+			isa = PBXGroup;
+			children = (
+				1146B09F246F14F900DACF98 /* Logic */,
+				1146B0A2246F14F900DACF98 /* Component */,
+				1146B0A4246F14F900DACF98 /* View */,
+			);
+			path = FAQ;
+			sourceTree = "<group>";
+		};
+		1146B09F246F14F900DACF98 /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				1146B0A0246F14F900DACF98 /* FAQAction.swift */,
+				1146B0A1246F14F900DACF98 /* FAQDispatcher.swift */,
+			);
+			path = Logic;
+			sourceTree = "<group>";
+		};
+		1146B0A2246F14F900DACF98 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				1146B0A3246F14F900DACF98 /* FAQComponent.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		1146B0A4246F14F900DACF98 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1146B0A5246F14F900DACF98 /* FAQView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		114AF44D2459863B000116B7 /* Edit */ = {
 			isa = PBXGroup;
 			children = (
@@ -597,19 +640,20 @@
 		1163838224321FD100EB2DEF /* NefEditorClient */ = {
 			isa = PBXGroup;
 			children = (
+				8B3FEAF0246DA41900642BF3 /* Animations */,
 				1101A3B3245AD933002A848B /* NefEditorClient.entitlements */,
 				112EA4E52461868000F91DBA /* NefEditorClientRelease.entitlements */,
 				1163839124321FD400EB2DEF /* Info.plist */,
 				1163838324321FD100EB2DEF /* AppDelegate.swift */,
 				1163838524321FD100EB2DEF /* SceneDelegate.swift */,
 				1163838924321FD400EB2DEF /* Assets.xcassets */,
-				8B3FEAF0246DA41900642BF3 /* Animations */,
 				1139BF9B24645B0000BC283A /* Authentication */,
 				11AD8DCA243DC42E0005E450 /* Catalog */,
 				1139BF8724641C9D00BC283A /* Credits */,
 				11B125BD2447074500E2D1C3 /* Detail */,
 				114AF44D2459863B000116B7 /* Edit */,
 				11E07F14243B218E00A0A027 /* Extensions */,
+				1146B09E246F14F900DACF98 /* FAQ */,
 				1139BFA22464604B00BC283A /* Generation */,
 				114254432449909600B2EA0C /* GitHubExtensions */,
 				1163838E24321FD400EB2DEF /* LaunchScreen.storyboard */,
@@ -1056,12 +1100,14 @@
 				1155FDD1246D2B0E00F5F819 /* AppModalView.swift in Sources */,
 				1163BA97244ED0C5005B0785 /* AppDispatcher.swift in Sources */,
 				1107028F243C9D0A008583EB /* LoadingRequirementsView.swift in Sources */,
+				1146B0A8246F14F900DACF98 /* FAQComponent.swift in Sources */,
 				11CB85952437848A00CE4592 /* TextStyle.swift in Sources */,
 				11AD8DD5243E19200005E450 /* Recipe.swift in Sources */,
 				1187BD692444525800FF668F /* CatalogItem.swift in Sources */,
 				11EDF4492435F4B70092E959 /* RecipeCatalogView.swift in Sources */,
 				1101A3B2245AD23F002A848B /* View+Conditional.swift in Sources */,
 				1139BF9324642DF900BC283A /* Library.swift in Sources */,
+				1146B0A7246F14F900DACF98 /* FAQDispatcher.swift in Sources */,
 				11B125B72444BCAC00E2D1C3 /* CatalogSection.swift in Sources */,
 				11070298243CA10E008583EB /* ErrorRequirementsView.swift in Sources */,
 				1139BFA72464634D00BC283A /* AuthenticationState.swift in Sources */,
@@ -1097,6 +1143,7 @@
 				1187BD65243FABED00FF668F /* FeaturedRecipe.swift in Sources */,
 				1142543A244879DE00B2EA0C /* SearchComponent.swift in Sources */,
 				11BFEA09243B525100D4F891 /* LoadingSearchView.swift in Sources */,
+				1146B0A6246F14F900DACF98 /* FAQAction.swift in Sources */,
 				11B125C82447242C00E2D1C3 /* TextButtonStyle.swift in Sources */,
 				11BFEA07243B519A00D4F891 /* SearchState.swift in Sources */,
 				11EDF44F2435F5AA0092E959 /* AppView.swift in Sources */,
@@ -1133,6 +1180,7 @@
 				1139BF9E24645D0800BC283A /* SignInButton.swift in Sources */,
 				1187BD67243FAD6300FF668F /* FeaturedRecipeView.swift in Sources */,
 				11E07F13243B20E000A0A027 /* RepositoryGridView.swift in Sources */,
+				1146B0A9246F14F900DACF98 /* FAQView.swift in Sources */,
 				1139BF812462E23700BC283A /* AppDependencies.swift in Sources */,
 				1146B09D246F102100DACF98 /* LoadingView.swift in Sources */,
 				11AD8DC9243CAAE20005E450 /* RepositoryDetailView.swift in Sources */,
@@ -1305,7 +1353,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"NefEditorClient/Preview Content\"";
 				DEVELOPMENT_TEAM = P548S5LU96;
 				ENABLE_PREVIEWS = YES;
@@ -1334,7 +1382,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"NefEditorClient/Preview Content\"";
 				DEVELOPMENT_TEAM = P548S5LU96;
 				ENABLE_PREVIEWS = YES;
