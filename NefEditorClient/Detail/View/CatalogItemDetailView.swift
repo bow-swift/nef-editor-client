@@ -37,10 +37,22 @@ struct CatalogItemDetailView: View {
                 Rectangle.separator
                     .padding(.top, 8)
                 
-                SectionTitle(title: "Dependencies",
-                             action: .init(icon: Image.plus,
-                                           handle: self.handle(.searchDependency)))
-                    .padding(.top, 24)
+                HStack(alignment: .center) {
+                    Text("Dependencies")
+                        .titleStyle()
+
+                    Spacer()
+
+                    if self.item.isEditable {
+                        Button(action: {
+                            self.handle(.searchDependency)
+                        }) {
+                            Image.plus
+                        }
+                        .buttonStyle(ActionButtonStyle())
+                        .alignmentGuide(.firstTextBaseline) { d in d[.bottom] * 0.82 }
+                    }
+                }.padding(.top, 24)
                 
                 DependencyListView(
                     dependencies: self.item.dependencies,

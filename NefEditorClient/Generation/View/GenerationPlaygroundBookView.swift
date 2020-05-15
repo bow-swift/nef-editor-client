@@ -8,12 +8,17 @@ struct GenerationPlaygroundBookView: View {
             AnimationView(animation: AnimationView.Animation(lottie: .playgroundLoading, isLoop: true))
                 .aspectRatio(contentMode: .fill)
                 .frame(height: 448)
-                .activityStyle(message: """
-                                        Generating Swift Playground '\(playgroundName)'...
-                                        
-                                        
-                                        Please wait, this may take several minutes.
-                                        """)
+                
+            Text(
+                """
+                Generating Swift Playground '\(playgroundName)'...
+                
+                
+                Please wait, this may take several minutes.
+                """
+            ).activityStyle()
+            .multilineTextAlignment(.center)
+            
             Spacer()
         }
     }

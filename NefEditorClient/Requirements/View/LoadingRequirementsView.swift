@@ -5,8 +5,7 @@ struct LoadingRequirementsView: View {
     let repository: Repository
     
     var body: some View {
-        AnimationView()
-            .activityStyle(message: "Loading tags and branches for repository '\(repository.fullName)'...")
+        LoadingView(message: "Loading tags and branches for repository '\(repository.fullName)'...")
     }
 }
 

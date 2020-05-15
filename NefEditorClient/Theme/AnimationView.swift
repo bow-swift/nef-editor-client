@@ -13,9 +13,9 @@ struct AnimationView: View {
         }
     }
     
-    let animation: Animation?
+    let animation: Animation
     
-    init(animation: Animation? = nil) {
+    init(animation: Animation) {
         self.animation = animation
     }
     
@@ -24,15 +24,14 @@ struct AnimationView: View {
     }
     
     private func animationView() -> some View {
-        guard let animation = animation,
-              let lottieView = animation.lottie.view(isLoop: animation.isLoop) else {
+        guard let lottieView = animation.lottie.view(isLoop: animation.isLoop) else {
             return AnyView(ActivityIndicator(isAnimating: .constant(true), style: .large))
         }
         
         return AnyView(
             GeometryReader { geometry in
                 lottieView
-                    .offset(animation.lottie.fixOffset(size: geometry.size))
+                    .offset(self.animation.lottie.fixOffset(size: geometry.size))
                     .aspectRatio(contentMode: .fill)
                     .frame(width: geometry.size.width, height: geometry.size.height)
             }

@@ -68,6 +68,7 @@
 		1142543F2448A87000B2EA0C /* RepositoryDetailDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1142543E2448A87000B2EA0C /* RepositoryDetailDispatcher.swift */; };
 		114254422448AEFF00B2EA0C /* RepositoryDetailComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114254412448AEFF00B2EA0C /* RepositoryDetailComponent.swift */; };
 		11425445244990AB00B2EA0C /* Data+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11425444244990AB00B2EA0C /* Data+Equatable.swift */; };
+		1146B09D246F102100DACF98 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1146B09C246F102100DACF98 /* LoadingView.swift */; };
 		114AF44C24597675000116B7 /* View+Modal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114AF44B24597675000116B7 /* View+Modal.swift */; };
 		114AF45224598700000116B7 /* EditAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114AF45124598700000116B7 /* EditAction.swift */; };
 		114AF45424598736000116B7 /* EditDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114AF45324598736000116B7 /* EditDispatcher.swift */; };
@@ -155,7 +156,6 @@
 		8B06E8CE246D5361008C7189 /* SectionTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B06E8CD246D5361008C7189 /* SectionTitle.swift */; };
 		8B3FEAEF246DA3FE00642BF3 /* LottieAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3FEAEE246DA3FE00642BF3 /* LottieAnimation.swift */; };
 		8B3FEAF1246DA41900642BF3 /* Animations in Resources */ = {isa = PBXBuildFile; fileRef = 8B3FEAF0246DA41900642BF3 /* Animations */; };
-		8B787845246EC7D4003828F0 /* TextViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B787844246EC7D4003828F0 /* TextViewStyle.swift */; };
 		8B787847246ECD9D003828F0 /* GenerationPlaygroundBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B787846246ECD9D003828F0 /* GenerationPlaygroundBookView.swift */; };
 		8BC3C90B246D7A2600EC9F36 /* GenerationSuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3C90A246D7A2600EC9F36 /* GenerationSuccessView.swift */; };
 /* End PBXBuildFile section */
@@ -187,7 +187,6 @@
 		112EA4E52461868000F91DBA /* NefEditorClientRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NefEditorClientRelease.entitlements; sourceTree = "<group>"; };
 		112EA4E724618EC700F91DBA /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		112EA4E924618F7400F91DBA /* ICloudPersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICloudPersistence.swift; sourceTree = "<group>"; };
-		112FDCB4246AC8F1009A2B97 /* NefAPI */ = {isa = PBXFileReference; lastKnownFileType = folder; path = NefAPI; sourceTree = "<group>"; };
 		1139BF802462E23700BC283A /* AppDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependencies.swift; sourceTree = "<group>"; };
 		1139BF8524640D3800BC283A /* ICloudStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICloudStatus.swift; sourceTree = "<group>"; };
 		1139BF8924641CB400BC283A /* CreditsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsView.swift; sourceTree = "<group>"; };
@@ -207,6 +206,9 @@
 		1142543E2448A87000B2EA0C /* RepositoryDetailDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailDispatcher.swift; sourceTree = "<group>"; };
 		114254412448AEFF00B2EA0C /* RepositoryDetailComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailComponent.swift; sourceTree = "<group>"; };
 		11425444244990AB00B2EA0C /* Data+Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Equatable.swift"; sourceTree = "<group>"; };
+		1146B09A246F0DD900DACF98 /* GitHub */ = {isa = PBXFileReference; lastKnownFileType = folder; path = GitHub; sourceTree = "<group>"; };
+		1146B09B246F0DE600DACF98 /* NefAPI */ = {isa = PBXFileReference; lastKnownFileType = folder; path = NefAPI; sourceTree = "<group>"; };
+		1146B09C246F102100DACF98 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		114AF44B24597675000116B7 /* View+Modal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Modal.swift"; sourceTree = "<group>"; };
 		114AF45124598700000116B7 /* EditAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAction.swift; sourceTree = "<group>"; };
 		114AF45324598736000116B7 /* EditDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDispatcher.swift; sourceTree = "<group>"; };
@@ -291,12 +293,10 @@
 		11FE7ACC2465AD330011DB41 /* GenerationErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerationErrorView.swift; sourceTree = "<group>"; };
 		11FE7ACE2465B8930011DB41 /* GenerationDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerationDispatcher.swift; sourceTree = "<group>"; };
 		11FE7AE3246A99D40011DB41 /* nef.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = nef.yaml; sourceTree = "<group>"; };
-		11FE7AED246AC11E0011DB41 /* GitHub */ = {isa = PBXFileReference; lastKnownFileType = folder; path = GitHub; sourceTree = "<group>"; };
 		8B06E8CB246D4D97008C7189 /* Rectangle+Separator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Rectangle+Separator.swift"; sourceTree = "<group>"; };
 		8B06E8CD246D5361008C7189 /* SectionTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTitle.swift; sourceTree = "<group>"; };
 		8B3FEAEE246DA3FE00642BF3 /* LottieAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LottieAnimation.swift; sourceTree = "<group>"; };
 		8B3FEAF0246DA41900642BF3 /* Animations */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Animations; sourceTree = "<group>"; };
-		8B787844246EC7D4003828F0 /* TextViewStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewStyle.swift; sourceTree = "<group>"; };
 		8B787846246ECD9D003828F0 /* GenerationPlaygroundBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerationPlaygroundBookView.swift; sourceTree = "<group>"; };
 		8BC3C90A246D7A2600EC9F36 /* GenerationSuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerationSuccessView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -576,8 +576,8 @@
 			children = (
 				11EDF467243714210092E959 /* github.yaml */,
 				11FE7AE3246A99D40011DB41 /* nef.yaml */,
-				11FE7AED246AC11E0011DB41 /* GitHub */,
-				112FDCB4246AC8F1009A2B97 /* NefAPI */,
+				1146B09A246F0DD900DACF98 /* GitHub */,
+				1146B09B246F0DE600DACF98 /* NefAPI */,
 				1163838224321FD100EB2DEF /* NefEditorClient */,
 				1163839924321FD400EB2DEF /* NefEditorClientTests */,
 				1163838124321FD100EB2DEF /* Products */,
@@ -798,6 +798,7 @@
 				11BFE9FD243B3C2200D4F891 /* ActivityIndicator.swift */,
 				11070290243C9DF9008583EB /* ActivityTextView.swift */,
 				1150CDC6246B0D8D003509B4 /* ActivityViewController.swift */,
+				1107028C243C9A25008583EB /* AnimationView.swift */,
 				1101A3AF245AB994002A848B /* AvatarView.swift */,
 				11CB85922437825100CE4592 /* CardView.swift */,
 				11B125C5244721BF00E2D1C3 /* ColorPalette.swift */,
@@ -805,7 +806,7 @@
 				11C95A5424504E3D00659C97 /* Image+System.swift */,
 				1155FDD8246D92AA00F5F819 /* KeyboardPadding.swift */,
 				1139BF8B246425E100BC283A /* LibraryButtonStyle.swift */,
-				1107028C243C9A25008583EB /* AnimationView.swift */,
+				1146B09C246F102100DACF98 /* LoadingView.swift */,
 				8B3FEAEE246DA3FE00642BF3 /* LottieAnimation.swift */,
 				1155FDD6246D696700F5F819 /* NavigationBarButtonStyle.swift */,
 				8B06E8CB246D4D97008C7189 /* Rectangle+Separator.swift */,
@@ -813,7 +814,6 @@
 				8B06E8CD246D5361008C7189 /* SectionTitle.swift */,
 				11B125C72447242C00E2D1C3 /* TextButtonStyle.swift */,
 				11CB85942437848A00CE4592 /* TextStyle.swift */,
-				8B787844246EC7D4003828F0 /* TextViewStyle.swift */,
 				1101A3AB245AB5F6002A848B /* URLImage.swift */,
 				1101A3B1245AD23F002A848B /* View+Conditional.swift */,
 				1155FDD4246D5D3800F5F819 /* View+Hover.swift */,
@@ -1048,7 +1048,6 @@
 				1139BF8624640D3800BC283A /* ICloudStatus.swift in Sources */,
 				1142543D2448A80900B2EA0C /* RepositoryDetailAction.swift in Sources */,
 				11E07F18243B353500A0A027 /* SearchBar.swift in Sources */,
-				8B787845246EC7D4003828F0 /* TextViewStyle.swift in Sources */,
 				11B125C02447077000E2D1C3 /* DependencyView.swift in Sources */,
 				1155FDCD246D26E900F5F819 /* MainDispatcher.swift in Sources */,
 				114AF44C24597675000116B7 /* View+Modal.swift in Sources */,
@@ -1135,6 +1134,7 @@
 				1187BD67243FAD6300FF668F /* FeaturedRecipeView.swift in Sources */,
 				11E07F13243B20E000A0A027 /* RepositoryGridView.swift in Sources */,
 				1139BF812462E23700BC283A /* AppDependencies.swift in Sources */,
+				1146B09D246F102100DACF98 /* LoadingView.swift in Sources */,
 				11AD8DC9243CAAE20005E450 /* RepositoryDetailView.swift in Sources */,
 				1155FDD9246D92AA00F5F819 /* KeyboardPadding.swift in Sources */,
 				11CB85932437825100CE4592 /* CardView.swift in Sources */,

@@ -6,7 +6,9 @@ struct GenerationSigninView: View {
             AnimationView(animation: AnimationView.Animation(lottie: .generalLoading, isLoop: true))
                 .aspectRatio(contentMode: .fill)
                 .frame(width: 400, height: 200)
-                .activityStyle(message: "Signing in...")
+            
+            Text("Signing in...")
+                .activityStyle()
             Spacer()
         }.padding(.top, 56)
     }

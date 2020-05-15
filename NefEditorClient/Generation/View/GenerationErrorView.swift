@@ -8,7 +8,8 @@ struct GenerationErrorView: View {
             AnimationView(animation: .init(lottie: .generalError))
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 256, height: 256)
-                .activityStyle(message: message)
+            
+            Text(message).activityStyle()
             Spacer()
         }.padding(.top, 56)
     }

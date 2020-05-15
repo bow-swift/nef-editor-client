@@ -142,9 +142,15 @@ struct GenerationView_Previews: PreviewProvider {
             
             GenerationView(state: .initial(.authenticated(token: ""), item)) { _ in }
             
+            GenerationView(state: .authenticating) { _ in }
+            
+            GenerationView(state: .generating(item)) { _ in }
+            
+            GenerationView(state: .error(.dataCorrupted)) { _ in }
+            
             GenerationView(state: .finished(item, URL(string: "https://bow-swift.io")!, .notSharing)) { _ in }
             
-        }.previewLayout(.fixed(width: 500, height: 500))
+        }.previewLayout(.fixed(width: 800, height: 800))
     }
 }
 
