@@ -121,7 +121,7 @@ struct AppView<CatalogView: View, SearchView: View, DetailView: View, ModalView:
         Group {
             if state.selectedItem != nil {
                 detail(state.selectedItem!)
-                    .frame(maxWidth: 340,
+                    .frame(maxWidth: max(parentSize.width, parentSize.height) / 3,
                            maxHeight: .infinity)
                     .padding()
                     .modifier(KeyboardPadding(maxPadding: 100))
