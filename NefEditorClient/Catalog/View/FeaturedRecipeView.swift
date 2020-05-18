@@ -43,7 +43,7 @@ struct FeaturedRecipeView: View {
                 
                 Spacer()
                 
-                TagCloud(tags: featured.tags)
+                TagCloud(tags: featured.tags(textColor: featured.textColor))
             }
             .padding()
         }
@@ -51,12 +51,12 @@ struct FeaturedRecipeView: View {
 }
 
 private extension FeaturedRecipe {
-    var tags: [TagViewModel] {
+    func tags(textColor: Color) -> [TagViewModel] {
         self.recipe.dependencies.map { dependency in
             TagViewModel(
                 text: dependency.repository,
-                foregroundColor: .white,
-                backgroundColor: Color.white.opacity(0.2))
+                foregroundColor: textColor,
+                backgroundColor: textColor.opacity(0.2))
         }
     }
 }
