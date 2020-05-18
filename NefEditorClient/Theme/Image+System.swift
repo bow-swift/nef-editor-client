@@ -46,15 +46,15 @@ extension Image {
     }
     
     static var bow: Image {
-        Image("bow")
+        Image("bow-brand")
     }
     
     static var bowArch: Image {
-        Image("bow")
+        Image("bow-arch-brand")
     }
     
     static var bowOpenAPI: Image {
-        Image("bow-openapi")
+        Image("bow-openapi-brand")
     }
     
     static var fortySeven: Image {
