@@ -21,9 +21,9 @@ struct FAQView: View {
                     link(text: "Visit nef GitHub repository", action: .visitNef)
                     
                     link(text: "Visit 47 Degrees website", action: .visit47Degrees)
+                    
+                    Rectangle.separator
                 }
-                
-                Rectangle.separator
                 
                 Group {
                     questionView(
@@ -33,9 +33,12 @@ struct FAQView: View {
                         No, unfortunately not. Your repository should have a Package.swift manifest describing your library and its dependencies, but even having this may not be enough. The Swift runtime in the iPad is a little bit limited, and there may be things that do not work as expected.
 
                         Also, if your repository contains Objective-C code, performs very low level operations, or uses functions like print, there are a lot of chances it will not work properly on Swift Playgrounds.
+
+                        Sometimes, we will be able to fetch the repository and create a Swift Playground, but it will not run properly on the iPad. You can try editing the files in the library if you know the problematic code that prevents it from running. We have also noticed that disabling the option "Enable Results" sometimes helps to make things run properly.
                         """)
+                    
+                    Rectangle.separator
                 }
-                Rectangle.separator
                 
                 Group {
                     questionView(
@@ -44,9 +47,9 @@ struct FAQView: View {
                         """
                         We use GitHub to search only Swift repositories. If your repository is marked by Swift as using a different language, we may not be able to retrieve it.
                         """)
+                    
+                    Rectangle.separator
                 }
-                
-                Rectangle.separator
                 
                 Group {
                     questionView(
@@ -61,9 +64,9 @@ struct FAQView: View {
                     link(text: "Visit bow-swift on GitHub", action: .visitBowSwift)
                     
                     link(text: "Follow @bow-swift on Twitter", action: .followBowSwift)
+                    
+                    Rectangle.separator
                 }
-                
-                Rectangle.separator
                 
                 Group {
                     questionView(
@@ -118,7 +121,7 @@ struct FAQView_Previews: PreviewProvider {
             FAQView() { _ in }
         }
         .navigationViewStyle(StackNavigationViewStyle())
-        .previewLayout(.fixed(width: 500, height: 1550))
+        .previewLayout(.fixed(width: 500, height: 1750))
     }
 }
 
