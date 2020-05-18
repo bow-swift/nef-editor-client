@@ -26,26 +26,26 @@ struct Catalog: Equatable {
                 textColor: .white)
         )
         
-        let bowMaster = CatalogItem.featured(
+        let bowArch = CatalogItem.featured(
             FeaturedRecipe(
                 recipe: Recipe(
-                    title: "FP with Bow",
-                    description: "Use the latest enhancements in Bow master branch",
+                    title: "Architecture",
+                    description: "Try Bow Arch to explore the possibilities of Functional Architecture",
                     dependencies: [
                         Dependency(
-                            repository: "bow",
+                            repository: "bow-arch",
                             owner: "bow-swift",
-                            url: "https://github.com/bow-swift/bow",
+                            url: "https://github.com/bow-swift/bow-arch",
                             avatar: "https://avatars3.githubusercontent.com/u/44965417?v=4",
                             requirement: .branch(Branch(name: "master")))
                 ]),
-                backgroundImage: "bow-background",
-                textColor: .white)
+                backgroundImage: "bow-arch-background",
+                textColor: .black)
         )
         
         let featured = CatalogSection(
             title: "Featured",
-            items: [bow, bowMaster])
+            items: [bow, bowArch])
         let myRecipes = CatalogSection(
             title: "My recipes",
             action: CatalogSectionAction(icon: "plus", action: .addRecipe),
