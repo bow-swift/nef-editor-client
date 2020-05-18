@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "image-splash-nef.pdf",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
