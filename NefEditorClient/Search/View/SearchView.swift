@@ -72,6 +72,7 @@ struct SearchView<Detail: View>: View {
                         self.handle(.showDetails(repository))
                 }
                 .padding(.trailing)
+                .padding(.bottom)
                 .fill
             }
         }

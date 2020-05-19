@@ -37,3 +37,7 @@ let appDispatcher: AppDispatcher = mainDispatcher
     .combine(creditsDispatcher.widen(
         transformEnvironment: id,
         transformInput: AppAction.prism(for: AppAction.creditsAction)))
+
+    .combine(faqDispatcher.widen(
+        transformEnvironment: id,
+        transformInput: AppAction.prism(for: AppAction.faqAction)))

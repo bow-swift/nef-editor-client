@@ -54,8 +54,10 @@ struct CreditsView: View {
                 .font(.caption)
             
             HStack(alignment: .center, spacing: 4) {
-                libraryView(image: .bow, name: "Bow", library: .bow)
                 libraryView(image: .bowArch, name: "Bow Arch", library: .bowArch)
+                
+                libraryView(image: .bow, name: "Bow", library: .bow)
+                
                 libraryView(image: .bowOpenAPI, name: "Bow OpenAPI", library: .bowOpenAPI)
             }
         }
@@ -64,12 +66,16 @@ struct CreditsView: View {
     func libraryView(image: Image, name: String, library: Library) -> some View {
         Button(action: { self.handle(.librarySelected(library)) }) {
             HStack {
-                image.resizable()
-                    .frame(width: 40, height: 40)
-                    .mask(RoundedRectangle(cornerRadius: 8))
+                Spacer()
                 
-                Text(name)
-                    .font(.callout)
+                VStack {
+                    image.resizable()
+                        .frame(width: 40, height: 40)
+                        .mask(RoundedRectangle(cornerRadius: 8))
+                    
+                    Text(name)
+                        .font(.callout)
+                }
                 
                 Spacer()
             }

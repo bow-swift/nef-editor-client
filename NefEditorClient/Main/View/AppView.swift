@@ -98,6 +98,12 @@ struct AppView<CatalogView: View, SearchView: View, DetailView: View, ModalView:
                 .safeHoverEffect()
             }
             
+            Button(action: { self.handle(.showFAQ) }) {
+                Image.faq.foregroundColor(.nef)
+            }
+            .padding(8)
+            .safeHoverEffect()
+            
             Button(action: { self.handle(.showCredits) }) {
                 Image.info.foregroundColor(.nef)
             }

@@ -10,8 +10,7 @@ enum Library {
         case .bow:
             return URL(string: "https://bow-swift.io")
         case .bowArch:
-            #warning("Update URL once the site is ready")
-            return URL(string: "https://bow-swift.io")
+            return URL(string: "https://arch.bow-swift.io")
         case .bowOpenAPI:
             return URL(string: "https://openapi.bow-swift.io")
         }
