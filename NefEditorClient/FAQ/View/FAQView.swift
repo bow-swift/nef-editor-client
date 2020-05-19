@@ -11,11 +11,11 @@ struct FAQView: View {
                         question: "How does this app work?",
                         answer:
                     """
-                    nef is an Open Source project developed at 47 Degrees. It started as a command line tool to increase the capabilities of Swift Playgrounds, and now it can be used from your iPad.
+                    nef is an Open Source project developed by 47 Degrees. It started as a command-line tool for increasing the capabilities of Swift Playgrounds and is now available for use with iPads.
 
-                    nef lets you select your favorite Swift Packages, create a recipe, and build a Swift Playground where you can enjoy using your selected libraries.
+                    nef lets you select your favorite Swift Packages, create a recipe, and build a Swift Playground where you can enjoy using your libraries of choice.
 
-                    In order to do so, your dependencies will be downloaded in our server, and put together into a Swift Playground Book that you will receive.
+                    To do so, your dependencies will be downloaded onto our server, and put together into a Swift Playground Book that you will receive.
                     """)
                     
                     link(text: "Visit nef GitHub repository", action: .visitNef)
@@ -30,11 +30,11 @@ struct FAQView: View {
                         question: "Does it work for every Swift repository?",
                         answer:
                         """
-                        No, unfortunately not. Your repository should have a Package.swift manifest describing your library and its dependencies, but even having this may not be enough. The Swift runtime in the iPad is a little bit limited, and there may be things that do not work as expected.
+                        No, unfortunately not. Your repository should have a Package.swift manifest describing your library and its dependencies, but even having this may not be enough. The Swift runtime on the iPad is slightly limited, and there may be things that do not work as expected.
 
-                        Also, if your repository contains Objective-C code, performs very low level operations, or uses functions like print, there are a lot of chances it will not work properly on Swift Playgrounds.
+                        Also, if your repository contains Objective-C code, performs very low-level operations, or uses functions like print, there is a good chance it will not work properly on Swift Playgrounds.
 
-                        Sometimes, we will be able to fetch the repository and create a Swift Playground, but it will not run properly on the iPad. You can try editing the files in the library if you know the problematic code that prevents it from running. We have also noticed that disabling the option "Enable Results" sometimes helps to make things run properly.
+                        Sometimes, we will be able to fetch the repository and create a Swift Playground, but it will not run properly on the iPad. You can try editing the files in the library if you know the problematic code that prevents it from running. We have also noticed that disabling the option "Enable Results" sometimes helps make things run properly.
                         """)
                     
                     Rectangle.separator
@@ -45,7 +45,7 @@ struct FAQView: View {
                         question: "I cannot find my repository in the Search panel",
                         answer:
                         """
-                        We use GitHub to search only Swift repositories. If your repository is marked by Swift as using a different language, we may not be able to retrieve it.
+                        We use GitHub to only search for Swift repositories. If your repository is marked by Swift as using a different language, we may not be able to retrieve it.
                         """)
                     
                     Rectangle.separator
@@ -58,7 +58,7 @@ struct FAQView: View {
                         """
                         nef, and the libraries that power it, are Open Source, and part of the Bow-Swift organization. Feel free to open issues, or make pull requests to any of our repositories.
 
-                        Even if you cannot contribute, just sharing on Twitter or starring our projects gives us motivation to continue working on this.
+                        Even if you cannot contribute, just sharing on Twitter or starring our projects gives us the motivation to continue working on this.
                         """)
                     
                     link(text: "Visit bow-swift on GitHub", action: .visitBowSwift)
