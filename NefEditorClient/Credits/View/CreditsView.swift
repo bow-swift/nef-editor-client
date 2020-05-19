@@ -30,10 +30,10 @@ struct CreditsView: View {
     func version() -> some View {
         Group {
             Image.appIcon.resizable()
-                .frame(width: 180, height: 180)
+                .frame(width: 256, height: 256)
                 .mask(RoundedRectangle(cornerRadius: 16))
                 
-            Text("nef editor").largeTitleStyle()
+            Text("nef Playgrounds").largeTitleStyle()
 
             Text(appVersion)
                 .activityStyle()
@@ -52,6 +52,7 @@ struct CreditsView: View {
         Group {
             Text("This application is powered by:")
                 .font(.caption)
+                .padding(.bottom, 16)
             
             HStack(alignment: .center, spacing: 4) {
                 libraryView(image: .bowArch, name: "Bow Arch", library: .bowArch)
