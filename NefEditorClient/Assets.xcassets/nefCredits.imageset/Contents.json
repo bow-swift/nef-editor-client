@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "60.png",
+      "filename" : "nef@128.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "120.png",
+      "filename" : "nef@256.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "180.png",
+      "filename" : "nef@512.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

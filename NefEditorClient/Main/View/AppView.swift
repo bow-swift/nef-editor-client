@@ -58,7 +58,7 @@ struct AppView<CatalogView: View, SearchView: View, DetailView: View, ModalView:
             )
             .navigationBarItems(trailing: navigationButtons)
             
-            .navigationBarTitle("nef editor", displayMode: .inline)
+            .navigationBarTitle("nef Playgrounds", displayMode: .inline)
             
             .modal(isPresented: isModalPresented) {
                 self.modal(self.state.modalState)
