@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="ipad12_9rounded" orientation="portrait" layout="fullscreen" appearance="light"/>
+    <device id="ipad12_9" orientation="landscape" layout="fullscreen" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -12,14 +12,14 @@
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1366" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash-background" translatesAutoresizingMaskIntoConstraints="NO" id="ueF-a3-g4n">
-                                <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash-launchimage" translatesAutoresizingMaskIntoConstraints="NO" id="ueF-a3-g4n">
+                                <rect key="frame" x="0.0" y="0.0" width="1366" height="1044"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash-logo" translatesAutoresizingMaskIntoConstraints="NO" id="fNM-nj-AwC">
-                                <rect key="frame" x="305" y="410" width="414" height="546"/>
+                                <rect key="frame" x="406" y="146.5" width="554" height="731"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="fNM-nj-AwC" secondAttribute="height" multiplier="69:91" id="GXY-hC-9GV"/>
                                 </constraints>
@@ -29,7 +29,7 @@
                         <constraints>
                             <constraint firstItem="fNM-nj-AwC" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="2T4-Fv-PfT"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ueF-a3-g4n" secondAttribute="trailing" id="Eiy-zh-Bru"/>
-                            <constraint firstItem="fNM-nj-AwC" firstAttribute="height" secondItem="ueF-a3-g4n" secondAttribute="height" multiplier="0.4" id="Oex-bZ-6p2"/>
+                            <constraint firstItem="fNM-nj-AwC" firstAttribute="height" secondItem="ueF-a3-g4n" secondAttribute="height" multiplier="0.7" id="Oex-bZ-6p2"/>
                             <constraint firstItem="ueF-a3-g4n" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="YPd-Bb-taV"/>
                             <constraint firstItem="ueF-a3-g4n" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="dFk-I2-bLj"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ueF-a3-g4n" secondAttribute="bottom" constant="-20" id="iA3-aI-7fY"/>
@@ -40,11 +40,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="52.734375" y="374.67057101024886"/>
+            <point key="canvasLocation" x="52.708638360175691" y="374.4140625"/>
         </scene>
     </scenes>
     <resources>
-        <image name="splash-background" width="810" height="1080"/>
-        <image name="splash-logo" width="414" height="518"/>
+        <image name="splash-launchimage" width="2048" height="1536"/>
+        <image name="splash-logo" width="2467" height="2467"/>
     </resources>
 </document>
