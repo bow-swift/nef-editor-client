@@ -14,7 +14,7 @@ nef Playgrounds is an open source application for iPad that lets you:
 
 nef Playgrounds uses GitHub API to search for Swift repositories and select a branch or tag that can be used as a dependency in Swift Package Manager. Then, it communicates with [its backend](https://github.com/bow-swift/nef-editor-server), which is also open source, to generate a Swift Playground that contains the selected dependencies. This Playground is sent back to the client and users can open it in the Playgrounds app. It will let users write Swift code using the Swift Packages of their choice.
 
-Unfortunately, this may not always work; your repository must contain only Swift code, have a `Package.swift` manifest file, and be prepared to run on the iPad (the runtime in the iPad is slightly different and there may be parts of your library that do not work properly).
+> Unfortunately, this may not always work; your repository must contain only Swift code, have a `Package.swift` manifest file, and be prepared to run on the iPad (the runtime in the iPad is slightly different and there may be parts of your library that do not work properly).
 
 ## How do I run this project?
 
