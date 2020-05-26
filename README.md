@@ -1,8 +1,8 @@
 # nef Playgrounds
 
-Welcome to the client-side code of **nef Playgrounds** for iPad!
+Welcome to the client-side code of [nef Playgrounds for iPad](https://apps.apple.com/us/app/nef-playgrounds/id1511012848)!
 
-nef Playgrounds is an open source application for iPad that lets you:
+nef Playgrounds lets you:
 
 👨‍🍳 Create a nef recipe...
 
