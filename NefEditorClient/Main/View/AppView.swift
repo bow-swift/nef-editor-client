@@ -39,8 +39,7 @@ struct AppView<CatalogView: View, SearchView: View, DetailView: View, ModalView:
                 if !newState {
                     handle(.dismissICloudAlert)
                 }
-            }
-        )
+            })
     }
     
     var showSearch: Bool {
@@ -69,6 +68,14 @@ struct AppView<CatalogView: View, SearchView: View, DetailView: View, ModalView:
             }
         }
         .navigationViewStyle(StackNavigationViewStyle())
+        .onAppear {
+            switch self.state.deepLinkState {
+            case .none:
+                self.handle(.initialLoad())
+            case .recipe(let recipe):
+                self.handle(.initialLoad(.generateRecipe(recipe)))
+            }
+        }
     }
     
     var contentView: some View {

@@ -4,6 +4,7 @@ struct AppState: Equatable {
     let panelState: PanelState
     let modalState: AppModalState
     let searchState: SearchState
+    let deepLinkState: DeepLinkState
     let catalog: Catalog
     let selectedItem: CatalogItem?
     let iCloudStatus: ICloudStatus
@@ -14,6 +15,7 @@ struct AppState: Equatable {
         panelState: PanelState? = nil,
         modalState: AppModalState? = nil,
         searchState: SearchState? = nil,
+        deepLinkState: DeepLinkState? = nil,
         catalog: Catalog? = nil,
         selectedItem: CatalogItem?? = nil,
         iCloudStatus: ICloudStatus? = nil,
@@ -24,6 +26,7 @@ struct AppState: Equatable {
             panelState: panelState ?? self.panelState,
             modalState: modalState ?? self.modalState,
             searchState: searchState ?? self.searchState,
+            deepLinkState: deepLinkState ?? self.deepLinkState,
             catalog: catalog ?? self.catalog,
             selectedItem: selectedItem ?? self.selectedItem,
             iCloudStatus: iCloudStatus ?? self.iCloudStatus,

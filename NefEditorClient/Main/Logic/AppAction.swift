@@ -8,12 +8,11 @@ enum AppAction: AutoPrism {
     case generationAction(GenerationAction)
     case creditsAction(CreditsAction)
     case faqAction(FAQAction)
-    case initialLoad
+    case initialLoad(DeepLinkAction? = nil)
     case dismissModal
     case showICloudAlert
     case dismissICloudAlert
     case showSettings
     case showCredits
     case showFAQ
-    case schema(Recipe)
 }

@@ -162,6 +162,9 @@
 		8B3FEAF1246DA41900642BF3 /* Animations in Resources */ = {isa = PBXBuildFile; fileRef = 8B3FEAF0246DA41900642BF3 /* Animations */; };
 		8B787847246ECD9D003828F0 /* GenerationPlaygroundBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B787846246ECD9D003828F0 /* GenerationPlaygroundBookView.swift */; };
 		8B87B421248E4A6C007372EC /* URLQueryItem+Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B87B420248E4A6C007372EC /* URLQueryItem+Recipe.swift */; };
+		8B87B426248E838F007372EC /* DeepLinkDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B87B425248E838F007372EC /* DeepLinkDispatcher.swift */; };
+		8B87B427248E8486007372EC /* DeepLinkAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B87B422248E82A3007372EC /* DeepLinkAction.swift */; };
+		8B87B42B248E852F007372EC /* DeepLinkState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B87B42A248E852F007372EC /* DeepLinkState.swift */; };
 		8BC3C90B246D7A2600EC9F36 /* GenerationSuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3C90A246D7A2600EC9F36 /* GenerationSuccessView.swift */; };
 /* End PBXBuildFile section */
 
@@ -309,6 +312,9 @@
 		8B7090E5248BF25F0088A773 /* bow-arch */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "bow-arch"; path = "../bow-arch"; sourceTree = "<group>"; };
 		8B787846246ECD9D003828F0 /* GenerationPlaygroundBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerationPlaygroundBookView.swift; sourceTree = "<group>"; };
 		8B87B420248E4A6C007372EC /* URLQueryItem+Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLQueryItem+Recipe.swift"; sourceTree = "<group>"; };
+		8B87B422248E82A3007372EC /* DeepLinkAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkAction.swift; sourceTree = "<group>"; };
+		8B87B425248E838F007372EC /* DeepLinkDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkDispatcher.swift; sourceTree = "<group>"; };
+		8B87B42A248E852F007372EC /* DeepLinkState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkState.swift; sourceTree = "<group>"; };
 		8BC3C90A246D7A2600EC9F36 /* GenerationSuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerationSuccessView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -654,6 +660,7 @@
 				1139BF9B24645B0000BC283A /* Authentication */,
 				11AD8DCA243DC42E0005E450 /* Catalog */,
 				1139BF8724641C9D00BC283A /* Credits */,
+				8B87B424248E8380007372EC /* DeepLink */,
 				11B125BD2447074500E2D1C3 /* Detail */,
 				114AF44D2459863B000116B7 /* Edit */,
 				11E07F14243B218E00A0A027 /* Extensions */,
@@ -932,6 +939,32 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		8B87B424248E8380007372EC /* DeepLink */ = {
+			isa = PBXGroup;
+			children = (
+				8B87B429248E8517007372EC /* State */,
+				8B87B428248E8512007372EC /* Logic */,
+			);
+			path = DeepLink;
+			sourceTree = "<group>";
+		};
+		8B87B428248E8512007372EC /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				8B87B422248E82A3007372EC /* DeepLinkAction.swift */,
+				8B87B425248E838F007372EC /* DeepLinkDispatcher.swift */,
+			);
+			path = Logic;
+			sourceTree = "<group>";
+		};
+		8B87B429248E8517007372EC /* State */ = {
+			isa = PBXGroup;
+			children = (
+				8B87B42A248E852F007372EC /* DeepLinkState.swift */,
+			);
+			path = State;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1105,6 +1138,7 @@
 				1139BF8624640D3800BC283A /* ICloudStatus.swift in Sources */,
 				1142543D2448A80900B2EA0C /* RepositoryDetailAction.swift in Sources */,
 				11E07F18243B353500A0A027 /* SearchBar.swift in Sources */,
+				8B87B42B248E852F007372EC /* DeepLinkState.swift in Sources */,
 				11B125C02447077000E2D1C3 /* DependencyView.swift in Sources */,
 				1155FDCD246D26E900F5F819 /* MainDispatcher.swift in Sources */,
 				114AF44C24597675000116B7 /* View+Modal.swift in Sources */,
@@ -1186,6 +1220,7 @@
 				112EA4E824618EC700F91DBA /* Persistence.swift in Sources */,
 				1150CDC7246B0D8D003509B4 /* ActivityViewController.swift in Sources */,
 				1107028D243C9A25008583EB /* AnimationView.swift in Sources */,
+				8B87B427248E8486007372EC /* DeepLinkAction.swift in Sources */,
 				114AF45424598736000116B7 /* EditDispatcher.swift in Sources */,
 				11AD8DD7243E19440005E450 /* Dependency.swift in Sources */,
 				11070289243C81DC008583EB /* RequirementView.swift in Sources */,
@@ -1211,6 +1246,7 @@
 				11EDF44D2435F5410092E959 /* SearchView.swift in Sources */,
 				1101A3AC245AB5F6002A848B /* URLImage.swift in Sources */,
 				114AF45C24598E15000116B7 /* CatalogDetailDispatcher.swift in Sources */,
+				8B87B426248E838F007372EC /* DeepLinkDispatcher.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

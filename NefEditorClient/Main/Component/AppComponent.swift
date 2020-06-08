@@ -21,6 +21,7 @@ func appComponent() -> AppComponentView {
         panelState: .catalog,
         modalState: .noModal,
         searchState: SearchState(loadingState: .initial, modalState: .noModal),
+        deepLinkState: .none,
         catalog: Catalog.initial,
         selectedItem: nil,
         iCloudStatus: .enabled,
@@ -90,4 +91,17 @@ func makeNefConfig() -> NefAPI.API.Config {
         basePath: "https://nef.47deg.com",
         session: session)
         .appending(contentType: .json)
+}
+
+var deepLinkAppComponentLens: Lens<AppComponentView, DeepLinkState> {
+    Lens(
+        get: { componentView in
+            AppComponentView.stateLens.get(componentView).deepLinkState
+        },
+        set: { componentView, deepLinkState in
+            let stateLens = AppComponentView.stateLens
+            let appState = stateLens.get(componentView).copy(deepLinkState: deepLinkState)
+            return stateLens.set(componentView, appState)
+        }
+    )
 }

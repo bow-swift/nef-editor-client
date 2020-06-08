@@ -41,3 +41,7 @@ let appDispatcher: AppDispatcher = mainDispatcher
     .combine(faqDispatcher.widen(
         transformEnvironment: id,
         transformInput: AppAction.prism(for: AppAction.faqAction)))
+
+    .combine(deepLinkDispatcher.widen(
+        transformEnvironment: id,
+        transformInput: AppAction.prism(for: AppAction.initialLoad)))

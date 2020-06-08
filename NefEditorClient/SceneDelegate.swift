@@ -14,9 +14,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         UITableView.appearance().tableFooterView = UIView()
         
         // Create the SwiftUI view that provides the window contents.
-        let componentView = appComponent()
+        let componentView = setDeepLink(urlContexts: connectionOptions.urlContexts, componentView: appComponent())
         loadScene(scene, contentView: componentView)
-        onAppear(componentView: componentView, urlContexts: connectionOptions.urlContexts)
     }
     
     func scene(_ scene: UIScene, openURLContexts urlContexts: Set<UIOpenURLContext>) {
@@ -24,9 +23,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
               let window = windowScene.windows.first,
               let hostingController = window.rootViewController as? UIHostingController<AppComponentView> else { return }
         
-        let componentView = hostingController.rootView
+        let componentView = setDeepLink(urlContexts: urlContexts, componentView: hostingController.rootView)
         loadScene(scene, contentView: componentView)
-        onAppear(componentView: componentView, urlContexts: urlContexts)
     }
     
     private func loadScene<V: View>(_ scene: UIScene, contentView: V) {
@@ -38,11 +36,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window.makeKeyAndVisible()
     }
     
-    private func onAppear(componentView: AppComponentView, urlContexts: Set<UIOpenURLContext>) {
+    private func setDeepLink(urlContexts: Set<UIOpenURLContext>, componentView: AppComponentView) -> AppComponentView {
         if let recipe = schemeRecipe(urlContexts: urlContexts) {
-            componentView.handle(.schema(recipe))
+            return deepLinkAppComponentLens.set(componentView, .recipe(recipe))
         } else {
-            componentView.handle(.initialLoad)
+            return deepLinkAppComponentLens.set(componentView, .none)
         }
     }
     
