@@ -36,10 +36,15 @@ let mainDispatcher = MainDispatcher.workflow { action in
         
     case .catalogAction(_), .editAction(_), .catalogDetailAction(_), .creditsAction(_), .generationAction(_), .faqAction(_):
         return []
+        
     case .initialLoad:
         return [initialLoad()]
+        
+    case .schema(let recipe):
+        return generateNewRecipe(recipe)
     }
 }
+
 
 let addDependencyDispatcher = StateDispatcher<Any, AppState, RepositoryDetailAction>.pure { input in
     switch input {
@@ -120,6 +125,14 @@ func addDependency(
     }^
 }
 
+func addNewRecipe(_ recipe: Recipe) -> State<AppState, Void> {
+    .modify { (state: AppState) in
+        let catalogItem: CatalogItem = .regular(recipe)
+        let catalog = state.catalog.appending(catalogItem)
+        return state.copy(catalog: catalog, selectedItem: catalogItem)
+    }^
+}
+
 func persist(state: AppState) -> EnvIO<Persistence, Error, Void> {
     EnvIO.accessM { persistence in
         persistence.saveUserRecipes(state.catalog.userCreated.items.map(\.recipe))
@@ -139,6 +152,13 @@ func initialLoad() -> EnvIO<Persistence, Error, State<AppState, Void>> {
             return state.copy(catalog: newCatalog, iCloudStatus: persistenceEnabled.get)
         }^
     )^
+}
+
+func generateNewRecipe(_ recipe: Recipe) -> [EnvIO<Persistence, Error, State<AppState, Void>>] {
+    [
+        EnvIO.pure(addNewRecipe(recipe))^,
+        EnvIO.pure(generatePlayground(for: .regular(recipe)))^,
+    ]
 }
 
 func fetchRecipes() -> EnvIO<Persistence, Error, [Recipe]> {

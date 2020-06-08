@@ -161,6 +161,7 @@
 		8B3FEAEF246DA3FE00642BF3 /* LottieAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3FEAEE246DA3FE00642BF3 /* LottieAnimation.swift */; };
 		8B3FEAF1246DA41900642BF3 /* Animations in Resources */ = {isa = PBXBuildFile; fileRef = 8B3FEAF0246DA41900642BF3 /* Animations */; };
 		8B787847246ECD9D003828F0 /* GenerationPlaygroundBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B787846246ECD9D003828F0 /* GenerationPlaygroundBookView.swift */; };
+		8B87B421248E4A6C007372EC /* URLQueryItem+Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B87B420248E4A6C007372EC /* URLQueryItem+Recipe.swift */; };
 		8BC3C90B246D7A2600EC9F36 /* GenerationSuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3C90A246D7A2600EC9F36 /* GenerationSuccessView.swift */; };
 /* End PBXBuildFile section */
 
@@ -305,7 +306,9 @@
 		8B06E8CD246D5361008C7189 /* SectionTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTitle.swift; sourceTree = "<group>"; };
 		8B3FEAEE246DA3FE00642BF3 /* LottieAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LottieAnimation.swift; sourceTree = "<group>"; };
 		8B3FEAF0246DA41900642BF3 /* Animations */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Animations; sourceTree = "<group>"; };
+		8B7090E5248BF25F0088A773 /* bow-arch */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "bow-arch"; path = "../bow-arch"; sourceTree = "<group>"; };
 		8B787846246ECD9D003828F0 /* GenerationPlaygroundBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerationPlaygroundBookView.swift; sourceTree = "<group>"; };
+		8B87B420248E4A6C007372EC /* URLQueryItem+Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLQueryItem+Recipe.swift"; sourceTree = "<group>"; };
 		8BC3C90A246D7A2600EC9F36 /* GenerationSuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerationSuccessView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -619,6 +622,7 @@
 			children = (
 				11EDF467243714210092E959 /* github.yaml */,
 				11FE7AE3246A99D40011DB41 /* nef.yaml */,
+				8B7090E5248BF25F0088A773 /* bow-arch */,
 				11CDD931247444AD0002E45F /* GitHub */,
 				11CDD930247444AD0002E45F /* NefAPI */,
 				1163838224321FD100EB2DEF /* NefEditorClient */,
@@ -741,6 +745,7 @@
 			isa = PBXGroup;
 			children = (
 				11C95ABB24584D8C00659C97 /* Component */,
+				8B87B41F248E4A5D007372EC /* Extensions */,
 				11C95AB624584B6100659C97 /* Logic */,
 				11AD8DD3243E19130005E450 /* State */,
 				11AD8DCB243DC46C0005E450 /* View */,
@@ -917,6 +922,14 @@
 				11FE7ACE2465B8930011DB41 /* GenerationDispatcher.swift */,
 			);
 			path = Logic;
+			sourceTree = "<group>";
+		};
+		8B87B41F248E4A5D007372EC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8B87B420248E4A6C007372EC /* URLQueryItem+Recipe.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1152,6 +1165,7 @@
 				1139BFA124645F3400BC283A /* AuthenticationInfo.swift in Sources */,
 				1139BFA52464609600BC283A /* GenerationView.swift in Sources */,
 				1155FDD3246D2D0100F5F819 /* AppModalComponent.swift in Sources */,
+				8B87B421248E4A6C007372EC /* URLQueryItem+Recipe.swift in Sources */,
 				11B125C424471E1C00E2D1C3 /* ActionButtonStyle.swift in Sources */,
 				11FE7AC4246583B80011DB41 /* GenerationState.swift in Sources */,
 				11C95ABA24584BE300659C97 /* CatalogDispatcher.swift in Sources */,

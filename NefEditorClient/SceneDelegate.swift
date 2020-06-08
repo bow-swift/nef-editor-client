@@ -29,16 +29,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         onAppear(componentView: componentView, urlContexts: urlContexts)
     }
     
-    func loadScene<V: View>(_ scene: UIScene, contentView: V) {
+    private func loadScene<V: View>(_ scene: UIScene, contentView: V) {
         guard let windowScene = scene as? UIWindowScene else { return }
             
-        let window = self.window ?? windowScene.windows.first ?? UIWindow(windowScene: windowScene)
+        let window = windowScene.windows.first ?? UIWindow(windowScene: windowScene)
         window.rootViewController = UIHostingController(rootView: contentView)
         self.window = window
         window.makeKeyAndVisible()
     }
     
-    func onAppear(componentView: AppComponentView, urlContexts: Set<UIOpenURLContext>) {
+    private func onAppear(componentView: AppComponentView, urlContexts: Set<UIOpenURLContext>) {
         if let recipe = schemeRecipe(urlContexts: urlContexts) {
             componentView.handle(.schema(recipe))
         } else {
@@ -46,9 +46,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
     }
     
-    // MARK: - read recipe from URL scheme
-    
-    func schemeRecipe(urlContexts: Set<UIOpenURLContext>) -> Recipe? {
+    private func schemeRecipe(urlContexts: Set<UIOpenURLContext>) -> Recipe? {
         guard let url = urlContexts.first?.url,
               let components = NSURLComponents(url: url, resolvingAgainstBaseURL: true),
               let action = components.host,
@@ -56,38 +54,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         switch action {
         case "recipe":
-            return buildRecipe(params: params)
+            return params.recipe
         default:
-            return nil
-        }
-    }
-    
-    func buildRecipe(params: [URLQueryItem]) -> Recipe? {
-        guard let title = params.first(where: { $0.name == "name" })?.value,
-              let url = params.first(where: { $0.name == "url" })?.value,
-              let requirement = buildRequirement(params: params) else { return nil }
-        
-        let description = params.first { $0.name == "description" }?.value
-        let dependency = Dependency(repository: title,
-                                    owner: "",
-                                    url: url,
-                                    avatar: "",
-                                    requirement: requirement)
-        
-        return Recipe(title: title,
-                      description: description ?? "",
-                      dependencies: [dependency])
-    }
-    
-    func buildRequirement(params: [URLQueryItem]) -> Requirement? {
-        let branch = params.first { $0.name == "branch" }?.value
-        let tag = params.first { $0.name == "tag" }?.value
-        
-        if let branch = branch {
-            return .branch(.init(name: branch))
-        } else if let tag = tag {
-            return .version(.init(name: tag))
-        } else {
             return nil
         }
     }
