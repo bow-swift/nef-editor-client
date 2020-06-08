@@ -14,7 +14,9 @@ typealias AppComponent<Catalog: View, Search: View, Detail: View, Modal: View> =
         AppView<Catalog, Search, Detail, Modal>
     >
 
-func appComponent() -> AppComponent<CatalogComponent, SearchComponent, CatalogDetailComponent, AppModalComponent> {
+typealias AppComponentView = AppComponent<CatalogComponent, SearchComponent, CatalogDetailComponent, AppModalComponent>
+
+func appComponent() -> AppComponentView {
     let initialState = AppState(
         panelState: .catalog,
         modalState: .noModal,
@@ -34,7 +36,7 @@ func appComponent() -> AppComponent<CatalogComponent, SearchComponent, CatalogDe
         nefConfig: nefConfig)
     let ref = IORef<Error, [Recipe]?>.unsafe(nil)
     
-    return AppComponent(
+    return AppComponent (
         initialState: initialState,
         environment: dependencies,
         dispatcher: appDispatcher

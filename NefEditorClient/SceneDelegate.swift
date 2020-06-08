@@ -1,6 +1,7 @@
 import UIKit
 import SwiftUI
 import GitHub
+import BowArch
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
@@ -13,9 +14,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         UITableView.appearance().tableFooterView = UIView()
         
         // Create the SwiftUI view that provides the window contents.
-        let contentView = appComponent()
-        let recipe = schemeRecipe(urlContexts: connectionOptions.urlContexts)
-        loadScene(scene, contentView: contentView)
+        let componentView = appComponent()
+        loadScene(scene, contentView: componentView)
+        onAppear(componentView: componentView, urlContexts: connectionOptions.urlContexts)
     }
     
     func scene(_ scene: UIScene, openURLContexts urlContexts: Set<UIOpenURLContext>) {
@@ -23,9 +24,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
               let window = windowScene.windows.first,
               let hostingController = window.rootViewController as? UIHostingController<AppComponentView> else { return }
         
-        let recipe = schemeRecipe(urlContexts: urlContexts)
-        let contentView = hostingController.rootView
-        loadScene(scene, contentView: contentView)
+        let componentView = hostingController.rootView
+        loadScene(scene, contentView: componentView)
+        onAppear(componentView: componentView, urlContexts: urlContexts)
     }
     
     func loadScene<V: View>(_ scene: UIScene, contentView: V) {
@@ -35,6 +36,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window.rootViewController = UIHostingController(rootView: contentView)
         self.window = window
         window.makeKeyAndVisible()
+    }
+    
+    func onAppear(componentView: AppComponentView, urlContexts: Set<UIOpenURLContext>) {
+        if let recipe = schemeRecipe(urlContexts: urlContexts) {
+            componentView.handle(.schema(recipe))
+        } else {
+            componentView.handle(.initialLoad)
+        }
     }
     
     // MARK: - read recipe from URL scheme

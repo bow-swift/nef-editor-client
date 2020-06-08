@@ -69,9 +69,6 @@ struct AppView<CatalogView: View, SearchView: View, DetailView: View, ModalView:
             }
         }
         .navigationViewStyle(StackNavigationViewStyle())
-        .onAppear {
-            self.handle(.initialLoad)
-        }
     }
     
     var contentView: some View {

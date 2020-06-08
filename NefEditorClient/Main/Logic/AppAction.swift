@@ -15,4 +15,5 @@ enum AppAction: AutoPrism {
     case showSettings
     case showCredits
     case showFAQ
+    case schema(Recipe)
 }
