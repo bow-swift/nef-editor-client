@@ -309,7 +309,6 @@
 		8B06E8CD246D5361008C7189 /* SectionTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTitle.swift; sourceTree = "<group>"; };
 		8B3FEAEE246DA3FE00642BF3 /* LottieAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LottieAnimation.swift; sourceTree = "<group>"; };
 		8B3FEAF0246DA41900642BF3 /* Animations */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Animations; sourceTree = "<group>"; };
-		8B7090E5248BF25F0088A773 /* bow-arch */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "bow-arch"; path = "../bow-arch"; sourceTree = "<group>"; };
 		8B787846246ECD9D003828F0 /* GenerationPlaygroundBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerationPlaygroundBookView.swift; sourceTree = "<group>"; };
 		8B87B420248E4A6C007372EC /* URLQueryItem+Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLQueryItem+Recipe.swift"; sourceTree = "<group>"; };
 		8B87B422248E82A3007372EC /* DeepLinkAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkAction.swift; sourceTree = "<group>"; };
@@ -628,7 +627,6 @@
 			children = (
 				11EDF467243714210092E959 /* github.yaml */,
 				11FE7AE3246A99D40011DB41 /* nef.yaml */,
-				8B7090E5248BF25F0088A773 /* bow-arch */,
 				11CDD931247444AD0002E45F /* GitHub */,
 				11CDD930247444AD0002E45F /* NefAPI */,
 				1163838224321FD100EB2DEF /* NefEditorClient */,
