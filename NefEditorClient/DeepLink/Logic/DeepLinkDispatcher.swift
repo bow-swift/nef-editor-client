@@ -1,35 +1,34 @@
-import UIKit
 import Bow
 import BowEffects
 import BowArch
 
-typealias DeepLinkDispatcher = StateDispatcher<Any, AppState, DeepLinkAction>
+typealias DeepLinkDispatcher = StateDispatcher<Persistence, AppState, DeepLinkAction>
 
-let deepLinkDispatcher = DeepLinkDispatcher.workflow { action in
+let deepLinkDispatcher = DeepLinkDispatcher.effectful { action in
     switch action {
     case .generateRecipe(let recipe):
-        return generateNewRecipe(recipe)
+        return initialLoad(recipe)
+    case .regularInitialization:
+        return initialLoad()
     }
 }
 
 func addNewRecipe(_ recipe: Recipe) -> State<AppState, Void> {
-    .modify { (state: AppState) in
-        let catalogItem: CatalogItem = .regular(recipe)
-        let catalog = state.catalog.appending(catalogItem)
-        return state.copy(catalog: catalog, selectedItem: catalogItem)
+    .modify { state in
+        state.addRecipe(recipe)
     }^
 }
 
-func emptyDeepLink() -> State<AppState, Void> {
+func clearDeepLink() -> State<AppState, Void> {
     .modify { state in
         state.copy(deepLinkState: DeepLinkState.none)
     }^
 }
 
-func generateNewRecipe(_ recipe: Recipe) -> [EnvIO<Any, Error, State<AppState, Void>>] {
-    [
-        EnvIO.pure(addNewRecipe(recipe))^,
-        EnvIO.pure(generatePlayground(for: .regular(recipe)))^,
-        EnvIO.pure(emptyDeepLink())^,
-    ]
+func initialLoad(_ recipe: Recipe) -> EnvIO<Persistence, Error, State<AppState, Void>> {
+    let deepLink = addNewRecipe(recipe)
+        .followedBy(generatePlayground(for: .regular(recipe)))
+        .followedBy(clearDeepLink())^
+    
+    return initialLoad().followedBy(EnvIO.pure(deepLink)^)^
 }

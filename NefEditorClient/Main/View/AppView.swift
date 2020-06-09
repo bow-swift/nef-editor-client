@@ -71,7 +71,7 @@ struct AppView<CatalogView: View, SearchView: View, DetailView: View, ModalView:
         .onAppear {
             switch self.state.deepLinkState {
             case .none:
-                self.handle(.initialLoad())
+                self.handle(.initialLoad(.regularInitialization))
             case .recipe(let recipe):
                 self.handle(.initialLoad(.generateRecipe(recipe)))
             }

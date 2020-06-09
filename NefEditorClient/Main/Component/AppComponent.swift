@@ -16,26 +16,26 @@ typealias AppComponent<Catalog: View, Search: View, Detail: View, Modal: View> =
 
 typealias AppComponentView = AppComponent<CatalogComponent, SearchComponent, CatalogDetailComponent, AppModalComponent>
 
-func appComponent() -> AppComponentView {
+func appComponent(deepLink: Set<UIOpenURLContext>) -> AppComponentView {
+    let deepLinkState = schemeRecipe(urlContexts: deepLink).flatMap(DeepLinkState.recipe) ?? .none
+    let ref = IORef<Error, [Recipe]?>.unsafe(nil)
+    let gitHubConfig = makeGitHubConfig()
+    let nefConfig = makeNefConfig()
+    let persistence = ICloudPersistence()
+    let dependencies = AppDependencies(persistence: persistence,
+                                       gitHubConfig: gitHubConfig,
+                                       nefConfig: nefConfig)
+    
     let initialState = AppState(
         panelState: .catalog,
         modalState: .noModal,
         searchState: SearchState(loadingState: .initial, modalState: .noModal),
-        deepLinkState: .none,
+        deepLinkState: deepLinkState,
         catalog: Catalog.initial,
         selectedItem: nil,
         iCloudStatus: .enabled,
         iCloudAlert: .hidden,
         authenticationState: .unauthenticated)
-    
-    let gitHubConfig = makeGitHubConfig()
-    let nefConfig = makeNefConfig()
-    let persistence = ICloudPersistence()
-    let dependencies = AppDependencies(
-        persistence: persistence,
-        gitHubConfig: gitHubConfig,
-        nefConfig: nefConfig)
-    let ref = IORef<Error, [Recipe]?>.unsafe(nil)
     
     return AppComponent (
         initialState: initialState,
@@ -91,17 +91,4 @@ func makeNefConfig() -> NefAPI.API.Config {
         basePath: "https://nef.47deg.com",
         session: session)
         .appending(contentType: .json)
-}
-
-var deepLinkAppComponentLens: Lens<AppComponentView, DeepLinkState> {
-    Lens(
-        get: { componentView in
-            AppComponentView.stateLens.get(componentView).deepLinkState
-        },
-        set: { componentView, deepLinkState in
-            let stateLens = AppComponentView.stateLens
-            let appState = stateLens.get(componentView).copy(deepLinkState: deepLinkState)
-            return stateLens.set(componentView, appState)
-        }
-    )
 }
