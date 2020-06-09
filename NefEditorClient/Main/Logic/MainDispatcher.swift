@@ -1,8 +1,8 @@
+import UIKit
 import Bow
 import BowEffects
 import BowArch
 import GitHub
-import UIKit
 
 typealias MainDispatcher = StateDispatcher<Persistence, AppState, AppAction>
 
@@ -34,12 +34,11 @@ let mainDispatcher = MainDispatcher.workflow { action in
             return []
         }
         
-    case .catalogAction(_), .editAction(_), .catalogDetailAction(_), .creditsAction(_), .generationAction(_), .faqAction(_):
+    case .catalogAction(_), .editAction(_), .catalogDetailAction(_), .creditsAction(_), .generationAction(_), .faqAction(_), .initialLoad(_):
         return []
-    case .initialLoad:
-        return [initialLoad()]
     }
 }
+
 
 let addDependencyDispatcher = StateDispatcher<Any, AppState, RepositoryDetailAction>.pure { input in
     switch input {

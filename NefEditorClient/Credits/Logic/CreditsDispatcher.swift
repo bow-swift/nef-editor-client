@@ -1,7 +1,7 @@
+import UIKit
 import Bow
 import BowArch
 import BowEffects
-import UIKit
 
 typealias CreditsDispatcher = StateDispatcher<Any, AppState, CreditsAction>
 

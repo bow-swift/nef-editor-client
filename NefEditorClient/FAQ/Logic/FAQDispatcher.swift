@@ -1,8 +1,8 @@
+import UIKit
 import Bow
 import BowEffects
 import BowArch
 import Foundation
-import UIKit
 
 typealias FAQDispatcher = StateDispatcher<Any, AppState, FAQAction>
 

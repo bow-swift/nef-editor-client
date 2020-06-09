@@ -14,27 +14,30 @@ typealias AppComponent<Catalog: View, Search: View, Detail: View, Modal: View> =
         AppView<Catalog, Search, Detail, Modal>
     >
 
-func appComponent() -> AppComponent<CatalogComponent, SearchComponent, CatalogDetailComponent, AppModalComponent> {
+typealias AppComponentView = AppComponent<CatalogComponent, SearchComponent, CatalogDetailComponent, AppModalComponent>
+
+func appComponent(deepLink: Set<UIOpenURLContext>) -> AppComponentView {
+    let deepLinkState = schemeRecipe(urlContexts: deepLink).flatMap(DeepLinkState.recipe) ?? .none
+    let ref = IORef<Error, [Recipe]?>.unsafe(nil)
+    let gitHubConfig = makeGitHubConfig()
+    let nefConfig = makeNefConfig()
+    let persistence = ICloudPersistence()
+    let dependencies = AppDependencies(persistence: persistence,
+                                       gitHubConfig: gitHubConfig,
+                                       nefConfig: nefConfig)
+    
     let initialState = AppState(
         panelState: .catalog,
         modalState: .noModal,
         searchState: SearchState(loadingState: .initial, modalState: .noModal),
+        deepLinkState: deepLinkState,
         catalog: Catalog.initial,
         selectedItem: nil,
         iCloudStatus: .enabled,
         iCloudAlert: .hidden,
         authenticationState: .unauthenticated)
     
-    let gitHubConfig = makeGitHubConfig()
-    let nefConfig = makeNefConfig()
-    let persistence = ICloudPersistence()
-    let dependencies = AppDependencies(
-        persistence: persistence,
-        gitHubConfig: gitHubConfig,
-        nefConfig: nefConfig)
-    let ref = IORef<Error, [Recipe]?>.unsafe(nil)
-    
-    return AppComponent(
+    return AppComponent (
         initialState: initialState,
         environment: dependencies,
         dispatcher: appDispatcher
