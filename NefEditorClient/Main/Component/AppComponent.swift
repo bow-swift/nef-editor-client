@@ -1,10 +1,10 @@
+import SwiftUI
 import GitHub
 import NefAPI
 import Bow
 import BowArch
 import BowOptics
 import BowEffects
-import SwiftUI
 
 typealias AppComponent<Catalog: View, Search: View, Detail: View, Modal: View> =
     StoreComponent<
@@ -16,8 +16,17 @@ typealias AppComponent<Catalog: View, Search: View, Detail: View, Modal: View> =
 
 typealias AppComponentView = AppComponent<CatalogComponent, SearchComponent, CatalogDetailComponent, AppModalComponent>
 
-func appComponent(deepLink: Set<UIOpenURLContext>) -> AppComponentView {
-    let deepLinkState = schemeRecipe(urlContexts: deepLink).flatMap(DeepLinkState.recipe) ?? .none
+func appComponent(urlContexts: Set<UIOpenURLContext>) -> AppComponentView {
+    let deepLinkState = urlContexts.first.map(\.url).flatMap(schemeRecipe).flatMap(DeepLinkState.recipe) ?? .none
+    return appComponent(deepLinkState: deepLinkState)
+}
+
+func appComponent(userActivity: NSUserActivity) -> AppComponentView {
+    let deepLinkState = userActivity.webpageURL.flatMap(schemeRecipe).flatMap(DeepLinkState.recipe) ?? .none
+    return appComponent(deepLinkState: deepLinkState)
+}
+
+fileprivate func appComponent(deepLinkState: DeepLinkState) -> AppComponentView {
     let ref = IORef<Error, [Recipe]?>.unsafe(nil)
     let gitHubConfig = makeGitHubConfig()
     let nefConfig = makeNefConfig()
