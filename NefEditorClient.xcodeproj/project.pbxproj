@@ -161,7 +161,7 @@
 		8B3FEAEF246DA3FE00642BF3 /* LottieAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3FEAEE246DA3FE00642BF3 /* LottieAnimation.swift */; };
 		8B3FEAF1246DA41900642BF3 /* Animations in Resources */ = {isa = PBXBuildFile; fileRef = 8B3FEAF0246DA41900642BF3 /* Animations */; };
 		8B787847246ECD9D003828F0 /* GenerationPlaygroundBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B787846246ECD9D003828F0 /* GenerationPlaygroundBookView.swift */; };
-		8B84D96A248F8B3B003877B1 /* UIOpenURLContext+Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B84D969248F8B3B003877B1 /* UIOpenURLContext+Recipe.swift */; };
+		8B84D96A248F8B3B003877B1 /* URL+Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B84D969248F8B3B003877B1 /* URL+Recipe.swift */; };
 		8B87B421248E4A6C007372EC /* URLQueryItem+Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B87B420248E4A6C007372EC /* URLQueryItem+Recipe.swift */; };
 		8B87B426248E838F007372EC /* DeepLinkDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B87B425248E838F007372EC /* DeepLinkDispatcher.swift */; };
 		8B87B427248E8486007372EC /* DeepLinkAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B87B422248E82A3007372EC /* DeepLinkAction.swift */; };
@@ -311,7 +311,7 @@
 		8B3FEAEE246DA3FE00642BF3 /* LottieAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LottieAnimation.swift; sourceTree = "<group>"; };
 		8B3FEAF0246DA41900642BF3 /* Animations */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Animations; sourceTree = "<group>"; };
 		8B787846246ECD9D003828F0 /* GenerationPlaygroundBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerationPlaygroundBookView.swift; sourceTree = "<group>"; };
-		8B84D969248F8B3B003877B1 /* UIOpenURLContext+Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIOpenURLContext+Recipe.swift"; sourceTree = "<group>"; };
+		8B84D969248F8B3B003877B1 /* URL+Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Recipe.swift"; sourceTree = "<group>"; };
 		8B87B420248E4A6C007372EC /* URLQueryItem+Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLQueryItem+Recipe.swift"; sourceTree = "<group>"; };
 		8B87B422248E82A3007372EC /* DeepLinkAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkAction.swift; sourceTree = "<group>"; };
 		8B87B425248E838F007372EC /* DeepLinkDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkDispatcher.swift; sourceTree = "<group>"; };
@@ -934,7 +934,7 @@
 		8B84D968248F8B2F003877B1 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				8B84D969248F8B3B003877B1 /* UIOpenURLContext+Recipe.swift */,
+				8B84D969248F8B3B003877B1 /* URL+Recipe.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1251,7 +1251,7 @@
 				11B125B62444BCAC00E2D1C3 /* Catalog.swift in Sources */,
 				11E07F11243B118F00A0A027 /* GridView.swift in Sources */,
 				11FE7AC824659BAC0011DB41 /* GenerationComponent.swift in Sources */,
-				8B84D96A248F8B3B003877B1 /* UIOpenURLContext+Recipe.swift in Sources */,
+				8B84D96A248F8B3B003877B1 /* URL+Recipe.swift in Sources */,
 				1163BA95244ED043005B0785 /* AppAction.swift in Sources */,
 				11EDF44D2435F5410092E959 /* SearchView.swift in Sources */,
 				1101A3AC245AB5F6002A848B /* URLImage.swift in Sources */,
@@ -1424,7 +1424,6 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.47deg.nef-editor-client";
-				"PRODUCT_BUNDLE_IDENTIFIER[sdk=macosx*]" = "";
 				PRODUCT_NAME = nef;
 				PROVISIONING_PROFILE_SPECIFIER = "nef editor client Dev";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
@@ -1467,7 +1466,8 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = NefEditorClientTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1477,6 +1477,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.bow-swift.NefEditorClientTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NefEditorClient.app/NefEditorClient";
