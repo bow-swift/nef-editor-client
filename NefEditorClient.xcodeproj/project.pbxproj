@@ -1413,7 +1413,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NefEditorClient/Preview Content\"";
 				DEVELOPMENT_TEAM = P548S5LU96;
 				ENABLE_PREVIEWS = YES;
@@ -1423,6 +1423,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.47deg.nef-editor-client";
 				PRODUCT_NAME = nef;
 				PROVISIONING_PROFILE_SPECIFIER = "nef editor client Dev";
@@ -1441,7 +1442,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NefEditorClient/Preview Content\"";
 				DEVELOPMENT_TEAM = P548S5LU96;
 				ENABLE_PREVIEWS = YES;
@@ -1451,6 +1452,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.47deg.nef-editor-client";
 				PRODUCT_NAME = nef;
 				PROVISIONING_PROFILE_SPECIFIER = "nef editor client Dist";
