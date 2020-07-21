@@ -90,7 +90,7 @@ struct GenerationView: View {
         
     func unauthenticatedView(item: CatalogItem) -> some View {
         Group {
-            Text("In order to generate your Swift Playground, you need to sign in.")
+            Text("For security reasons, our backend connections are encrypted and verified with your Apple ID")
                 .activityStyle()
                 .padding(EdgeInsets(top: 8, leading: 0, bottom: -10, trailing: 0))
             self.signInButton(item: item)
