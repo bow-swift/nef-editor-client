@@ -8,6 +8,7 @@ enum AppAction: AutoPrism {
     case generationAction(GenerationAction)
     case creditsAction(CreditsAction)
     case faqAction(FAQAction)
+    case whatsNewAction(WhatsNewAction)
     case initialLoad(DeepLinkAction)
     case dismissModal
     case showICloudAlert
@@ -15,4 +16,5 @@ enum AppAction: AutoPrism {
     case showSettings
     case showCredits
     case showFAQ
+    case showWhatsNew
 }

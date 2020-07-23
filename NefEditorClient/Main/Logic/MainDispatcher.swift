@@ -26,6 +26,9 @@ let mainDispatcher = MainDispatcher.workflow { action in
     case .showFAQ:
         return [EnvIO.pure(showFAQ())^]
         
+    case .showWhatsNew:
+        return [EnvIO.pure(showWhatsNew())^]
+        
     case .searchAction(let action):
         switch action {
         case .cancelSearch:
@@ -34,7 +37,7 @@ let mainDispatcher = MainDispatcher.workflow { action in
             return []
         }
         
-    case .catalogAction(_), .editAction(_), .catalogDetailAction(_), .creditsAction(_), .generationAction(_), .faqAction(_), .initialLoad(_):
+    case .catalogAction(_), .editAction(_), .catalogDetailAction(_), .creditsAction(_), .generationAction(_), .faqAction(_), .whatsNewAction(_), .initialLoad(_):
         return []
     }
 }
@@ -91,6 +94,12 @@ func showFAQ() -> State<AppState, Void> {
     }^
 }
 
+func showWhatsNew() -> State<AppState, Void> {
+    .modify { state in
+        state.copy(modalState: .whatsNew)
+    }^
+}
+
 func cancelSearch() -> State<AppState, Void> {
     .modify { state in
         state.copy(panelState: .catalog)
@@ -128,14 +137,19 @@ func persist(state: AppState) -> EnvIO<Persistence, Error, Void> {
 func initialLoad() -> EnvIO<Persistence, Error, State<AppState, Void>> {
     let recipes = EnvIO<Persistence, Error, [Recipe]>.var()
     let persistenceEnabled = EnvIO<Persistence, Error, ICloudStatus>.var()
+    let presentWhatsNew = EnvIO<Persistence, Error, Bool>.var()
     
     return binding(
-        (recipes, persistenceEnabled) <- parallel(
+        (recipes, persistenceEnabled, presentWhatsNew) <- parallel(
             fetchRecipes(),
-            isICloudAvailable()),
+            isICloudAvailable(),
+            shouldShowWhatsNew()
+        ),
         yield: .modify { state in
             let newCatalog = state.catalog.userCreated(recipes.get)
-            return state.copy(catalog: newCatalog, iCloudStatus: persistenceEnabled.get)
+            return state.copy(modalState: presentWhatsNew.get ? .whatsNew : .noModal,
+                              catalog: newCatalog,
+                              iCloudStatus: persistenceEnabled.get)
         }^
     )^
 }
@@ -150,4 +164,11 @@ func isICloudAvailable() -> EnvIO<Persistence, Error, ICloudStatus> {
     EnvIO.access(\.isPersistenceAvailable).map { isAvailable in
         isAvailable ? .enabled : .disabled
     }^
+}
+
+func shouldShowWhatsNew() -> EnvIO<Persistence, Error, Bool> {
+    EnvIO.accessM { persistence in persistence.loadUserPreferences() }^
+        .map(\.whatsNewBundle)
+        .map { version in version != Bundle.main.version }
+        .handleError { _ in true }^
 }
