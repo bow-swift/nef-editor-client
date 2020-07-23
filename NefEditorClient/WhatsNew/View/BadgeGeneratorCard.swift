@@ -23,6 +23,14 @@ struct BadgeGeneratorCard: View {
             
             Divider().padding(.leading, 24).padding(.trailing, 24)
             
+            HStack {
+                Spacer()
+                Images.Badge.platform.opacity(0.5)
+                Images.Badge.actions.opacity(0.5)
+                Images.Badge.nef
+                Spacer()
+            }
+            
             Text("You can attach a nef badge to your GitHub Swift repo, to let users try your project directly in their iPads.")
                 .cardBodyStyle()
                 .multilineTextAlignment(.center)
@@ -44,5 +52,11 @@ struct BadgeGeneratorCard: View {
         static let github = Image("github-logo")
         static let plus = Image(systemName: "suit.heart.fill")
         static let url = Image(systemName: "wand.and.stars")
+        
+        enum Badge {
+            static let platform = Image("bow-platform-badge")
+            static let actions = Image("bow-actions-badge")
+            static let nef = Image("nef-playgrounds-badge")
+        }
     }
 }
