@@ -7,6 +7,8 @@ typealias WhatsNewDispatcher = StateDispatcher<Persistence, AppState, WhatsNewAc
 
 let whatsNewDispatcher = WhatsNewDispatcher.effectful { action in
     switch action {
+    case .openGenerator:
+        return open(url: URL(string: "https://badge.bow-swift.io"))
     case .dismiss:
         return updateUserPreferences().map { _ in dismissModal() }^
     }

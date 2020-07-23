@@ -7,11 +7,7 @@ class ICloudPersistence: Persistence {
         FileManager.default.url(forUbiquityContainerIdentifier: nil)?.appendingPathComponent("Documents")
     }
     
-    private var userPreferences: URL? {
-        documents?
-            .appendingPathComponent("nef-config")
-            .appendingPathExtension("json")
-    }
+    private var preferencesStore: NSUbiquitousKeyValueStore { .default }
     
     private var recipes: URL? {
         documents?
@@ -45,8 +41,7 @@ class ICloudPersistence: Persistence {
     // MARK: user preferences
     func loadUserPreferences<D>() -> EnvIO<D, Error, UserPreferences> {
         EnvIO.invoke { _ in
-            guard let userPreferences = self.userPreferences else { throw UserPreferencesError.notExist }
-            guard let data = try? Data(contentsOf: userPreferences),
+            guard let data = self.preferencesStore.data(forKey: StoreKey.userPreferences),
                   let preferences = try? JSONDecoder().decode(UserPreferences.self, from: data) else {
                     throw UserPreferencesError.invalidData
             }
@@ -57,11 +52,14 @@ class ICloudPersistence: Persistence {
     
     func updateUserPreferences<D>(bundleVersion: String) -> EnvIO<D, Error, Void> {
         EnvIO.invoke { _ in
-            guard let userPreferencesFile = self.userPreferences else { return }
             let userPreferences = UserPreferences(whatsNewBundle: bundleVersion)
-            let encoder = JSONEncoder()
-            let data = try encoder.encode(userPreferences)
-            try data.write(to: userPreferencesFile)
+            let data = try JSONEncoder().encode(userPreferences)
+            self.preferencesStore.set(data, forKey: StoreKey.userPreferences)
         }
+    }
+    
+    // MARK: - Constants
+    private enum StoreKey {
+        static let userPreferences = "user-preferences"
     }
 }

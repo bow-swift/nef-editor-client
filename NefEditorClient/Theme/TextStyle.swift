@@ -13,4 +13,13 @@ extension Text {
         self.font(.callout)
             .foregroundColor(Color.gray)
     }
+    
+    func cardTitleStyle() -> Text {
+        self.font(.system(size: 20, weight: .thin, design: .rounded))
+            .foregroundColor(.gray)
+    }
+    
+    func cardBodyStyle() -> Text {
+        self.font(.system(size: 20, weight: .thin, design: .rounded))
+    }
 }

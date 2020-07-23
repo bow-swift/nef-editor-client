@@ -1,15 +1,22 @@
 import SwiftUI
 
 struct WhatsNewView: View {
-    @Environment(\.colorScheme) var colorScheme
     let handle: (WhatsNewAction) -> Void
     
-    init(handle: @escaping (WhatsNewAction) -> Void) {
-        self.handle = handle
+    var body: some View {
+        VStack {
+            whatsNewCard()
+            Spacer()
+            Button("Cool, I get it!", action: { self.handle(.dismiss) })
+                .frame(maxWidth: .infinity)
+                .buttonStyle(TextButtonStyle())
+                .padding()
+            
+        }.navigationBarTitle("What's New!", displayMode: .inline)
     }
     
-    var body: some View {
-        EmptyView()
+    private func whatsNewCard() -> some View {
+        BadgeGeneratorCard(handle: handle)
     }
 }
 
@@ -17,7 +24,8 @@ struct WhatsNewView: View {
 struct WhatsNewView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            WhatsNewView() { _ in }
+            WhatsNewView() { _ in }.environment(\.colorScheme, .light)
+            WhatsNewView() { _ in }.preferredColorScheme(.dark)
         }.previewLayout(.fixed(width: 800, height: 800))
     }
 }

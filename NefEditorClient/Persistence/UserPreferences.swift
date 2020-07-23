@@ -5,6 +5,5 @@ struct UserPreferences: Codable {
 }
 
 enum UserPreferencesError: Error {
-    case notExist
     case invalidData
 }

@@ -15,7 +15,7 @@ let faqDispatcher = FAQDispatcher.effectful { input in
     }
 }
 
-func open(url: URL?) -> EnvIO<Any, Error, State<AppState, Void>> {
+func open<D>(url: URL?) -> EnvIO<D, Error, State<AppState, Void>> {
     EnvIO.later(.main) {
         if let url = url {
             UIApplication.shared.open(url, completionHandler: nil)
