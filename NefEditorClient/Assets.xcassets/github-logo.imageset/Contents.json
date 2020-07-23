@@ -1,6 +1,7 @@
 {
   "images" : [
     {
+      "filename" : "GitHub-Mark-120px-plus.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -11,11 +12,12 @@
           "value" : "dark"
         }
       ],
+      "filename" : "GitHub-Mark-Light-120px-plus-1.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "GitHub-Mark-120px-plus.png",
+      "filename" : "github-logo.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
@@ -26,7 +28,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "GitHub-Mark-Light-120px-plus-1.png",
+      "filename" : "Untitled-1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
