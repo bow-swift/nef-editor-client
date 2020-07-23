@@ -55,6 +55,7 @@ class ICloudPersistence: Persistence {
             let userPreferences = UserPreferences(whatsNewBundle: bundleVersion)
             let data = try JSONEncoder().encode(userPreferences)
             self.preferencesStore.set(data, forKey: StoreKey.userPreferences)
+            self.preferencesStore.synchronize()
         }
     }
     
