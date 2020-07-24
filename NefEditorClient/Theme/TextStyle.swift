@@ -14,12 +14,12 @@ extension Text {
             .foregroundColor(Color.gray)
     }
     
-    func cardTitleStyle() -> Text {
-        self.font(.system(size: 20, weight: .thin, design: .rounded))
+    func cardTitleStyle() -> some View {
+        self.scaledFont(.system(desiredSize: 20, weight: .thin))
             .foregroundColor(.gray)
     }
     
-    func cardBodyStyle() -> Text {
-        self.font(.system(size: 20, weight: .thin, design: .rounded))
+    func cardBodyStyle() -> some View {
+        self.scaledFont(.system(desiredSize: 20, weight: .thin))
     }
 }
