@@ -174,6 +174,7 @@
 		8BCCA8CB24C99D3400BEBE91 /* Bundle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCCA8CA24C99D3400BEBE91 /* Bundle+Extensions.swift */; };
 		8BCCA8CD24C99E2B00BEBE91 /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCCA8CC24C99E2B00BEBE91 /* UserPreferences.swift */; };
 		8BCCA8CF24C9E71E00BEBE91 /* BadgeGeneratorCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCCA8CE24C9E71E00BEBE91 /* BadgeGeneratorCard.swift */; };
+		8BCCA8D224CAF0B700BEBE91 /* ScaledFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCCA8D124CAF0B700BEBE91 /* ScaledFont.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -331,6 +332,7 @@
 		8BCCA8CA24C99D3400BEBE91 /* Bundle+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extensions.swift"; sourceTree = "<group>"; };
 		8BCCA8CC24C99E2B00BEBE91 /* UserPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferences.swift; sourceTree = "<group>"; };
 		8BCCA8CE24C9E71E00BEBE91 /* BadgeGeneratorCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeGeneratorCard.swift; sourceTree = "<group>"; };
+		8BCCA8D124CAF0B700BEBE91 /* ScaledFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaledFont.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -689,6 +691,7 @@
 				11070283243C7FB4008583EB /* Requirements */,
 				11CB85912437821800CE4592 /* Search */,
 				11CB85902437820400CE4592 /* Theme */,
+				8BCCA8D024CAF0A100BEBE91 /* ViewModifiers */,
 				8BCCA8B624C989D200BEBE91 /* WhatsNew */,
 			);
 			path = NefEditorClient;
@@ -1027,6 +1030,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		8BCCA8D024CAF0A100BEBE91 /* ViewModifiers */ = {
+			isa = PBXGroup;
+			children = (
+				8BCCA8D124CAF0B700BEBE91 /* ScaledFont.swift */,
+			);
+			path = ViewModifiers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1240,6 +1251,7 @@
 				1163BA9A244ED9A3005B0785 /* AppComponent.swift in Sources */,
 				11FE7ACF2465B8930011DB41 /* GenerationDispatcher.swift in Sources */,
 				1163BA87244DF22E005B0785 /* EditRecipeMetadataView.swift in Sources */,
+				8BCCA8D224CAF0B700BEBE91 /* ScaledFont.swift in Sources */,
 				11BFEA0B243B538300D4F891 /* ViewStyle.swift in Sources */,
 				114AF45F24598FC0000116B7 /* CatalogDetailComponent.swift in Sources */,
 				8B06E8CC246D4D97008C7189 /* Rectangle+Separator.swift in Sources */,

@@ -52,7 +52,7 @@ class ICloudPersistence: Persistence {
     
     func updateUserPreferences<D>(bundleVersion: String) -> EnvIO<D, Error, Void> {
         EnvIO.invoke { _ in
-            let userPreferences = UserPreferences(whatsNewBundle: bundleVersion)
+            let userPreferences = UserPreferences(lastVersionShown: bundleVersion)
             let data = try JSONEncoder().encode(userPreferences)
             self.preferencesStore.set(data, forKey: StoreKey.userPreferences)
             self.preferencesStore.synchronize()

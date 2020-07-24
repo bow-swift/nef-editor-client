@@ -1,7 +1,7 @@
 import Foundation
 
 struct UserPreferences: Codable {
-    let whatsNewBundle: String
+    let lastVersionShown: String
 }
 
 enum UserPreferencesError: Error {

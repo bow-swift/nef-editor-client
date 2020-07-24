@@ -11,23 +11,23 @@ struct BadgeGeneratorCard: View {
                 .padding(.init(top: 24, leading: 24, bottom: 0, trailing: 24))
             
             HStack {
-                Images.app.resizable().frame(width: 120, height: 120)
+                Image.appIcon.resizable().frame(width: 120, height: 120)
                     .clipShape(Circle())
                     .overlay(Circle().stroke(lineWidth: 4).foregroundColor(.nef))
-                Images.plus
+                Image.heart
                     .font(.body).foregroundColor(.red)
                     .padding()
-                Images.github.resizable().frame(width: 120, height: 120)
+                Image.githubIcon.resizable().frame(width: 120, height: 120)
                     .clipShape(Circle())
             }.padding(24)
             
-            Divider().padding(.leading, 24).padding(.trailing, 24)
+            Divider().padding(.horizontal, 24)
             
             HStack {
                 Spacer()
-                Images.Badge.platform.opacity(0.5)
-                Images.Badge.actions.opacity(0.5)
-                Images.Badge.nef
+                Image.badgePlatform.opacity(0.5)
+                Image.badgeActions.opacity(0.5)
+                Image.badgeNef
                 Spacer()
             }
             
@@ -38,25 +38,12 @@ struct BadgeGeneratorCard: View {
             
             Button(action: { self.handle(.openGenerator) }) {
                 HStack {
-                    Images.url.resizable().frame(width: 30, height: 30)
+                    Image.wand.resizable().frame(width: 30, height: 30)
                     Text("Open badge generator")
                         .font(.body)
                         .foregroundColor(Color.blue)
                 }
             }.padding(44)
-        }
-    }
-    
-    enum Images {
-        static let app = Image("nef-logo")
-        static let github = Image("github-logo")
-        static let plus = Image(systemName: "suit.heart.fill")
-        static let url = Image(systemName: "wand.and.stars")
-        
-        enum Badge {
-            static let platform = Image("bow-platform-badge")
-            static let actions = Image("bow-actions-badge")
-            static let nef = Image("nef-playgrounds-badge")
         }
     }
 }

@@ -1,18 +1,19 @@
 import SwiftUI
 
 struct WhatsNewView: View {
+    @Environment(\.colorScheme) var colorScheme
     let handle: (WhatsNewAction) -> Void
     
     var body: some View {
         VStack {
             whatsNewCard()
             Spacer()
-            Button("Cool, I get it!", action: { self.handle(.dismiss) })
+            Button("Got it!", action: { self.handle(.dismiss) })
                 .frame(maxWidth: .infinity)
                 .buttonStyle(TextButtonStyle())
                 .padding()
             
-        }.navigationBarTitle("What's New!", displayMode: .inline)
+        }.navigationBarTitle("What's New", displayMode: .inline)
     }
     
     private func whatsNewCard() -> some View {

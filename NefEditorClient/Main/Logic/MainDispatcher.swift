@@ -168,7 +168,7 @@ func isICloudAvailable() -> EnvIO<Persistence, Error, ICloudStatus> {
 
 func shouldShowWhatsNew() -> EnvIO<Persistence, Error, Bool> {
     EnvIO.accessM { persistence in persistence.loadUserPreferences() }^
-        .map(\.whatsNewBundle)
+        .map(\.lastVersionShown)
         .map { version in version != Bundle.main.version }
         .handleError { _ in true }^
 }

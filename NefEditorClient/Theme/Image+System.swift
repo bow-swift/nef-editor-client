@@ -37,12 +37,25 @@ extension Image {
         Image(systemName: "questionmark.circle.fill")
     }
     
+    static var heart: Image {
+        Image(systemName: "suit.heart.fill")
+    }
+    
+    static var wand: Image {
+        Image(systemName: "wand.and.stars")
+    }
+    
+    
     static var nefClear: Image {
         Image("nef")
     }
     
     static var appIcon: Image {
-        Image("nefCredits")
+        Image("nef-icon")
+    }
+    
+    static var githubIcon: Image {
+        Image("github-icon")
     }
     
     static var bow: Image {
@@ -59,5 +72,17 @@ extension Image {
     
     static var fortySeven: Image {
         Image("fortyseven")
+    }
+    
+    static var badgePlatform: Image {
+        Image("bow-platform-badge")
+    }
+    
+    static var badgeActions: Image {
+        Image("bow-actions-badge")
+    }
+    
+    static var badgeNef: Image {
+        Image("nef-playgrounds-badge")
     }
 }

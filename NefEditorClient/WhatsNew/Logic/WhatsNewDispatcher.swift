@@ -10,7 +10,7 @@ let whatsNewDispatcher = WhatsNewDispatcher.effectful { action in
     case .openGenerator:
         return open(url: URL(string: "https://badge.bow-swift.io"))
     case .dismiss:
-        return updateUserPreferences().map { _ in dismissModal() }^
+        return updateUserPreferences().as(dismissModal())^
     }
 }
 
