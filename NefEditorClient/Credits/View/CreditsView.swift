@@ -85,7 +85,6 @@ struct CreditsView: View {
 }
 
 #if DEBUG
-
 struct CreditsView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
@@ -94,5 +93,4 @@ struct CreditsView_Previews: PreviewProvider {
             .previewLayout(.fixed(width: 500, height: 500))
     }
 }
-
 #endif
