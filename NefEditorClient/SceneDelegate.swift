@@ -3,6 +3,7 @@ import GitHub
 import BowArch
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+    var window: UIWindow?
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // For some reason, I cannot set the background color of a SwiftUI List 🤷🏻‍♂️
@@ -28,9 +29,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     private func loadScene<V: View>(_ scene: UIScene, contentView: V) {
         guard let windowScene = scene as? UIWindowScene else { return }
-            
-        let window = UIWindow(windowScene: windowScene)
-        window.rootViewController = UIHostingController(rootView: contentView)
-        window.makeKeyAndVisible()
+        
+        window = UIWindow(windowScene: windowScene)
+        window?.rootViewController = UIHostingController(rootView: contentView)
+        window?.makeKeyAndVisible()
     }
 }
