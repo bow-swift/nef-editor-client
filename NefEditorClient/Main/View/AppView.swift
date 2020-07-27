@@ -102,6 +102,12 @@ struct AppView<CatalogView: View, SearchView: View, DetailView: View, ModalView:
                 .safeHoverEffect()
             }
             
+            Button(action: { self.handle(.showWhatsNew) }) {
+                Image.whatsNew.foregroundColor(.nef)
+            }
+            .padding(8)
+            .safeHoverEffect()
+            
             Button(action: { self.handle(.showFAQ) }) {
                 Image.faq.foregroundColor(.nef)
             }

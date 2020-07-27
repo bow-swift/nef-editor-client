@@ -15,7 +15,7 @@
         "repositoryURL": "https://github.com/bow-swift/bow-arch.git",
         "state": {
           "branch": "master",
-          "revision": "248beec607e9cf060cf5164d27321db6bdc6cf51",
+          "revision": "6ecc20ef05a4f6d7cfeff1282b91b60923875239",
           "version": null
         }
       },
@@ -33,7 +33,7 @@
         "repositoryURL": "https://github.com/47deg/nef-editor-server",
         "state": {
           "branch": "master",
-          "revision": "e37abf8358ead40695c2a9e1acffb6135bd4a7ed",
+          "revision": "e5ceacc0394d591c241031db4bc8ab8ed075e77b",
           "version": null
         }
       },

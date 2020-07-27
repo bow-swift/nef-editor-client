@@ -37,6 +37,10 @@ extension Image {
         Image(systemName: "questionmark.circle.fill")
     }
     
+    static var whatsNew: Image {
+        Image(systemName: "sparkles")
+    }
+    
     static var heart: Image {
         Image(systemName: "suit.heart.fill")
     }
