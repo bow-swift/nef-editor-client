@@ -130,7 +130,6 @@ struct GenerationView: View {
 }
 
 #if DEBUG
-
 struct GenerationView_Previews: PreviewProvider {
     static var item: CatalogItem {
         Catalog.initial.featured.items[0]
@@ -153,5 +152,4 @@ struct GenerationView_Previews: PreviewProvider {
         }.previewLayout(.fixed(width: 800, height: 800))
     }
 }
-
 #endif

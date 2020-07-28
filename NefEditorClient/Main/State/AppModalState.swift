@@ -4,6 +4,7 @@ enum AppModalState: Equatable {
     case credits
     case generation(GenerationState)
     case faq
+    case whatsNew
     
     var editState: EditState? {
         guard case let .edit(state) = self else {

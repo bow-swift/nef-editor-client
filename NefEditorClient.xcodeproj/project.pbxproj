@@ -167,6 +167,14 @@
 		8B87B427248E8486007372EC /* DeepLinkAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B87B422248E82A3007372EC /* DeepLinkAction.swift */; };
 		8B87B42B248E852F007372EC /* DeepLinkState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B87B42A248E852F007372EC /* DeepLinkState.swift */; };
 		8BC3C90B246D7A2600EC9F36 /* GenerationSuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3C90A246D7A2600EC9F36 /* GenerationSuccessView.swift */; };
+		8BCCA8BC24C98A1000BEBE91 /* WhatsNewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCCA8BB24C98A1000BEBE91 /* WhatsNewComponent.swift */; };
+		8BCCA8BE24C98A6A00BEBE91 /* WhatsNewAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCCA8BD24C98A6A00BEBE91 /* WhatsNewAction.swift */; };
+		8BCCA8C024C98AA900BEBE91 /* WhatsNewDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCCA8BF24C98AA900BEBE91 /* WhatsNewDispatcher.swift */; };
+		8BCCA8C424C98B5E00BEBE91 /* WhatsNewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCCA8C324C98B5E00BEBE91 /* WhatsNewView.swift */; };
+		8BCCA8CB24C99D3400BEBE91 /* Bundle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCCA8CA24C99D3400BEBE91 /* Bundle+Extensions.swift */; };
+		8BCCA8CD24C99E2B00BEBE91 /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCCA8CC24C99E2B00BEBE91 /* UserPreferences.swift */; };
+		8BCCA8CF24C9E71E00BEBE91 /* BadgeGeneratorCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCCA8CE24C9E71E00BEBE91 /* BadgeGeneratorCard.swift */; };
+		8BCCA8D224CAF0B700BEBE91 /* ScaledFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCCA8D124CAF0B700BEBE91 /* ScaledFont.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -317,6 +325,14 @@
 		8B87B425248E838F007372EC /* DeepLinkDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkDispatcher.swift; sourceTree = "<group>"; };
 		8B87B42A248E852F007372EC /* DeepLinkState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkState.swift; sourceTree = "<group>"; };
 		8BC3C90A246D7A2600EC9F36 /* GenerationSuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerationSuccessView.swift; sourceTree = "<group>"; };
+		8BCCA8BB24C98A1000BEBE91 /* WhatsNewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewComponent.swift; sourceTree = "<group>"; };
+		8BCCA8BD24C98A6A00BEBE91 /* WhatsNewAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewAction.swift; sourceTree = "<group>"; };
+		8BCCA8BF24C98AA900BEBE91 /* WhatsNewDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewDispatcher.swift; sourceTree = "<group>"; };
+		8BCCA8C324C98B5E00BEBE91 /* WhatsNewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewView.swift; sourceTree = "<group>"; };
+		8BCCA8CA24C99D3400BEBE91 /* Bundle+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extensions.swift"; sourceTree = "<group>"; };
+		8BCCA8CC24C99E2B00BEBE91 /* UserPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferences.swift; sourceTree = "<group>"; };
+		8BCCA8CE24C9E71E00BEBE91 /* BadgeGeneratorCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeGeneratorCard.swift; sourceTree = "<group>"; };
+		8BCCA8D124CAF0B700BEBE91 /* ScaledFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaledFont.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -381,6 +397,7 @@
 			children = (
 				112EA4E724618EC700F91DBA /* Persistence.swift */,
 				112EA4E924618F7400F91DBA /* ICloudPersistence.swift */,
+				8BCCA8CC24C99E2B00BEBE91 /* UserPreferences.swift */,
 			);
 			path = Persistence;
 			sourceTree = "<group>";
@@ -674,6 +691,8 @@
 				11070283243C7FB4008583EB /* Requirements */,
 				11CB85912437821800CE4592 /* Search */,
 				11CB85902437820400CE4592 /* Theme */,
+				8BCCA8D024CAF0A100BEBE91 /* ViewModifiers */,
+				8BCCA8B624C989D200BEBE91 /* WhatsNew */,
 			);
 			path = NefEditorClient;
 			sourceTree = "<group>";
@@ -895,6 +914,7 @@
 			children = (
 				11E07F15243B21A200A0A027 /* Array+Extensions.swift */,
 				1150CDC8246C43C0003509B4 /* URLSession+IO.swift */,
+				8BCCA8CA24C99D3400BEBE91 /* Bundle+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -972,6 +992,50 @@
 				8B87B42A248E852F007372EC /* DeepLinkState.swift */,
 			);
 			path = State;
+			sourceTree = "<group>";
+		};
+		8BCCA8B624C989D200BEBE91 /* WhatsNew */ = {
+			isa = PBXGroup;
+			children = (
+				8BCCA8B724C989EA00BEBE91 /* Component */,
+				8BCCA8B824C989F600BEBE91 /* Logic */,
+				8BCCA8BA24C989FF00BEBE91 /* View */,
+			);
+			path = WhatsNew;
+			sourceTree = "<group>";
+		};
+		8BCCA8B724C989EA00BEBE91 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				8BCCA8BB24C98A1000BEBE91 /* WhatsNewComponent.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		8BCCA8B824C989F600BEBE91 /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				8BCCA8BD24C98A6A00BEBE91 /* WhatsNewAction.swift */,
+				8BCCA8BF24C98AA900BEBE91 /* WhatsNewDispatcher.swift */,
+			);
+			path = Logic;
+			sourceTree = "<group>";
+		};
+		8BCCA8BA24C989FF00BEBE91 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8BCCA8C324C98B5E00BEBE91 /* WhatsNewView.swift */,
+				8BCCA8CE24C9E71E00BEBE91 /* BadgeGeneratorCard.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8BCCA8D024CAF0A100BEBE91 /* ViewModifiers */ = {
+			isa = PBXGroup;
+			children = (
+				8BCCA8D124CAF0B700BEBE91 /* ScaledFont.swift */,
+			);
+			path = ViewModifiers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1137,6 +1201,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				112EA4EA24618F7400F91DBA /* ICloudPersistence.swift in Sources */,
+				8BCCA8CD24C99E2B00BEBE91 /* UserPreferences.swift in Sources */,
 				11C95A5524504E3D00659C97 /* Image+System.swift in Sources */,
 				1139BF9A2464321E00BC283A /* CreditsComponent.swift in Sources */,
 				11AD8DCD243DC4870005E450 /* TagView.swift in Sources */,
@@ -1165,7 +1230,10 @@
 				1139BF9324642DF900BC283A /* Library.swift in Sources */,
 				1146B0A7246F14F900DACF98 /* FAQDispatcher.swift in Sources */,
 				11B125B72444BCAC00E2D1C3 /* CatalogSection.swift in Sources */,
+				8BCCA8CB24C99D3400BEBE91 /* Bundle+Extensions.swift in Sources */,
 				11070298243CA10E008583EB /* ErrorRequirementsView.swift in Sources */,
+				8BCCA8BC24C98A1000BEBE91 /* WhatsNewComponent.swift in Sources */,
+				8BCCA8C024C98AA900BEBE91 /* WhatsNewDispatcher.swift in Sources */,
 				1139BFA72464634D00BC283A /* AuthenticationState.swift in Sources */,
 				1142543F2448A87000B2EA0C /* RepositoryDetailDispatcher.swift in Sources */,
 				11B125C6244721BF00E2D1C3 /* ColorPalette.swift in Sources */,
@@ -1183,6 +1251,7 @@
 				1163BA9A244ED9A3005B0785 /* AppComponent.swift in Sources */,
 				11FE7ACF2465B8930011DB41 /* GenerationDispatcher.swift in Sources */,
 				1163BA87244DF22E005B0785 /* EditRecipeMetadataView.swift in Sources */,
+				8BCCA8D224CAF0B700BEBE91 /* ScaledFont.swift in Sources */,
 				11BFEA0B243B538300D4F891 /* ViewStyle.swift in Sources */,
 				114AF45F24598FC0000116B7 /* CatalogDetailComponent.swift in Sources */,
 				8B06E8CC246D4D97008C7189 /* Rectangle+Separator.swift in Sources */,
@@ -1193,6 +1262,7 @@
 				114AF45724598960000116B7 /* EditComponent.swift in Sources */,
 				11BFEA0F243B560500D4F891 /* EmptySearchView.swift in Sources */,
 				1155FDD7246D696700F5F819 /* NavigationBarButtonStyle.swift in Sources */,
+				8BCCA8C424C98B5E00BEBE91 /* WhatsNewView.swift in Sources */,
 				1107028B243C9987008583EB /* RepositoryDetailState.swift in Sources */,
 				1101A3B0245AB994002A848B /* AvatarView.swift in Sources */,
 				1139BF9024642DCB00BC283A /* CreditsAction.swift in Sources */,
@@ -1234,6 +1304,7 @@
 				11AD8DD7243E19440005E450 /* Dependency.swift in Sources */,
 				11070289243C81DC008583EB /* RequirementView.swift in Sources */,
 				1163BA90244DF8E4005B0785 /* PanelState.swift in Sources */,
+				8BCCA8CF24C9E71E00BEBE91 /* BadgeGeneratorCard.swift in Sources */,
 				11AD8DD9243E20BB0005E450 /* TagCloud.swift in Sources */,
 				1139BF9E24645D0800BC283A /* SignInButton.swift in Sources */,
 				1187BD67243FAD6300FF668F /* FeaturedRecipeView.swift in Sources */,
@@ -1243,6 +1314,7 @@
 				1146B09D246F102100DACF98 /* LoadingView.swift in Sources */,
 				11AD8DC9243CAAE20005E450 /* RepositoryDetailView.swift in Sources */,
 				1155FDD9246D92AA00F5F819 /* KeyboardPadding.swift in Sources */,
+				8BCCA8BE24C98A6A00BEBE91 /* WhatsNewAction.swift in Sources */,
 				11CB85932437825100CE4592 /* CardView.swift in Sources */,
 				11AD8DCF243E16480005E450 /* RegularRecipeView.swift in Sources */,
 				8B06E8CE246D5361008C7189 /* SectionTitle.swift in Sources */,
@@ -1413,7 +1485,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"NefEditorClient/Preview Content\"";
 				DEVELOPMENT_TEAM = P548S5LU96;
 				ENABLE_PREVIEWS = YES;
@@ -1442,7 +1514,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"NefEditorClient/Preview Content\"";
 				DEVELOPMENT_TEAM = P548S5LU96;
 				ENABLE_PREVIEWS = YES;

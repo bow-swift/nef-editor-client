@@ -124,5 +124,4 @@ struct FAQView_Previews: PreviewProvider {
         .previewLayout(.fixed(width: 500, height: 1750))
     }
 }
-
 #endif

@@ -2,6 +2,8 @@ import BowEffects
 
 protocol Persistence {
     var isPersistenceAvailable: Bool { get }
-    func loadUserRecipes<E>() -> EnvIO<E, Error, [Recipe]>
-    func saveUserRecipes<E>(_ recipes: [Recipe]) -> EnvIO<E, Error, Void>
+    func loadUserRecipes<D>() -> EnvIO<D, Error, [Recipe]>
+    func saveUserRecipes<D>(_ recipes: [Recipe]) -> EnvIO<D, Error, Void>
+    func loadUserPreferences<D>() -> EnvIO<D, Error, UserPreferences>
+    func updateUserPreferences<D>(bundleVersion: String) -> EnvIO<D, Error, Void>
 }
