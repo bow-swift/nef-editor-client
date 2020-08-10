@@ -13,7 +13,7 @@ struct Catalog: Equatable {
             FeaturedRecipe(
                 recipe: Recipe(
                     title: "FP with Bow",
-                    description: "Get all modules in Bow 0.8.0\nto write FP in Swift",
+                    description: "Get all modules in Bow 0.8.0 to write FP in Swift",
                     dependencies: [
                         Dependency(
                             repository: "bow",
@@ -37,7 +37,7 @@ struct Catalog: Equatable {
                             owner: "bow-swift",
                             url: "https://github.com/bow-swift/bow-arch",
                             avatar: "https://avatars3.githubusercontent.com/u/44965417?v=4",
-                            requirement: .branch(Branch(name: "master")))
+                            requirement: .branch(Branch(name: "0.1.0")))
                 ]),
                 backgroundImage: "bow-arch-background",
                 textColor: .black)
@@ -47,7 +47,7 @@ struct Catalog: Equatable {
             FeaturedRecipe(
                 recipe: Recipe(
                     title: "FP with Bow Lite",
-                    description: "Play with the lightweight\nversion of Bow",
+                    description: "Play with the lightweight version of Bow",
                     dependencies: [
                         Dependency(
                             repository: "bow-lite",
