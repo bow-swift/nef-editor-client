@@ -4,6 +4,7 @@ enum Library {
     case bow
     case bowArch
     case bowOpenAPI
+    case bowLite
     
     var url: URL? {
         switch self {
@@ -13,6 +14,8 @@ enum Library {
             return URL(string: "https://arch.bow-swift.io")
         case .bowOpenAPI:
             return URL(string: "https://openapi.bow-swift.io")
+        case .bowLite:
+            return URL(string: "https://github.com/bow-swift/bow-lite")
         }
     }
 }

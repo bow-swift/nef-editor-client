@@ -43,9 +43,26 @@ struct Catalog: Equatable {
                 textColor: .black)
         )
         
+        let bowLite = CatalogItem.featured(
+            FeaturedRecipe(
+                recipe: Recipe(
+                    title: "FP with Bow Lite",
+                    description: "Play with the lightweight\nversion of Bow",
+                    dependencies: [
+                        Dependency(
+                            repository: "bow-lite",
+                            owner: "bow-swift",
+                            url: "https://github.com/bow-swift/bow-lite",
+                            avatar: "https://avatars3.githubusercontent.com/u/44965417?v=4",
+                            requirement: .version(Tag(name: "0.1.0")))
+                ]),
+                backgroundImage: "bow-lite-background",
+                textColor: .white)
+        )
+        
         let featured = CatalogSection(
             title: "Featured",
-            items: [bow, bowArch])
+            items: [bow, bowArch, bowLite])
         let myRecipes = CatalogSection(
             title: "My recipes",
             action: CatalogSectionAction(icon: "plus", action: .addRecipe),
