@@ -13,7 +13,7 @@ struct Catalog: Equatable {
             FeaturedRecipe(
                 recipe: Recipe(
                     title: "FP with Bow",
-                    description: "Get all modules in Bow 0.8.0 to write FP in Swift",
+                    description: "Get all modules in Bow 0.8.0\nto write FP in Swift",
                     dependencies: [
                         Dependency(
                             repository: "bow",
