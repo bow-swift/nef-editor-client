@@ -12,9 +12,8 @@ typealias GenerationDispatcher = StateDispatcher<API.Config, AppState, Generatio
 let generationDispatcher = GenerationDispatcher.workflow { input in
     switch input {
     case let .authenticationResult(result, item):
-        return result.fold(
-            authenticationError,
-            { info in authenticationSuccess(info, item) })
+        return result.fold(authenticationError,
+                           { info in authenticationSuccess(info, item) })
     case .dismissGeneration:
         return [EnvIO.pure(dismissModal())^]
     case let .generate(item: item, token: token):
@@ -55,7 +54,7 @@ func setAuthenticating() -> State<AppState, Void> {
 
 func generate(item: CatalogItem, token: String) -> [EnvIO<API.Config, Error, State<AppState, Void>>] {
     [
-        EnvIO.pure(setGenerating(item: item))^,
+        .pure(setGenerating(item: item))^,
         downloadPlaygroundWorkflow(token: token, item: item)
     ]
 }
@@ -84,11 +83,19 @@ func signIn(info: AuthenticationInfo, item: CatalogItem) -> EnvIO<API.Config, Er
         }^
 }
 
+func signOut(error: GenerationError) -> State<AppState, Void> {
+    .modify { state in
+        guard error == .invalidBearer else { return state }
+        return state.copy(authenticationState: .unauthenticated)
+    }^
+}
+
 func downloadPlaygroundWorkflow(token: String, item: CatalogItem) -> EnvIO<API.Config, Error, State<AppState, Void>> {
     downloadPlayground(token: token, item: item)
         .flatMap(unzipPlayground)
         .map { url in showPlaygroundFinished(url: url, item: item) }
         .handleError(showPlaygroundError)^
+        .handleError(signOut)^
         .mapError(id)
 }
 
