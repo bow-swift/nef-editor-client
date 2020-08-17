@@ -158,6 +158,7 @@
 		8B06E8CA246D4A12008C7189 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 8B06E8C9246D4A12008C7189 /* Lottie */; };
 		8B06E8CC246D4D97008C7189 /* Rectangle+Separator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B06E8CB246D4D97008C7189 /* Rectangle+Separator.swift */; };
 		8B06E8CE246D5361008C7189 /* SectionTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B06E8CD246D5361008C7189 /* SectionTitle.swift */; };
+		8B1DA8B124EAD853003EB94A /* NefEditorError in Frameworks */ = {isa = PBXBuildFile; productRef = 8B1DA8B024EAD853003EB94A /* NefEditorError */; };
 		8B3FEAEF246DA3FE00642BF3 /* LottieAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3FEAEE246DA3FE00642BF3 /* LottieAnimation.swift */; };
 		8B3FEAF1246DA41900642BF3 /* Animations in Resources */ = {isa = PBXBuildFile; fileRef = 8B3FEAF0246DA41900642BF3 /* Animations */; };
 		8B787847246ECD9D003828F0 /* GenerationPlaygroundBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B787846246ECD9D003828F0 /* GenerationPlaygroundBookView.swift */; };
@@ -343,6 +344,7 @@
 				1150CDC5246AF468003509B4 /* NefEditorUtils in Frameworks */,
 				112FDCB6246AC8FD009A2B97 /* NefAPI in Frameworks */,
 				11AD8DC5243CA8E90005E450 /* BowArch in Frameworks */,
+				8B1DA8B124EAD853003EB94A /* NefEditorError in Frameworks */,
 				1139BF7E2462DC5000BC283A /* GitHub in Frameworks */,
 				112FDCB9246AC99A009A2B97 /* NefEditorData in Frameworks */,
 				8B06E8CA246D4A12008C7189 /* Lottie in Frameworks */,
@@ -1061,6 +1063,7 @@
 				112FDCB8246AC99A009A2B97 /* NefEditorData */,
 				1150CDC4246AF468003509B4 /* NefEditorUtils */,
 				8B06E8C9246D4A12008C7189 /* Lottie */,
+				8B1DA8B024EAD853003EB94A /* NefEditorError */,
 			);
 			productName = NefEditorClient;
 			productReference = 1163838024321FD100EB2DEF /* nef.app */;
@@ -1717,6 +1720,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 8B06E8C8246D4A12008C7189 /* XCRemoteSwiftPackageReference "lottie-ios" */;
 			productName = Lottie;
+		};
+		8B1DA8B024EAD853003EB94A /* NefEditorError */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 112FDCB7246AC999009A2B97 /* XCRemoteSwiftPackageReference "nef-editor-server" */;
+			productName = NefEditorError;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
