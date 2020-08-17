@@ -74,6 +74,10 @@ extension Image {
         Image("bow-openapi-brand")
     }
     
+    static var bowLite: Image {
+        Image("bow-lite-brand")
+    }
+    
     static var fortySeven: Image {
         Image("fortyseven")
     }

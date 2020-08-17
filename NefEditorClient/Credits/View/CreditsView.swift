@@ -59,6 +59,8 @@ struct CreditsView: View {
                 
                 libraryView(image: .bow, name: "Bow", library: .bow)
                 
+                libraryView(image: .bowLite, name: "Bow Lite", library: .bowLite)
+                
                 libraryView(image: .bowOpenAPI, name: "Bow OpenAPI", library: .bowOpenAPI)
             }
         }
