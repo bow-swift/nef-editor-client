@@ -20,7 +20,8 @@ struct Catalog: Equatable {
                             owner: "bow-swift",
                             url: "https://github.com/bow-swift/bow",
                             avatar: "https://avatars3.githubusercontent.com/u/44965417?v=4",
-                            requirement: .version(Tag(name: "0.8.0")))
+                            requirement: .version(Tag(name: "0.8.0")),
+                            products: .all)
                 ]),
                 backgroundImage: "bow-background",
                 textColor: .white)
@@ -37,7 +38,8 @@ struct Catalog: Equatable {
                             owner: "bow-swift",
                             url: "https://github.com/bow-swift/bow-arch",
                             avatar: "https://avatars3.githubusercontent.com/u/44965417?v=4",
-                            requirement: .branch(Branch(name: "0.1.0")))
+                            requirement: .branch(Branch(name: "0.1.0")),
+                            products: .all)
                 ]),
                 backgroundImage: "bow-arch-background",
                 textColor: .black)
@@ -54,7 +56,8 @@ struct Catalog: Equatable {
                             owner: "bow-swift",
                             url: "https://github.com/bow-swift/bow-lite",
                             avatar: "https://avatars3.githubusercontent.com/u/44965417?v=4",
-                            requirement: .version(Tag(name: "0.1.0")))
+                            requirement: .version(Tag(name: "0.1.0")),
+                            products: .all)
                 ]),
                 backgroundImage: "bow-lite-background",
                 textColor: .white)

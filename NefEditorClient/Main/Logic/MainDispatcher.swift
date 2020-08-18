@@ -116,7 +116,8 @@ func addDependency(
                                         owner: repository.owner.login,
                                         url: repository.htmlUrl,
                                         avatar: repository.owner.avatarUrl,
-                                        requirement: requirement)
+                                        requirement: requirement,
+                                        products: .all)
             let newRecipe = selected.appending(dependency: dependency)
             
             return state.copy(

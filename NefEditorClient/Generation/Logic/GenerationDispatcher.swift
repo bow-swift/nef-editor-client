@@ -133,7 +133,9 @@ func dependencyToPlaygroundDependency(_ dependency: Dependency) -> PlaygroundDep
     PlaygroundDependency(
         name: dependency.repository,
         url: dependency.url,
-        requirement: requirementToPlaygroundRequirement(dependency.requirement))
+        requirement: requirementToPlaygroundRequirement(dependency.requirement),
+        products: productsToPlaygroundProducts(dependency.products)
+    )
 }
 
 func requirementToPlaygroundRequirement(_ requirement: Requirement) -> PlaygroundDependency.Requirement {
@@ -142,6 +144,15 @@ func requirementToPlaygroundRequirement(_ requirement: Requirement) -> Playgroun
         return .branch(branch.name)
     case .version(let tag):
         return .version(tag.name)
+    }
+}
+
+func productsToPlaygroundProducts(_ products: Dependency.Products) -> [String] {
+    switch products {
+    case .all:
+        return []
+    case .selected(let names):
+        return names
     }
 }
 

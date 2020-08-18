@@ -1,9 +1,6 @@
 import Foundation
 
 extension Array where Element == URLQueryItem {
-    private func value(of key: String) -> String? {
-        first { $0.name == key }?.value
-    }
     
     var recipe: Recipe? {
         guard let title = value(of: "name"),
@@ -14,7 +11,8 @@ extension Array where Element == URLQueryItem {
                      dependencies: [dependency])
     }
     
-    var dependency: Dependency? {
+    // MARK: Recipe <helpers>
+    private var dependency: Dependency? {
         guard let repository = value(of: "name"),
               let url = value(of: "url"),
               let owner = value(of: "owner"),
@@ -25,10 +23,11 @@ extension Array where Element == URLQueryItem {
                      owner: owner,
                      url: url,
                      avatar: avatar,
-                     requirement: requirement)
+                     requirement: requirement,
+                     products: products)
     }
     
-    var requirement: Requirement? {
+    private var requirement: Requirement? {
         if let branch = value(of: "branch") {
             return .branch(.init(name: branch))
         } else if let tag = value(of: "tag") {
@@ -36,5 +35,20 @@ extension Array where Element == URLQueryItem {
         } else {
             return nil
         }
+    }
+    
+    private var products: Dependency.Products {
+        let products = values(of: "products").map { $0.trimmingCharacters(in: .whitespaces) }
+        return products.count > 0 ? .selected(names: products) : .all
+    }
+    
+    // MARK: URLQueryItem <helpers>
+    private func value(of key: String) -> String? {
+        first { $0.name == key }?.value
+    }
+    
+    private func values(of key: String) -> [String] {
+        filter { $0.name == "\(key)[]" }
+            .compactMap(\.value)
     }
 }

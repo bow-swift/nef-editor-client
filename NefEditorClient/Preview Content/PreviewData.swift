@@ -38,14 +38,16 @@ let bowDependency = Dependency(
     owner: "bow-swift",
     url: "https://github.com/bow-swift/bow",
     avatar: "https://avatars3.githubusercontent.com/u/44965417?v=4",
-    requirement: .version(Tag(name: "0.7.0")))
+    requirement: .version(Tag(name: "0.7.0")),
+    products: .all)
 
 let bowArchDependency = Dependency(
     repository: "bow-arch",
     owner: "bow-swift",
     url: "https://github.com/bow-swift/bow-arch",
     avatar: "https://avatars3.githubusercontent.com/u/44965417?v=4",
-    requirement: .branch(Branch(name: "master")))
+    requirement: .branch(Branch(name: "0.1.0")),
+    products: .all)
 
 let sampleRecipe = Recipe(
     title: "FP Basics",
