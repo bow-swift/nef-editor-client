@@ -40,12 +40,10 @@ extension Dependency.Products: Codable {
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
 
-        if let _ = try? container.decode([String].self, forKey: .all) {
-            self = .all
-        } else if let products = try? container.decode([String].self, forKey: .selected) {
+        if let products = try? container.decode([String].self, forKey: .selected) {
             self = .selected(names: products)
         } else {
-            fatalError("Dependency.Product decoding could not find a valid key.")
+            self = .all
         }
     }
 }
