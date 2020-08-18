@@ -38,7 +38,7 @@ let bowDependency = Dependency(
     owner: "bow-swift",
     url: "https://github.com/bow-swift/bow",
     avatar: "https://avatars3.githubusercontent.com/u/44965417?v=4",
-    requirement: .version(Tag(name: "0.7.0")),
+    requirement: .version(Tag(name: "0.8.0")),
     products: .all)
 
 let bowArchDependency = Dependency(
