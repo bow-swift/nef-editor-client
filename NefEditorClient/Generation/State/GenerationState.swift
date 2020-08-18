@@ -23,6 +23,7 @@ enum SharingState: Equatable {
 
 enum GenerationError: Error, Equatable, CustomStringConvertible {
     case invalidAuthentication
+    case invalidBearer
     case networkFailure
     case dataCorrupted
     
@@ -30,6 +31,8 @@ enum GenerationError: Error, Equatable, CustomStringConvertible {
         switch self {
         case .invalidAuthentication:
             return "There was a problem with your authentication. Please, try again later."
+        case .invalidBearer:
+            return "Oops! Your session has expired, please login again."
         case .networkFailure:
             return "An error ocurred while obtaining your Swift Playground. Please, try again later."
         case .dataCorrupted:

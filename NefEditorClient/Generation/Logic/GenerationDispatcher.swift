@@ -5,15 +5,15 @@ import BowArch
 import NefAPI
 import NefEditorData
 import NefEditorUtils
+import NefEditorError
 
 typealias GenerationDispatcher = StateDispatcher<API.Config, AppState, GenerationAction>
 
 let generationDispatcher = GenerationDispatcher.workflow { input in
     switch input {
     case let .authenticationResult(result, item):
-        return result.fold(
-            authenticationError,
-            { info in authenticationSuccess(info, item) })
+        return result.fold(authenticationError,
+                           { info in authenticationSuccess(info, item) })
     case .dismissGeneration:
         return [EnvIO.pure(dismissModal())^]
     case let .generate(item: item, token: token):
@@ -54,7 +54,7 @@ func setAuthenticating() -> State<AppState, Void> {
 
 func generate(item: CatalogItem, token: String) -> [EnvIO<API.Config, Error, State<AppState, Void>>] {
     [
-        EnvIO.pure(setGenerating(item: item))^,
+        .pure(setGenerating(item: item))^,
         downloadPlaygroundWorkflow(token: token, item: item)
     ]
 }
@@ -83,38 +83,43 @@ func signIn(info: AuthenticationInfo, item: CatalogItem) -> EnvIO<API.Config, Er
         }^
 }
 
+func signOut(error: GenerationError) -> State<AppState, Void> {
+    .modify { state in
+        guard error == .invalidBearer else { return state }
+        return state.copy(authenticationState: .unauthenticated)
+    }^
+}
+
 func downloadPlaygroundWorkflow(token: String, item: CatalogItem) -> EnvIO<API.Config, Error, State<AppState, Void>> {
     downloadPlayground(token: token, item: item)
         .flatMap(unzipPlayground)
-        .map { url in
-            showPlaygroundFinished(url: url, item: item)
-        }.handleError(showPlaygroundError)^
+        .map { url in showPlaygroundFinished(url: url, item: item) }
+        .handleError(showPlaygroundError)^
+        .handleError(signOut)^
         .mapError(id)
 }
 
 func downloadPlayground(token: String, item: CatalogItem) -> EnvIO<API.Config, GenerationError, Data> {
-    
     EnvIO { config in
         let recipe = itemToPlaygroundRecipe(item)
         let encoder = JSONEncoder()
         
-        if let url = URL(string: "\(config.basePath)/playgroundBook"),
-            let data = try? encoder.encode(recipe) {
-            
-            var request = URLRequest(url: url)
-            request.httpMethod = "POST"
-            request.httpBody = data
-            request.allHTTPHeaderFields = config
-                .appendingHeader(
-                    value: "Bearer \(token)",
-                    forKey: "Authorization"
-                ).headers
-            
-            return config.session.downloadDataTaskIO(with: request)
-                .mapError { _ in GenerationError.networkFailure }
-        } else {
-            return IO.raiseError(GenerationError.networkFailure)
+        guard let url = URL(string: "\(config.basePath)/playgroundBook"),
+              let data = try? encoder.encode(recipe) else {
+                return .raiseError(.networkFailure)
         }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.httpBody = data
+        request.allHTTPHeaderFields = config.appendingHeader(value: "Bearer \(token)", forKey: "Authorization").headers
+        
+        return config.session
+            .downloadDataTaskIO(with: request)
+            .mapError { (error: DownloadTaskError<BearerError>) in
+                guard case .errorResponse(_) = error else { return .networkFailure }
+                return .invalidBearer
+            }
     }
 }
 
